@@ -1,0 +1,8 @@
+require_relative 'charts/cartesian'
+require_relative 'charts/line'
+require_relative 'charts/area'
+require_relative 'charts/bar'
+require_relative 'charts/column'
+require_relative 'charts/scatter'
+require_relative 'charts/mixed'
+require_relative 'charts/syncing'
