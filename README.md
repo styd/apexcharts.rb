@@ -35,25 +35,27 @@ $ bundle
 
 ### Cartesian Charts
 
-Example series used for mixable charts:
+Example series used for cartesian charts:
 
-```ruby
-series = [
-  {name: "Total", data: @total_users},
-  {name: "Verified", data: @verified_users},
-  {name: "Unverified", data: @unverified_users}
-]
+```erb
+<% series = [
+  {name: "Total", data: total_properties},
+  {name: "Active", data: active_properties},
+  {name: "Inactive", data: inactive_properties}
+] %>
 ```
 To build the data, you can use gem [groupdate](https://github.com/ankane/groupdate).
 
-Example options used for mixable charts:
+Example options used for cartesian charts:
 
-```ruby
-options = {
-  title: 'Users Growth',
+```erb
+<% options = {
+  title: 'Properties Growth',
   subtitle: 'Grouped Per Week',
-  xtitle: 'Week', ytitle: 'Users'
-}
+  xtitle: 'Week',
+  ytitle: 'Properties',
+  stacked: true
+} %>
 ```
 
 #### Line Chart
