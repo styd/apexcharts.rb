@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email       = ["a.styd@yahoo.com"]
   spec.homepage    = "https://github.com/styd/apexcharts.rb"
   spec.summary     = "Beautiful and interactive web charts for rubyist."
-  spec.description = "Description of Apexcharts."
+  spec.description = "Create interactive web charts with apexcharts.js in ruby."
   spec.license     = "MIT"
 
   spec.files = Dir["lib/**/*", "LICENSE", "Rakefile", "README.md"]
