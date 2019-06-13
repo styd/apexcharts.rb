@@ -58,47 +58,53 @@ options = {
 
 #### Line Chart
 
-```ruby
+```erb
 <%= line_chart(series, options) %>
 ```
+![Example Line Chart](images/line_chart.png)
 
 #### Area Chart
 
-```ruby
+```erb
 <%= area_chart(series, options) %>
 ```
+![Example Area Chart](images/area_chart.png)
 
 #### Column Chart
 
-```ruby
+```erb
 <%= column_chart(series, options) %>
 ```
+![Example Column Chart](images/column_chart.png)
 
 #### Bar Chart
 
-```ruby
+```erb
 <%= bar_chart(series, options) %>
 ```
+![Example Bar Chart](images/bar_chart.png)
+
+Yeah, I know. I will fix the Y-Axis datetime issue.
 
 #### Scatter Chart
 
-```ruby
+```erb
 <%= scatter_chart(series, options) %>
 ```
+![Example Scatter Chart](images/scatter_chart.png)
+
+#### Annotations
 
 All charts can have annotations, for example:
 
-```ruby
+```erb
 <%= line_chart(series, options) do %>
-  <% x_annotation(value: ('2018-11-18'..'2018-12-02'),
-                  text: "Busy Time", color: 'green') %>
-  <% y_annotation(value: 59, text: "Max Users", color: 'blue') %>
-  <% point_annotation(value: ['2018-07-22', 12],
-                      text: "First Peak", color: 'magenta') %>
+  <% x_annotation(value: ('2019-01-06'..'2019-02-24'), text: "Busy Time", color: 'green') %>
+  <% y_annotation(value: 29, text: "Max Properties", color: 'blue') %>
+  <% point_annotation(value: ['2018-10-07', 24], text: "First Peak", color: 'magenta') %>
 <% end %>
 ```
-
-![Example Line Chart with Annotations](images/example-annotations.png)
+![Example Line Chart with Annotations](images/chart_with_annotations.png)
 
 ## Web Framework
 
@@ -126,7 +132,11 @@ require("apexcharts")
 - Support other ruby frameworks (sinatra, hanami, etc.)
 
 ## Contributing
-Contribution directions go here.
+Everyone is encouraged to help improve this project by:
+- Reporting bugs
+- Fixing bugs and submiting pull requests
+- Fixing documentation
+- Suggesting new features
 
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
