@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="https://github.com/styd/apexcharts.rb/blob/master/LICENSE"><img src="https://img.shields.io/badge/License-MIT-brightgreen.svg" alt="License"></a>
-  <a href="https://travis-ci.com/styd/apexcharts.rb"><img src="https://api.travis-ci.com/styd/apexcharts.rb.svg?branch=master" alt="build" /></a>
+  <a href="https://travis-ci.org/styd/apexcharts.rb"><img src="https://api.travis-ci.com/styd/apexcharts.rb.svg?branch=master" alt="build" /></a>
 </p>
 
 
