@@ -12,9 +12,8 @@ Gem::Specification.new do |spec|
   spec.description = "Create interactive web charts with apexcharts.js in ruby."
   spec.license     = "MIT"
 
-  spec.files = Dir["lib/**/*", "LICENSE", "Rakefile", "README.md"]
+  spec.files = Dir["{lib,vendor}/**/*", "LICENSE", "README.md"]
 
-  spec.add_dependency "railties", ">= 4"
   spec.add_dependency "smart_kv", "0.2.7"
 
   spec.add_development_dependency "bundler"
