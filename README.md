@@ -36,12 +36,26 @@ Example series used for cartesian charts:
 
 ```erb
 <% series = [
-  {name: "Total", data: total_properties},
-  {name: "Active", data: active_properties},
-  {name: "Inactive", data: inactive_properties}
+  {name: "Inactive", data: @inactive_properties},
+  {name: "Active", data: @active_properties}
 ] %>
 ```
-To build the data, you can use gem [groupdate](https://github.com/ankane/groupdate).
+To build the data, you can use gem [groupdate](https://github.com/ankane/groupdate).  
+In my case, it was:
+
+```ruby
+@inactive_properties = Property.inactive.group_by_week(:created_at).count
+@active_properties = Property.active.group_by_week(:created_at).count
+```
+
+and I'll get the data in this format:
+```ruby
+{
+  Sun, 29 Jul 2018=>1,
+  Sun, 05 Aug 2018=>6,
+  ..
+}
+```
 
 Example options used for cartesian charts:
 
@@ -62,12 +76,14 @@ Example options used for cartesian charts:
 ```
 ![Example Line Chart](images/line_chart.png)
 
+
 #### Area Chart
 
 ```erb
 <%= area_chart(series, options) %>
 ```
 ![Example Area Chart](images/area_chart.png)
+
 
 #### Column Chart
 
@@ -76,6 +92,7 @@ Example options used for cartesian charts:
 ```
 ![Example Column Chart](images/column_chart.png)
 
+
 #### Bar Chart
 
 ```erb
@@ -83,7 +100,9 @@ Example options used for cartesian charts:
 ```
 ![Example Bar Chart](images/bar_chart.png)
 
-Yeah, I know. I will fix the Y-Axis datetime issue.
+I don't know if datetime in Y-axis is possible or not in apexcharts.  
+If it's possible then I will fix it.
+
 
 #### Scatter Chart
 
@@ -91,6 +110,40 @@ Yeah, I know. I will fix the Y-Axis datetime issue.
 <%= scatter_chart(series, options) %>
 ```
 ![Example Scatter Chart](images/scatter_chart.png)
+
+
+#### Mixed Chart
+
+You can mix charts by using `mixed_chart` or `combo_chart` methods. For example:
+Given that:
+```ruby
+@total_properties = Property.group_by_week(:created_at).count
+```
+you can do this:
+```erb
+<%= combo_chart({**options, theme: 'palette4', stacked: false, data_labels: false}) do %>
+  <% line_chart({name: "Total", data: @total_properties}) %>
+  <% area_chart({name: "Active", data: @active_properties}) %>
+  <% column_chart({name: "Inactive", data: @inactive_properties}) %>
+<% end %>
+```
+![Example Mixed Chart](images/mixed_chart.gif)
+
+
+#### Syncing Chart
+You can synchronize charts by using `syncing_chart` or `synchronized_chart` methods. For example:
+```erb
+<%= syncing_chart(chart: {toolbar: false}, height: 250, style: 'display: inline-block; width: 32%;') do %>
+  <% mixed_chart(theme: 'palette4', data_labels: false) do %>
+    <% line_chart({name: "Total", data: @total_properties}) %>
+    <% area_chart({name: "Active", data: @active_properties}) %>
+  <% end %>
+  <% area_chart({name: "Active", data: @active_properties}, theme: 'palette6') %>
+  <% line_chart({name: "Inactive", data: @active_properties}, theme: 'palette8') %>
+<% end %>
+```
+![Example Syncing Chart](images/syncing_chart.gif)
+
 
 #### Annotations
 
@@ -105,7 +158,7 @@ All charts can have annotations, for example:
 ```
 ![Example Line Chart with Annotations](images/chart_with_annotations.png)
 
-## Web Framework
+## Web Support
 
 ### Rails
 
@@ -129,6 +182,7 @@ require("apexcharts")
 ## Roadmap
 - Other charts (pie, donut, radar, heatmap, etc.)
 - Support other ruby frameworks (sinatra, hanami, etc.)
+- Render as Vue or React elements
 
 ## Contributing
 Everyone is encouraged to help improve this project by:
