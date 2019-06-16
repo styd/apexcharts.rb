@@ -1,7 +1,5 @@
 <p align="center">
-  <img src="https://apexcharts.com/media/apexcharts-logo.png" height="90">
-  <span style="font-size: 40px; vertical-align: top; margin-right: 10px;">+</span>
-  <img src="https://www.ruby-lang.org/images/header-ruby-logo.png">
+  <img src="images/apexcharts.rb.png" height="170">
 </p>
 
 <p align="center">
