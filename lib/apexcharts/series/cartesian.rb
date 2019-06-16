@@ -1,6 +1,6 @@
 module Apexcharts
   class CartesianSeries
-    attr_accessor :sanitized
+    attr_reader :sanitized
 
     def initialize(data)
       if data.is_a?(Array)
@@ -17,7 +17,7 @@ module Apexcharts
         @sanitized = sanitized.map{|a| {data: a} }
       end
 
-      @sanitized = sanitized.each {|a| a[:data] = a[:data].map{|k,v| {x: k, y: v} } }
+      @sanitized = {series: sanitized.each {|a| a[:data] = a[:data].map{|k,v| {x: k, y: v} } } }
     end
   end
 end

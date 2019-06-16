@@ -7,7 +7,7 @@ module Apexcharts
       @options = options
       instance_eval &block
 
-      @options[:annotations] = @_annotations if @_annotations
+      @options[:annotations] = @annotations if @annotations
     end
 
     def line_chart data, options={}, &block

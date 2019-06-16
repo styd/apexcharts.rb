@@ -133,11 +133,13 @@ module Apexcharts
     end
 
     def build_legend
-      labels = @options.delete :labels
-      @built[:legend] = if [true, false].include? labels
-                          {show: labels}
-                        elsif labels.is_a? Hash
-                          LegendOptions.check labels.compact
+      legend = @options.delete :legend
+      @built[:legend] = if [true, false].include? legend
+                          {show: legend}
+                        elsif legend.is_a? String
+                          {show: true, position: legend}
+                        elsif legend.is_a? Hash
+                          LegendOptions.check legend.compact
                         end
     end
 

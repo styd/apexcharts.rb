@@ -1,33 +1,17 @@
-require_relative 'capabilities/annotations'
-
+require 'pry'
 module Apexcharts
-  class CartesianChart
-    include Annotations
-
-    def initialize data, options={}, &block
-      options = {**options, **plot_options}
-      instance_eval &block if block_given?
-
-      options[:annotations] = @annotations if @annotations
+  class PolarChart
+    def initialize data, options={}
       @series = sanitize_data(data)
       @options = Utils::Hash.camelize_keys(
                    Utils::Hash.deep_merge(
-                     build_options(@series[:series][0][:data][0][:x], options),
+                     build_options(options),
                      {**@series, chart: {type: chart_type}}.compact
                    )
                  )
     end
 
     def chart_type
-    end
-
-    def plot_options
-      {}
-    end
-
-    def mixed_series
-      @series[:series].each{|d| d.merge!(type: chart_type) }
-      @series[:series]
     end
 
     def render
@@ -49,11 +33,11 @@ module Apexcharts
   private
 
     def sanitize_data(data)
-      Apexcharts::CartesianSeries.new(data).sanitized
+      Apexcharts::PolarSeries.new(data).sanitized
     end
 
-    def build_options(x_sample, options)
-      Apexcharts::OptionsBuilder.new(x_sample, options).built
+    def build_options(options)
+      Apexcharts::OptionsBuilder.new(nil, options).built
     end
   end
 end

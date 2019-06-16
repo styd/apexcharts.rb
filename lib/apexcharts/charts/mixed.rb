@@ -4,37 +4,37 @@ module Apexcharts
 
     def initialize options={}, bindings, &block
       @bindings = bindings
-      @mixed_series = []
+      @mixed_series = {series: []}
       build_instance_variables
       instance_eval &block
 
       options[:annotations] = @annotations if @annotations
       @options = Utils::Hash.camelize_keys(
                    Utils::Hash.deep_merge(
-                     build_options(@mixed_series[0][:data][0][:x], options),
-                     {chart: {type: 'area'}, series: @mixed_series}
+                     build_options(@mixed_series[:series][0][:data][0][:x], options),
+                     {chart: {type: 'area'}, **@mixed_series}
                    )
                  )
     end
 
     def line_chart data, options={}, &block
-      @mixed_series += LineChart.new(data, options, &block).mixed_series
+      @mixed_series[:series] += LineChart.new(data, options, &block).mixed_series
     end
 
     def area_chart data, options={}, &block
-      @mixed_series += AreaChart.new(data, options, &block).mixed_series
+      @mixed_series[:series] += AreaChart.new(data, options, &block).mixed_series
     end
 
     def bar_chart data, options={}, &block
-      @mixed_series += BarChart.new(data, options, &block).mixed_series
+      @mixed_series[:series] += BarChart.new(data, options, &block).mixed_series
     end
 
     def column_chart data, options={}, &block
-      @mixed_series += ColumnChart.new(data, options, &block).mixed_series
+      @mixed_series[:series] += ColumnChart.new(data, options, &block).mixed_series
     end
 
     def scatter_chart data, options={}, &block
-      @mixed_series += ScatterChart.new(data, options, &block).mixed_series
+      @mixed_series[:series] += ScatterChart.new(data, options, &block).mixed_series
     end
 
     def render

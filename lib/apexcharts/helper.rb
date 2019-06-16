@@ -5,29 +5,29 @@ require_relative 'charts'
 
 module Apexcharts
   module Helper
-    def line_chart data, options={}, &block
+    def line_chart series, options={}, &block
       options[:id] ||= apexcharts_id
-      draw_chart(LineChart.new(data, options, &block))
+      draw_chart(LineChart.new(series, options, &block))
     end
 
-    def area_chart data, options={}, &block
+    def area_chart series, options={}, &block
       options[:id] ||= apexcharts_id
-      draw_chart(AreaChart.new(data, options, &block))
+      draw_chart(AreaChart.new(series, options, &block))
     end
 
-    def column_chart data, options={}, &block
+    def column_chart series, options={}, &block
       options[:id] ||= apexcharts_id
-      draw_chart(ColumnChart.new(data, options, &block))
+      draw_chart(ColumnChart.new(series, options, &block))
     end
 
-    def bar_chart data, options={}, &block
+    def bar_chart series, options={}, &block
       options[:id] ||= apexcharts_id
-      draw_chart(BarChart.new(data, options, &block))
+      draw_chart(BarChart.new(series, options, &block))
     end
 
-    def scatter_chart data, options={}, &block
+    def scatter_chart series, options={}, &block
       options[:id] ||= apexcharts_id
-      draw_chart(ScatterChart.new(data, options, &block))
+      draw_chart(ScatterChart.new(series, options, &block))
     end
 
     def mixed_chart options={}, &block
@@ -43,6 +43,16 @@ module Apexcharts
       draw_chart(SyncingChart.new(options, bindings, &block))
     end
     alias_method :synchronized_chart, :syncing_chart
+
+    def pie_chart series, options={}
+      options[:id] ||= apexcharts_id
+      draw_chart(PieChart.new(series, options))
+    end
+
+    def donut_chart series, options={}
+      options[:id] ||= apexcharts_id
+      draw_chart(DonutChart.new(series, options))
+    end
 
   private
 

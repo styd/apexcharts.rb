@@ -6,15 +6,27 @@ RSpec.describe Apexcharts::CartesianSeries do
       [[100, 1], [200, 2]]
     }
     let(:data2) { data1.to_h }
-    let(:expected) { 
-      [{
-        data: [{x: 100, y: 1}, {x: 200, y: 2}]
-      }]
+    let(:data3) { {name: "Series A", data: data2} }
+    let(:expected) {
+      {
+        series: [{
+          data: [{x: 100, y: 1}, {x: 200, y: 2}]
+        }]
+      }
+    }
+    let(:expected_with_name) { 
+      {
+        series: [{
+          name: "Series A",
+          data: [{x: 100, y: 1}, {x: 200, y: 2}]
+        }]
+      }
     }
 
     it 'returns data in x and y keys' do
       expect(described_class.new(data1).sanitized).to eq(expected)
       expect(described_class.new(data2).sanitized).to eq(expected)
+      expect(described_class.new(data3).sanitized).to eq(expected_with_name)
     end
   end
 
@@ -24,12 +36,28 @@ RSpec.describe Apexcharts::CartesianSeries do
         data: [[100, 1], [200, 2]]
       }
     }
+    let(:data2) {
+      {
+        name: "Series A",
+        data: [[100, 1], [200, 2]]
+      }
+    }
 
     it 'returns data in x and y keys' do
       expect(described_class.new(data).sanitized).to eq(
-        [{
-          data: [{x: 100, y: 1}, {x: 200, y: 2}]
-        }]
+        {
+          series: [{
+            data: [{x: 100, y: 1}, {x: 200, y: 2}]
+          }]
+        }
+      )
+      expect(described_class.new(data2).sanitized).to eq(
+        {
+          series: [{
+            name: "Series A",
+            data: [{x: 100, y: 1}, {x: 200, y: 2}]
+          }]
+        }
       )
     end
   end

@@ -16,18 +16,6 @@
 
 <p align="center"><img src="https://apexcharts.com/media/apexcharts-banner.png"></p>
 
-## Installation
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'apexcharts'
-```
-
-And then execute:
-```bash
-$ bundle
-```
-
 ## Usage
 
 ### Cartesian Charts
@@ -145,9 +133,32 @@ You can synchronize charts by using `syncing_chart` or `synchronized_chart` meth
 ![Example Syncing Chart](images/syncing_chart.gif)
 
 
-#### Annotations
+### Polar Charts
 
-All charts can have annotations, for example:
+#### Pie Chart
+
+```erb
+<%= pie_chart([
+  {name: "Series A", data: 25},
+  {name: "Series B", data: 100},
+  {name: "Series C", data: 200},
+  {name: "Series D", data: 125}
+], legend: "left") %>
+```
+![Example Pie Chart](images/pie_chart.gif)
+
+
+#### Donut Chart
+
+```erb
+<%= donut_chart([25, 100, 200, 125], theme: 'palette4' %>
+```
+![Example Pie Chart](images/donut_chart.gif)
+
+
+### Annotations
+
+All cartesian charts can have annotations, for example:
 
 ```erb
 <%= line_chart(series, options) do %>
@@ -157,6 +168,20 @@ All charts can have annotations, for example:
 <% end %>
 ```
 ![Example Line Chart with Annotations](images/chart_with_annotations.png)
+
+
+## Installation
+Add this line to your application's Gemfile:
+
+```ruby
+gem 'apexcharts'
+```
+
+And then execute:
+```bash
+$ bundle
+```
+
 
 ## Web Support
 
@@ -180,7 +205,7 @@ require("apexcharts")
 - To bring out as much apexcharts.js capabilities as possible but in ruby ways.
 
 ## Roadmap
-- Other charts (pie, donut, radar, heatmap, etc.)
+- Other charts (~~pie~~, ~~donut~~, radar, heatmap, etc.)
 - Support other ruby frameworks (sinatra, hanami, etc.)
 - Render as Vue or React elements
 
