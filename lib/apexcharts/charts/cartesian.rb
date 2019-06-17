@@ -12,7 +12,7 @@ module Apexcharts
       @series = sanitize_data(data)
       @options = Utils::Hash.camelize_keys(
                    Utils::Hash.deep_merge(
-                     build_options(@series[:series][0][:data][0][:x], options),
+                     build_options(@series[:series][0][:data][0][self.class.name.end_with?("BarChart") ? :y : :x], options),
                      {**@series, chart: {type: chart_type}}.compact
                    )
                  )
