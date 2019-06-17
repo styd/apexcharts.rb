@@ -1,4 +1,3 @@
-require 'pry'
 module Apexcharts
   class PolarSeries
     attr_reader :sanitized

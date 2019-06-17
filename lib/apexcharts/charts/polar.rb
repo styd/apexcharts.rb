@@ -1,4 +1,3 @@
-require 'pry'
 module Apexcharts
   class PolarChart
     def initialize data, options={}

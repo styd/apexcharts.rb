@@ -38,12 +38,8 @@ module Apexcharts::Utils
 
     def self.xtype input
       case input
-      when Time
+      when Time, DateTime, Date
         'datetime'
-      when DateTime, Date
-        'datetime'
-      when Date
-        'date'
       else
         if DateTime.iso8601(input).iso8601 == input
           'datetime'

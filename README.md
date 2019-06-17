@@ -66,7 +66,7 @@ Example options used for cartesian charts:
 #### Area Chart
 
 ```erb
-<%= area_chart(series, options) %>
+<%= area_chart(series, {**options, theme: 'palette5'}) %>
 ```
 ![Example Area Chart](images/area_chart.png)
 
@@ -74,7 +74,7 @@ Example options used for cartesian charts:
 #### Column Chart
 
 ```erb
-<%= column_chart(series, options) %>
+<%= column_chart(series, {**options, theme: 'palette4'}) %>
 ```
 ![Example Column Chart](images/column_chart.png)
 
@@ -82,25 +82,22 @@ Example options used for cartesian charts:
 #### Bar Chart
 
 ```erb
-<%= bar_chart(series, options) %>
+<%= bar_chart(series, {**options, height: 700, theme: 'palette7'}) %>
 ```
 ![Example Bar Chart](images/bar_chart.png)
-
-I don't know if datetime in Y-axis is possible or not in apexcharts.  
-If it's possible then I will fix it.
 
 
 #### Scatter Chart
 
 ```erb
-<%= scatter_chart(series, options) %>
+<%= scatter_chart(series, {**options, theme: 'palette3'}) %>
 ```
 ![Example Scatter Chart](images/scatter_chart.png)
 
 
 #### Mixed Chart
 
-You can mix charts by using `mixed_chart` or `combo_chart` methods. For example:
+You can mix charts by using `mixed_chart` or `combo_chart` methods. For example:  
 Given that:
 ```ruby
 @total_properties = Property.group_by_week(:created_at).count
@@ -131,6 +128,20 @@ You can synchronize charts by using `syncing_chart` or `synchronized_chart` meth
 ![Example Syncing Chart](images/syncing_chart.gif)
 
 
+#### Annotations
+
+All cartesian charts can have annotations, for example:
+
+```erb
+<%= line_chart(series, options) do %>
+  <% x_annotation(value: ('2019-01-06'..'2019-02-24'), text: "Busy Time", color: 'green') %>
+  <% y_annotation(value: 29, text: "Max Properties", color: 'blue') %>
+  <% point_annotation(value: ['2018-10-07', 24], text: "First Peak", color: 'magenta') %>
+<% end %>
+```
+![Example Line Chart with Annotations](images/chart_with_annotations.png)
+
+
 ### Polar Charts
 
 #### Pie Chart
@@ -152,20 +163,6 @@ You can synchronize charts by using `syncing_chart` or `synchronized_chart` meth
 <%= donut_chart([25, 100, 200, 125], theme: 'palette4' %>
 ```
 ![Example Pie Chart](images/donut_chart.gif)
-
-
-### Annotations
-
-All cartesian charts can have annotations, for example:
-
-```erb
-<%= line_chart(series, options) do %>
-  <% x_annotation(value: ('2019-01-06'..'2019-02-24'), text: "Busy Time", color: 'green') %>
-  <% y_annotation(value: 29, text: "Max Properties", color: 'blue') %>
-  <% point_annotation(value: ['2018-10-07', 24], text: "First Peak", color: 'magenta') %>
-<% end %>
-```
-![Example Line Chart with Annotations](images/chart_with_annotations.png)
 
 
 ## Installation
