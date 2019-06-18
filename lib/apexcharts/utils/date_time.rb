@@ -36,7 +36,7 @@ module Apexcharts::Utils
       input
     end
 
-    def self.xtype input
+    def self.type input
       case input
       when Time, DateTime, Date
         'datetime'

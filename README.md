@@ -82,7 +82,7 @@ Example options used for cartesian charts:
 #### Bar Chart
 
 ```erb
-<%= bar_chart(series, {**options, height: 700, theme: 'palette7'}) %>
+<%= bar_chart(series, {**options, xtitle: 'Properties', ytitle: 'Week', height: 800, theme: 'palette7'}) %>
 ```
 ![Example Bar Chart](images/bar_chart.png)
 

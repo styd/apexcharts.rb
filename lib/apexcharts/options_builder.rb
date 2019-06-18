@@ -24,7 +24,11 @@ module Apexcharts
 
     def initialize(x_sample, options)
       @options = options
-      @xtype = Utils::DateTime.xtype(x_sample)
+      if options[:plot_options]&.[](:bar)&.[](:horizontal)
+        @ytype = Utils::DateTime.type(x_sample)
+      else
+        @xtype = Utils::DateTime.type(x_sample)
+      end
       @built = {}
       build_options
       @built.compact!
@@ -280,7 +284,7 @@ module Apexcharts
     def build_yaxis
       yaxis = @options.delete :yaxis
       @built[:yaxis] = [{
-        type: @options.delete(:ytype),
+        type: @options.delete(:ytype){ @ytype },
         title: {
           text: @options.delete(:ytitle)
         }.compact
@@ -294,7 +298,7 @@ module Apexcharts
       end
     end
 
-    def xtype(x)
+    def type(x)
       if DateTime.iso8601(x).iso8601 == x
         'datetime'
       elsif Date.iso8601(x).iso8601 = x
