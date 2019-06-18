@@ -56,6 +56,12 @@ module Apexcharts
       draw_chart(DonutChart.new(series, options))
     end
 
+    def radial_bar_chart series, options={}
+      series, options = prepare_series_and_options(series, options)
+      draw_chart(RadialBarChart.new(series, options))
+    end
+    alias_method :circle_chart, :radial_bar_chart
+
   private
 
     def draw_chart chart

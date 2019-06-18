@@ -165,6 +165,20 @@ All cartesian charts can have annotations, for example:
 ![Example Pie Chart](images/donut_chart.gif)
 
 
+#### Radial Bar Chart
+
+Also called `circle_chart`.
+```erb
+<%= radial_bar_chart([
+  {name: "Circle A", data: 25},
+  {name: "Circle B", data: 40},
+  {name: "Circle C", data: 80},
+  {name: "Circle D", data: 45}
+], legend: true) %>
+```
+![Example Circle Chart](images/radial_bar_chart.gif)
+
+
 ## Installation
 Add this line to your application's Gemfile:
 
