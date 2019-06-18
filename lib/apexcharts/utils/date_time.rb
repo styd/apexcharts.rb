@@ -1,8 +1,8 @@
 require 'date'
 
 module Apexcharts::Utils
-  class DateTime
-    def self.convert input
+  module DateTime
+    def convert input
       case input
       when Time
         (input.to_f * 1000).round
@@ -18,8 +18,9 @@ module Apexcharts::Utils
     rescue
       input
     end
+    module_function :convert
 
-    def self.convert_range input
+    def convert_range input
       case input.first
       when Time
         ((input.first.to_f * 1000).round..(input.last.to_f * 1000).round)
@@ -35,13 +36,14 @@ module Apexcharts::Utils
     rescue
       input
     end
+    module_function :convert_range
 
-    def self.type input
+    def type input
       case input
-      when Time, DateTime, Date
+      when Time, ::DateTime, Date
         'datetime'
       else
-        if DateTime.iso8601(input).iso8601 == input
+        if ::DateTime.iso8601(input).iso8601 == input
           'datetime'
         elsif Date.iso8601(input).iso8601 == input
           'datetime'
@@ -52,5 +54,6 @@ module Apexcharts::Utils
     rescue
       'number'
     end
+    module_function :type
   end
 end
