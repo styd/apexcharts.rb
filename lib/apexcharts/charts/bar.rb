@@ -4,7 +4,7 @@ module Apexcharts
       'bar'
     end
 
-    def plot_options
+    def more_options
       {plot_options: {bar: {horizontal: true}}}
     end
   end

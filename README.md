@@ -9,11 +9,6 @@
 </p>
 
 
-<p align="center">Beautiful and interactive web charts for rubyist.</p>
-
-
-<p align="center"><img src="https://apexcharts.com/media/apexcharts-banner.png"></p>
-
 ## Usage
 
 ### Cartesian Charts
@@ -55,12 +50,21 @@ Example options used for cartesian charts:
 } %>
 ```
 
+
 #### Line Chart
 
 ```erb
 <%= line_chart(series, options) %>
 ```
 ![Example Line Chart](images/line_chart.png)
+
+
+#### Stepline Chart
+
+```erb
+<%= line_chart(total_series, {**options, theme: 'palette7', curve: 'stepline'}) %>
+```
+![Example Stepline Chart](images/stepline_chart.png)
 
 
 #### Area Chart
@@ -114,6 +118,7 @@ you can do this:
 
 
 #### Syncing Chart
+
 You can synchronize charts by using `syncing_chart` or `synchronized_chart` methods. For example:
 ```erb
 <%= syncing_chart(chart: {toolbar: false}, height: 250, style: 'display: inline-block; width: 32%;') do %>
@@ -126,6 +131,22 @@ You can synchronize charts by using `syncing_chart` or `synchronized_chart` meth
 <% end %>
 ```
 ![Example Syncing Chart](images/syncing_chart.gif)
+
+
+#### Brush Chart
+
+```erb
+<%= area_chart(total_series, {
+  **options, chart_id: 'the-chart', xtitle: nil, theme: 'palette2'
+}) %>
+<%= brush_chart('the-chart') do %>
+  <% mixed_chart(theme: 'palette7') do %>
+    <% column_chart(series.first) %>
+    <% line_chart(series.last) %>
+  <% end %>
+<% end %>
+```
+![Example Brush Chart](images/brush_chart.gif)
 
 
 #### Annotations

@@ -6,59 +6,52 @@ require_relative 'charts'
 module Apexcharts
   module Helper
     def line_chart series, options={}, &block
-      series, options = prepare_series_and_options(series, options)
-      draw_chart(LineChart.new(series, options, &block))
+      draw_chart(LineChart.new(*prepare_series_and_options(series, options), &block))
     end
 
     def area_chart series, options={}, &block
-      series, options = prepare_series_and_options(series, options)
-      draw_chart(AreaChart.new(series, options, &block))
+      draw_chart(AreaChart.new(*prepare_series_and_options(series, options), &block))
     end
 
     def column_chart series, options={}, &block
-      series, options = prepare_series_and_options(series, options)
-      draw_chart(ColumnChart.new(series, options, &block))
+      draw_chart(ColumnChart.new(*prepare_series_and_options(series, options), &block))
     end
 
     def bar_chart series, options={}, &block
-      series, options = prepare_series_and_options(series, options)
-      draw_chart(BarChart.new(series, options, &block))
+      draw_chart(BarChart.new(*prepare_series_and_options(series, options), &block))
     end
 
     def scatter_chart series, options={}, &block
-      series, options = prepare_series_and_options(series, options)
-      draw_chart(ScatterChart.new(series, options, &block))
+      draw_chart(ScatterChart.new(*prepare_series_and_options(series, options), &block))
     end
 
     def mixed_chart options={}, &block
-      options = deep_copy(options)
-      options[:id] ||= apexcharts_id
       bindings = eval "self", block.binding
-      draw_chart(MixedChart.new(options, bindings, &block))
+      draw_chart(MixedChart.new(bindings, deep_copy(options), &block))
     end
     alias_method :combo_chart, :mixed_chart
 
     def syncing_chart options={}, &block
-      options = deep_copy(options)
-      options[:group] ||= apexcharts_group
       bindings = eval "self", block.binding
-      draw_chart(SyncingChart.new(options, bindings, &block))
+      draw_chart(SyncingChart.new(bindings, deep_copy(options), &block))
     end
     alias_method :synchronized_chart, :syncing_chart
 
+    def brush_chart target, options={}, &block
+      bindings = eval "self", block.binding
+      draw_chart(BrushChart.new(target, bindings, deep_copy(options), &block))
+    end
+
     def pie_chart series, options={}
-      series, options = prepare_series_and_options(series, options)
-      draw_chart(PieChart.new(series, options))
+      draw_chart(PieChart.new(*prepare_series_and_options(series, options)))
     end
 
     def donut_chart series, options={}
-      series, options = prepare_series_and_options(series, options)
-      draw_chart(DonutChart.new(series, options))
+      draw_chart(DonutChart.new(*prepare_series_and_options(series, options)))
     end
 
     def radial_bar_chart series, options={}
-      series, options = prepare_series_and_options(series, options)
-      draw_chart(RadialBarChart.new(series, options))
+      draw_chart(RadialBarChart.new(*prepare_series_and_options(series, options)))
     end
     alias_method :circle_chart, :radial_bar_chart
 

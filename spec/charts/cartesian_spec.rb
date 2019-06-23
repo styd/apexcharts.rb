@@ -9,7 +9,7 @@ RSpec.describe Apexcharts::CartesianChart do
   it 'assigned properties correctly' do
     chart = described_class.new(data, options)
     expect(chart.chart_type).to eq(nil)
-    expect(chart.plot_options).to eq({})
+    expect(chart.more_options).to eq({})
     expect(chart.mixed_series).to eq(
       [
         {data: [

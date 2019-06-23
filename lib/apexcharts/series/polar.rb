@@ -4,6 +4,7 @@ module Apexcharts
 
     def initialize(data)
       @labels = []
+      data = deep_copy(data)
       if data.is_a? Array
         if data.first.is_a? Numeric
           @series = data
@@ -21,6 +22,10 @@ module Apexcharts
         labels: @labels.empty? ? nil : @labels,
         series: @series
       }.compact
+    end
+
+    def deep_copy(data)
+      Marshal.load(Marshal.dump(data))
     end
   end
 end

@@ -14,8 +14,8 @@ module Apexcharts
     end
 
     def render
-      attributes = @options.delete(:div)
-      variable = attributes.delete(:var) || "chart#{attributes[:id][/\d+/]}"
+      attributes = @options.delete(:div) { {} }
+      variable = attributes.delete(:var) { "chart#{attributes[:id]&.[](/\d+/)}" }
       element_id = attributes.delete(:id)
       css_class = attributes.delete(:class)
       height = "#{@options[:chart][:height].to_i}px"

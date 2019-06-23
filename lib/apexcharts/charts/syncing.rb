@@ -1,10 +1,12 @@
 module Apexcharts
   class SyncingChart
-    def initialize options={}, bindings, &block
+    def initialize bindings, options={}, &block
       @bindings = bindings
       @html = ""
       build_instance_variables
       @options = options
+      @options[:group] ||= apexcharts_group
+
       instance_eval &block
 
       @options[:annotations] = @annotations if @annotations
@@ -38,7 +40,7 @@ module Apexcharts
     def mixed_chart options={}, &block
       options[:id] = apexcharts_id
       bindings = eval "self", block.binding
-      @html += MixedChart.new(@options.merge(options), bindings, &block).render
+      @html += MixedChart.new(bindings, @options.merge(options), &block).render
     end
     alias_method :combo_chart, :mixed_chart
 

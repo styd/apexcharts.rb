@@ -2,39 +2,42 @@ module Apexcharts
   class MixedChart
     include Annotations
 
-    def initialize options={}, bindings, &block
+    def initialize bindings, options={}, &block
       @bindings = bindings
-      @mixed_series = {series: []}
+      @series = {series: []}
+      options[:id] ||= apexcharts_id
       build_instance_variables
       instance_eval &block
 
       options[:annotations] = @annotations if @annotations
       @options = Utils::Hash.camelize_keys(
                    Utils::Hash.deep_merge(
-                     build_options(@mixed_series[:series][0][:data][0][:x], options),
-                     {chart: {type: 'area'}, **@mixed_series}
+                     build_options(@series[:series][0][:data][0][:x], options),
+                     {chart: {type: 'area'}, **@series}
                    )
                  )
+
+      get_selection_range if brush?
     end
 
     def line_chart data, options={}, &block
-      @mixed_series[:series] += LineChart.new(data, options, &block).mixed_series
+      @series[:series] += LineChart.new(data, options, &block).mixed_series
     end
 
     def area_chart data, options={}, &block
-      @mixed_series[:series] += AreaChart.new(data, options, &block).mixed_series
+      @series[:series] += AreaChart.new(data, options, &block).mixed_series
     end
 
     def bar_chart data, options={}, &block
-      @mixed_series[:series] += BarChart.new(data, options, &block).mixed_series
+      @series[:series] += BarChart.new(data, options, &block).mixed_series
     end
 
     def column_chart data, options={}, &block
-      @mixed_series[:series] += ColumnChart.new(data, options, &block).mixed_series
+      @series[:series] += ColumnChart.new(data, options, &block).mixed_series
     end
 
     def scatter_chart data, options={}, &block
-      @mixed_series[:series] += ScatterChart.new(data, options, &block).mixed_series
+      @series[:series] += ScatterChart.new(data, options, &block).mixed_series
     end
 
     def render
@@ -67,6 +70,28 @@ module Apexcharts
 
     def build_options(x_sample, options)
       Apexcharts::OptionsBuilder.new(x_sample, options).built
+    end
+
+    def brush?
+      @options[:chart][:brush]&.[](:enabled) && \
+        !@options[:chart][:selection]&.[](:xaxis)
+    end
+
+    def get_selection_range
+      first_x = @series[:series].last[:data].first[:x]
+      last_x = @series[:series].last[:data].last[:x]
+      @options[:chart][:selection][:xaxis] = {
+        min: handle_time(twenty_percent_before_last_x(first_x, last_x)),
+        max: handle_time(last_x)
+      }
+    end
+
+    def twenty_percent_before_last_x(first, last)
+      last - (0.2 * (last - first))
+    end
+
+    def handle_time(input)
+      Utils::DateTime.convert(input)
     end
   end
 end
