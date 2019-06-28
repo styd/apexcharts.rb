@@ -17,7 +17,9 @@ RSpec.describe '#build_chart' do
       fore_color: '#fc9'
     }
   }
-  let(:built) { Apexcharts::OptionsBuilder.new(x_sample, options).built }
+  let(:ob) {
+    Apexcharts::OptionsBuilder.new(x_sample, options)
+  }
   let(:expected_built) {
     {
       chart: {
@@ -35,7 +37,8 @@ RSpec.describe '#build_chart' do
   }
 
   it 'extract chart related key-values' do
-    expect(built).to match(hash_including(expected_built))
+    ob.build_chart
+    expect(ob.built).to match(hash_including(expected_built))
   end
 end
 

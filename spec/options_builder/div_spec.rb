@@ -10,7 +10,9 @@ RSpec.describe '#build_div' do
       style: "css-style"
     }
   }
-  let(:built) { Apexcharts::OptionsBuilder.new(x_sample, options).built }
+  let(:ob) {
+    Apexcharts::OptionsBuilder.new(x_sample, options)
+  }
   let(:expected_built) {
     {
       div: {
@@ -23,7 +25,8 @@ RSpec.describe '#build_div' do
   }
 
   it 'extract chart related key-values' do
-    expect(built).to match(hash_including(expected_built))
+    ob.build_div
+    expect(ob.built).to match(hash_including(expected_built))
   end
 end
 
