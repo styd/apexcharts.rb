@@ -30,8 +30,6 @@ module Apexcharts
         @xtype = Utils::DateTime.type(x_sample)
       end
       @built = {}
-      build_options
-      @built.compact!
     end
 
     def build_options
@@ -57,6 +55,7 @@ module Apexcharts
       build_tooltip
       build_xaxis
       build_yaxis
+      built.compact
     end
 
     def build_div
@@ -103,8 +102,8 @@ module Apexcharts
       return if data_labels.nil?
       @built[:data_labels] = if [true, false].include? data_labels
                                {enabled: data_labels}
-                             elsif options.is_a? Hash
-                               DataLabelsOptions.check options.compact
+                             elsif data_labels.is_a? Hash
+                               DataLabelsOptions.check data_labels.compact
                              end
     end
 
@@ -185,14 +184,6 @@ module Apexcharts
     end
 
     def build_states
-      def filter_type_hash(state)
-        if state.is_a? String
-          {filter: {type: state}}
-        elsif state.is_a? Hash
-          state.compact
-        end
-      end
-
       @built[:states] = {
         normal: filter_type_hash(@options.delete :normal),
         hover: filter_type_hash(@options.delete :hover),
@@ -320,6 +311,14 @@ module Apexcharts
         yield(options)
       elsif options.is_a?(Hash)
         options.compact
+      end
+    end
+
+    def filter_type_hash(state)
+      if state.is_a? String
+        {filter: {type: state}}
+      elsif state.is_a? Hash
+        state.compact
       end
     end
   end

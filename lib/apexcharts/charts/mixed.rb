@@ -69,7 +69,7 @@ module Apexcharts
     end
 
     def build_options(x_sample, options)
-      Apexcharts::OptionsBuilder.new(x_sample, options).built
+      Apexcharts::OptionsBuilder.new(x_sample, options).build_options
     end
 
     def brush?

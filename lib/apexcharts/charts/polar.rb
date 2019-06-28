@@ -36,7 +36,7 @@ module Apexcharts
     end
 
     def build_options(options)
-      Apexcharts::OptionsBuilder.new(nil, options).built
+      Apexcharts::OptionsBuilder.new(nil, options).build_options
     end
   end
 end
