@@ -62,7 +62,7 @@ Example options used for cartesian charts:
 #### Stepline Chart
 
 ```erb
-<%= line_chart(total_series, {**options, theme: 'palette7', curve: 'stepline'}) %>
+<%= line_chart(series, {**options, theme: 'palette7', curve: 'stepline'}) %>
 ```
 ![Example Stepline Chart](images/stepline_chart.png)
 
