@@ -154,13 +154,13 @@ You can synchronize charts by using `syncing_chart` or `synchronized_chart` meth
 All cartesian charts can have annotations, for example:
 
 ```erb
-<%= line_chart(series, options) do %>
+<%= area_chart(series, {**options, theme: 'palette9'}) do %>
   <% x_annotation(value: ('2019-01-06'..'2019-02-24'), text: "Busy Time", color: 'green') %>
   <% y_annotation(value: 29, text: "Max Properties", color: 'blue') %>
   <% point_annotation(value: ['2018-10-07', 24], text: "First Peak", color: 'magenta') %>
 <% end %>
 ```
-![Example Line Chart with Annotations](images/chart_with_annotations.png)
+![Example Area Chart with Annotations](images/chart_with_annotations.png)
 
 
 ### Polar Charts
@@ -234,8 +234,8 @@ require("apexcharts")
 ## Objective
 - To bring out as much apexcharts.js capabilities as possible but in ruby ways.
 
-## Roadmap
-- Other charts (~~pie~~, ~~donut~~, radar, heatmap, etc.)
+## TODOs
+- Other charts (radar, heatmap, candlestick, etc.)
 - Support other ruby frameworks (sinatra, hanami, etc.)
 - Render as Vue or React elements
 
