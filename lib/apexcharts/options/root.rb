@@ -7,6 +7,7 @@ module Apexcharts
   class RootOptions < ::SmartKv
     optional *%i[
                   annotations
+                  brush_target
                   chart
                   chart_id
                   colors

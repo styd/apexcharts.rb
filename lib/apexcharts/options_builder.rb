@@ -75,10 +75,24 @@ module Apexcharts
     end
 
     def build_chart
-      @built[:chart] =  {
+      @built[:chart] = if target = @options.delete(:brush_target)
+                         {
+                           brush: {
+                             enabled: true,
+                             target: target.to_s
+                           },
+                           selection: {
+                             enabled: true
+                           }
+                         }
+                       else
+                         {}
+                       end
+
+      @built[:chart].merge!({
         id: @options[:chart_id] || @options[:id],
         group: @options.delete(:group),
-        height: @options.delete(:height) { 400 },
+        height: @options.delete(:height) { target ? 180 : 400 },
         width: @options.delete(:width),
         stacked: @options.delete(:stacked),
         animations: enabled(@options.delete(:animations)),
@@ -87,7 +101,7 @@ module Apexcharts
         fore_color: @options.delete(:fore_color) do
                       @options.delete(:foreColor)
                     end
-      }.compact
+      }.compact)
 
       chart = @options.delete :chart
       if chart.is_a? Hash

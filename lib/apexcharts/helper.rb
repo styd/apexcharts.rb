@@ -42,11 +42,6 @@ module Apexcharts
     end
     alias_method :synchronized_chart, :syncing_chart
 
-    def brush_chart target, options={}, &block
-      bindings = eval("self", block.binding)
-      draw_chart(BrushChart.new(target, bindings, deep_copy(options), &block))
-    end
-
     def pie_chart series, options={}
       draw_chart(PieChart.new(*prepare_series_and_options(series, options)))
     end

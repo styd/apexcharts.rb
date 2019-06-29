@@ -37,6 +37,7 @@ and I'll get the data in this format:
   ..
 }
 ```
+PS: `Property` can be any model you have and `inactive` and `active` is just a normal scope.  
 
 Example options used for cartesian charts:
 
@@ -106,12 +107,18 @@ Given that:
 ```ruby
 @total_properties = Property.group_by_week(:created_at).count
 ```
+and
+```erb
+<% total_series = {
+  name: "Total", data: @total_properties
+} %>
+```
 you can do this:
 ```erb
 <%= combo_chart({**options, theme: 'palette4', stacked: false, data_labels: false}) do %>
-  <% line_chart({name: "Total", data: @total_properties}) %>
-  <% area_chart({name: "Active", data: @active_properties}) %>
-  <% column_chart({name: "Inactive", data: @inactive_properties}) %>
+  <% line_chart(total_series) %>
+  <% area_chart(series.last) %>
+  <% column_chart(series.first) %>
 <% end %>
 ```
 ![Example Mixed Chart](images/mixed_chart.gif)
@@ -139,11 +146,9 @@ You can synchronize charts by using `syncing_chart` or `synchronized_chart` meth
 <%= area_chart(total_series, {
   **options, chart_id: 'the-chart', xtitle: nil, theme: 'palette2'
 }) %>
-<%= brush_chart('the-chart') do %>
-  <% mixed_chart(theme: 'palette7') do %>
-    <% column_chart(series.first) %>
-    <% line_chart(series.last) %>
-  <% end %>
+<%= mixed_chart(brush_target: 'the-chart', theme: 'palette7') do %>
+  <% column_chart(series.first) %>
+  <% line_chart(series.last) %>
 <% end %>
 ```
 ![Example Brush Chart](images/brush_chart.gif)

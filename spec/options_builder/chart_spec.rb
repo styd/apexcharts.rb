@@ -40,6 +40,33 @@ RSpec.describe '#build_chart' do
     ob.build_chart
     expect(ob.built).to match(hash_including(expected_built))
   end
+
+  context 'brush chart' do
+    let(:options) {
+      {
+        brush_target: 'chart-1'
+      }
+    }
+    let(:expected_built) {
+      {
+        chart: {
+          brush: {
+            enabled: true,
+            target: 'chart-1'
+          },
+          height: 180,
+          selection: {
+            enabled: true
+          }
+        }
+      }
+    }
+
+    it 'extract brush chart target' do
+      ob.build_chart
+      expect(ob.built).to match(hash_including(expected_built))
+    end
+  end
 end
 
 
