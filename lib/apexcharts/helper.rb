@@ -6,39 +6,44 @@ require_relative 'charts'
 module Apexcharts
   module Helper
     def line_chart series, options={}, &block
-      draw_chart(LineChart.new(*prepare_series_and_options(series, options), &block))
+      bindings = eval("self", block.binding) if block_given?
+      draw_chart(LineChart.new(bindings, *prepare_series_and_options(series, options), &block))
     end
 
     def area_chart series, options={}, &block
-      draw_chart(AreaChart.new(*prepare_series_and_options(series, options), &block))
+      bindings = eval("self", block.binding) if block_given?
+      draw_chart(AreaChart.new(bindings, *prepare_series_and_options(series, options), &block))
     end
 
     def column_chart series, options={}, &block
-      draw_chart(ColumnChart.new(*prepare_series_and_options(series, options), &block))
+      bindings = eval("self", block.binding) if block_given?
+      draw_chart(ColumnChart.new(bindings, *prepare_series_and_options(series, options), &block))
     end
 
     def bar_chart series, options={}, &block
-      draw_chart(BarChart.new(*prepare_series_and_options(series, options), &block))
+      bindings = eval("self", block.binding) if block_given?
+      draw_chart(BarChart.new(bindings, *prepare_series_and_options(series, options), &block))
     end
 
     def scatter_chart series, options={}, &block
-      draw_chart(ScatterChart.new(*prepare_series_and_options(series, options), &block))
+      bindings = eval("self", block.binding) if block_given?
+      draw_chart(ScatterChart.new(bindings, *prepare_series_and_options(series, options), &block))
     end
 
     def mixed_chart options={}, &block
-      bindings = eval "self", block.binding
+      bindings = eval("self", block.binding)
       draw_chart(MixedChart.new(bindings, deep_copy(options), &block))
     end
     alias_method :combo_chart, :mixed_chart
 
     def syncing_chart options={}, &block
-      bindings = eval "self", block.binding
+      bindings = eval("self", block.binding)
       draw_chart(SyncingChart.new(bindings, deep_copy(options), &block))
     end
     alias_method :synchronized_chart, :syncing_chart
 
     def brush_chart target, options={}, &block
-      bindings = eval "self", block.binding
+      bindings = eval("self", block.binding)
       draw_chart(BrushChart.new(target, bindings, deep_copy(options), &block))
     end
 

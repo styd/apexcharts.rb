@@ -7,6 +7,7 @@ module Apexcharts
       @series = {series: []}
       options[:id] ||= apexcharts_id
       build_instance_variables
+
       instance_eval &block
 
       options[:annotations] = @annotations if @annotations
@@ -21,23 +22,28 @@ module Apexcharts
     end
 
     def line_chart data, options={}, &block
-      @series[:series] += LineChart.new(data, options, &block).mixed_series
+      bindings = eval("self", block.binding) if block_given?
+      @series[:series] += LineChart.new(bindings, data, options, &block).mixed_series
     end
 
     def area_chart data, options={}, &block
-      @series[:series] += AreaChart.new(data, options, &block).mixed_series
+      bindings = eval("self", block.binding) if block_given?
+      @series[:series] += AreaChart.new(bindings, data, options, &block).mixed_series
     end
 
     def bar_chart data, options={}, &block
-      @series[:series] += BarChart.new(data, options, &block).mixed_series
+      bindings = eval("self", block.binding) if block_given?
+      @series[:series] += BarChart.new(bindings, data, options, &block).mixed_series
     end
 
     def column_chart data, options={}, &block
-      @series[:series] += ColumnChart.new(data, options, &block).mixed_series
+      bindings = eval("self", block.binding) if block_given?
+      @series[:series] += ColumnChart.new(bindings, data, options, &block).mixed_series
     end
 
     def scatter_chart data, options={}, &block
-      @series[:series] += ScatterChart.new(data, options, &block).mixed_series
+      bindings = eval("self", block.binding) if block_given?
+      @series[:series] += ScatterChart.new(bindings, data, options, &block).mixed_series
     end
 
     def render

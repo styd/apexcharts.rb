@@ -14,27 +14,32 @@ module Apexcharts
 
     def line_chart data, options={}, &block
       options[:id] = apexcharts_id
-      @html += LineChart.new(data, @options.merge(options), &block).render
+      bindings = eval("self", block.binding) if block_given?
+      @html += LineChart.new(bindings, data, @options.merge(options), &block).render
     end
 
     def area_chart data, options={}, &block
       options[:id] = apexcharts_id
-      @html += AreaChart.new(data, @options.merge(options), &block).render
+      bindings = eval("self", block.binding) if block_given?
+      @html += AreaChart.new(bindings, data, @options.merge(options), &block).render
     end
 
     def bar_chart data, options={}, &block
       options[:id] = apexcharts_id
-      @html += BarChart.new(data, @options.merge(options), &block).render
+      bindings = eval("self", block.binding) if block_given?
+      @html += BarChart.new(bindings, data, @options.merge(options), &block).render
     end
 
     def column_chart data, options={}, &block
       options[:id] = apexcharts_id
-      @html += ColumnChart.new(data, @options.merge(options), &block).render
+      bindings = eval("self", block.binding) if block_given?
+      @html += ColumnChart.new(bindings, data, @options.merge(options), &block).render
     end
 
     def scatter_chart data, options={}, &block
       options[:id] = apexcharts_id
-      @html += ScatterChart.new(data, @options.merge(options), &block).render
+      bindings = eval("self", block.binding) if block_given?
+      @html += ScatterChart.new(bindings, data, @options.merge(options), &block).render
     end
 
     def mixed_chart options={}, &block

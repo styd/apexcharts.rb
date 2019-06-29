@@ -1,14 +1,14 @@
 module Apexcharts
   module Annotations
-    def annotation(position, value:, text:, color: nil, **options)
+    def annotation(axis, value:, text:, color: nil, **options)
       @annotations ||= {}
 
-      unless [:xaxis, :yaxis, :points].include? position
-        raise "unrecognized position: #{position}"
+      unless [:xaxis, :yaxis, :points].include? axis
+        raise "unrecognized axis: #{axis}"
       end
-      @annotations[position] ||= []
-      @annotations[position] << annotation_value(position, value).merge(
-                                   if position == :points
+      @annotations[axis] ||= []
+      @annotations[axis] << annotation_value(axis, value).merge(
+                                   if axis == :points
                                      {marker: {size: 8, fillColor: 'white', strokeColor: color, radius: 2}, **options}
                                    else
                                      {borderColor: color, fillColor: color, opacity: 0.2}
@@ -32,27 +32,27 @@ module Apexcharts
 
   private
 
-    def annotation_value position, value
-      position = position.to_s.delete_suffix('axis').to_sym
+    def annotation_value axis, value
+      axis = axis.to_s.delete_suffix('axis').to_sym
       case value
       when Range
         value = Utils::DateTime.convert_range(value)
 
-        case position
+        case axis
         when :x
           {x: value.first, x2: value.last}
         when :y
           {y: value.first, y2: value.last}
         else
-          raise "position :points doesn't accept value of type Range"
+          raise "axis :points doesn't accept value of type Range"
         end
       else
-        if position == :points
+        if axis == :points
           value.map!{ |x| Utils::DateTime.convert(x) }
           {x: value.first, y: value.last}
         else
           value = Utils::DateTime.convert(value)
-          {position => value}
+          {axis => value}
         end
       end
     end

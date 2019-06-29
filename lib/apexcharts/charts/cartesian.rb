@@ -4,8 +4,11 @@ module Apexcharts
   class CartesianChart
     include Annotations
 
-    def initialize data, options={}, &block
+    def initialize bindings, data, options={}, &block
+      @bindings = bindings
       options = {**options, **more_options}
+      build_instance_variables if @bindings
+
       instance_eval &block if block_given?
 
       options[:annotations] = @annotations if @annotations
@@ -48,7 +51,21 @@ module Apexcharts
       HTML
     end
 
+    def method_missing method, *args, &block
+      if @bindings
+        @bindings.send method, *args, &block
+      else
+        super
+      end
+    end
+
   private
+
+    def build_instance_variables
+      (@bindings.instance_variables - instance_variables).each do |i|
+        instance_variable_set(i, @bindings.instance_variable_get(i))
+      end
+    end
 
     def sanitize_data(data)
       Apexcharts::CartesianSeries.new(data).sanitized
