@@ -1,5 +1,5 @@
 module Apexcharts
-  class SyncingChart
+  class SyncingCharts
     def initialize bindings, options={}, &block
       @bindings = bindings
       @html = ""
@@ -42,12 +42,12 @@ module Apexcharts
       @html += ScatterChart.new(bindings, data, @options.merge(options), &block).render
     end
 
-    def mixed_chart options={}, &block
+    def mixed_charts options={}, &block
       options[:id] = apexcharts_id
       bindings = eval "self", block.binding
-      @html += MixedChart.new(bindings, @options.merge(options), &block).render
+      @html += MixedCharts.new(bindings, @options.merge(options), &block).render
     end
-    alias_method :combo_chart, :mixed_chart
+    alias_method :combo_charts, :mixed_charts
 
     def render
       @html

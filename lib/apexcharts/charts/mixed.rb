@@ -1,5 +1,5 @@
 module Apexcharts
-  class MixedChart
+  class MixedCharts
     include Annotations
 
     def initialize bindings, options={}, &block

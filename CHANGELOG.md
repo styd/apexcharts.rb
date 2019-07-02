@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 ### Added
 - Changelog
+- Rename `mixed_chart`, `combo_chart`, `syncing_chart`, and 
+  `synchronized_chart` to `mixed_charts`, `combo_charts`, 
+  `syncing_charts`, and `synchronized_charts` respectively
+  as they should be
 
 
 ## [0.1.3] - 2019-06-29

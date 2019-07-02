@@ -37,7 +37,8 @@ and I'll get the data in this format:
   ..
 }
 ```
-PS: `Property` can be any model you have and `inactive` and `active` is just a normal scope.  
+PS: `Property` can be any model you have and `inactive` and `active` 
+are just some normal ActiveRecord scopes.  
 
 Example options used for cartesian charts:
 
@@ -100,9 +101,9 @@ Example options used for cartesian charts:
 ![Example Scatter Chart](images/scatter_chart.png)
 
 
-#### Mixed Chart
+#### Mixed Charts
 
-You can mix charts by using `mixed_chart` or `combo_chart` methods. For example:  
+You can mix charts by using `mixed_charts` or `combo_charts` methods. For example:  
 Given that:
 ```ruby
 @total_properties = Property.group_by_week(:created_at).count
@@ -115,21 +116,21 @@ and
 ```
 you can do this:
 ```erb
-<%= combo_chart({**options, theme: 'palette4', stacked: false, data_labels: false}) do %>
+<%= combo_charts({**options, theme: 'palette4', stacked: false, data_labels: false}) do %>
   <% line_chart(total_series) %>
   <% area_chart(series.last) %>
   <% column_chart(series.first) %>
 <% end %>
 ```
-![Example Mixed Chart](images/mixed_chart.gif)
+![Example Mixed Charts](images/mixed_charts.gif)
 
 
-#### Syncing Chart
+#### Syncing Charts
 
-You can synchronize charts by using `syncing_chart` or `synchronized_chart` methods. For example:
+You can synchronize charts by using `syncing_charts` or `synchronized_charts` methods. For example:
 ```erb
-<%= syncing_chart(chart: {toolbar: false}, height: 250, style: 'display: inline-block; width: 32%;') do %>
-  <% mixed_chart(theme: 'palette4', data_labels: false) do %>
+<%= syncing_charts(chart: {toolbar: false}, height: 250, style: 'display: inline-block; width: 32%;') do %>
+  <% mixed_charts(theme: 'palette4', data_labels: false) do %>
     <% line_chart({name: "Total", data: @total_properties}) %>
     <% area_chart({name: "Active", data: @active_properties}) %>
   <% end %>
@@ -137,7 +138,7 @@ You can synchronize charts by using `syncing_chart` or `synchronized_chart` meth
   <% line_chart({name: "Inactive", data: @active_properties}, theme: 'palette8') %>
 <% end %>
 ```
-![Example Syncing Chart](images/syncing_chart.gif)
+![Example Syncing Charts](images/syncing_charts.gif)
 
 
 #### Brush Chart
@@ -146,7 +147,7 @@ You can synchronize charts by using `syncing_chart` or `synchronized_chart` meth
 <%= area_chart(total_series, {
   **options, chart_id: 'the-chart', xtitle: nil, theme: 'palette2'
 }) %>
-<%= mixed_chart(brush_target: 'the-chart', theme: 'palette7') do %>
+<%= mixed_charts(brush_target: 'the-chart', theme: 'palette7') do %>
   <% column_chart(series.first) %>
   <% line_chart(series.last) %>
 <% end %>

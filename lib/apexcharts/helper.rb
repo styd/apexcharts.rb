@@ -30,17 +30,17 @@ module Apexcharts
       draw_chart(ScatterChart.new(bindings, *prepare_series_and_options(series, options), &block))
     end
 
-    def mixed_chart options={}, &block
+    def mixed_charts options={}, &block
       bindings = eval("self", block.binding)
-      draw_chart(MixedChart.new(bindings, deep_copy(options), &block))
+      draw_chart(MixedCharts.new(bindings, deep_copy(options), &block))
     end
-    alias_method :combo_chart, :mixed_chart
+    alias_method :combo_charts, :mixed_charts
 
-    def syncing_chart options={}, &block
+    def syncing_charts options={}, &block
       bindings = eval("self", block.binding)
-      draw_chart(SyncingChart.new(bindings, deep_copy(options), &block))
+      draw_chart(SyncingCharts.new(bindings, deep_copy(options), &block))
     end
-    alias_method :synchronized_chart, :syncing_chart
+    alias_method :synchronized_charts, :syncing_charts
 
     def pie_chart series, options={}
       draw_chart(PieChart.new(*prepare_series_and_options(series, options)))
