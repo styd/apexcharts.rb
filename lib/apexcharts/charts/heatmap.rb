@@ -1,15 +1,10 @@
 module Apexcharts
-  class HeatmapChart
+  class HeatmapChart < CartesianChart
     def chart_type
       'heatmap'
     end
 
-    def more_options
-      {
-        plot_options: {
-          heatmap: {}
-        }
-      }
+    def mixed_series
     end
   end
 end

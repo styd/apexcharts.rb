@@ -155,6 +155,22 @@ You can synchronize charts by using `syncing_charts` or `synchronized_charts` me
 ![Example Brush Chart](images/brush_chart.gif)
 
 
+#### Heatmap Chart
+
+```erb
+<% heatmap_series = 17.downto(10).map do |n|
+  {
+    name: "#{n}:00",
+    data: 15.times.map do |i|
+      ["W#{i+1}", rand(90)]
+    end.to_h
+  }
+end %>
+<%= heatmap_chart(heatmap_series) %>
+```
+![Example Heatmap Chart](images/heatmap_chart.png)
+
+
 #### Annotations
 
 All cartesian charts can have annotations, for example:
