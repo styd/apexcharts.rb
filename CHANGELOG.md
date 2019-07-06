@@ -6,7 +6,8 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Changelog
 - Heatmap Chart
-- Chart example
+- Bubble Chart
+- Chart examples
 
 ### Changed
 - `mixed_chart`, `combo_chart`, `syncing_chart`, and 
@@ -15,7 +16,7 @@ All notable changes to this project will be documented in this file.
   as they should be
 
 ### Fixed
-- Two points with same x value mergin into one
+- Two points with same x value merging into one
 
 
 ## [0.1.3] - 2019-06-29

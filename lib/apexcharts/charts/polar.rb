@@ -29,7 +29,7 @@ module Apexcharts
       HTML
     end
 
-  private
+  protected
 
     def sanitize_data(data)
       Apexcharts::PolarSeries.new(data).sanitized

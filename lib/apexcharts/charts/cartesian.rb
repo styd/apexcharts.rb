@@ -15,7 +15,7 @@ module Apexcharts
       @series = sanitize_data(data)
       @options = Utils::Hash.camelize_keys(
                    Utils::Hash.deep_merge(
-                     build_options(@series[:series][0][:data][0][:x], options),
+                     build_options(x_sample, options),
                      {**@series, chart: {type: chart_type}}.compact
                    )
                  )
@@ -59,7 +59,7 @@ module Apexcharts
       end
     end
 
-  private
+  protected
 
     def build_instance_variables
       (@bindings.instance_variables - instance_variables).each do |i|
@@ -95,6 +95,10 @@ module Apexcharts
 
     def handle_time(input)
       Utils::DateTime.convert(input)
+    end
+
+    def x_sample
+      @series[:series][0][:data][0][:x]
     end
   end
 end

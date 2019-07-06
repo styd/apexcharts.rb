@@ -35,6 +35,11 @@ module Apexcharts
       draw_chart(HeatmapChart.new(bindings, *prepare_series_and_options(series, options), &block))
     end
 
+    def bubble_chart series, options={}, &block
+      bindings = eval("self", block.binding) if block_given?
+      draw_chart(BubbleChart.new(bindings, *prepare_series_and_options(series, options), &block))
+    end
+
     def mixed_charts options={}, &block
       bindings = eval("self", block.binding)
       draw_chart(MixedCharts.new(bindings, deep_copy(options), &block))
