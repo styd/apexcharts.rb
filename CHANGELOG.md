@@ -14,6 +14,9 @@ All notable changes to this project will be documented in this file.
   `syncing_charts`, and `synchronized_charts` respectively
   as they should be
 
+### Fixed
+- Two points with same x value mergin into one
+
 
 ## [0.1.3] - 2019-06-29
 ### Added

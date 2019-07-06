@@ -4,25 +4,70 @@ module Apexcharts
 
     def initialize(data)
       data = deep_copy(data)
-      if data.is_a?(Array)
-        if (data.to_h rescue nil)
-          @sanitized = [data.to_h]
-        else
-          @sanitized = data.map(&:to_h)
-        end
-      else
-        @sanitized = [data]
-      end
+      @sanitized = case data
+                   when Array
+                     if array_of_pairs?(data)
+                       case first_data = data[0]
+                       when Array
+                         [
+                           {
+                             data: array_of_array_to_array_of_xy(data)
+                           }
+                         ]
 
-      unless sanitized[0][:data]
-        @sanitized = sanitized.map{|a| {data: a} }
-      end
+                       when Hash
+                         if first_data[:data]
+                           data.each{|h| h[:data] = array_of_array_to_array_of_xy(h[:data]) }
+                           data
+                         end
 
-      @sanitized = {series: sanitized.each {|a| a[:data] = a[:data].map{|k,v| {x: k, y: v} } } }
+                       end
+
+                     else
+                       data.map(&:to_h)
+
+                     end
+
+                   when Hash
+                     if data_value = data[:data]
+                       if array_of_pairs?(data_value)
+                         data[:data] = array_of_array_to_array_of_xy(data_value)
+                         [data]
+                       end
+
+                     else
+                       if data[:x] && data[:y]
+                         [{data: [data]}]
+
+                       else
+                         [
+                           {
+                             data: data.map do |k,v|
+                                     {x: k, y: v}
+                                   end
+                           }
+                         ]
+
+                       end
+
+                     end
+
+                   end
+
+      @sanitized = {series: @sanitized}
     end
 
     def deep_copy(data)
       Marshal.load(Marshal.dump(data))
+    end
+
+    def array_of_pairs?(data)
+      return false if data.empty?
+      data.all?{|d| d.length == 2 }
+    end
+
+    def array_of_array_to_array_of_xy(data)
+      data.map{|d| {x: d.first, y: d.last} }
     end
   end
 end
