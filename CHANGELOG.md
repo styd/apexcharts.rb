@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 
 ## [Unreleased]
+### Added
+- Data formats on README
+- HTML+ERB support on README
+
 ### Fixed
 - Array of hashes with key `data` as input not read correctly
 

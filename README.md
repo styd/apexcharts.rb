@@ -8,7 +8,6 @@
   <a href="https://rubygems.org/gems/apexcharts"><img src="https://badge.fury.io/rb/apexcharts.svg" alt="Gem Version" /></a>
 </p>
 
-
 ## Usage
 
 ### Cartesian Charts
@@ -37,8 +36,9 @@ and I'll get the data in this format:
   ..
 }
 ```
-PS: `Property` can be any model you have and `inactive` and `active` 
-are just some normal ActiveRecord scopes.  
+PS: `Property` can be any model you have and `inactive` and `active`
+are just some normal ActiveRecord scopes. Keep scrolling down to see
+accepted data format.  
 
 Example options used for cartesian charts:
 
@@ -155,7 +155,21 @@ You can synchronize charts by using `syncing_charts` or `synchronized_charts` me
 ![Example Brush Chart](images/brush_chart.gif)
 
 
-#### Heatmap Chart
+#### Annotations
+
+All cartesian charts can have annotations, for example:
+
+```erb
+<%= area_chart(series, {**options, theme: 'palette9'}) do %>
+  <% x_annotation(value: ('2019-01-06'..'2019-02-24'), text: "Busy Time", color: 'green') %>
+  <% y_annotation(value: 29, text: "Max Properties", color: 'blue') %>
+  <% point_annotation(value: ['2018-10-07', 24], text: "First Peak", color: 'magenta') %>
+<% end %>
+```
+![Example Area Chart with Annotations](images/chart_with_annotations.png)
+
+
+### Heatmap Chart
 
 ```erb
 <% heatmap_series = 17.downto(10).map do |n|
@@ -171,7 +185,7 @@ end %>
 ![Example Heatmap Chart](images/heatmap_chart.png)
 
 
-#### Bubble Chart
+### Bubble Chart
 
 ```erb
 <% bubble_series = (1..4).map do |n|
@@ -183,20 +197,6 @@ end %>
 <%= bubble_chart(bubble_series, data_labels: false, theme: 'palette6') %>
 ```
 ![Example Bubble Chart](images/bubble_chart.png)
-
-
-#### Annotations
-
-All cartesian charts can have annotations, for example:
-
-```erb
-<%= area_chart(series, {**options, theme: 'palette9'}) do %>
-  <% x_annotation(value: ('2019-01-06'..'2019-02-24'), text: "Busy Time", color: 'green') %>
-  <% y_annotation(value: 29, text: "Max Properties", color: 'blue') %>
-  <% point_annotation(value: ['2018-10-07', 24], text: "First Peak", color: 'magenta') %>
-<% end %>
-```
-![Example Area Chart with Annotations](images/chart_with_annotations.png)
 
 
 ### Polar Charts
@@ -236,10 +236,74 @@ Also called `circle_chart`.
 ![Example Circle Chart](images/radial_bar_chart.gif)
 
 
+## Data Formats
+
+### Cartesian Charts
+The data format for line, stepline, area, column, bar, and scatter
+charts should be in following format **per-series**:
+
+```ruby
+{
+  <x value> => <y value>,
+  <x value> => <y value>,
+  ...
+}
+```
+
+or this:
+
+```ruby
+[
+  [<x value>, <y value>],
+  [<x value>, <y value>],
+  ...
+]
+```
+
+### Heatmap Chart
+The data format for heatmap chart **per-series** is similar but instead
+of y values they are heat values. The series names will be the y values.
+
+```ruby
+{
+  <x value> => <heat value>,
+  <x value> => <heat value>,
+  ...
+}
+```
+
+or this:
+
+```ruby
+[
+  [<x value>, <heat value>],
+  [<x value>, <heat value>],
+  ...
+]
+```
+
+### Bubble Chart
+Bubble chart is similar to scatter chart, only they have one more value
+for bubble size:
+
+```ruby
+[
+  [<x value>, <bubble size>, <y value>],
+  [<x value>, <bubble size>, <y value>],
+  ...
+]
+```
+
+### Polar Charts
+The data format for donut, pie, and radial bar are the simplest. They are
+just any single value of type Numeric.
+
+
 ## Installation
 Add this line to your application's Gemfile:
 
 ```ruby
+gem 'groupdate' # optional
 gem 'apexcharts'
 ```
 
@@ -252,7 +316,6 @@ $ bundle
 ## Web Support
 
 ### Rails
-
 After installing the gem, require it in your `app/assets/javascripts/application.js`.
 ```js
 //= require 'apexcharts'
@@ -267,13 +330,19 @@ and then require it in your `app/javascript/packs/application.js`.
 require("apexcharts")
 ```
 
-## Objective
-- To bring out as much apexcharts.js capabilities as possible but in ruby ways.
+### HTML+ERB
+After installing the gem, insert this to the top of your .html.erb files:
+
+```html+erb
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<% require 'apexcharts' %>
+```
+
 
 ## TODOs
-- Other charts (radar, heatmap, candlestick, etc.)
+- Other charts (radar, candlestick, etc.)
 - Support other ruby frameworks (sinatra, hanami, etc.)
-- Render as Vue or React elements
+
 
 ## Contributing
 Everyone is encouraged to help improve this project by:
@@ -281,6 +350,8 @@ Everyone is encouraged to help improve this project by:
 - Fixing bugs and submiting pull requests
 - Fixing documentation
 - Suggesting new features
+- Implementing TODOs above
+
 
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
