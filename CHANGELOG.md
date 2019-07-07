@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 
 
+## [Unreleased]
+### Fixed
+- Array of hashes with key `data` as input not read correctly
+
+
 ## [0.1.4] - 2019-07-06
 ### Added
 - Changelog

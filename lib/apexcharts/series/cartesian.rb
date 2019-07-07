@@ -6,25 +6,19 @@ module Apexcharts
       data = deep_copy(data)
       @sanitized = case data
                    when Array
-                     if array_of_pairs?(data)
-                       case first_data = data[0]
-                       when Array
-                         [
-                           {
-                             data: array_of_array_to_array_of_xy(data)
-                           }
-                         ]
+                     case first_data = data[0]
+                     when Array
+                       [
+                         {
+                           data: array_of_array_to_array_of_xy(data)
+                         }
+                       ]
 
-                       when Hash
-                         if first_data[:data]
-                           data.each{|h| h[:data] = array_of_array_to_array_of_xy(h[:data]) }
-                           data
-                         end
-
+                     when Hash
+                       if first_data[:data]
+                         data.each{|h| h[:data] = array_of_array_to_array_of_xy(h[:data]) }
+                         data
                        end
-
-                     else
-                       data.map(&:to_h)
 
                      end
 
@@ -49,9 +43,7 @@ module Apexcharts
                          ]
 
                        end
-
                      end
-
                    end
 
       @sanitized = {series: @sanitized}
@@ -62,8 +54,7 @@ module Apexcharts
     end
 
     def array_of_pairs?(data)
-      return false if data.empty?
-      data.all?{|d| d.length == 2 }
+      !data.empty? && data.all?{|d| d.length == 2 }
     end
 
     def array_of_array_to_array_of_xy(data)
