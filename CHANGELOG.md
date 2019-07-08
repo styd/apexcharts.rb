@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Data formats on README
 - HTML+ERB support on README
+- BaseChart as a parent for Cartesian Chart and Polar Chart
 
 ### Fixed
 - Array of hashes with key `data` as input not read correctly

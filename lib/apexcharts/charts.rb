@@ -1,3 +1,4 @@
+require_relative 'charts/base'
 require_relative 'charts/cartesian'
 require_relative 'charts/line'
 require_relative 'charts/area'

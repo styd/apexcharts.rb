@@ -1,7 +1,7 @@
 require_relative 'features/annotations'
 
 module Apexcharts
-  class CartesianChart
+  class CartesianChart < BaseChart
     include Annotations
 
     def initialize bindings, data, options={}, &block
@@ -35,22 +35,6 @@ module Apexcharts
       @series[:series]
     end
 
-    def render
-      attributes = @options.delete(:div) { {} }
-      variable = attributes.delete(:var) { "chart#{attributes[:id]&.[](/\d+/)}" }
-      element_id = attributes.delete(:id)
-      css_class = attributes.delete(:class)
-      height = "#{@options[:chart][:height].to_i}px"
-      style = "height: #{height}; #{attributes.delete(:style)}"
-      html =<<~HTML
-        <div id="#{element_id}" class="#{css_class}" style="#{style}"></div>
-        <script type="text/javascript">
-          var #{variable} = new ApexCharts(document.querySelector("##{element_id}"), #{@options.to_json});
-          #{variable}.render();
-        </script>
-      HTML
-    end
-
     def method_missing method, *args, &block
       if @bindings
         @bindings.send method, *args, &block
@@ -69,10 +53,6 @@ module Apexcharts
 
     def sanitize_data(data)
       Apexcharts::CartesianSeries.new(data).sanitized
-    end
-
-    def build_options(x_sample, options)
-      Apexcharts::OptionsBuilder.new(x_sample, options).build_options
     end
 
     def brush?
@@ -95,10 +75,6 @@ module Apexcharts
 
     def handle_time(input)
       Utils::DateTime.convert(input)
-    end
-
-    def x_sample
-      @series[:series][0][:data][0][:x]
     end
   end
 end
