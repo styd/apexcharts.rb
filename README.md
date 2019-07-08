@@ -8,6 +8,14 @@
   <a href="https://rubygems.org/gems/apexcharts"><img src="https://badge.fury.io/rb/apexcharts.svg" alt="Gem Version" /></a>
 </p>
 
+
+## What is this?
+
+Apexcharts.rb is a ruby gem that wraps a js charting library called with the same name,
+[apexcharts.js](https://github.com/apexcharts/apexcharts.js), that's going to give you
+a beautiful and interactive charts for your ruby app.
+
+
 ## Usage
 
 ### Cartesian Charts
