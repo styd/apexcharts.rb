@@ -237,7 +237,7 @@ module Apexcharts
 
     def build_theme
       theme = @options.delete(:theme)
-      @built[:theme] = if theme.is_a?(String)
+      @built[:theme] = if theme.is_a? String
                          case theme
                          when 'random'
                            {palette: THEME_PALETTES.sample}
@@ -246,7 +246,7 @@ module Apexcharts
                          else
                            {palette: theme}
                          end
-                       elsif theme.is_a?(Hash)
+                       elsif theme.is_a? Hash
                          ThemeOptions.check theme.compact
                        end
     end
@@ -277,6 +277,9 @@ module Apexcharts
           text: @options.delete(:xtitle)
         }.compact
       }.compact
+      if @built[:xaxis][:title].empty?
+        @built[:xaxis].delete(:title)
+      end
 
       if xaxis.is_a? String
         @built[:xaxis][:title] = {text: xaxis}
@@ -294,6 +297,9 @@ module Apexcharts
           text: @options.delete(:ytitle)
         }.compact
       }.compact]
+      if @built[:yaxis][0][:title].empty?
+        @built[:yaxis][0].delete(:title)
+      end
 
       if yaxis.is_a? String
         @built[:yaxis][0][:title] = {text: yaxis}
