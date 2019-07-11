@@ -66,7 +66,7 @@ Example options used for cartesian charts:
 ```erb
 <%= line_chart(series, options) %>
 ```
-![Example Line Chart](images/line_chart.png)
+![Example Line Chart](images/line_chart.gif)
 
 
 #### Stepline Chart
@@ -74,7 +74,7 @@ Example options used for cartesian charts:
 ```erb
 <%= line_chart(series, {**options, theme: 'palette7', curve: 'stepline'}) %>
 ```
-![Example Stepline Chart](images/stepline_chart.png)
+![Example Stepline Chart](images/stepline_chart.gif)
 
 
 #### Area Chart
@@ -82,7 +82,7 @@ Example options used for cartesian charts:
 ```erb
 <%= area_chart(series, {**options, theme: 'palette5'}) %>
 ```
-![Example Area Chart](images/area_chart.png)
+![Example Area Chart](images/area_chart.gif)
 
 
 #### Column Chart
@@ -90,7 +90,7 @@ Example options used for cartesian charts:
 ```erb
 <%= column_chart(series, {**options, theme: 'palette4'}) %>
 ```
-![Example Column Chart](images/column_chart.png)
+![Example Column Chart](images/column_chart.gif)
 
 
 #### Bar Chart
@@ -98,7 +98,7 @@ Example options used for cartesian charts:
 ```erb
 <%= bar_chart(series, {**options, xtitle: 'Properties', ytitle: 'Week', height: 800, theme: 'palette7'}) %>
 ```
-![Example Bar Chart](images/bar_chart.png)
+![Example Bar Chart](images/bar_chart.gif)
 
 
 #### Scatter Chart
@@ -106,7 +106,7 @@ Example options used for cartesian charts:
 ```erb
 <%= scatter_chart(series, {**options, theme: 'palette3'}) %>
 ```
-![Example Scatter Chart](images/scatter_chart.png)
+![Example Scatter Chart](images/scatter_chart.gif)
 
 
 #### Mixed Charts
@@ -174,7 +174,7 @@ All cartesian charts can have annotations, for example:
   <% point_annotation(value: ['2018-10-07', 24], text: "First Peak", color: 'magenta') %>
 <% end %>
 ```
-![Example Area Chart with Annotations](images/chart_with_annotations.png)
+![Example Area Chart with Annotations](images/chart_with_annotations.gif)
 
 
 ### Heatmap Chart
