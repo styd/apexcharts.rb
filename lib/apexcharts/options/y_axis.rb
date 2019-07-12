@@ -3,13 +3,13 @@ require_relative 'axis'
 module Apexcharts
   class YAxisOptions < AxisOptions
     optional *%i[
-                  decimals_in_float  decimalsInFloat
-                  force_nice_scale   forceNiceScale
+                  decimalsInFloat
+                  forceNiceScale
                   logarithmic
                   opposite
-                  series_name        seriesName
+                  seriesName
                   show
-                  show_always        showAlways
+                  showAlways
                 ]
   end
 end

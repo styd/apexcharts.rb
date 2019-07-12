@@ -3,8 +3,8 @@ module Apexcharts
     optional *%i[
                   colors
                   curve
-                  dash_array  dashArray
-                  line_cap    lineCap
+                  dashArray
+                  lineCap
                   show
                   width
                 ]

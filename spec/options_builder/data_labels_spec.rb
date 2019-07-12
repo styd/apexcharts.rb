@@ -11,7 +11,7 @@ RSpec.describe '#build_data_labels' do
     {
       data_labels: {
         enabled: true,
-        dropShadow: {
+        drop_shadow: {
           enabled: false,
           top: 1,
           left: 1,
@@ -29,8 +29,22 @@ RSpec.describe '#build_data_labels' do
   }
   let(:expected_boolean_built) {
     {
-      data_labels: {
+      dataLabels: {
         enabled: true
+      }
+    }
+  }
+  let(:expected_hash_built) {
+    {
+      dataLabels: {
+        enabled: true,
+        dropShadow: {
+          enabled: false,
+          top: 1,
+          left: 1,
+          blur: 1,
+          opacity: 0.45
+        }
       }
     }
   }
@@ -43,9 +57,9 @@ RSpec.describe '#build_data_labels' do
   end
 
   context "hash data_labels" do
-    it 'keeps the hash intact' do
+    it 'only camelizes the hash' do
       hash_ob.build_data_labels
-      expect(hash_ob.built).to match(hash_including(hash_dl))
+      expect(hash_ob.built).to match(hash_including(expected_hash_built))
     end
   end
 end

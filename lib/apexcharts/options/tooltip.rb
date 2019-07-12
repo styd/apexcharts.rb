@@ -3,14 +3,14 @@ module Apexcharts
     optional *%i[
                   custom
                   enabled
-                  fill_series_color  fillSeriesColor
+                  fillSeriesColor
                   fixed
-                  follow_cursor      followCursor
+                  followCursor
                   intersect
-                  inverse_order      inverseOrder
+                  inverseOrder
                   items
                   marker
-                  on_dataset_hover   onDatasetHover
+                  onDatasetHover
                   shared
                   style
                   theme

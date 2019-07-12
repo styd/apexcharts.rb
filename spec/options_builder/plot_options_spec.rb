@@ -15,13 +15,26 @@ RSpec.describe '#build_plot_options' do
       }
     }
   }
+  let(:expected_plot_options_built) {
+    {
+      plotOptions: {
+        bar: {
+          horizontal: false,
+          columnWidth: '50%',
+          dataLabels: {
+            position: 'bottom'
+          }
+        }
+      }
+    }
+  }
   let(:hash_ob) {
     Apexcharts::OptionsBuilder.new(x_sample, plot_options)
   }
 
-  it 'keeps the value intact' do
+  it 'camelizes the hash' do
     hash_ob.build_plot_options
-    expect(hash_ob.built).to match(hash_including(plot_options))
+    expect(hash_ob.built).to match(hash_including(expected_plot_options_built))
   end
 end
 

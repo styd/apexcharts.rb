@@ -6,7 +6,7 @@ module Apexcharts
                   categories
                   position
                   range
-                  tick_placement  tickPlacement
+                  tickPlacement
                 ]
   end
 end

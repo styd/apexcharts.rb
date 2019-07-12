@@ -26,7 +26,7 @@ RSpec.describe '#build_chart' do
         id: "a-chart-id",
         animations: {enabled: true},
         background: "#ddd",
-        fore_color: "#fc9",
+        foreColor: "#fc9",
         group: "group-name",
         height: 350,
         width: 400,

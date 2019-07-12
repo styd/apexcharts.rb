@@ -5,7 +5,7 @@ module Apexcharts
                   candlestick
                   heatmap
                   pie
-                  radial_bar   radialBar
+                  radialBar
                 ]
   end
 end

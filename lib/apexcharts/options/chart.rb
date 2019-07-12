@@ -3,17 +3,17 @@ module Apexcharts
     optional *%i[ animations
                   background
                   brush
-                  default_locale  defaultLocale
-                  drop_shadow     dropShadow
+                  defaultLocale
+                  dropShadow
                   events
-                  font_family     fontFamily
-                  fore_color      foreColor
+                  fontFamily
+                  foreColor
                   height
                   id
                   locales
                   selection
                   sparkline
-                  stack_type      stackType
+                  stackType
                   stacked
                   toolbar
                   type

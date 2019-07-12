@@ -2,11 +2,11 @@ module Apexcharts
   class NoDataOptions < ::SmartKv
     optional *%i[
                   align
-                  offset_x        offsetX
-                  offset_y        offsetY
+                  offsetX
+                  offsetY
                   style
                   text
-                  vertical_align  verticalAlign
+                  verticalAlign
                 ]
   end
 end

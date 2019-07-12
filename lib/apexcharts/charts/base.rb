@@ -1,6 +1,6 @@
 module Apexcharts
   class BaseChart
-    attr_reader :series
+    attr_reader :options, :series
 
     def render
       Apexcharts::Renderer.render_default(options)

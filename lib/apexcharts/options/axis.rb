@@ -1,14 +1,14 @@
 module Apexcharts
   class AxisOptions < ::SmartKv
     optional *%i[
-                  axis_border  axisBorder
-                  axis_ticks   axisTicks
+                  axisBorder
+                  axisTicks
                   crosshairs
                   floating
                   labels
                   max
                   min
-                  tick_amount  tickAmount
+                  tickAmount
                   title
                   tooltip
                   type

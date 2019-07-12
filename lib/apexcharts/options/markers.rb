@@ -3,16 +3,16 @@ module Apexcharts
     optional *%i[
                   colors
                   discrete
-                  fill_opacity    fillOpacity
+                  fillOpacity
                   hover
-                  offset_x        offsetX
-                  offset_y        offsetY
+                  offsetX
+                  offsetY
                   radius
                   shape
                   size
-                  stroke_color    strokeColor
-                  stroke_opacity  strokeOpacity
-                  stroke_width    strokeWidth
+                  strokeColor
+                  strokeOpacity
+                  strokeWidth
                 ]
   end
 end

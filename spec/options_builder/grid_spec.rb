@@ -29,6 +29,15 @@ RSpec.describe '#build_grid' do
       }
     }
   }
+  let(:expected_hash_built) {
+    {
+      grid: {
+        show: true,
+        borderColor: 'blue',
+        position: 'front'
+      }
+    }
+  }
 
   context "boolean grid" do
     it 'adds show key with the boolean as the value' do
@@ -38,9 +47,9 @@ RSpec.describe '#build_grid' do
   end
 
   context "hash grid" do
-    it 'keeps the hash intact' do
+    it 'only camelizes the hash' do
       hash_ob.build_grid
-      expect(hash_ob.built).to match(hash_including(hash_grid))
+      expect(hash_ob.built).to match(hash_including(expected_hash_built))
     end
   end
 end

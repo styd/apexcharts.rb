@@ -23,8 +23,8 @@ module Apexcharts
     attr_reader :built
 
     def initialize(x_sample, options)
-      @options = options
-      if options[:plot_options]&.[](:bar)&.[](:horizontal)
+      @options = Utils::Hash.camelize_keys(options)
+      if options[:plotOptions]&.[](:bar)&.[](:horizontal)
         @ytype = Utils::DateTime.type(x_sample)
       else
         @xtype = Utils::DateTime.type(x_sample)
@@ -75,7 +75,7 @@ module Apexcharts
     end
 
     def build_chart
-      @built[:chart] = if target = @options.delete(:brush_target)
+      @built[:chart] = if target = @options.delete(:brushTarget)
                          {
                            brush: {
                              enabled: true,
@@ -90,7 +90,7 @@ module Apexcharts
                        end
 
       @built[:chart].merge!({
-        id: @options[:chart_id] || @options[:id],
+        id: @options[:chartId] || @options[:id],
         group: @options.delete(:group),
         height: @options.delete(:height) { target ? 180 : 400 },
         width: @options.delete(:width),
@@ -98,9 +98,7 @@ module Apexcharts
         animations: enabled(@options.delete(:animations)),
         sparkline: enabled(@options.delete(:sparkline)),
         background: @options.delete(:background),
-        fore_color: @options.delete(:fore_color) do
-                      @options.delete(:foreColor)
-                    end
+        foreColor: @options.delete(:foreColor)
       }.compact)
 
       chart = @options.delete :chart
@@ -110,11 +108,9 @@ module Apexcharts
     end
 
     def build_data_labels
-      data_labels = @options.delete :data_labels do
-                      @options.delete :dataLabels
-                    end
+      data_labels = @options.delete :dataLabels
       return if data_labels.nil?
-      @built[:data_labels] = if [true, false].include? data_labels
+      @built[:dataLabels] = if [true, false].include? data_labels
                                {enabled: data_labels}
                              elsif data_labels.is_a? Hash
                                DataLabelsOptions.check data_labels.compact
@@ -170,8 +166,8 @@ module Apexcharts
     end
 
     def build_no_data
-      no_data = @options.delete :no_data
-      @built[:no_data] = if no_data.is_a? String
+      no_data = @options.delete :noData
+      @built[:noData] = if no_data.is_a? String
                            {text: no_data}
                          elsif no_data.is_a? Hash
                            NoDataOptions.check no_data.compact
@@ -179,10 +175,8 @@ module Apexcharts
     end
 
     def build_plot_options
-      plot_options = @options.delete :plot_options do
-                       @options.delete :plotOptions
-                     end
-      @built[:plot_options] = if plot_options.is_a? Hash
+      plot_options = @options.delete :plotOptions
+      @built[:plotOptions] = if plot_options.is_a? Hash
                                 PlotOptions.check plot_options.compact
                               end
     end

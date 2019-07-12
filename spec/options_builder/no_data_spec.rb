@@ -24,8 +24,17 @@ RSpec.describe '#build_no_data' do
   }
   let(:expected_string_built) {
     {
-      no_data: {
+      noData: {
         text: 'Data not available'
+      }
+    }
+  }
+  let(:expected_hash_built) {
+    {
+      noData: {
+        text: 'You got no data',
+        align: 'left',
+        verticalAlign: 'top'
       }
     }
   }
@@ -38,9 +47,9 @@ RSpec.describe '#build_no_data' do
   end
 
   context "hash no_data" do
-    it 'keeps the hash intact' do
+    it 'only camelizes the hash' do
       hash_ob.build_no_data
-      expect(hash_ob.built).to match(hash_including(hash_no_data))
+      expect(hash_ob.built).to match(hash_including(expected_hash_built))
     end
   end
 end

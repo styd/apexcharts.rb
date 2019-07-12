@@ -1,5 +1,5 @@
 module Apexcharts
-  class MixedCharts
+  class MixedCharts < BaseChart
     include Annotations
 
     def initialize bindings, options={}, &block
@@ -11,9 +11,9 @@ module Apexcharts
       instance_eval &block
 
       options[:annotations] = @annotations if @annotations
-      @options = Utils::Hash.camelize_keys(
-                   Utils::Hash.deep_merge(
-                     build_options(@series[:series][0][:data][0][:x], options),
+      @options = Utils::Hash.deep_merge(
+                   build_options(x_sample, options),
+                   Utils::Hash.camelize_keys(
                      {chart: {type: 'area'}, **@series}
                    )
                  )
@@ -46,22 +46,6 @@ module Apexcharts
       @series[:series] += ScatterChart.new(bindings, data, options, &block).mixed_series
     end
 
-    def render
-      attributes = @options.delete(:div)
-      variable = attributes.delete(:var) || "chart#{attributes[:id][/\d+/]}"
-      element_id = attributes.delete(:id)
-      css_class = attributes.delete(:class)
-      height = "#{@options[:chart][:height].to_i}px"
-      style = "height: #{height};#{attributes.delete(:style)}"
-      html =<<~HTML
-        <div id="#{element_id}" class="#{css_class}" style="#{style}"></div>
-        <script type="text/javascript">
-          var #{variable} = new ApexCharts(document.querySelector("##{element_id}"), #{@options.to_json});
-          #{variable}.render();
-        </script>
-      HTML
-    end
-
     def method_missing method, *args, &block
       @bindings.send method, *args, &block
     end
@@ -72,10 +56,6 @@ module Apexcharts
       (@bindings.instance_variables - instance_variables).each do |i|
         instance_variable_set(i, @bindings.instance_variable_get(i))
       end
-    end
-
-    def build_options(x_sample, options)
-      Apexcharts::OptionsBuilder.new(x_sample, options).build_options
     end
 
     def brush?

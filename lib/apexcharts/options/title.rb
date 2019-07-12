@@ -4,8 +4,8 @@ module Apexcharts
                   align
                   floating
                   margin
-                  offset_x  offsetX
-                  offset_y  offsetY
+                  offsetX
+                  offsetY
                   style
                   text
                 ]

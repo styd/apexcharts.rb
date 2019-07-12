@@ -7,19 +7,19 @@ module Apexcharts
   class RootOptions < ::SmartKv
     optional *%i[
                   annotations
-                  brush_target
+                  brushTarget
                   chart
-                  chart_id
+                  chartId
                   colors
-                  data_labels   dataLabels
+                  dataLabels
                   fill
                   grid
                   group
                   labels
                   legend
                   markers
-                  no_data       noData
-                  plot_options  plotOptions
+                  noData
+                  plotOptions
                   responsive
                   series
                   states

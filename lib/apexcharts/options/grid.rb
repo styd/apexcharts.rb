@@ -1,13 +1,13 @@
 module Apexcharts
   class GridOptions < ::SmartKv
     optional *%i[
-                  border_color       borderColor
+                  borderColor
                   column
                   padding
                   position
                   row
                   show
-                  stroke_dash_array  strokeDashArray
+                  strokeDashArray
                   xaxis
                   yaxis
                 ]

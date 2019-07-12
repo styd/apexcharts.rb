@@ -32,6 +32,18 @@ RSpec.describe '#build_markers' do
       }
     }
   }
+  let(:expected_hash_built) {
+    {
+      markers: {
+        size: 4,
+        strokeWidth: 2,
+        radius: 3,
+        hover: {
+          size: 5
+        }
+      }
+    }
+  }
 
   context "string markers" do
     it 'adds shape key with the string as the value' do
@@ -41,9 +53,9 @@ RSpec.describe '#build_markers' do
   end
 
   context "hash markers" do
-    it 'keeps the hash intact' do
+    it 'only camelizes the hash' do
       hash_ob.build_markers
-      expect(hash_ob.built).to match(hash_including(hash_markers))
+      expect(hash_ob.built).to match(hash_including(expected_hash_built))
     end
   end
 end
