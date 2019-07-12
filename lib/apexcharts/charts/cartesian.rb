@@ -6,7 +6,8 @@ module Apexcharts
 
     def initialize bindings, data, options={}, &block
       @bindings = bindings
-      options = {**options, **more_options}
+      options = Utils::Hash.deep_merge(Utils::Hash.camelize_keys(options), Utils::Hash.camelize_keys(more_options))
+
       build_instance_variables if @bindings
 
       instance_eval &block if block_given?
