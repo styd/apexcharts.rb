@@ -11,6 +11,9 @@ All notable changes to this project will be documented in this file.
 
 ### Fixed
 - Array of hashes with key `data` as input not read correctly
+- `plot_options` not deeply merged on bar and column chart when
+  `options` contains `plot_options`
+- Undefined method `to_json` for `options` when not using Rails
 
 
 ## [0.1.4] - 2019-07-06
