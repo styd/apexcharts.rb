@@ -29,5 +29,21 @@ RSpec.describe Apexcharts::ColumnChart do
       ]
     )
   end
+
+  it 'merged options and more_options correctly' do
+    options = { plotOptions: { bar: { dataLabels: { position: "top" } } } }
+    chart = described_class.new(bindings, data, options)
+
+    expect(chart.instance_variable_get(:@options)[:plotOptions]).to eq(
+      {
+        bar: {
+          dataLabels: {
+            position: "top"
+          },
+          horizontal: false
+        }
+      }
+    )
+  end
 end
 
