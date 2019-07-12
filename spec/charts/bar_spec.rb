@@ -1,20 +1,22 @@
 require 'spec_helper'
 
-RSpec.describe Apexcharts::ColumnChart do
+RSpec.describe Apexcharts::BarChart do
   let(:bindings) { nil }
   let(:data) {
     [[100, 1], [200, 2]]
   }
   let(:options) { {} }
+  let(:chart) {
+    described_class.new(bindings, data, options)
+  }
 
   it 'assigned properties correctly' do
-    chart = described_class.new(bindings, data, options)
     expect(chart.chart_type).to eq('bar')
     expect(chart.more_options).to eq(
       {
         plot_options: {
           bar: {
-            horizontal: false
+            horizontal: true
           }
         }
       }
@@ -30,20 +32,31 @@ RSpec.describe Apexcharts::ColumnChart do
     )
   end
 
-  it 'merged options and more_options correctly' do
-    options = { plotOptions: { bar: { dataLabels: { position: "top" } } } }
-    chart = described_class.new(bindings, data, options)
-
-    expect(chart.instance_variable_get(:@options)[:plotOptions]).to eq(
+  context 'when options specifed is intertwined with more options' do
+    let(:options) {
       {
-        bar: {
-          dataLabels: {
-            position: "top"
-          },
-          horizontal: false
+        plot_options: {
+          bar: {
+            data_labels: {
+              position: "top"
+            }
+          }
         }
       }
-    )
+    }
+
+    it 'merged options and more_options correctly' do
+      expect(chart.options[:plotOptions]).to eq(
+        {
+          bar: {
+            dataLabels: {
+              position: "top"
+            },
+            horizontal: true
+          }
+        }
+      )
+    end
   end
 end
 

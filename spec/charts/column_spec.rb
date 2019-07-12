@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Apexcharts::BarChart do
+RSpec.describe Apexcharts::ColumnChart do
   let(:bindings) { nil }
   let(:data) {
     [[100, 1], [200, 2]]
@@ -14,7 +14,7 @@ RSpec.describe Apexcharts::BarChart do
       {
         plot_options: {
           bar: {
-            horizontal: true
+            horizontal: false
           }
         }
       }

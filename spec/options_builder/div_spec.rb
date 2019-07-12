@@ -24,7 +24,7 @@ RSpec.describe '#build_div' do
     }
   }
 
-  it 'extract chart related key-values' do
+  it 'extract div related key-values' do
     ob.build_div
     expect(ob.built).to match(hash_including(expected_built))
   end
