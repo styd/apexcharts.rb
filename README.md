@@ -11,9 +11,9 @@
 
 ## What is this?
 
-Apexcharts.rb is a ruby gem that wraps a js charting library called with the same name,
+Apexcharts.rb is a ruby gem that wraps a JavaScript charting library called with the same name,
 [apexcharts.js](https://github.com/apexcharts/apexcharts.js), that's going to give you
-a beautiful and interactive charts for your ruby app.
+a beautiful, interactive, and responsive charts for your ruby app.
 
 
 ## Usage
@@ -46,7 +46,7 @@ and I'll get the data in this format:
 ```
 PS: `Property` can be any model you have and `inactive` and `active`
 are just some normal ActiveRecord scopes. Keep scrolling down to see
-accepted data format.  
+accepted data formats.  
 
 Example options used for cartesian charts:
 
