@@ -1,6 +1,7 @@
 require_relative 'series'
 require_relative 'options_builder'
 require_relative 'utils'
+require_relative 'renderer'
 require_relative 'charts'
 
 module Apexcharts

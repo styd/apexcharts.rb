@@ -1,19 +1,9 @@
 module Apexcharts
   class BaseChart
+    attr_reader :series
+
     def render
-      attributes = @options.delete(:div) { {} }
-      variable = attributes.delete(:var) { "chart#{attributes[:id]&.[](/\d+/)}" }
-      element_id = attributes.delete(:id)
-      css_class = attributes.delete(:class)
-      height = "#{@options[:chart][:height].to_i}px"
-      style = "height: #{height}; #{attributes.delete(:style)}"
-      html =<<~HTML
-        <div id="#{element_id}" class="#{css_class}" style="#{style}"></div>
-        <script type="text/javascript">
-          var #{variable} = new ApexCharts(document.querySelector("##{element_id}"), #{@options.to_json});
-          #{variable}.render();
-        </script>
-      HTML
+      Apexcharts::Renderer.render_default(options)
     end
 
   protected
@@ -23,7 +13,7 @@ module Apexcharts
     end
 
     def x_sample
-      @series[:series][0][:data][0][:x]
+      series[:series][0][:data][0][:x]
     end
   end
 end
