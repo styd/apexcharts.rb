@@ -41,6 +41,10 @@ module Apexcharts
       draw_chart(BubbleChart.new(bindings, *prepare_series_and_options(series, options), &block))
     end
 
+    def radar_chart series, options={}
+      draw_chart(RadarChart.new(nil, *prepare_series_and_options(series, options)))
+    end
+
     def mixed_charts options={}, &block
       bindings = eval("self", block.binding)
       draw_chart(MixedCharts.new(bindings, deep_copy(options), &block))

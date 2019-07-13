@@ -193,6 +193,31 @@ end %>
 ![Example Heatmap Chart](images/heatmap_chart.png)
 
 
+### Radar Chart
+
+```erb
+<% radar_series = [
+  {
+    name: "What it should be",
+    data: { "Code review"=>10, "Issues"=>5, "Pull request"=>25, "Commits"=>60 }
+  },
+  {
+    name: "What it really is",
+    data: { "Code review"=>1, "Issues"=>3, "Pull request"=>7, "Commits"=>89 }
+  }
+] %>
+<%= radar_chart(
+  radar_series,
+  {
+    title: "GitHub Radar",
+    markers: { size: 4 },
+    theme: 'palette4'
+  }
+) %>
+```
+![Example Radar Chart](images/radar_chart.gif)
+
+
 ### Bubble Chart
 
 ```erb
@@ -225,7 +250,7 @@ end %>
 #### Donut Chart
 
 ```erb
-<%= donut_chart([25, 100, 200, 125], theme: 'palette4' %>
+<%= donut_chart([25, 100, 200, 125], theme: 'palette4') %>
 ```
 ![Example Pie Chart](images/donut_chart.gif)
 
@@ -289,6 +314,30 @@ or this:
   ...
 ]
 ```
+
+### Radar Chart
+The data format for radar chart **per-series** is also similar but instead
+of x values they are variables and instead of y values they are the only
+values for the variables with type of Numeric.
+
+```ruby
+{
+  <variable> => <value>,
+  <variable> => <value>,
+  ...
+}
+```
+
+or this:
+
+```ruby
+[
+  [<variable>, <value>],
+  [<variable>, <value>],
+  ...
+]
+```
+
 
 ### Bubble Chart
 Bubble chart is similar to scatter chart, only they have one more value

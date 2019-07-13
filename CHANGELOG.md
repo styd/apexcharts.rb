@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 - OptionsBuilder tests for x and y axes
 - Option `parentHeightOffset` for `chart`
 - Option `radar` for `plot_options`
+- Radar chart
 
 ### Fixed
 - Array of hashes with key `data` as input not read correctly

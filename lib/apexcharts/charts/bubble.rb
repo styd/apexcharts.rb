@@ -14,7 +14,7 @@ module Apexcharts
     end
 
     def x_sample
-      @series[:series][0][:data][0][0]
+      series[:series][0][:data][0][0]
     end
   end
 end
