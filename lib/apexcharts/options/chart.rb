@@ -1,6 +1,7 @@
 module Apexcharts
   class ChartOptions < ::SmartKv
-    optional *%i[ animations
+    optional *%i[
+                  animations
                   background
                   brush
                   defaultLocale
@@ -11,6 +12,7 @@ module Apexcharts
                   height
                   id
                   locales
+                  parentHeightOffset
                   selection
                   sparkline
                   stackType

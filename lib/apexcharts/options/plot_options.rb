@@ -5,6 +5,7 @@ module Apexcharts
                   candlestick
                   heatmap
                   pie
+                  radar
                   radialBar
                 ]
   end
