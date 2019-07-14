@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Apexcharts
   class HeatmapChart < CartesianChart
     def chart_type
