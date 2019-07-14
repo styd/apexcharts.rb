@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Apexcharts
   class Engine < ::Rails::Engine
     initializer "helper" do |app|
