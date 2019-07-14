@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Apexcharts
   class MixedCharts < BaseChart
     include Annotations

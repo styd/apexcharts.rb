@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'smart_kv'
 require_relative 'options/root'
 require_relative 'options/annotations'

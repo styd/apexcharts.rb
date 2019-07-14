@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'charts/base'
 require_relative 'charts/cartesian'
 require_relative 'charts/line'

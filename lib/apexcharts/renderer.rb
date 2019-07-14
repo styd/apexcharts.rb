@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'json' unless defined? JSON
 
 class Apexcharts::Renderer
