@@ -54,7 +54,7 @@ RSpec.describe Apexcharts::Utils::Hash do
   end
 
   context ".camelize_keys" do
-    it "camelizes keys of a hash" do
+    it "camelizes keys of the hash" do
       expect(described_class.camelize_keys(
         {
           check_this_out: {
@@ -68,6 +68,28 @@ RSpec.describe Apexcharts::Utils::Hash do
           }
         }
       )
+    end
+
+    context "when the value is an array containing hash" do
+      it "also camelizes keys of the hash inside array" do
+        expect(described_class.camelize_keys(
+          {
+            check_this_out: [
+              {
+                "this_is_great" => "cool"
+              }
+            ]
+          }
+        )).to eq(
+          {
+            checkThisOut: [
+              {
+                thisIsGreat: "cool"
+              }
+            ]
+          }
+        )
+      end
     end
   end
 end
