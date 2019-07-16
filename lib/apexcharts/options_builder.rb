@@ -139,12 +139,8 @@ module Apexcharts
 
     def build_labels
       labels = @options.delete :labels
-      @built[:labels] = if labels.nil?
-                        elsif labels.is_a? Array
-                          labels
-                        else
-                          [labels]
-                        end
+      labels &&= Array(labels)
+      @built[:labels] = labels
     end
 
     def build_legend
@@ -185,12 +181,8 @@ module Apexcharts
 
     def build_responsive
       responsive = @options.delete :responsive
-      @built[:responsive] = if responsive.nil?
-                            elsif responsive.is_a? Array
-                              responsive
-                            else
-                              [responsive]
-                            end
+      responsive &&= responsive.is_a?(Hash) ? [responsive] : Array(responsive)
+      @built[:responsive] = responsive
     end
 
     def build_states
