@@ -1,6 +1,8 @@
 module Apexcharts
   module Utils
     module Hash
+      module_function
+
       def deep_merge(first_hash, second_hash)
         first_hash.merge(second_hash) do |key, this_val, other_val|
           if this_val.is_a?(::Hash) && other_val.is_a?(::Hash)
@@ -10,21 +12,21 @@ module Apexcharts
           end
         end
       end
-      module_function :deep_merge
 
       def camelize(key)
         key.to_s.gsub(/_(.)/) {|m| m[1].upcase }.to_sym
       end
-      module_function :camelize
 
       def camelize_keys(value)
-        if value.is_a? ::Hash
+        case value
+        when ::Hash
           ::Hash[value.map {|k, v| [camelize(k), camelize_keys(v)] }]
+        when Array
+          value.map {|e| camelize_keys(e) }
         else
           value
         end
       end
-      module_function :camelize_keys
     end
   end
 end
