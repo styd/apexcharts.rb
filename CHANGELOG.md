@@ -12,6 +12,9 @@ All notable changes to this project will be documented in this file.
 - Option `radar` for `plot_options`
 - Radar chart
 
+### Changed
+- Gem summary and description
+
 ### Fixed
 - Array of hashes with key `data` as input not read correctly
 - `plot_options` not deeply merged on bar and column chart when
