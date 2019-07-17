@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 - Data formats on README
 - HTML+ERB support on README
 - BaseChart as a parent for Cartesian Chart and Polar Chart
-- OptionsBuilder tests for x and y axes
+- Tests for OptionsBuilder
 - Option `parentHeightOffset` for `chart`
 - Option `radar` for `plot_options`
 - Radar chart
