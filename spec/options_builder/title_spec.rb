@@ -1,52 +1,51 @@
 require 'spec_helper'
 
-RSpec.describe '#build_no_data' do
+RSpec.describe '#build_title' do
   let(:x_sample) { nil }
   let(:ob) {
     Apexcharts::OptionsBuilder.new(x_sample, options)
   }
 
-  context "string no_data" do
+  context "string title" do
     let(:options) {
       {
-        no_data: 'Data not available'
+        title: 'Which title?'
       }
     }
     let(:expected_built) {
       {
-        noData: {
-          text: 'Data not available'
+        title: {
+          text: "Which title?"
         }
       }
     }
+
     it 'adds shape key with the string as the value' do
-      ob.build_no_data
+      ob.build_title
       expect(ob.built).to match(hash_including(expected_built))
     end
   end
 
-  context "hash no_data" do
+  context "hash title" do
     let(:options) {
       {
-        no_data: {
-          text: 'You got no data',
-          align: 'left',
-          vertical_align: 'top'
+        title: {
+          text: "This title.",
+          offset_x: 10
         }
       }
     }
     let(:expected_built) {
       {
-        noData: {
-          text: 'You got no data',
-          align: 'left',
-          verticalAlign: 'top'
+        title: {
+          text: "This title.",
+          offsetX: 10
         }
       }
     }
 
     it 'only camelizes the hash' do
-      ob.build_no_data
+      ob.build_title
       expect(ob.built).to match(hash_including(expected_built))
     end
   end

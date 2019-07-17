@@ -2,60 +2,58 @@ require 'spec_helper'
 
 RSpec.describe '#build_markers' do
   let(:x_sample) { nil }
-  let(:string_markers) {
-    {
-      markers: 'square'
-    }
-  }
-  let(:hash_markers) {
-    {
-      markers: {
-        size: 4,
-        stroke_width: 2,
-        radius: 3,
-        hover: {
-          size: 5
-        }
-      }
-    }
-  }
-  let(:string_ob) {
-    Apexcharts::OptionsBuilder.new(x_sample, string_markers)
-  }
-  let(:hash_ob) {
-    Apexcharts::OptionsBuilder.new(x_sample, hash_markers)
-  }
-  let(:expected_string_built) {
-    {
-      markers: {
-        shape: 'square'
-      }
-    }
-  }
-  let(:expected_hash_built) {
-    {
-      markers: {
-        size: 4,
-        strokeWidth: 2,
-        radius: 3,
-        hover: {
-          size: 5
-        }
-      }
-    }
+  let(:ob) {
+    Apexcharts::OptionsBuilder.new(x_sample, options)
   }
 
   context "string markers" do
+    let(:options) {
+      {
+        markers: 'square'
+      }
+    }
+    let(:expected_built) {
+      {
+        markers: {
+          shape: 'square'
+        }
+      }
+    }
+
     it 'adds shape key with the string as the value' do
-      string_ob.build_markers
-      expect(string_ob.built).to match(hash_including(expected_string_built))
+      ob.build_markers
+      expect(ob.built).to match(hash_including(expected_built))
     end
   end
 
   context "hash markers" do
+    let(:options) {
+      {
+        markers: {
+          size: 4,
+          stroke_width: 2,
+          radius: 3,
+          hover: {
+            size: 5
+          }
+        }
+      }
+    }
+    let(:expected_built) {
+      {
+        markers: {
+          size: 4,
+          strokeWidth: 2,
+          radius: 3,
+          hover: {
+            size: 5
+          }
+        }
+      }
+    }
     it 'only camelizes the hash' do
-      hash_ob.build_markers
-      expect(hash_ob.built).to match(hash_including(expected_hash_built))
+      ob.build_markers
+      expect(ob.built).to match(hash_including(expected_built))
     end
   end
 end

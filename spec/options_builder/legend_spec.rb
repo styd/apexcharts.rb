@@ -2,71 +2,68 @@ require 'spec_helper'
 
 RSpec.describe '#build_legend' do
   let(:x_sample) { nil }
-  let(:boolean_legend) {
-    {
-      legend: true
-    }
+  let(:ob) {
+    Apexcharts::OptionsBuilder.new(x_sample, options)
   }
-  let(:string_legend) {
-    {
-      legend: 'top'
+
+  context "boolean legend" do
+    let(:options) {
+      {
+        legend: true
+      }
     }
-  }
-  let(:hash_legend) {
-    {
-      legend: {
-        show: true,
-        floating: true,
-        markers: {
-          width: 10,
-          height: 10
+    let(:expected_built) {
+      {
+        legend: {
+          show: true
         }
       }
     }
-  }
-  let(:boolean_ob) {
-    Apexcharts::OptionsBuilder.new(x_sample, boolean_legend)
-  }
-  let(:string_ob) {
-    Apexcharts::OptionsBuilder.new(x_sample, string_legend)
-  }
-  let(:hash_ob) {
-    Apexcharts::OptionsBuilder.new(x_sample, hash_legend)
-  }
-  let(:expected_boolean_built) {
-    {
-      legend: {
-        show: true
-      }
-    }
-  }
-  let(:expected_string_built) {
-    {
-      legend: {
-        show: true,
-        position: 'top'
-      }
-    }
-  }
 
-  context "boolean legend" do
     it 'adds show key with the boolean as the value' do
-      boolean_ob.build_legend
-      expect(boolean_ob.built).to match(hash_including(expected_boolean_built))
+      ob.build_legend
+      expect(ob.built).to match(hash_including(expected_built))
     end
   end
 
-  context "boolean legend" do
+  context "string legend" do
+    let(:options) {
+      {
+        legend: 'top'
+      }
+    }
+    let(:expected_built) {
+      {
+        legend: {
+          show: true,
+          position: 'top'
+        }
+      }
+    }
+
     it 'adds show key with value true and position key with the string as the value' do
-      string_ob.build_legend
-      expect(string_ob.built).to match(hash_including(expected_string_built))
+      ob.build_legend
+      expect(ob.built).to match(hash_including(expected_built))
     end
   end
 
   context "hash legend" do
+    let(:options) {
+      {
+        legend: {
+          show: true,
+          floating: true,
+          markers: {
+            width: 10,
+            height: 10
+          }
+        }
+      }
+    }
+
     it 'keeps the hash intact' do
-      hash_ob.build_legend
-      expect(hash_ob.built).to match(hash_including(hash_legend))
+      ob.build_legend
+      expect(ob.built).to match(hash_including(options))
     end
   end
 end
