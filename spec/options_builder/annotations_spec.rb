@@ -23,7 +23,7 @@ RSpec.describe '#build_annotations' do
     }
   }
   let(:ob) {
-    Apexcharts::OptionsBuilder.new(x_sample, options)
+    ApexCharts::OptionsBuilder.new(x_sample, options)
   }
   let(:expected_built) {
     {

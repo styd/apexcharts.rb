@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Apexcharts::RadarChart do
+RSpec.describe ApexCharts::RadarChart do
   let(:data) {
     [[100, 1], [200, 2], [300, 3]]
   }

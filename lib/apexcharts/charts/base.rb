@@ -1,4 +1,4 @@
-module Apexcharts
+module ApexCharts
   class BaseChart
     attr_reader :options, :series
 
@@ -13,7 +13,7 @@ module Apexcharts
     end
 
     def render
-      Apexcharts::Renderer.render_default(options)
+      ApexCharts::Renderer.render_default(options)
     end
 
     def chart_type
@@ -22,7 +22,7 @@ module Apexcharts
   protected
 
     def build_options(x_sample, options)
-      Apexcharts::OptionsBuilder.new(x_sample, options).build_options
+      ApexCharts::OptionsBuilder.new(x_sample, options).build_options
     end
 
     def x_sample

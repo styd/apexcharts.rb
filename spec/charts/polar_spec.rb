@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Apexcharts::PolarChart do
+RSpec.describe ApexCharts::PolarChart do
   let(:data) {
     [
       {name: "Series A", data: 25},

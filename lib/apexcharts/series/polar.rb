@@ -1,4 +1,4 @@
-module Apexcharts
+module ApexCharts
   class PolarSeries
     attr_reader :sanitized
 

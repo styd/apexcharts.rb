@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Apexcharts::CandlestickChart do
+RSpec.describe ApexCharts::CandlestickChart do
   let(:bindings) { nil }
   let(:data) {
     [[100, 1], [200, 2]]

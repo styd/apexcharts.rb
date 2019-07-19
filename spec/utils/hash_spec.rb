@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Apexcharts::Utils::Hash do
+RSpec.describe ApexCharts::Utils::Hash do
   context ".deep_merge" do
     let(:hash_a) {
       {

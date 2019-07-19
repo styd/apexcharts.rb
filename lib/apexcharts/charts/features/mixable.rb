@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Apexcharts
+module ApexCharts
   module Mixable
     def mixed_series
       series[:series].each{|d| d.merge!(type: chart_type) }

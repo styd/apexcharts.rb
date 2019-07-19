@@ -1,4 +1,4 @@
-module Apexcharts
+module ApexCharts
   class AxisOptions < ::SmartKv
     optional *%i[
                   axisBorder

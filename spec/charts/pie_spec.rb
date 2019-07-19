@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Apexcharts::PieChart do
+RSpec.describe ApexCharts::PieChart do
   let(:data) {
     [
       {name: "Series A", data: 25},

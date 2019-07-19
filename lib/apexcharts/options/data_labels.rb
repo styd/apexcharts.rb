@@ -1,4 +1,4 @@
-module Apexcharts
+module ApexCharts
   class DataLabelsOptions < ::SmartKv
     optional *%i[
                   dropShadow

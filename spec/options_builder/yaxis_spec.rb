@@ -3,7 +3,7 @@ require 'spec_helper'
 RSpec.describe '#build_yaxis' do
   let(:x_sample) { nil }
   let(:ob) {
-    Apexcharts::OptionsBuilder.new(x_sample, options)
+    ApexCharts::OptionsBuilder.new(x_sample, options)
   }
 
   context 'yaxis is a string' do

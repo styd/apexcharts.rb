@@ -1,4 +1,4 @@
-module Apexcharts
+module ApexCharts
   class StrokeOptions < ::SmartKv
     optional *%i[
                   colors

@@ -11,7 +11,7 @@
 
 ## What is this?
 
-Apexcharts.rb is a ruby gem that wraps a JavaScript charting library called with the same name,
+ApexCharts.rb is a ruby gem that wraps a JavaScript charting library called with the same name,
 [apexcharts.js](https://github.com/apexcharts/apexcharts.js), that's going to give you
 a beautiful, interactive, and responsive charts for your ruby app.
 

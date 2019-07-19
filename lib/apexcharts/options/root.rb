@@ -3,7 +3,7 @@ require_relative 'chart'
 require_relative 'stroke'
 require_relative 'states'
 
-module Apexcharts
+module ApexCharts
   class RootOptions < ::SmartKv
     optional *%i[
                   annotations

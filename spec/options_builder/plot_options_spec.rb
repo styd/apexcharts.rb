@@ -29,7 +29,7 @@ RSpec.describe '#build_plot_options' do
     }
   }
   let(:hash_ob) {
-    Apexcharts::OptionsBuilder.new(x_sample, plot_options)
+    ApexCharts::OptionsBuilder.new(x_sample, plot_options)
   }
 
   it 'camelizes the hash' do

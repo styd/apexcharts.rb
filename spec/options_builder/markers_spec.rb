@@ -3,7 +3,7 @@ require 'spec_helper'
 RSpec.describe '#build_markers' do
   let(:x_sample) { nil }
   let(:ob) {
-    Apexcharts::OptionsBuilder.new(x_sample, options)
+    ApexCharts::OptionsBuilder.new(x_sample, options)
   }
 
   context "string markers" do

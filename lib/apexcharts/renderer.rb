@@ -2,7 +2,7 @@
 
 require 'json' unless defined? JSON
 
-class Apexcharts::Renderer
+class ApexCharts::Renderer
   def self.render_default(options)
     attributes = options.delete(:div) { {} }
     variable = attributes.delete(:var) { "chart#{attributes[:id]&.[](/\d+/)}" }

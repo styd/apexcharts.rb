@@ -1,4 +1,4 @@
-module Apexcharts
+module ApexCharts
   class CartesianSeries
     attr_reader :sanitized
 

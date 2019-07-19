@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Apexcharts::AreaChart do
+RSpec.describe ApexCharts::AreaChart do
   let(:bindings) { nil }
   let(:data) {
     [[100, 1], [200, 2]]
