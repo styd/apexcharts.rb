@@ -1,4 +1,4 @@
-module Apexcharts
+module ApexCharts
   class StatesOptions < ::SmartKv
     optional *%i[
                   active

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Apexcharts::PolarSeries do
+RSpec.describe ApexCharts::PolarSeries do
   context 'when input is a raw data' do
     let(:data1) {
       [25, 100, 200, 125]

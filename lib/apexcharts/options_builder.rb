@@ -17,7 +17,7 @@ require_relative 'options/tooltip'
 require_relative 'options/x_axis'
 require_relative 'options/y_axis'
 
-module Apexcharts
+module ApexCharts
   class OptionsBuilder
     THEME_PALETTES = ["palette1", "palette2", "palette3", "palette4", "palette5", 
                       "palette6", "palette7", "palette8", "palette9", "palette10"]

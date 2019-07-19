@@ -1,4 +1,4 @@
-module Apexcharts
+module ApexCharts
   class BubbleSeries
     attr_reader :sanitized
 

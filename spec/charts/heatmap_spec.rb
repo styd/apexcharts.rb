@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Apexcharts::HeatmapChart do
+RSpec.describe ApexCharts::HeatmapChart do
   let(:data) {
     [[100, 1], [200, 2]]
   }

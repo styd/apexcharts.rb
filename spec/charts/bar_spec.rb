@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Apexcharts::BarChart do
+RSpec.describe ApexCharts::BarChart do
   let(:bindings) { nil }
   let(:data) {
     [[100, 1], [200, 2]]

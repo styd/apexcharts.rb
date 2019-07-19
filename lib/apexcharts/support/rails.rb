@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Apexcharts
+module ApexCharts
   class Engine < ::Rails::Engine
     initializer "helper" do |app|
       ActiveSupport.on_load(:action_view) do

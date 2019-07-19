@@ -1,4 +1,4 @@
-module Apexcharts
+module ApexCharts
   class FillOptions < ::SmartKv
     optional *%i[
                   colors

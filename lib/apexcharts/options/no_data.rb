@@ -1,4 +1,4 @@
-module Apexcharts
+module ApexCharts
   class NoDataOptions < ::SmartKv
     optional *%i[
                   align

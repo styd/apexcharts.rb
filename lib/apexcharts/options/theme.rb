@@ -1,4 +1,4 @@
-module Apexcharts
+module ApexCharts
   class ThemeOptions < ::SmartKv
     optional *%i[
                   monochrome

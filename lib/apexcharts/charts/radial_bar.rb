@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Apexcharts
+module ApexCharts
   class RadialBarChart < PolarChart
     def chart_type
       'radialBar'

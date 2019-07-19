@@ -1,4 +1,4 @@
-module Apexcharts
+module ApexCharts
   class TitleOptions < ::SmartKv
     optional *%i[
                   align

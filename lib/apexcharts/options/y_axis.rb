@@ -1,6 +1,6 @@
 require_relative 'axis'
 
-module Apexcharts
+module ApexCharts
   class YAxisOptions < AxisOptions
     optional *%i[
                   decimalsInFloat

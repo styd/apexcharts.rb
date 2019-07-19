@@ -1,4 +1,4 @@
-module Apexcharts
+module ApexCharts
   class PlotOptions < ::SmartKv
     optional *%i[
                   bar

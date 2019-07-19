@@ -1,6 +1,6 @@
 require 'date'
 
-module Apexcharts::Utils
+module ApexCharts::Utils
   module DateTime
     def convert input
       case input

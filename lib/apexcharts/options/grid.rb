@@ -1,4 +1,4 @@
-module Apexcharts
+module ApexCharts
   class GridOptions < ::SmartKv
     optional *%i[
                   borderColor

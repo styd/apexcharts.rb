@@ -1,4 +1,4 @@
-module Apexcharts
+module ApexCharts
   class TooltipOptions < ::SmartKv
     optional *%i[
                   custom

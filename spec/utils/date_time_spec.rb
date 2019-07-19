@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'date'
 require 'time'
 
-RSpec.describe Apexcharts::Utils::DateTime do
+RSpec.describe ApexCharts::Utils::DateTime do
   context ".convert" do
     let(:converted) { described_class.convert(input) }
 

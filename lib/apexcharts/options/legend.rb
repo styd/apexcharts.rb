@@ -1,4 +1,4 @@
-module Apexcharts
+module ApexCharts
   class LegendOptions < ::SmartKv
     optional *%i[
                   containerMargin

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Apexcharts::RadialBarChart do
+RSpec.describe ApexCharts::RadialBarChart do
   let(:data) {
     [
       {name: "Series A", data: 25},
