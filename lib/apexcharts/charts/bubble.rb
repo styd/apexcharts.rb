@@ -1,15 +1,12 @@
 # frozen_string_literal: true
 
 module Apexcharts
-  class BubbleChart < CartesianChart
+  class BubbleChart < BaseChart
     def chart_type
       'bubble'
     end
 
-    def mixed_series
-    end
-
-  protected
+  private
 
     def sanitize_data(data)
       Apexcharts::BubbleSeries.new(data).sanitized
