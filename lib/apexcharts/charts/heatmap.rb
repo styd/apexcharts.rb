@@ -1,12 +1,15 @@
 # frozen_string_literal: true
 
 module Apexcharts
-  class HeatmapChart < CartesianChart
+  class HeatmapChart < BaseChart
     def chart_type
       'heatmap'
     end
 
-    def mixed_series
+  private
+
+    def sanitize_data(data)
+      Apexcharts::CartesianSeries.new(data).sanitized
     end
   end
 end

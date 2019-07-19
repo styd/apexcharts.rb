@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
 require_relative 'features/annotations'
+require_relative 'features/mixable'
 
 module Apexcharts
   class CartesianChart < BaseChart
     include Annotations
+    include Mixable
 
     def initialize bindings, data, options={}, &block
       @bindings = bindings
@@ -29,16 +31,8 @@ module Apexcharts
       get_selection_range if brush?
     end
 
-    def chart_type
-    end
-
     def more_options
       {}
-    end
-
-    def mixed_series
-      @series[:series].each{|d| d.merge!(type: chart_type) }
-      @series[:series]
     end
 
     def method_missing method, *args, &block
