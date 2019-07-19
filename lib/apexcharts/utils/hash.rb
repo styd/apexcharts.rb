@@ -1,4 +1,4 @@
-module Apexcharts
+module ApexCharts
   module Utils
     module Hash
       module_function

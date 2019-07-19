@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Apexcharts::BubbleChart do
+RSpec.describe ApexCharts::BubbleChart do
   let(:data) {
     [[100, 1, 2], [200, 2, 3]]
   }

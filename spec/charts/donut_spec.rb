@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Apexcharts::DonutChart do
+RSpec.describe ApexCharts::DonutChart do
   let(:data) {
     [
       {name: "Series A", data: 25},

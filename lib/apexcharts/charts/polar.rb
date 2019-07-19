@@ -1,10 +1,10 @@
-module Apexcharts
+module ApexCharts
   class PolarChart < BaseChart
 
   protected
 
     def sanitize_data(data)
-      Apexcharts::PolarSeries.new(data).sanitized
+      ApexCharts::PolarSeries.new(data).sanitized
     end
 
     def x_sample

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Apexcharts
+module ApexCharts
   class AreaChart < CartesianChart
     def chart_type
       'area'

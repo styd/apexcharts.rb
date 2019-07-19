@@ -1,4 +1,4 @@
-module Apexcharts
+module ApexCharts
   class ChartOptions < ::SmartKv
     optional *%i[
                   animations

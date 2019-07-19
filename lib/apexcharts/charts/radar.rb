@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Apexcharts
+module ApexCharts
   class RadarChart < BaseChart
     def chart_type
       'radar'
@@ -9,7 +9,7 @@ module Apexcharts
   private
 
     def sanitize_data(data)
-      Apexcharts::CartesianSeries.new(data).sanitized
+      ApexCharts::CartesianSeries.new(data).sanitized
     end
   end
 end

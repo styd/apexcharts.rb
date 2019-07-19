@@ -1,4 +1,4 @@
-module Apexcharts
+module ApexCharts
   class MarkersOptions < ::SmartKv
     optional *%i[
                   colors

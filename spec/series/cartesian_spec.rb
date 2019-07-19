@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Apexcharts::CartesianSeries do
+RSpec.describe ApexCharts::CartesianSeries do
   let(:data1) {
     [[100, 1], [200, 2]]
   }

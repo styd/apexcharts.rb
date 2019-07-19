@@ -1,6 +1,6 @@
 require_relative 'title'
 
-module Apexcharts
+module ApexCharts
   class SubtitleOptions < TitleOptions
     optional *%i[ ]
   end

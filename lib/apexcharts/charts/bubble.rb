@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Apexcharts
+module ApexCharts
   class BubbleChart < BaseChart
     def chart_type
       'bubble'
@@ -9,7 +9,7 @@ module Apexcharts
   private
 
     def sanitize_data(data)
-      Apexcharts::BubbleSeries.new(data).sanitized
+      ApexCharts::BubbleSeries.new(data).sanitized
     end
 
     def x_sample

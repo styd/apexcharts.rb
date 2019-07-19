@@ -11,7 +11,7 @@ RSpec.describe '#build_div' do
     }
   }
   let(:ob) {
-    Apexcharts::OptionsBuilder.new(x_sample, options)
+    ApexCharts::OptionsBuilder.new(x_sample, options)
   }
   let(:expected_built) {
     {

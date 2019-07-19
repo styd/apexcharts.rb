@@ -3,7 +3,7 @@
 require_relative 'features/annotations'
 require_relative 'features/mixable'
 
-module Apexcharts
+module ApexCharts
   class CartesianChart < BaseChart
     include Annotations
     include Mixable
@@ -52,7 +52,7 @@ module Apexcharts
     end
 
     def sanitize_data(data)
-      Apexcharts::CartesianSeries.new(data).sanitized
+      ApexCharts::CartesianSeries.new(data).sanitized
     end
 
     def brush?

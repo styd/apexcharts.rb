@@ -1,4 +1,4 @@
-module Apexcharts
+module ApexCharts
   class AnnotationsOptions < ::SmartKv
     optional *%i[
                   points

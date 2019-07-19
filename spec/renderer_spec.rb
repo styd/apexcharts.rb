@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'nokogiri'
 
-RSpec.describe Apexcharts::Renderer do
+RSpec.describe ApexCharts::Renderer do
   let(:options) {
     {
       chart: {

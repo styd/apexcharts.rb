@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Apexcharts::CartesianChart do
+RSpec.describe ApexCharts::CartesianChart do
   let(:bindings) { nil }
   let(:data) {
     [[100, 1], [200, 2]]

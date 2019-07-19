@@ -3,7 +3,7 @@ require 'spec_helper'
 RSpec.describe '#build_theme' do
   let(:x_sample) { nil }
   let(:ob) {
-    Apexcharts::OptionsBuilder.new(x_sample, options)
+    ApexCharts::OptionsBuilder.new(x_sample, options)
   }
 
   context "string theme" do
@@ -22,7 +22,7 @@ RSpec.describe '#build_theme' do
       }
 
       before do
-        allow(Apexcharts::OptionsBuilder::THEME_PALETTES).to(
+        allow(ApexCharts::OptionsBuilder::THEME_PALETTES).to(
           receive(:sample).and_return('palette4')
         )
       end

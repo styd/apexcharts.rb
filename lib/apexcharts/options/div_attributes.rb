@@ -1,4 +1,4 @@
-module Apexcharts
+module ApexCharts
   class DivAttributes < ::SmartKv
     optional *%i[
                   class

@@ -6,7 +6,7 @@ require_relative "lib/apexcharts/version"
 
 Gem::Specification.new do |spec|
   spec.name        = "apexcharts"
-  spec.version     = Apexcharts::VERSION
+  spec.version     = ApexCharts::VERSION
   spec.authors     = ["Adrian Setyadi"]
   spec.email       = ["a.styd@yahoo.com"]
   spec.homepage    = "https://github.com/styd/apexcharts.rb"

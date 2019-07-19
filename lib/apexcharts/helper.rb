@@ -6,7 +6,7 @@ require_relative 'utils'
 require_relative 'renderer'
 require_relative 'charts'
 
-module Apexcharts
+module ApexCharts
   module Helper
     def line_chart series, options={}, &block
       bindings = eval("self", block.binding) if block_given?

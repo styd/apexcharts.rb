@@ -1,4 +1,4 @@
-module Apexcharts
+module ApexCharts
   module Annotations
     def annotation(axis, value:, text:, color: nil, **options)
       @annotations ||= {}

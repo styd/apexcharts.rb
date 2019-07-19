@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Apexcharts
+module ApexCharts
   class HeatmapChart < BaseChart
     def chart_type
       'heatmap'
@@ -9,7 +9,7 @@ module Apexcharts
   private
 
     def sanitize_data(data)
-      Apexcharts::CartesianSeries.new(data).sanitized
+      ApexCharts::CartesianSeries.new(data).sanitized
     end
   end
 end
