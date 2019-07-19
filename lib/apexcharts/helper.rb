@@ -33,6 +33,12 @@ module Apexcharts
       draw_chart(ScatterChart.new(bindings, *prepare_series_and_options(series, options), &block))
     end
 
+    def candlestick_chart series, options={}, &block
+      bindings = eval("self", block.binding) if block_given?
+      draw_chart(CandlestickChart.new(bindings, *prepare_series_and_options(series, options), &block))
+    end
+    alias_method :ohlc_chart, :candlestick_chart
+
     def heatmap_chart series, options={}
       draw_chart(HeatmapChart.new(*prepare_series_and_options(series, options)))
     end

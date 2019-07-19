@@ -109,10 +109,51 @@ Example options used for cartesian charts:
 ![Example Scatter Chart](images/scatter_chart.gif)
 
 
+#### Candlestick Chart
+Candlestick chart is typically used to illustrate movements in the price of a
+financial instrument over time. This chart is also popular by the name "ohlc chart".
+That's why you can call it with `ohlc_chart` too.  
+So, here's how you make it.
+
+Given:
+```erb
+<%
+  require 'date'
+
+  def ohlc(ary)
+    [rand(ary.min..ary.max), ary.max, ary.min, rand(ary.min..ary.max)]
+  end
+
+  candlestick_data = 50.times.map do |i|
+    [Date.today - 50 + i, ohlc(Array.new(2){ rand(6570..6650) })]
+  end.to_h
+
+  candlestick_options = {
+    plot_options: {
+      candlestick: {
+        colors: {
+          upward: '#3C90EB',
+          downward: '#DF7D46'
+        }
+      }
+    }
+  }
+%>
+```
+You can make candlestick chart with this:
+```erb
+<%= candlestick_chart(candlestick_data, candlestick_options) %>
+```
+![Example Candlestick Chart](images/candlestick_chart.gif)
+
+Real life candlestick chart probably don't look like that.  
+That's because I just use random sets of numbers as the data.
+
+
 #### Mixed Charts
 
-You can mix charts by using `mixed_charts` or `combo_charts` methods. For example:  
-Given that:
+You can mix charts by using `mixed_charts` or `combo_charts` methods.
+For example, given that:
 ```ruby
 @total_properties = Property.group_by_week(:created_at).count
 ```
@@ -208,11 +249,7 @@ end %>
 ] %>
 <%= radar_chart(
   radar_series,
-  {
-    title: "GitHub Radar",
-    markers: { size: 4 },
-    theme: 'palette4'
-  }
+  {title: "GitHub Radar", markers: {size: 4}, theme: 'palette4'}
 ) %>
 ```
 ![Example Radar Chart](images/radar_chart.gif)
@@ -293,9 +330,32 @@ or this:
 ]
 ```
 
+#### Candlestick Chart
+Candlestick chart is just like other cartesian charts, only the y value is
+an array of 4 members which called the OHLC (Open-High-Low-Close):
+
+```ruby
+{
+  <x value> => [<Open>, <High>, <Low>, <Close>],
+  <x value> => [<Open>, <High>, <Low>, <Close>],
+  ...
+}
+```
+
+or this:
+
+```ruby
+[
+  [<x value>, [<Open>, <High>, <Low>, <Close>]],
+  [<x value>, [<Open>, <High>, <Low>, <Close>]],
+  ...
+]
+```
+
 ### Heatmap Chart
-The data format for heatmap chart **per-series** is similar but instead
-of y values they are heat values. The series names will be the y values.
+The data format for heatmap chart **per-series** is similar to cartesian
+charts. But instead of y values they are heat values. The series names will
+be the y values.
 
 ```ruby
 {
