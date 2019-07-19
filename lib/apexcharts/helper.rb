@@ -33,18 +33,16 @@ module Apexcharts
       draw_chart(ScatterChart.new(bindings, *prepare_series_and_options(series, options), &block))
     end
 
-    def heatmap_chart series, options={}, &block
-      bindings = eval("self", block.binding) if block_given?
-      draw_chart(HeatmapChart.new(bindings, *prepare_series_and_options(series, options), &block))
+    def heatmap_chart series, options={}
+      draw_chart(HeatmapChart.new(*prepare_series_and_options(series, options)))
     end
 
-    def bubble_chart series, options={}, &block
-      bindings = eval("self", block.binding) if block_given?
-      draw_chart(BubbleChart.new(bindings, *prepare_series_and_options(series, options), &block))
+    def bubble_chart series, options={}
+      draw_chart(BubbleChart.new(*prepare_series_and_options(series, options)))
     end
 
     def radar_chart series, options={}
-      draw_chart(RadarChart.new(nil, *prepare_series_and_options(series, options)))
+      draw_chart(RadarChart.new(*prepare_series_and_options(series, options)))
     end
 
     def mixed_charts options={}, &block
