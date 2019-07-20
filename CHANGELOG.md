@@ -6,14 +6,20 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Data formats on README
 - HTML+ERB support on README
-- BaseChart as a parent for Cartesian Chart and Polar Chart
+- BaseChart as a parent for CartesianChart and PolarChart
 - Tests for OptionsBuilder
 - Option `parentHeightOffset` for `chart`
 - Option `radar` for `plot_options`
-- Radar chart
+- **Radar chart**
+- **Candlestick chart**
+- Development dependency `simplecov` and `simplecov-console`
+- Issue templates
+- Code of conduct
+- Build options for colors
 
 ### Changed
 - Gem summary and description
+- Namespace Apexcharts to ApexCharts
 
 ### Fixed
 - Array of hashes with key `data` as input not read correctly
@@ -27,8 +33,8 @@ All notable changes to this project will be documented in this file.
 ## [0.1.4] - 2019-07-06
 ### Added
 - Changelog
-- Heatmap Chart
-- Bubble Chart
+- **Heatmap Chart**
+- **Bubble Chart**
 - Chart examples
 
 ### Changed
@@ -46,8 +52,8 @@ All notable changes to this project will be documented in this file.
 - Tests for Utils
 - Tests for Charts
 - Tests for Options Builder
-- Stepline chart
-- Brush chart
+- **Stepline chart**
+- **Brush chart**
 
 ### Changed
 - Chart examples
@@ -59,9 +65,9 @@ All notable changes to this project will be documented in this file.
 ## [0.1.2] - 2019-06-18
 ### Added
 - Travis CI
-- Donut chart
-- Pie chart
-- RadialBar chart
+- **Donut chart**
+- **Pie chart**
+- **RadialBar chart**
 - Chart examples
 - Logo
 
@@ -75,13 +81,13 @@ All notable changes to this project will be documented in this file.
 
 ## [0.1.1] - 2019-06-14
 ### Added
-- Line chart
-- Area chart
-- Column chart
-- Bar chart
-- Scatter chart
-- Mixed charts
-- Syncing charts
+- **Line chart**
+- **Area chart**
+- **Column chart**
+- **Bar chart**
+- **Scatter chart**
+- **Mixed charts**
+- **Syncing charts**
 
 [Unreleased]: https://github.com/styd/apexcharts.rb/compare/v0.1.4...HEAD
 [0.1.4]: https://github.com/styd/apexcharts.rb/compare/v0.1.3...v0.1.4

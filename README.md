@@ -146,7 +146,7 @@ You can make candlestick chart with this:
 ```
 ![Example Candlestick Chart](images/candlestick_chart.gif)
 
-Real life candlestick chart probably don't look like that.  
+Real life candlestick chart probably don't look like that.
 That's because I just use random sets of numbers as the data.
 
 
@@ -457,7 +457,10 @@ After installing the gem, insert this to the top of your .html.erb files:
 
 
 ## TODOs
-- Other charts (radar, candlestick, etc.)
+- Replace dependency `smart_kv` with `dry-schema`
+- Create reusable theme palette
+- Add more features (e.g. gradient line, background image, etc.)
+- Range bar chart
 - Support other ruby frameworks (sinatra, hanami, etc.)
 
 
@@ -472,3 +475,11 @@ Everyone is encouraged to help improve this project by:
 
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+
+## Like the charts?
+Consider donating to the author of apexcharts.js to support his awesome library.
+This project wouldn't be possible without it.
+
+Become a sponsor on [Patreon](https://patreon.com/junedchhipa).  
+One time donation on [PayPal](https://paypal.me/junedchhipa)
