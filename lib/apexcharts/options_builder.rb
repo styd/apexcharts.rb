@@ -40,6 +40,7 @@ module ApexCharts
       build_chart
       build_div
       build_annotations
+      build_colors
       build_data_labels
       build_fill
       build_grid
@@ -107,6 +108,12 @@ module ApexCharts
       if chart.is_a? Hash
         @built[:chart].merge! ChartOptions.check(chart.compact)
       end
+    end
+
+    def build_colors
+      colors = @options.delete :colors
+      colors &&= Array(colors)
+      @built[:colors] = colors
     end
 
     def build_data_labels
