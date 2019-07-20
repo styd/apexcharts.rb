@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 
 
+## [Unreleased]
+### Added
+- Security section in repo page
+- Table of Contents
+
 ## [0.1.5] - 2019-07-20
 ### Added
 - Data formats on README
