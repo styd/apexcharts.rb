@@ -16,6 +16,45 @@ ApexCharts.rb is a ruby gem that wraps a JavaScript charting library called with
 a beautiful, interactive, and responsive charts for your ruby app.
 
 
+## Table of Contents
+
+- [Usage](#usage)
+  - [Cartesian Charts](#cartesian-charts)
+    - [Line Chart](#line-chart)
+    - [Stepline Chart](#stepline-chart)
+    - [Area Chart](#area-chart)
+    - [Column Chart](#column-chart)
+    - [Bar Chart](#bar-chart)
+    - [Scatter Chart](#scatter-chart)
+    - [Candlestick Chart](#candlestick-chart)
+    - [Mixed Charts](#mixed-charts)
+    - [Syncing Charts](#syncing-charts)
+    - [Brush Chart](#brush-chart)
+    - [Annotations](#annotations)
+  - [Heatmap Chart](#heatmap-chart)
+  - [Radar Chart](#radar-chart)
+  - [Bubble Chart](#bubble-chart)
+  - [Polar Charts](#polar-charts)
+    - [Pie Chart](#pie-chart)
+    - [Donut Chart](#donut-chart)
+    - [Radial Bar Chart](#radial-bar-chart)
+- [Data Formats](#data-formats)
+  - [Cartesian Charts](#cartesian-charts-1)
+    - [Candlestick Chart](#candlestick-chart-1)
+  - [Heatmap Chart](#heatmap-chart-1)
+  - [Radar Chart](#radar-chart-1)
+  - [Bubble Chart](#bubble-chart-1)
+  - [Polar Charts](#polar-charts-1)
+- [Installation](#installation)
+- [Web Support](#web-support)
+  - [Rails](#rails)
+  - [HTML+ERB](#htmlerb)
+- [TODOs](#todos)
+- [Contributing](#contributing)
+- [License](#license)
+- [Like the charts?](#like-the-charts)
+
+
 ## Usage
 
 ### Cartesian Charts
