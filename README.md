@@ -491,13 +491,17 @@ After installing the gem, insert this to the top of your .html.erb files:
 
 ```html+erb
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<% require 'set' %>
 <% require 'apexcharts' %>
+<% include ApexCharts::Helper %>
 ```
+`require 'set'` is needed because of an issue in the dependency used, but not needed
+in the next release of ApexCharts.rb.
 
 
 ## TODOs
 - Replace dependency `smart_kv` with `dry-schema`
-- Create reusable theme palette
+- Create your own reusable custom theme palette
 - Add more features (e.g. gradient line, background image, etc.)
 - Range bar chart
 - Support other ruby frameworks (sinatra, hanami, etc.)
