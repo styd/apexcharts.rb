@@ -1,21 +1,22 @@
 # frozen_string_literal: true
 
-require 'smart_kv'
-require_relative 'options/root_options'
-require_relative 'options/annotations_options'
-require_relative 'options/data_labels_options'
-require_relative 'options/fill_options'
-require_relative 'options/grid_options'
-require_relative 'options/legend_options'
-require_relative 'options/markers_options'
-require_relative 'options/no_data_options'
-require_relative 'options/plot_options'
-require_relative 'options/states_options'
-require_relative 'options/title_subtitle_options'
-require_relative 'options/theme_options'
-require_relative 'options/tooltip_options'
-require_relative 'options/x_axis_options'
-require_relative 'options/y_axis_options'
+%w(default dry_schema).each do |schema_dir|
+  require_relative "options/#{schema_dir}/root_options"
+  require_relative "options/#{schema_dir}/annotations_options"
+  require_relative "options/#{schema_dir}/data_labels_options"
+  require_relative "options/#{schema_dir}/fill_options"
+  require_relative "options/#{schema_dir}/grid_options"
+  require_relative "options/#{schema_dir}/legend_options"
+  require_relative "options/#{schema_dir}/markers_options"
+  require_relative "options/#{schema_dir}/no_data_options"
+  require_relative "options/#{schema_dir}/plot_options"
+  require_relative "options/#{schema_dir}/states_options"
+  require_relative "options/#{schema_dir}/title_subtitle_options"
+  require_relative "options/#{schema_dir}/theme_options"
+  require_relative "options/#{schema_dir}/tooltip_options"
+  require_relative "options/#{schema_dir}/x_axis_options"
+  require_relative "options/#{schema_dir}/y_axis_options"
+end
 
 module ApexCharts
   class OptionsBuilder
@@ -35,7 +36,7 @@ module ApexCharts
     end
 
     def build_options
-      Options::RootOptions.check @options
+      options_class(:Root).check @options
 
       build_chart
       build_div
@@ -78,14 +79,19 @@ module ApexCharts
     def build_annotations
       annotations = @options.delete :annotations
       @built[:annotations] = (
-        Options::AnnotationsOptions.check annotations.compact if annotations.is_a? Hash
+        if annotations.is_a? Hash
+          options_class(:Annotations).check annotations.compact
+        end
       )
     end
 
     def build_chart
       @built[:chart] =
         if target = @options.delete(:brushTarget)
-          {brush: {enabled: true, target: target.to_s}, selection: {enabled: true}}
+          {
+            brush: {enabled: true, target: target.to_s},
+            selection: {enabled: true}
+          }
         else
           {}
         end
@@ -106,7 +112,7 @@ module ApexCharts
 
       return unless chart.is_a? Hash
 
-      @built[:chart].merge! Options::ChartOptions.check(chart.compact)
+      @built[:chart].merge! options_class(:Chart).check(chart.compact)
     end
 
     def build_colors
@@ -122,7 +128,7 @@ module ApexCharts
       @built[:dataLabels] = if [true, false].include? data_labels
                               {enabled: data_labels}
                             elsif data_labels.is_a? Hash
-                              Options::DataLabelsOptions.check data_labels.compact
+                              options_class(:DataLabels).check data_labels.compact
                             end
     end
 
@@ -137,7 +143,7 @@ module ApexCharts
       @built[:fill] = if fill.is_a? String
                         {type: fill}
                       elsif fill.is_a? Hash
-                        Options::FillOptions.check fill.compact
+                        options_class(:Fill).check fill.compact
                       end
     end
 
@@ -146,7 +152,7 @@ module ApexCharts
       @built[:grid] = if [true, false].include? grid
                         {show: grid}
                       elsif grid.is_a? Hash
-                        Options::GridOptions.check grid.compact
+                        options_class(:Grid).check grid.compact
                       end
     end
 
@@ -163,7 +169,7 @@ module ApexCharts
                         elsif legend.is_a? String
                           {show: true, position: legend}
                         elsif legend.is_a? Hash
-                          Options::LegendOptions.check legend.compact
+                          options_class(:Legend).check legend.compact
                         end
     end
 
@@ -172,7 +178,7 @@ module ApexCharts
       @built[:markers] = if markers.is_a? String
                            {shape: markers}
                          elsif markers.is_a? Hash
-                           Options::MarkersOptions.check markers.compact
+                           options_class(:Markers).check markers.compact
                          end
     end
 
@@ -181,7 +187,7 @@ module ApexCharts
       @built[:noData] = if no_data.is_a? String
                           {text: no_data}
                         elsif no_data.is_a? Hash
-                          Options::NoDataOptions.check no_data.compact
+                          options_class(:NoData).check no_data.compact
                         end
     end
 
@@ -190,7 +196,7 @@ module ApexCharts
       return unless plot_options.is_a? Hash
 
       @built[:plotOptions] =
-        Options::PlotOptions.check plot_options.compact
+        options_class(:Plot).check plot_options.compact
     end
 
     def build_responsive
@@ -207,7 +213,7 @@ module ApexCharts
       }.compact
 
       states = @options.delete :states
-      @built[:states].merge! Options::StatesOptions.check(states.compact) if states.is_a? Hash
+      @built[:states].merge! options_class(:States).check(states.compact) if states.is_a? Hash
 
       @built[:states] = nil if @built[:states].empty?
     end
@@ -220,7 +226,7 @@ module ApexCharts
       if [true, false].include? stroke
         @built[:stroke].merge!(show: stroke)
       elsif stroke.is_a? Hash
-        @built[:stroke].merge! Options::StrokeOptions.check(stroke.compact)
+        @built[:stroke].merge! options_class(:Stroke).check(stroke.compact)
       end
 
       @built[:stroke] = nil if @built[:stroke].empty?
@@ -231,7 +237,7 @@ module ApexCharts
       @built[:subtitle] = if subtitle.is_a? String
                             {text: subtitle}
                           elsif subtitle.is_a? Hash
-                            Options::TitleSubtitleOptions.check subtitle.compact
+                            options_class(:TitleSubtitle).check subtitle.compact
                           end
     end
 
@@ -247,7 +253,7 @@ module ApexCharts
                            resolve_theme(theme)
                          end
                        elsif theme.is_a? Hash
-                         Options::ThemeOptions.check theme.compact
+                         options_class(:Theme).check theme.compact
                        end
     end
 
@@ -256,7 +262,7 @@ module ApexCharts
       @built[:title] = if title.is_a? String
                          {text: title}
                        elsif title.is_a? Hash
-                         Options::TitleSubtitleOptions.check title.compact
+                         options_class(:TitleSubtitle).check title.compact
                        end
     end
 
@@ -265,7 +271,7 @@ module ApexCharts
       @built[:tooltip] = if [true, false].include? tooltip
                            {enabled: tooltip}
                          elsif tooltip.is_a? Hash
-                           Options::TooltipOptions.check tooltip.compact
+                           options_class(:Tooltip).check tooltip.compact
                          end
     end
 
@@ -282,7 +288,7 @@ module ApexCharts
       if xaxis.is_a? String
         @built[:xaxis][:title] = {text: xaxis}
       elsif xaxis.is_a? Hash
-        Options::XAxisOptions.check xaxis
+        options_class(:XAxis).check xaxis
         @built[:xaxis].merge! xaxis
       end
 
@@ -302,12 +308,14 @@ module ApexCharts
       if yaxis.is_a? String
         @built[:yaxis][0][:title] = {text: yaxis}
       elsif yaxis.is_a? Hash
-        Options::YAxisOptions.check yaxis
+        options_class(:YAxis).check yaxis
         @built[:yaxis][0].merge! yaxis
       end
 
       @built[:yaxis] = nil if @built[:yaxis].all?(&:empty?)
     end
+
+  private
 
     def enabled(options)
       boolean_to_hash(options) do |opts|
@@ -340,6 +348,11 @@ module ApexCharts
         @built[:colors] = Theme.get_colors(theme)
         nil
       end
+    end
+
+    def options_class(name)
+      schema = ApexCharts.config.schema
+      ApexCharts.const_get "Options::#{schema}::#{name}Options"
     end
   end
 end

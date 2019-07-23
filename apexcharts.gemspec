@@ -19,6 +19,7 @@ Gem::Specification.new do |spec|
   spec.files = Dir['{lib,vendor}/**/*', 'LICENSE', 'README.md']
 
   spec.add_dependency 'smart_kv', '~> 0.2.8'
+  spec.add_dependency 'dry-schema', '~> 1.5'
 
   spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'coveralls'

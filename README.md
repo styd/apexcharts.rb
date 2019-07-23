@@ -105,6 +105,7 @@ Choose the right README:
   - [Global Options](#global-options)
   - [Formatter Function](#formatter-function)
   - [Defer Chart Rendering](#defer-chart-rendering)
+- [Schema](#schema)
 - [Reusable Custom Palette](#reusable-custom-palette)
 - [Use Alongside Other Charting Libraries](#use-alongside-other-charting-libraries)
   - [Alongside Chartkick](#alongside-chartkick)
@@ -116,7 +117,6 @@ Choose the right README:
   - [Rails](#rails)
   - [Sinatra](#sinatra)
   - [Plain HTML+ERB (Without Framework)](#plain-htmlerb-without-framework)
-- [Roadmap](#roadmap)
 - [Contributing](#contributing)
 - [License](#license)
 - [Like the charts?](#like-the-charts)
@@ -649,6 +649,23 @@ It's possible to defer chart rendering by passing the argument `defer: true` as 
 ```
 
 
+## Schema
+
+To use [dry-schema] as an alternative options schema, you can specify the following config
+before calling your charts:
+
+```ruby
+ApexCharts.config.schema = :dry_schema
+```
+
+or
+
+```ruby
+ApexCharts.configure do |config|
+  config.schema = :dry_schema
+end
+```
+
 ## Reusable Custom Palette
 
 To create palettes to be used anywhere on your any parts of your app, you can use
@@ -848,17 +865,6 @@ $ erb sample.html.erb > sample.html
 ```
 
 
-## Roadmap
-
-- Support other ruby frameworks (hanami, roda, cuba, middleman, etc.)
-- v0.1.x
-  - Add more features (e.g. gradient line, background image, etc.)
-- v0.2.x
-  - Replace dependency `smart_kv` with `dry-schema`
-  - Display warnings on browser console on development instead of error page when
-    schema doesn't meet
-
-
 ## Contributing
 
 Everyone is encouraged to help improve this project by:
@@ -866,7 +872,6 @@ Everyone is encouraged to help improve this project by:
 - Fixing bugs and submiting pull requests
 - Fixing documentation
 - Suggesting new features
-- Implementing todos on Roadmap above
 
 
 ## License
@@ -882,6 +887,7 @@ The gem is available as open source under the terms of the
 
 
 [ApexCharts.JS]: https://github.com/apexcharts/apexcharts.js
+[dry-schema]: https://github.com/dry-rb/dry-schema
 
 
 [v0.1.10]: https://github.com/styd/apexcharts.rb/blob/v0.1.10/README.md

@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe '#build_subtitle' do
+RSpec.shared_examples 'subtitle options' do
   let(:sample) { nil }
   let(:ob) {
     ApexCharts::OptionsBuilder.new(sample, options)
@@ -49,6 +49,28 @@ RSpec.describe '#build_subtitle' do
     it 'only camelizes the hash' do
       ob.build_subtitle
       expect(ob.built).to match(expected_built)
+    end
+  end
+end
+
+RSpec.describe '#build_subtitle' do
+  after do
+    ApexCharts.config.schema = :default
+  end
+
+  context 'schema dry_schema' do
+    it_behaves_like 'subtitle options' do
+      before do
+        ApexCharts.config.schema = :dry_schema
+      end
+    end
+  end
+
+  context 'schema smart_kv' do
+    it_behaves_like 'subtitle options' do
+      before do
+        ApexCharts.config.schema = :default
+      end
     end
   end
 end

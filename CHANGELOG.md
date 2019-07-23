@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 - Make obsolete previously deprecated local palette creation
 - Update options schema to match ApexCharts.JS version 3.22.0
 - ApexCharts.JS version from 3.21.0 to 3.22.0
+- Add alternative options schema :dry_schema
 
 ## [0.1.10] - 2020-10-04
 ### Added

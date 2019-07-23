@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'config/default_options'
+require_relative 'config/schema'
 
 module ApexCharts
   class << self
@@ -21,5 +22,6 @@ module ApexCharts
 
   class Configuration
     include ApexCharts::Config::DefaultOptions
+    include ApexCharts::Config::Schema
   end
 end

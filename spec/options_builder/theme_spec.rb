@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe '#build_theme' do
+RSpec.shared_examples 'theme options' do
   let(:sample) { nil }
   let(:ob) {
     ApexCharts::OptionsBuilder.new(sample, options)
@@ -120,6 +120,28 @@ RSpec.describe '#build_theme' do
     it 'only camelizes the hash' do
       ob.build_theme
       expect(ob.built).to match(expected_built)
+    end
+  end
+end
+
+RSpec.describe '#build_theme' do
+  after do
+    ApexCharts.config.schema = :default
+  end
+
+  context 'schema dry_schema' do
+    it_behaves_like 'theme options' do
+      before do
+        ApexCharts.config.schema = :dry_schema
+      end
+    end
+  end
+
+  context 'schema smart_kv' do
+    it_behaves_like 'theme options' do
+      before do
+        ApexCharts.config.schema = :default
+      end
     end
   end
 end
