@@ -7,6 +7,9 @@ All notable changes to this project will be documented in this file.
 - Security section in repo page
 - Table of Contents
 
+## Changed
+- X and Y axis type `number` to `numeric`
+
 ### Fixed
 - HTML+ERB wrong instruction
 
