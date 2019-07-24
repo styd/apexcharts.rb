@@ -48,11 +48,11 @@ module ApexCharts::Utils
         elsif Date.iso8601(input).iso8601 == input
           'datetime'
         else
-          'number'
+          'numeric'
         end
       end
     rescue
-      'number'
+      'numeric'
     end
     module_function :type
   end
