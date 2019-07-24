@@ -9,7 +9,7 @@ RSpec.describe '#build_yaxis' do
   context 'yaxis is a string' do
     let(:options) {
       {
-        ytype: "number",
+        ytype: "numeric",
         ytitle: "Y-Title",
         yaxis: "Title"
       }
@@ -17,7 +17,7 @@ RSpec.describe '#build_yaxis' do
     let(:expected_built) {
       {
         yaxis: [{
-          type: "number",
+          type: "numeric",
           title: {
             text: "Title"
           }
@@ -34,7 +34,7 @@ RSpec.describe '#build_yaxis' do
   context 'yaxis is a hash' do
     let(:options) {
       {
-        ytype: "number",
+        ytype: "numeric",
         ytitle: "Y-Title",
         yaxis: {
           type: "datetime"

@@ -311,7 +311,7 @@ module ApexCharts
         'datetime'
       end
     rescue
-      'number'
+      'numeric'
     end
 
     def enabled(options)
