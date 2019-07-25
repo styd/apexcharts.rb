@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file.
 
 ## Changed
 - X and Y axis type `number` to `numeric`
+- ApexCharts.js version from 3.6.12 to 3.8.3
 
 ### Fixed
 - HTML+ERB wrong instruction
