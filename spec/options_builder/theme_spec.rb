@@ -22,12 +22,12 @@ RSpec.describe '#build_theme' do
       }
 
       before do
-        allow(ApexCharts::OptionsBuilder::THEME_PALETTES).to(
-          receive(:sample).and_return('palette4')
+        allow(ApexCharts::Theme).to(
+          receive(:all_palettes).and_return(['palette4'])
         )
       end
 
-      it 'adds shape key with the string as the value' do
+      it 'adds theme value as palette' do
         ob.build_theme
         expect(ob.built).to match(hash_including(expected_built))
       end
@@ -47,7 +47,28 @@ RSpec.describe '#build_theme' do
         }
       }
 
-      it 'adds shape key with the string as the value' do
+      it 'adds monochrome as enabled' do
+        ob.build_theme
+        expect(ob.built).to match(hash_including(expected_built))
+      end
+    end
+
+    context 'when a custom palette' do
+      let(:options) {
+        {
+          theme: 'my_palette'
+        }
+      }
+      let(:expected_built) {
+        {
+          theme: nil,
+          colors: ApexCharts::Theme.get_colors('my_palette')
+        }
+      }
+
+      it 'builds the colors instead' do
+        ApexCharts::Theme.create 'my_palette', ["#aabbcc", "#bbccdd"]
+
         ob.build_theme
         expect(ob.built).to match(hash_including(expected_built))
       end
@@ -61,13 +82,11 @@ RSpec.describe '#build_theme' do
       }
       let(:expected_built) {
         {
-          theme: {
-            palette: 'apexcharts'
-          }
+          theme: nil
         }
       }
 
-      it 'adds shape key with the string as the value' do
+      it 'adds theme value as palette' do
         ob.build_theme
         expect(ob.built).to match(hash_including(expected_built))
       end
