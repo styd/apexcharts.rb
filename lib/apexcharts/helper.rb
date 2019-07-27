@@ -5,6 +5,7 @@ require_relative 'options_builder'
 require_relative 'utils'
 require_relative 'renderer'
 require_relative 'charts'
+require_relative 'theme'
 
 module ApexCharts
   module Helper
@@ -75,6 +76,14 @@ module ApexCharts
       draw_chart(RadialBarChart.new(*prepare_series_and_options(series, options)))
     end
     alias_method :circle_chart, :radial_bar_chart
+
+    def create_palette palette_name, colors
+      ApexCharts::Theme.create palette_name, colors
+    end
+
+    def destroy_palette palette_name
+      ApexCharts::Theme.destroy palette_name
+    end
 
   private
 
