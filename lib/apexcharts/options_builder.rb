@@ -19,9 +19,6 @@ require_relative 'options/y_axis'
 
 module ApexCharts
   class OptionsBuilder
-    THEME_PALETTES = ["palette1", "palette2", "palette3", "palette4", "palette5", 
-                      "palette6", "palette7", "palette8", "palette9", "palette10"]
-
     attr_reader :built
 
     def initialize(x_sample, options)
@@ -235,11 +232,11 @@ module ApexCharts
       @built[:theme] = if theme.is_a? String
                          case theme
                          when 'random'
-                           {palette: THEME_PALETTES.sample}
+                           {palette: ApexCharts::Theme.all_palettes.sample}
                          when 'monochrome'
                            {monochrome: {enabled: true}}
                          else
-                           {palette: theme}
+                           resolve_theme(theme)
                          end
                        elsif theme.is_a? Hash
                          ThemeOptions.check theme.compact
@@ -334,6 +331,15 @@ module ApexCharts
         {filter: {type: state}}
       elsif state.is_a? Hash
         state.compact
+      end
+    end
+
+    def resolve_theme(theme)
+      if Theme::PALETTES.include? theme
+        {palette: theme}
+      elsif Theme.custom_palettes.include? theme
+        @built[:colors] = Theme.get_colors(theme)
+        nil
       end
     end
   end
