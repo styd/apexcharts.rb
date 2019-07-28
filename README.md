@@ -474,19 +474,19 @@ $ bundle
 ### Rails
 After installing the gem, require it in your `app/assets/javascripts/application.js`.
 ```js
-//= require 'apexcharts'
+//= require apexcharts
 ```
 
 Or, if you use `webpacker`, you can run:
 ```bash
-yarn add apexcharts
+$ yarn add apexcharts
 ```
 and then require it in your `app/javascript/packs/application.js`.
 ```js
 require("apexcharts")
 ```
 
-### HTML+ERB
+### Plain HTML+ERB (Without Framework)
 After installing the gem, insert this to the top of your .html.erb files:
 
 ```html+erb
@@ -497,6 +497,11 @@ After installing the gem, insert this to the top of your .html.erb files:
 ```
 `require 'set'` is needed because of an issue in the dependency used, but not needed
 in the next release of ApexCharts.rb.
+
+You can then generate the static html page with e.g.
+```bash
+$ erb sample.html.erb > sample.html
+```
 
 
 ## TODOs
