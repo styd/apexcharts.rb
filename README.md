@@ -48,7 +48,7 @@ a beautiful, interactive, and responsive charts for your ruby app.
 - [Installation](#installation)
 - [Web Support](#web-support)
   - [Rails](#rails)
-  - [HTML+ERB](#htmlerb)
+  - [Plain HTML+ERB (Without Framework)](#plain-htmlerb-without-framework)
 - [TODOs](#todos)
 - [Contributing](#contributing)
 - [License](#license)
