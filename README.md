@@ -25,6 +25,7 @@ a beautiful, interactive, and responsive charts for your ruby app.
     - [Area Chart](#area-chart)
     - [Column Chart](#column-chart)
     - [Bar Chart](#bar-chart)
+    - [Range Bar Chart](#range-bar-chart)
     - [Scatter Chart](#scatter-chart)
     - [Candlestick Chart](#candlestick-chart)
     - [Mixed Charts](#mixed-charts)
@@ -138,6 +139,33 @@ Example options used for cartesian charts:
 <%= bar_chart(series, {**options, xtitle: 'Properties', ytitle: 'Week', height: 800, theme: 'palette7'}) %>
 ```
 ![Example Bar Chart](images/bar_chart.gif)
+
+
+#### Range Bar Chart
+
+```erb
+<% range_bar_series = [{
+      name: "Series A",
+      data: {
+        'A' => [1, 5],
+        'B' => [4, 6],
+        'C' => [5, 8],
+        'D' => [3, 11]
+      }
+    }, {
+      name: "Series B",
+      data: {
+        'A' => [2, 6],
+        'B' => [1, 3],
+        'C' => [7, 8],
+        'D' => [5, 9]
+      }
+  }]
+%>
+
+<%= range_bar_chart(range_bar_series, theme: 'palette3') %>
+```
+![Example Range Bar Chart](images/range_bar_chart.gif)
 
 
 #### Scatter Chart
@@ -506,7 +534,6 @@ $ erb sample.html.erb > sample.html
 
 ## TODOs
 - Replace dependency `smart_kv` with `dry-schema`
-- Create your own reusable custom theme palette
 - Add more features (e.g. gradient line, background image, etc.)
 - Range bar chart
 - Support other ruby frameworks (sinatra, hanami, etc.)
