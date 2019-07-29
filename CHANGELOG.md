@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 - Security section in repo page
 - Table of Contents
 - Ability to create reusable theme palette
+- **RangeBar chart**
 
 ## Changed
 - X and Y axis type `number` to `numeric`
@@ -47,8 +48,8 @@ All notable changes to this project will be documented in this file.
 ## [0.1.4] - 2019-07-06
 ### Added
 - Changelog
-- **Heatmap Chart**
-- **Bubble Chart**
+- **Heatmap chart**
+- **Bubble chart**
 - Chart examples
 
 ### Changed
