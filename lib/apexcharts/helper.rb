@@ -29,6 +29,11 @@ module ApexCharts
       draw_chart(BarChart.new(bindings, *prepare_series_and_options(series, options), &block))
     end
 
+    def range_bar_chart series, options={}, &block
+      bindings = eval("self", block.binding) if block_given?
+      draw_chart(RangeBarChart.new(bindings, *prepare_series_and_options(series, options), &block))
+    end
+
     def scatter_chart series, options={}, &block
       bindings = eval("self", block.binding) if block_given?
       draw_chart(ScatterChart.new(bindings, *prepare_series_and_options(series, options), &block))
