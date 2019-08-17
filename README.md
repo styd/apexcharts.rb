@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="images/apexcharts.rb.png" height="170">
+  <img src="images/placeholder.png" height="150">
 </p>
 
 <p align="center">
