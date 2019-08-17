@@ -5,6 +5,7 @@
 <p align="center">
   <a href="https://github.com/styd/apexcharts.rb/blob/master/LICENSE"><img src="https://img.shields.io/badge/License-MIT-brightgreen.svg" alt="License"></a>
   <a href="https://travis-ci.org/styd/apexcharts.rb"><img src="https://travis-ci.org/styd/apexcharts.rb.svg?branch=master" alt="Build Status" /></a>
+  <a href="https://rubygems.org/gems/apexcharts"><img alt="Downloads" src="https://img.shields.io/gem/dt/apexcharts"></a>
   <a href="https://rubygems.org/gems/apexcharts"><img src="https://badge.fury.io/rb/apexcharts.svg" alt="Gem Version" /></a>
 </p>
 
@@ -12,8 +13,8 @@
 ## What is this?
 
 ApexCharts.rb is a ruby gem that wraps a JavaScript charting library called with the same name,
-[apexcharts.js](https://github.com/apexcharts/apexcharts.js), that's going to give you
-a beautiful, interactive, and responsive charts for your ruby app.
+[ApexCharts.js](https://github.com/apexcharts/apexcharts.js), that's going to give you
+beautiful, interactive, and responsive charts for your ruby app.
 
 
 ## Table of Contents
@@ -571,7 +572,7 @@ After installing the gem, insert this to the top of your .html.erb files:
 <% include ApexCharts::Helper %>
 ```
 `require 'set'` is needed because of an issue in the dependency used, but not needed
-in the next release of ApexCharts.rb.
+in v0.2.x release of ApexCharts.rb.
 
 You can then generate the static html page with e.g.
 ```bash
@@ -579,11 +580,12 @@ $ erb sample.html.erb > sample.html
 ```
 
 
-## TODOs
-- Replace dependency `smart_kv` with `dry-schema`
-- Add more features (e.g. gradient line, background image, etc.)
-- Range bar chart
-- Support other ruby frameworks (sinatra, hanami, etc.)
+## TODO
+- v0.1.x
+  - Add more features (e.g. gradient line, background image, etc.)
+  - Support other ruby frameworks (sinatra, hanami, etc.)
+- v0.2.x
+  - Replace dependency `smart_kv` with `dry-schema`
 
 
 ## Contributing
@@ -592,7 +594,7 @@ Everyone is encouraged to help improve this project by:
 - Fixing bugs and submiting pull requests
 - Fixing documentation
 - Suggesting new features
-- Implementing TODOs above
+- Implementing TODO above
 
 
 ## License
