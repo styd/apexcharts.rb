@@ -7,6 +7,8 @@
   <a href="https://travis-ci.org/styd/apexcharts.rb"><img src="https://travis-ci.org/styd/apexcharts.rb.svg?branch=master" alt="Build Status" /></a>
   <a href="https://rubygems.org/gems/apexcharts"><img alt="Downloads" src="https://img.shields.io/gem/dt/apexcharts"></a>
   <a href="https://rubygems.org/gems/apexcharts"><img src="https://badge.fury.io/rb/apexcharts.svg" alt="Gem Version" /></a>
+  <a href="https://codeclimate.com/github/styd/apexcharts.rb/maintainability"><img src="https://api.codeclimate.com/v1/badges/07a4f59e67abfeae21cb/maintainability" /></a>
+  <a href="https://codeclimate.com/github/styd/apexcharts.rb/test_coverage"><img src="https://api.codeclimate.com/v1/badges/07a4f59e67abfeae21cb/test_coverage" /></a>
 </p>
 
 

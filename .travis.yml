@@ -1,8 +1,10 @@
----
 language: ruby
 cache: bundler
 rvm:
   - 2.4
   - 2.5
   - 2.6
-before_install: gem install bundler -v 2.0.1
+addons:
+  code_climate:
+    repo_token:
+      secure: douRZnJP2QSstsAomFv3I1LVgseWYbhStlQfZg7zV17uIDLa8RrN35n6HsRI8h5YFBnChh1f6luzdXvyOeGYB4huksGKTRj82NTImECH1n1USjtVx++A/u3O16zwDmZn8dIzb2UpwshL2EqnUaoEv8rVFjYeTOHh4WAnoq3cLspM6aov9lEe7tPJKHHkeZxL4Mz6cEP0c+rfNa4N0ZZA2i87ef4qZDakLKrbu4vO9d/iZ9DDWg7M0gQGa3d9iYv9OmiagpL1PgqyEbSxlpPdlmwVinHCgpyUCRbQ7u+TNjkR9VEg4u0LEPm37oi0SBSgEdPR3wCMM8AzgoaKPy3Mt47cTBLPLJacmW6qt9Qe4mcML0XpRlxrVn7HDYIh4n5HHhILsq9335fejP5O1IqwoI6IS4UXrnpw8F5V0kL/aeBIxI/2o8OvayMvzpSYY2M5Yx9U0Y9yZ09eW9L7+g9M7ZwmhdJwEhg8HpXjTrqfoAG8cLWIZ8JkeX2cZ503TPa7/xygLOEHaJCfFWg3ArOllr66kv341k8Fp7Dpeqx3MKB7+SswqqIT29cX77yf3RGL3llHwHMVCQsv6QwX6FNDf/lnkHSmMpno1WyCFAVhgOdl/GXMPTcMFc27NrqrNLR2T22ZkpHFvjuu5Z2U73Xz+dQWuQXLQGYtugN8YGoKiSk=
