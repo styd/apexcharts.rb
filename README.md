@@ -49,7 +49,8 @@ beautiful, interactive, and responsive charts for your ruby app.
   - [Radar Chart](#radar-chart-1)
   - [Bubble Chart](#bubble-chart-1)
   - [Polar Charts](#polar-charts-1)
-- [Options (Reference)](#options-reference)
+- [Options](#options)
+  - [Global Options](#global-options)
 - [Installation](#installation)
 - [Web Support](#web-support)
   - [Rails](#rails)
@@ -487,7 +488,7 @@ The data format for donut, pie, and radial bar are the simplest. They are
 just any single value of type Numeric.
 
 
-## Options (Reference)
+## Options
 ApexCharts.rb supports [all options from apexcharts.js](https://apexcharts.com/docs/options/), but instead of camelCase, you can write them in snake_case.
 
 ApexCharts.rb also provides shortcuts to some ApexCharts.js options, such as `title`. In ApexCharts.js you would have to write `title: { text: "Some title" }`. In ApexCharts.rb you can write `title: "Some title"` if you just want to add the text.
@@ -513,7 +514,7 @@ options = {
 
 These options can be passed to any chart helper like `<%= line_chart(series, options) %>`.
 
-### Global options
+### Global Options
 
 To change options globally, you can manipulate the `Apex` JavaScript object directly:
 
