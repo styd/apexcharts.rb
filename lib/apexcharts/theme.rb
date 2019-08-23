@@ -23,7 +23,7 @@ module ApexCharts
       end
 
       def palette_names
-        palettes.keys
+        custom_palettes.keys
       end
 
       def all_palettes
@@ -42,10 +42,6 @@ module ApexCharts
     class Local
       module LocalClassMethods
         include ClassMethods
-
-        def palette_names
-          super + ApexCharts::Theme.palettes.keys
-        end
 
         def custom_palettes
           ApexCharts::Theme.palettes.merge(super)
