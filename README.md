@@ -52,10 +52,13 @@ beautiful, interactive, and responsive charts for your ruby app.
 - [Options](#options)
   - [Global Options](#global-options)
 - [Installation](#installation)
+- [Reusable Custom Palette](#reusable-custom-palette)
+  - [Global Palette](#global-palette)
+  - [Local Palette](#local-palette)
 - [Web Support](#web-support)
   - [Rails](#rails)
   - [Plain HTML+ERB (Without Framework)](#plain-htmlerb-without-framework)
-- [TODOs](#todos)
+- [Roadmap](#roadmap)
 - [Contributing](#contributing)
 - [License](#license)
 - [Like the charts?](#like-the-charts)
@@ -548,6 +551,55 @@ $ bundle
 ```
 
 
+## Reusable Custom Palette
+You can create custom palette that works globally or locally.
+
+### Global Palette
+To create global palettes to be used anywhere on your any parts of your app, you can use
+`ApexCharts::Theme.create`.
+
+For example, in rails app, you would write it in initializers:
+
+```ruby
+# config/initializers/apexcharts.rb
+ApexCharts::Theme.create "rainbow", ["#ff0000", "#00ff00", "#0000ff"]
+```
+
+and later somewhere in your app views:
+
+```ruby
+# e.g. app/views/home/index.html.slim
+...
+= line_chart chart_data, theme: "rainbow"
+...
+```
+
+If later for some reason I don't know you want to destroy the palette you can use:
+
+```ruby
+ApexCharts::Theme.destroy "rainbow"
+```
+
+### Local Palette
+To create local palettes to be used only for current thread (usually for the duration
+of a request), you can use the `create_palette` helper. The theme will only be available
+on that page and inside its partials after the palette created.
+
+For example:
+
+```ruby
+create_palette "ephemeral", ["#ab356d", "#12cdf3", "#665572", "#ababac"]
+```
+
+To destroy the palette:
+
+```ruby
+destroy_palette "ephemeral"
+```
+
+on the same page or in its partials. Otherwise, nothing will happen.
+
+
 ## Web Support
 
 ### Rails
@@ -583,12 +635,14 @@ $ erb sample.html.erb > sample.html
 ```
 
 
-## TODO
+## Roadmap
+- Support other ruby frameworks (sinatra, hanami, etc.)
 - v0.1.x
   - Add more features (e.g. gradient line, background image, etc.)
-  - Support other ruby frameworks (sinatra, hanami, etc.)
 - v0.2.x
   - Replace dependency `smart_kv` with `dry-schema`
+  - Display warnings on browser console on development instead of error page when
+    schema doesn't meet
 
 
 ## Contributing
@@ -597,7 +651,7 @@ Everyone is encouraged to help improve this project by:
 - Fixing bugs and submiting pull requests
 - Fixing documentation
 - Suggesting new features
-- Implementing TODO above
+- Implementing todos on Roadmap above
 
 
 ## License

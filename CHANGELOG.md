@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file.
 - Ability to create reusable theme palette
 - **RangeBar chart**
 - Change logo to placeholder logo that needs to be replaced
+- Example for palette creation
 
 ## Changed
 - X and Y axis type `number` to `numeric`
