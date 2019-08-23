@@ -9,27 +9,57 @@ module ApexCharts
 
     @custom_palettes = {}
 
-    class << self
+    module ClassMethods
       def create palette_name, colors
-        @custom_palettes[palette_name] = Colors.new colors
+        palettes[palette_name] = Colors.new colors
       end
 
       def destroy palette_name
-        @custom_palettes.delete palette_name
+        palettes.delete palette_name
       end
 
       def get_colors(palette_name)
-        @custom_palettes[palette_name]&.values
+        custom_palettes[palette_name]&.values
       end
 
-      def custom_palettes
-        @custom_palettes.keys
+      def palette_names
+        palettes.keys
       end
 
       def all_palettes
-        PALETTES + custom_palettes
+        PALETTES + palette_names
+      end
+
+      def custom_palettes
+        palettes
+      end
+
+      def palettes
+        @custom_palettes
       end
     end
+
+    class Local
+      module LocalClassMethods
+        include ClassMethods
+
+        def palette_names
+          super + ApexCharts::Theme.palettes.keys
+        end
+
+        def custom_palettes
+          ApexCharts::Theme.palettes.merge(super)
+        end
+
+        def palettes
+          Thread.current[:_ApexCharts_Palettes_] ||= {}
+        end
+      end
+
+      extend LocalClassMethods
+    end
+
+    extend ClassMethods
   end
 end
 

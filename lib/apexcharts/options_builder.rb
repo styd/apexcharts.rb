@@ -232,7 +232,7 @@ module ApexCharts
       @built[:theme] = if theme.is_a? String
                          case theme
                          when 'random'
-                           {palette: ApexCharts::Theme.all_palettes.sample}
+                           resolve_theme(Theme::Local.all_palettes.sample)
                          when 'monochrome'
                            {monochrome: {enabled: true}}
                          else
@@ -337,8 +337,8 @@ module ApexCharts
     def resolve_theme(theme)
       if Theme::PALETTES.include? theme
         {palette: theme}
-      elsif Theme.custom_palettes.include? theme
-        @built[:colors] = Theme.get_colors(theme)
+      elsif Theme::Local.palette_names.include? theme
+        @built[:colors] = Theme::Local.get_colors(theme)
         nil
       end
     end

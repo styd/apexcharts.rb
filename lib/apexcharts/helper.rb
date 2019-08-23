@@ -83,11 +83,11 @@ module ApexCharts
     alias_method :circle_chart, :radial_bar_chart
 
     def create_palette palette_name, colors
-      ApexCharts::Theme.create palette_name, colors
+      ApexCharts::Theme::Local.create palette_name, colors
     end
 
     def destroy_palette palette_name
-      ApexCharts::Theme.destroy palette_name
+      ApexCharts::Theme::Local.destroy palette_name
     end
 
   private

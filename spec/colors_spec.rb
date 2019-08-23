@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ApexCharts::Colors do
+RSpec.describe ApexCharts::Colors do
   context '#values' do
     context 'when input is a string' do
       context 'of a valid color' do
