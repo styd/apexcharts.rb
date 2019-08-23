@@ -31,8 +31,10 @@ module ApexCharts
                   var
                   xaxis
                   xtitle
+                  xtype
                   yaxis
                   ytitle
+                  ytype
                 ],
              *DivAttributes.optional_keys,
              *ChartOptions.optional_keys,

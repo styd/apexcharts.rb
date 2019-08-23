@@ -17,6 +17,7 @@ All notable changes to this project will be documented in this file.
 
 ### Fixed
 - HTML+ERB wrong and ambiguous instruction
+- Cannot specify xtype or ytype as root options
 
 
 ## [0.1.5] - 2019-07-20
