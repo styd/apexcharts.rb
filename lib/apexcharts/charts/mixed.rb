@@ -4,7 +4,7 @@ module ApexCharts
   class MixedCharts < BaseChart
     include Annotations
 
-    def initialize bindings, options={}, &block
+    def initialize(bindings, options={}, &block)
       @bindings = bindings
       @series = {series: []}
       options[:id] ||= apexcharts_id
@@ -16,40 +16,48 @@ module ApexCharts
       @options = Utils::Hash.deep_merge(
                    build_options(x_sample, options),
                    Utils::Hash.camelize_keys(
-                     {chart: {type: 'area'}, **@series}
+                     chart: {type: 'area'}, **@series
                    )
                  )
 
-      get_selection_range if brush?
+      build_selection_range if brush?
     end
 
-    def line_chart data, options={}, &block
-      bindings = eval("self", block.binding) if block_given?
+    def line_chart(data, options={}, &block)
+      bindings = eval('self', block.binding, __FILE__, __LINE__) if block_given?
       @series[:series] += LineChart.new(bindings, data, options, &block).mixed_series
     end
 
-    def area_chart data, options={}, &block
-      bindings = eval("self", block.binding) if block_given?
+    def area_chart(data, options={}, &block)
+      bindings = eval('self', block.binding, __FILE__, __LINE__) if block_given?
       @series[:series] += AreaChart.new(bindings, data, options, &block).mixed_series
     end
 
-    def bar_chart data, options={}, &block
-      bindings = eval("self", block.binding) if block_given?
+    def bar_chart(data, options={}, &block)
+      bindings = eval('self', block.binding, __FILE__, __LINE__) if block_given?
       @series[:series] += BarChart.new(bindings, data, options, &block).mixed_series
     end
 
-    def column_chart data, options={}, &block
-      bindings = eval("self", block.binding) if block_given?
+    def column_chart(data, options={}, &block)
+      bindings = eval('self', block.binding, __FILE__, __LINE__) if block_given?
       @series[:series] += ColumnChart.new(bindings, data, options, &block).mixed_series
     end
 
-    def scatter_chart data, options={}, &block
-      bindings = eval("self", block.binding) if block_given?
+    def scatter_chart(data, options={}, &block)
+      bindings = eval('self', block.binding, __FILE__, __LINE__) if block_given?
       @series[:series] += ScatterChart.new(bindings, data, options, &block).mixed_series
     end
 
-    def method_missing method, *args, &block
-      @bindings.send method, *args, &block
+    def method_missing(method, *args, &block)
+      if @bindings.respond_to?(method)
+        @bindings.send method, *args, &block
+      else
+        super
+      end
+    end
+
+    def respond_to_missing?(method, *args)
+      @bindings.respond_to?(method) || super
     end
 
   private
@@ -65,7 +73,7 @@ module ApexCharts
         !@options[:chart][:selection]&.[](:xaxis)
     end
 
-    def get_selection_range
+    def build_selection_range
       first_x = @series[:series].last[:data].first[:x]
       last_x = @series[:series].last[:data].last[:x]
       @options[:chart][:selection][:xaxis] = {

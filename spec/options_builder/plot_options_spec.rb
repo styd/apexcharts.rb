@@ -37,5 +37,3 @@ RSpec.describe '#build_plot_options' do
     expect(hash_ob.built).to match(hash_including(expected_plot_options_built))
   end
 end
-
-

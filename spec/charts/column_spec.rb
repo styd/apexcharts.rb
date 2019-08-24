@@ -11,23 +11,22 @@ RSpec.describe ApexCharts::ColumnChart do
     chart = described_class.new(bindings, data, options)
     expect(chart.chart_type).to eq('bar')
     expect(chart.more_options).to eq(
-      {
-        plot_options: {
-          bar: {
-            horizontal: false
-          }
-        }
-      }
-    )
+                                    plot_options: {
+                                      bar: {
+                                        horizontal: false
+                                      }
+                                    }
+                                  )
     expect(chart.mixed_series).to eq(
-      [
-        {data: [
-          {x: 100, y: 1},
-          {x: 200, y: 2}
-        ],
-        type: 'bar'}
-      ]
-    )
+                                    [
+                                      {
+                                        data: [
+                                                {x: 100, y: 1},
+                                                {x: 200, y: 2}
+                                              ],
+                                        type: 'bar'
+                                      }
+                                    ]
+                                  )
   end
 end
-

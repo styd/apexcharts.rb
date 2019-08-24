@@ -6,7 +6,7 @@ RSpec.describe '#build_legend' do
     ApexCharts::OptionsBuilder.new(x_sample, options)
   }
 
-  context "boolean legend" do
+  context 'boolean legend' do
     let(:options) {
       {
         legend: true
@@ -26,7 +26,7 @@ RSpec.describe '#build_legend' do
     end
   end
 
-  context "string legend" do
+  context 'string legend' do
     let(:options) {
       {
         legend: 'top'
@@ -47,7 +47,7 @@ RSpec.describe '#build_legend' do
     end
   end
 
-  context "hash legend" do
+  context 'hash legend' do
     let(:options) {
       {
         legend: {
@@ -67,5 +67,3 @@ RSpec.describe '#build_legend' do
     end
   end
 end
-
-

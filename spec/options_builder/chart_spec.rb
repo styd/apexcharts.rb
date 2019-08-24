@@ -4,10 +4,10 @@ RSpec.describe '#build_chart' do
   let(:x_sample) { nil }
   let(:options) {
     {
-      chart: {background: "#ddd", height: 350},
-      id: "an-html-element-id",
-      chart_id: "a-chart-id",
-      group: "group-name",
+      chart: {background: '#ddd', height: 350},
+      id: 'an-html-element-id',
+      chart_id: 'a-chart-id',
+      group: 'group-name',
       height: 300,
       width: 400,
       stacked: true,
@@ -23,11 +23,11 @@ RSpec.describe '#build_chart' do
   let(:expected_built) {
     {
       chart: {
-        id: "a-chart-id",
+        id: 'a-chart-id',
         animations: {enabled: true},
-        background: "#ddd",
-        foreColor: "#fc9",
-        group: "group-name",
+        background: '#ddd',
+        foreColor: '#fc9',
+        group: 'group-name',
         height: 350,
         width: 400,
         sparkline: {enabled: true},
@@ -68,5 +68,3 @@ RSpec.describe '#build_chart' do
     end
   end
 end
-
-

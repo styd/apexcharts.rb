@@ -6,7 +6,7 @@ RSpec.describe '#build_no_data' do
     ApexCharts::OptionsBuilder.new(x_sample, options)
   }
 
-  context "string no_data" do
+  context 'string no_data' do
     let(:options) {
       {
         no_data: 'Data not available'
@@ -25,7 +25,7 @@ RSpec.describe '#build_no_data' do
     end
   end
 
-  context "hash no_data" do
+  context 'hash no_data' do
     let(:options) {
       {
         no_data: {
@@ -51,5 +51,3 @@ RSpec.describe '#build_no_data' do
     end
   end
 end
-
-

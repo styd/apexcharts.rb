@@ -11,4 +11,3 @@ RSpec.describe ApexCharts::HeatmapChart do
     expect(chart.chart_type).to eq('heatmap')
   end
 end
-

@@ -6,7 +6,7 @@ RSpec.describe '#build_subtitle' do
     ApexCharts::OptionsBuilder.new(x_sample, options)
   }
 
-  context "string subtitle" do
+  context 'string subtitle' do
     let(:options) {
       {
         subtitle: 'Which subtitle?'
@@ -15,7 +15,7 @@ RSpec.describe '#build_subtitle' do
     let(:expected_built) {
       {
         subtitle: {
-          text: "Which subtitle?"
+          text: 'Which subtitle?'
         }
       }
     }
@@ -26,11 +26,11 @@ RSpec.describe '#build_subtitle' do
     end
   end
 
-  context "hash subtitle" do
+  context 'hash subtitle' do
     let(:options) {
       {
         subtitle: {
-          text: "This subtitle.",
+          text: 'This subtitle.',
           offset_x: 20
         }
       }
@@ -38,7 +38,7 @@ RSpec.describe '#build_subtitle' do
     let(:expected_built) {
       {
         subtitle: {
-          text: "This subtitle.",
+          text: 'This subtitle.',
           offsetX: 20
         }
       }
@@ -50,5 +50,3 @@ RSpec.describe '#build_subtitle' do
     end
   end
 end
-
-

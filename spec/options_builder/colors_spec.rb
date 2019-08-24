@@ -6,7 +6,7 @@ RSpec.describe '#build_colors' do
     ApexCharts::OptionsBuilder.new(x_sample, options)
   }
 
-  context "colors is nil" do
+  context 'colors is nil' do
     let(:options) {
       {
         colors: nil
@@ -24,7 +24,7 @@ RSpec.describe '#build_colors' do
     end
   end
 
-  context "colors is array" do
+  context 'colors is array' do
     let(:options) {
       {
         colors: ['#FFAABB', '#AABB33']
@@ -42,7 +42,7 @@ RSpec.describe '#build_colors' do
     end
   end
 
-  context "colors is anything else" do
+  context 'colors is anything else' do
     let(:options) {
       {
         colors: '#AABB33'
@@ -60,5 +60,3 @@ RSpec.describe '#build_colors' do
     end
   end
 end
-
-

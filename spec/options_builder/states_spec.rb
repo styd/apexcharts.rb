@@ -6,7 +6,7 @@ RSpec.describe '#build_states' do
     ApexCharts::OptionsBuilder.new(x_sample, options)
   }
 
-  context "string normal, hover, and active" do
+  context 'string normal, hover, and active' do
     let(:options) {
       {
         normal: 'lighten',
@@ -42,7 +42,7 @@ RSpec.describe '#build_states' do
     end
   end
 
-  context "hash states" do
+  context 'hash states' do
     let(:options) {
       {
         states: {

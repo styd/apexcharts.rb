@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require_relative 'title'
 
 module ApexCharts
   class SubtitleOptions < TitleOptions
-    optional *%i[ ]
+    optional
   end
 end

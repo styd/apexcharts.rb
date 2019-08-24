@@ -6,7 +6,7 @@ RSpec.describe '#build_data_labels' do
     ApexCharts::OptionsBuilder.new(x_sample, options)
   }
 
-  context "boolean data_labels" do
+  context 'boolean data_labels' do
     let(:options) {
       {
         data_labels: true
@@ -26,7 +26,7 @@ RSpec.describe '#build_data_labels' do
     end
   end
 
-  context "hash data_labels" do
+  context 'hash data_labels' do
     let(:options) {
       {
         data_labels: {
@@ -62,5 +62,3 @@ RSpec.describe '#build_data_labels' do
     end
   end
 end
-
-

@@ -9,17 +9,17 @@ RSpec.describe '#build_xaxis' do
   context 'xaxis is a string' do
     let(:options) {
       {
-        xtype: "numeric",
-        xtitle: "X-Title",
-        xaxis: "Title"
+        xtype: 'numeric',
+        xtitle: 'X-Title',
+        xaxis: 'Title'
       }
     }
     let(:expected_built) {
       {
         xaxis: {
-          type: "numeric",
+          type: 'numeric',
           title: {
-            text: "Title"
+            text: 'Title'
           }
         }
       }
@@ -34,22 +34,22 @@ RSpec.describe '#build_xaxis' do
   context 'xaxis is a hash' do
     let(:options) {
       {
-        xtype: "numeric",
-        xtitle: "X-Title",
+        xtype: 'numeric',
+        xtitle: 'X-Title',
         xaxis: {
-          position: "top",
-          type: "datetime"
+          position: 'top',
+          type: 'datetime'
         }
       }
     }
     let(:expected_built) {
       {
         xaxis: {
-          type: "datetime",
+          type: 'datetime',
           title: {
-            text: "X-Title",
+            text: 'X-Title'
           },
-          position: "top"
+          position: 'top'
         }
       }
     }
@@ -64,13 +64,13 @@ RSpec.describe '#build_xaxis' do
     let(:x_sample) { Time.now }
     let(:options) {
       {
-        xtype: "numeric",
+        xtype: 'numeric'
       }
     }
     let(:expected_built) {
       {
         xaxis: {
-          type: "numeric",
+          type: 'numeric'
         }
       }
     }
@@ -81,5 +81,3 @@ RSpec.describe '#build_xaxis' do
     end
   end
 end
-
-

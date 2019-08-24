@@ -14,9 +14,7 @@ module ApexCharts
 
                    when Hash
                      if data_value = data[:data]
-                       if array_of_threes?(data_value)
-                         [data]
-                       end
+                       [data] if array_of_threes?(data_value)
                      end
 
                    end
@@ -30,8 +28,8 @@ module ApexCharts
 
     def array_of_threes?(data)
       return false if data.empty?
-      data.all?{|d| d.length == 3 }
+
+      data.all? {|d| d.length == 3 }
     end
   end
 end
-

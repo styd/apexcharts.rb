@@ -11,14 +11,14 @@ RSpec.describe ApexCharts::PolarSeries do
       }
     }
     let(:data3) {
-      data1.map{|m| {data: m} }
+      data1.map {|m| {data: m} }
     }
-    let(:data4) { 
+    let(:data4) {
       [
-        {name: "Series A", data: 25},
-        {name: "Series B", data: 100},
-        {name: "Series C", data: 200},
-        {name: "Series D", data: 125}
+        {name: 'Series A', data: 25},
+        {name: 'Series B', data: 100},
+        {name: 'Series C', data: 200},
+        {name: 'Series D', data: 125}
       ]
     }
     let(:expected) {
@@ -26,9 +26,9 @@ RSpec.describe ApexCharts::PolarSeries do
         series: [25, 100, 200, 125]
       }
     }
-    let(:expected_with_names) { 
+    let(:expected_with_names) {
       {
-        labels: ["Series A", "Series B", "Series C", "Series D"],
+        labels: ['Series A', 'Series B', 'Series C', 'Series D'],
         series: [25, 100, 200, 125]
       }
     }

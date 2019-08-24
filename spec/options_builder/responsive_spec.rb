@@ -6,7 +6,7 @@ RSpec.describe '#build_responsive' do
     ApexCharts::OptionsBuilder.new(x_sample, options)
   }
 
-  context "responsive is nil" do
+  context 'responsive is nil' do
     let(:options) {
       {
         responsive: nil
@@ -24,7 +24,7 @@ RSpec.describe '#build_responsive' do
     end
   end
 
-  context "responsive is array" do
+  context 'responsive is array' do
     let(:options) {
       {
         responsive: [{breakpoint: 300, options: {}}]
@@ -42,7 +42,7 @@ RSpec.describe '#build_responsive' do
     end
   end
 
-  context "responsive is anything else" do
+  context 'responsive is anything else' do
     let(:options) {
       {
         responsive: {breakpoint: 300, options: {}}
@@ -60,5 +60,3 @@ RSpec.describe '#build_responsive' do
     end
   end
 end
-
-

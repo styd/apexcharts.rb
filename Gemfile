@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+git_source(:github) {|repo| "https://github.com/#{repo}.git" }
 
 # Declare your gem's dependencies in apexcharts.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and

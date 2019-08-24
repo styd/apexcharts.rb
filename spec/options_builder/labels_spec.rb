@@ -6,7 +6,7 @@ RSpec.describe '#build_labels' do
     ApexCharts::OptionsBuilder.new(x_sample, options)
   }
 
-  context "labels is nil" do
+  context 'labels is nil' do
     let(:options) {
       {
         labels: nil
@@ -24,15 +24,15 @@ RSpec.describe '#build_labels' do
     end
   end
 
-  context "labels is array" do
+  context 'labels is array' do
     let(:options) {
       {
-        labels: ['Apples', 'Oranges']
+        labels: %w[Apples Oranges]
       }
     }
     let(:expected_built) {
       {
-        labels: ['Apples', 'Oranges']
+        labels: %w[Apples Oranges]
       }
     }
 
@@ -42,7 +42,7 @@ RSpec.describe '#build_labels' do
     end
   end
 
-  context "labels is anything else" do
+  context 'labels is anything else' do
     let(:options) {
       {
         labels: 'Apples'
@@ -60,5 +60,3 @@ RSpec.describe '#build_labels' do
     end
   end
 end
-
-

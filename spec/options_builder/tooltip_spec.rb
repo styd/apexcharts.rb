@@ -6,7 +6,7 @@ RSpec.describe '#build_tooltip' do
     ApexCharts::OptionsBuilder.new(x_sample, options)
   }
 
-  context "boolean tooltip" do
+  context 'boolean tooltip' do
     let(:options) {
       {
         tooltip: true
@@ -26,7 +26,7 @@ RSpec.describe '#build_tooltip' do
     end
   end
 
-  context "hash tooltip" do
+  context 'hash tooltip' do
     let(:options) {
       {
         tooltip: {
@@ -50,5 +50,3 @@ RSpec.describe '#build_tooltip' do
     end
   end
 end
-
-

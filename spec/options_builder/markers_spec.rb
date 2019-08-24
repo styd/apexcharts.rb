@@ -6,7 +6,7 @@ RSpec.describe '#build_markers' do
     ApexCharts::OptionsBuilder.new(x_sample, options)
   }
 
-  context "string markers" do
+  context 'string markers' do
     let(:options) {
       {
         markers: 'square'
@@ -26,7 +26,7 @@ RSpec.describe '#build_markers' do
     end
   end
 
-  context "hash markers" do
+  context 'hash markers' do
     let(:options) {
       {
         markers: {
@@ -57,5 +57,3 @@ RSpec.describe '#build_markers' do
     end
   end
 end
-
-

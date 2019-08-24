@@ -16,7 +16,7 @@ module ApexCharts
 
                      when Hash
                        if first_data[:data]
-                         data.each{|h| h[:data] = array_of_array_to_array_of_xy(h[:data]) }
+                         data.each {|h| h[:data] = array_of_array_to_array_of_xy(h[:data]) }
                          data
                        end
 
@@ -29,20 +29,18 @@ module ApexCharts
                          [data]
                        end
 
+                     elsif data[:x] && data[:y]
+                       [{data: [data]}]
+
                      else
-                       if data[:x] && data[:y]
-                         [{data: [data]}]
+                       [
+                         {
+                           data: data.map do |key, value|
+                                   {x: key, y: value}
+                                 end
+                         }
+                       ]
 
-                       else
-                         [
-                           {
-                             data: data.map do |k,v|
-                                     {x: k, y: v}
-                                   end
-                           }
-                         ]
-
-                       end
                      end
                    end
 
@@ -54,12 +52,11 @@ module ApexCharts
     end
 
     def array_of_pairs?(data)
-      !data.empty? && data.all?{|d| d.length == 2 }
+      !data.empty? && data.all? {|d| d.length == 2 }
     end
 
     def array_of_array_to_array_of_xy(data)
-      data.map{|d| {x: d.first, y: d.last} }
+      data.map {|d| {x: d.first, y: d.last} }
     end
   end
 end
-

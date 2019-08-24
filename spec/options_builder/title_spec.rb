@@ -6,7 +6,7 @@ RSpec.describe '#build_title' do
     ApexCharts::OptionsBuilder.new(x_sample, options)
   }
 
-  context "string title" do
+  context 'string title' do
     let(:options) {
       {
         title: 'Which title?'
@@ -15,7 +15,7 @@ RSpec.describe '#build_title' do
     let(:expected_built) {
       {
         title: {
-          text: "Which title?"
+          text: 'Which title?'
         }
       }
     }
@@ -26,11 +26,11 @@ RSpec.describe '#build_title' do
     end
   end
 
-  context "hash title" do
+  context 'hash title' do
     let(:options) {
       {
         title: {
-          text: "This title.",
+          text: 'This title.',
           offset_x: 10
         }
       }
@@ -38,7 +38,7 @@ RSpec.describe '#build_title' do
     let(:expected_built) {
       {
         title: {
-          text: "This title.",
+          text: 'This title.',
           offsetX: 10
         }
       }
@@ -50,5 +50,3 @@ RSpec.describe '#build_title' do
     end
   end
 end
-
-

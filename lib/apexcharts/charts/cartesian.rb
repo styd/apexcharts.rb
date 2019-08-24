@@ -8,7 +8,7 @@ module ApexCharts
     include Annotations
     include Mixable
 
-    def initialize bindings, data, options={}, &block
+    def initialize(bindings, data, options={}, &block)
       @bindings = bindings
       options = Utils::Hash.deep_merge(
                   Utils::Hash.camelize_keys(options),
@@ -28,19 +28,23 @@ module ApexCharts
                    )
                  )
 
-      get_selection_range if brush?
+      build_selection_range if brush?
     end
 
     def more_options
       {}
     end
 
-    def method_missing method, *args, &block
-      if @bindings
+    def method_missing(method, *args, &block)
+      if @bindings.respond_to?(method)
         @bindings.send method, *args, &block
       else
         super
       end
+    end
+
+    def respond_to_missing?(method, *args)
+      @bindings.respond_to?(method) || super
     end
 
   protected
@@ -60,7 +64,7 @@ module ApexCharts
         !@options[:chart][:selection]&.[](:xaxis)
     end
 
-    def get_selection_range
+    def build_selection_range
       first_x = @series[:series].last[:data].first[:x]
       last_x = @series[:series].last[:data].last[:x]
       @options[:chart][:selection][:xaxis] = {
@@ -78,4 +82,3 @@ module ApexCharts
     end
   end
 end
-

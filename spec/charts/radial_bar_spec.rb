@@ -3,10 +3,10 @@ require 'spec_helper'
 RSpec.describe ApexCharts::RadialBarChart do
   let(:data) {
     [
-      {name: "Series A", data: 25},
-      {name: "Series B", data: 40},
-      {name: "Series C", data: 80},
-      {name: "Series D", data: 55}
+      {name: 'Series A', data: 25},
+      {name: 'Series B', data: 40},
+      {name: 'Series C', data: 80},
+      {name: 'Series D', data: 55}
     ]
   }
   let(:options) { {} }
@@ -16,4 +16,3 @@ RSpec.describe ApexCharts::RadialBarChart do
     expect(chart.chart_type).to eq('radialBar')
   end
 end
-

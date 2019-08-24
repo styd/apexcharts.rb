@@ -4,17 +4,17 @@ require_relative 'colors'
 
 module ApexCharts
   class Theme
-    PALETTES = ["palette1", "palette2", "palette3", "palette4", "palette5", 
-                "palette6", "palette7", "palette8", "palette9", "palette10"]
+    PALETTES = %w[palette1 palette2 palette3 palette4 palette5
+                  palette6 palette7 palette8 palette9 palette10].freeze
 
     @custom_palettes = {}
 
     module ClassMethods
-      def create palette_name, colors
+      def create(palette_name, colors)
         palettes[palette_name] = Colors.new colors
       end
 
-      def destroy palette_name
+      def destroy(palette_name)
         palettes.delete palette_name
       end
 
@@ -58,4 +58,3 @@ module ApexCharts
     extend ClassMethods
   end
 end
-

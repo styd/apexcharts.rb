@@ -12,14 +12,15 @@ RSpec.describe ApexCharts::AreaChart do
     expect(chart.chart_type).to eq('area')
     expect(chart.more_options).to eq({})
     expect(chart.mixed_series).to eq(
-      [
-        {data: [
-          {x: 100, y: 1},
-          {x: 200, y: 2}
-        ],
-        type: 'area'}
-      ]
-    )
+                                    [
+                                      {
+                                        data: [
+                                                {x: 100, y: 1},
+                                                {x: 200, y: 2}
+                                              ],
+                                        type: 'area'
+                                      }
+                                    ]
+                                  )
   end
 end
-

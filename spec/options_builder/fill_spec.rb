@@ -6,7 +6,7 @@ RSpec.describe '#build_fill' do
     ApexCharts::OptionsBuilder.new(x_sample, options)
   }
 
-  context "string fill" do
+  context 'string fill' do
     let(:options) {
       {
         fill: 'gradient'
@@ -26,7 +26,7 @@ RSpec.describe '#build_fill' do
     end
   end
 
-  context "hash fill" do
+  context 'hash fill' do
     let(:options) {
       {
         fill: {
@@ -45,5 +45,3 @@ RSpec.describe '#build_fill' do
     end
   end
 end
-
-

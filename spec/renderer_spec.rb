@@ -13,7 +13,7 @@ RSpec.describe ApexCharts::Renderer do
     }
   }
 
-  context ".render_default" do
+  context '.render_default' do
     it 'renders div and script elements' do
       html = described_class.render_default(options)
       parsed = Nokogiri::HTML.parse(html)
@@ -24,4 +24,3 @@ RSpec.describe ApexCharts::Renderer do
     end
   end
 end
-

@@ -1,10 +1,10 @@
 module ApexCharts
   module Utils
     module Hash
-      module_function
+    module_function
 
       def deep_merge(first_hash, second_hash)
-        first_hash.merge(second_hash) do |key, this_val, other_val|
+        first_hash.merge(second_hash) do |_key, this_val, other_val|
           if this_val.is_a?(::Hash) && other_val.is_a?(::Hash)
             deep_merge(this_val.dup, other_val)
           else
@@ -30,4 +30,3 @@ module ApexCharts
     end
   end
 end
-

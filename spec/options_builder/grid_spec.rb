@@ -6,7 +6,7 @@ RSpec.describe '#build_grid' do
     ApexCharts::OptionsBuilder.new(x_sample, options)
   }
 
-  context "boolean grid" do
+  context 'boolean grid' do
     let(:options) {
       {
         grid: true
@@ -26,7 +26,7 @@ RSpec.describe '#build_grid' do
     end
   end
 
-  context "hash grid" do
+  context 'hash grid' do
     let(:options) {
       {
         grid: {
@@ -52,5 +52,3 @@ RSpec.describe '#build_grid' do
     end
   end
 end
-
-

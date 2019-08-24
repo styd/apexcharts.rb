@@ -11,4 +11,3 @@ RSpec.describe ApexCharts::RadarChart do
     expect(chart.chart_type).to eq('radar')
   end
 end
-

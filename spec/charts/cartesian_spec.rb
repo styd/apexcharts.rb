@@ -13,4 +13,3 @@ RSpec.describe ApexCharts::CartesianChart do
     expect(chart.more_options).to eq({})
   end
 end
-

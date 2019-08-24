@@ -6,7 +6,7 @@ RSpec.describe '#build_theme' do
     ApexCharts::OptionsBuilder.new(x_sample, options)
   }
 
-  context "string theme" do
+  context 'string theme' do
     context 'when random' do
       let(:options) {
         {
@@ -67,7 +67,7 @@ RSpec.describe '#build_theme' do
       }
 
       it 'builds the colors instead' do
-        ApexCharts::Theme.create 'my_palette', ["#aabbcc", "#bbccdd"]
+        ApexCharts::Theme.create 'my_palette', ['#aabbcc', '#bbccdd']
 
         ob.build_theme
         expect(ob.built).to match(hash_including(expected_built))
@@ -93,7 +93,7 @@ RSpec.describe '#build_theme' do
     end
   end
 
-  context "hash theme" do
+  context 'hash theme' do
     let(:options) {
       {
         theme: {
@@ -121,5 +121,3 @@ RSpec.describe '#build_theme' do
     end
   end
 end
-
-

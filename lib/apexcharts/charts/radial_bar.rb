@@ -7,4 +7,3 @@ module ApexCharts
     end
   end
 end
-

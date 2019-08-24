@@ -48,23 +48,23 @@ RSpec.describe ApexCharts::CartesianSeries do
   let(:expected4) {
     {
       series: [
-        {
-          data: [{x: 100, y: 1}, {x: 200, y: 2}]
-        },
-        {
-          data: [{x: 200, y: 3}, {x: 300, y: 5}]
-        }
-      ]
+                {
+                  data: [{x: 100, y: 1}, {x: 200, y: 2}]
+                },
+                {
+                  data: [{x: 200, y: 3}, {x: 300, y: 5}]
+                }
+              ]
     }
   }
   let(:data6) {
     [
       {
-        name: "Series A",
+        name: 'Series A',
         data: [[100, 1], [200, 2]]
       },
       {
-        name: "Series B",
+        name: 'Series B',
         data: [[400, 3], [400, 5]]
       }
     ]
@@ -72,15 +72,15 @@ RSpec.describe ApexCharts::CartesianSeries do
   let(:expected5) {
     {
       series: [
-        {
-          name: "Series A",
-          data: [{x: 100, y: 1}, {x: 200, y: 2}]
-        },
-        {
-          name: "Series B",
-          data: [{x: 400, y: 3}, {x: 400, y: 5}]
-        }
-      ]
+                {
+                  name: 'Series A',
+                  data: [{x: 100, y: 1}, {x: 200, y: 2}]
+                },
+                {
+                  name: 'Series B',
+                  data: [{x: 400, y: 3}, {x: 400, y: 5}]
+                }
+              ]
     }
   }
 

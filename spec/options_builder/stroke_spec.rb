@@ -6,7 +6,7 @@ RSpec.describe '#build_stroke' do
     ApexCharts::OptionsBuilder.new(x_sample, options)
   }
 
-  context "string curve" do
+  context 'string curve' do
     let(:options) {
       {
         curve: 'straight'
@@ -26,7 +26,7 @@ RSpec.describe '#build_stroke' do
     end
   end
 
-  context "boolean stroke" do
+  context 'boolean stroke' do
     let(:options) {
       {
         stroke: false
@@ -46,7 +46,7 @@ RSpec.describe '#build_stroke' do
     end
   end
 
-  context "hash stroke" do
+  context 'hash stroke' do
     let(:options) {
       {
         stroke: {
@@ -59,7 +59,7 @@ RSpec.describe '#build_stroke' do
       {
         stroke: {
           show: true,
-          lineCap: 'round',
+          lineCap: 'round'
         }
       }
     }
@@ -70,5 +70,3 @@ RSpec.describe '#build_stroke' do
     end
   end
 end
-
-

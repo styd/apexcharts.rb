@@ -2,7 +2,7 @@
 
 module ApexCharts
   class Engine < ::Rails::Engine
-    initializer "helper" do |app|
+    initializer 'helper' do
       ActiveSupport.on_load(:action_view) do
         include Helper
       end

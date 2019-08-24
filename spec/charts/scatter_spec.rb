@@ -12,14 +12,15 @@ RSpec.describe ApexCharts::ScatterChart do
     expect(chart.chart_type).to eq('scatter')
     expect(chart.more_options).to eq({})
     expect(chart.mixed_series).to eq(
-      [
-        {data: [
-          {x: 100, y: 1},
-          {x: 200, y: 2}
-        ],
-        type: 'scatter'}
-      ]
-    )
+                                    [
+                                      {
+                                        data: [
+                                                {x: 100, y: 1},
+                                                {x: 200, y: 2}
+                                              ],
+                                        type: 'scatter'
+                                      }
+                                    ]
+                                  )
   end
 end
-

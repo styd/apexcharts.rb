@@ -11,4 +11,3 @@ RSpec.describe ApexCharts::BubbleChart do
     expect(chart.chart_type).to eq('bubble')
   end
 end
-
