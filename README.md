@@ -20,6 +20,16 @@ ApexCharts.rb is a ruby gem that wraps a JavaScript charting library called with
 beautiful, interactive, and responsive charts for your ruby app.
 
 
+## README Versions
+This README might not be for the version you use.  
+Choose the right README:
+
+- [v0.1.5](https://github.com/styd/apexcharts.rb/blob/v0.1.5/README.md)
+- [v0.1.4](https://github.com/styd/apexcharts.rb/blob/v0.1.4/README.md)
+- [v0.1.3](https://github.com/styd/apexcharts.rb/blob/v0.1.3/README.md)
+- [v0.1.2](https://github.com/styd/apexcharts.rb/blob/v0.1.2/README.md)
+- [v0.1.1](https://github.com/styd/apexcharts.rb/blob/v0.1.1/README.md)
+
 ## Table of Contents
 
 - [Usage](#usage)
