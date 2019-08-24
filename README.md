@@ -15,15 +15,17 @@
 
 ## What is this?
 
-ApexCharts.rb is a ruby gem that wraps a JavaScript charting library called with the same name,
-[ApexCharts.js](https://github.com/apexcharts/apexcharts.js), that's going to give you
+ApexCharts.RB is a ruby gem that wraps a JavaScript charting library called with the same name,
+[ApexCharts.JS](https://github.com/apexcharts/apexcharts.js), that's going to give you
 beautiful, interactive, and responsive charts for your ruby app.
 
 
 ## README Versions
+
 This README might not be for the version you use.  
 Choose the right README:
 
+- [v0.1.6](https://github.com/styd/apexcharts.rb/blob/v0.1.6/README.md)
 - [v0.1.5](https://github.com/styd/apexcharts.rb/blob/v0.1.5/README.md)
 - [v0.1.4](https://github.com/styd/apexcharts.rb/blob/v0.1.4/README.md)
 - [v0.1.3](https://github.com/styd/apexcharts.rb/blob/v0.1.3/README.md)
@@ -196,6 +198,7 @@ Example options used for cartesian charts:
 
 
 #### Candlestick Chart
+
 Candlestick chart is typically used to illustrate movements in the price of a
 financial instrument over time. This chart is also popular by the name "ohlc chart".
 That's why you can call it with `ohlc_chart` too.  
@@ -395,6 +398,7 @@ Also called `circle_chart`.
 ## Data Formats
 
 ### Cartesian Charts
+
 The data format for line, stepline, area, column, bar, and scatter
 charts should be in following format **per-series**:
 
@@ -417,6 +421,7 @@ or this:
 ```
 
 #### Candlestick Chart
+
 Candlestick chart is just like other cartesian charts, only the y value is
 an array of 4 members which called the OHLC (Open-High-Low-Close):
 
@@ -439,6 +444,7 @@ or this:
 ```
 
 ### Heatmap Chart
+
 The data format for heatmap chart **per-series** is similar to cartesian
 charts. But instead of y values they are heat values. The series names will
 be the y values.
@@ -462,6 +468,7 @@ or this:
 ```
 
 ### Radar Chart
+
 The data format for radar chart **per-series** is also similar but instead
 of x values they are variables and instead of y values they are the only
 values for the variables with type of Numeric.
@@ -486,6 +493,7 @@ or this:
 
 
 ### Bubble Chart
+
 Bubble chart is similar to scatter chart, only they have one more value
 for bubble size:
 
@@ -498,14 +506,16 @@ for bubble size:
 ```
 
 ### Polar Charts
+
 The data format for donut, pie, and radial bar are the simplest. They are
 just any single value of type Numeric.
 
 
 ## Options
-ApexCharts.rb supports [all options from apexcharts.js](https://apexcharts.com/docs/options/), but instead of camelCase, you can write them in snake_case.
 
-ApexCharts.rb also provides shortcuts to some ApexCharts.js options, such as `title`. In ApexCharts.js you would have to write `title: { text: "Some title" }`. In ApexCharts.rb you can write `title: "Some title"` if you just want to add the text.
+ApexCharts.RB supports [all options from apexcharts.js](https://apexcharts.com/docs/options/), but instead of camelCase, you can write them in snake_case.
+
+ApexCharts.RB also provides shortcuts to some ApexCharts.js options, such as `title`. In ApexCharts.js you would have to write `title: { text: "Some title" }`. In ApexCharts.rb you can write `title: "Some title"` if you just want to add the text.
 `xtitle` and `ytitle` are even greater shortcuts. Instead of `xaxis: { title: { text: "x title" } }` you can write `xtitle: "x title"`."
 
 ```ruby
@@ -545,7 +555,7 @@ const apexGlobalOptions = {
 Object.assign(Apex, apexGlobalOptions)
 ```
 
-All charts will then be created with these global options, which can be overwritten individually by any ApexCharts.rb helper method.
+All charts will then be created with these global options, which can be overwritten individually by any ApexCharts.RB helper method.
 
 
 ## Installation
@@ -563,9 +573,11 @@ $ bundle
 
 
 ## Reusable Custom Palette
+
 You can create custom palette that works globally or locally.
 
 ### Global Palette
+
 To create global palettes to be used anywhere on your any parts of your app, you can use
 `ApexCharts::Theme.create`.
 
@@ -592,6 +604,7 @@ ApexCharts::Theme.destroy "rainbow"
 ```
 
 ### Local Palette
+
 To create local palettes to be used only for current thread (usually for the duration
 of a request), you can use the `create_palette` helper. The theme will only be available
 on that page and inside its partials after the palette created.
@@ -614,6 +627,7 @@ on the same page or in its partials. Otherwise, nothing will happen.
 ## Web Support
 
 ### Rails
+
 After installing the gem, require it in your `app/assets/javascripts/application.js`.
 ```js
 //= require apexcharts
@@ -629,6 +643,7 @@ require("apexcharts")
 ```
 
 ### Plain HTML+ERB (Without Framework)
+
 After installing the gem, insert this to the top of your .html.erb files:
 
 ```html+erb
@@ -638,7 +653,7 @@ After installing the gem, insert this to the top of your .html.erb files:
 <% include ApexCharts::Helper %>
 ```
 `require 'set'` is needed because of an issue in the dependency used, but not needed
-in v0.2.x release of ApexCharts.rb.
+in v0.2.x release of ApexCharts.RB.
 
 You can then generate the static html page with e.g.
 ```bash
@@ -647,6 +662,7 @@ $ erb sample.html.erb > sample.html
 
 
 ## Roadmap
+
 - Support other ruby frameworks (sinatra, hanami, etc.)
 - v0.1.x
   - Add more features (e.g. gradient line, background image, etc.)
@@ -657,6 +673,7 @@ $ erb sample.html.erb > sample.html
 
 
 ## Contributing
+
 Everyone is encouraged to help improve this project by:
 - Reporting bugs
 - Fixing bugs and submiting pull requests
@@ -666,11 +683,13 @@ Everyone is encouraged to help improve this project by:
 
 
 ## License
+
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
 
 ## Like the charts?
-Consider donating to the author of apexcharts.js to support his awesome library.
+
+Consider donating to the author of ApexCharts.JS to support his awesome library.
 This project wouldn't be possible without it.
 
 Become a sponsor on [Patreon](https://patreon.com/junedchhipa).  

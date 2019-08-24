@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 
 
-## [Unreleased]
+## [0.1.6] - 2019-08-24
 ### Added
 - Security section in repo page
 - Table of Contents
