@@ -72,15 +72,15 @@ RSpec.describe ApexCharts::BubbleSeries do
   let(:expected2) {
     {
       series: [
-                {
-                  name: 'Series A',
-                  data: data1
-                },
-                {
-                  name: 'Series B',
-                  data: data3
-                }
-              ]
+        {
+          name: 'Series A',
+          data: data1
+        },
+        {
+          name: 'Series B',
+          data: data3
+        }
+      ]
     }
   }
 

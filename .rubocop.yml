@@ -7,7 +7,7 @@ Layout/SpaceInsideHashLiteralBraces:
   EnforcedStyle: no_space
 
 Layout/IndentFirstArrayElement:
-  EnforcedStyle: align_brackets
+  EnforcedStyle: consistent
 
 Layout/SpaceAroundEqualsInParameterDefault:
   EnforcedStyle: no_space
@@ -16,7 +16,7 @@ Layout/SpaceInsideBlockBraces:
   SpaceBeforeBlockParameters: false
 
 Layout/IndentFirstArgument:
-  EnforcedStyle: consistent_relative_to_receiver
+  EnforcedStyle: consistent
 
 Style/FrozenStringLiteralComment:
   Enabled: false

@@ -7,14 +7,14 @@ module ApexCharts
 
       @annotations[axis] ||= []
       @annotations[axis] << annotation_value(axis, value).merge(
-                              if axis == :points
-                                {marker: {size: 8, fillColor: 'white', strokeColor: color, radius: 2}, **options}
-                              else
-                                {borderColor: color, fillColor: color, opacity: 0.2}
-                              end
-                            ).merge(
-                              annotation_label(text, color, **options)
-                            )
+        if axis == :points
+          {marker: {size: 8, fillColor: 'white', strokeColor: color, radius: 2}, **options}
+        else
+          {borderColor: color, fillColor: color, opacity: 0.2}
+        end
+      ).merge(
+        annotation_label(text, color, **options)
+      )
     end
 
     def x_annotation(**args)

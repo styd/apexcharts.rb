@@ -13,21 +13,23 @@ RSpec.describe ApexCharts::BarChart do
   it 'assigned properties correctly' do
     expect(chart.chart_type).to eq('bar')
     expect(chart.more_options).to eq(
-                                    plot_options: {
-                                      bar: {
-                                        horizontal: true
-                                      }
-                                    }
-                                  )
+      plot_options: {
+        bar: {
+          horizontal: true
+        }
+      }
+    )
     expect(chart.mixed_series).to eq(
-                                    [
-                                      {data: [
-                                               {x: 100, y: 1},
-                                               {x: 200, y: 2}
-                                             ],
-                                       type: 'bar'}
-                                    ]
-                                  )
+      [
+        {
+          data: [
+            {x: 100, y: 1},
+            {x: 200, y: 2}
+          ],
+          type: 'bar'
+        }
+      ]
+    )
   end
 
   context 'when options specifed is intertwined with more options' do
@@ -45,13 +47,13 @@ RSpec.describe ApexCharts::BarChart do
 
     it 'merged options and more_options correctly' do
       expect(chart.options[:plotOptions]).to eq(
-                                               bar: {
-                                                 dataLabels: {
-                                                   position: 'top'
-                                                 },
-                                                 horizontal: true
-                                               }
-                                             )
+        bar: {
+          dataLabels: {
+            position: 'top'
+          },
+          horizontal: true
+        }
+      )
     end
   end
 end

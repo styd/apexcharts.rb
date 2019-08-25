@@ -30,17 +30,17 @@ RSpec.describe ApexCharts::Utils::Hash do
 
     it 'does nested merge' do
       expect(described_class.deep_merge(hash_a, hash_b)).to eq(
-                                                              a: {
-                                                                b: {
-                                                                  c: '3',
-                                                                  d: 'four'
-                                                                },
-                                                                e: 'five',
-                                                                f: 'six'
-                                                              },
-                                                              f: :six,
-                                                              g: 7
-                                                            )
+        a: {
+          b: {
+            c: '3',
+            d: 'four'
+          },
+          e: 'five',
+          f: 'six'
+        },
+        f: :six,
+        g: 7
+      )
     end
   end
 
@@ -54,31 +54,31 @@ RSpec.describe ApexCharts::Utils::Hash do
   context '.camelize_keys' do
     it 'camelizes keys of the hash' do
       expect(described_class.camelize_keys(
-               check_this_out: {
-                 'this_is_great' => 'cool'
-               }
-             )).to eq(
-                     checkThisOut: {
-                       thisIsGreat: 'cool'
-                     }
-                   )
+        check_this_out: {
+          'this_is_great' => 'cool'
+        }
+      )).to eq(
+        checkThisOut: {
+          thisIsGreat: 'cool'
+        }
+      )
     end
 
     context 'when the value is an array containing hash' do
       it 'also camelizes keys of the hash inside array' do
         expect(described_class.camelize_keys(
-                 check_this_out: [
-                                   {
-                                     'this_is_great' => 'cool'
-                                   }
-                                 ]
-               )).to eq(
-                       checkThisOut: [
-                                       {
-                                         thisIsGreat: 'cool'
-                                       }
-                                     ]
-                     )
+          check_this_out: [
+            {
+              'this_is_great' => 'cool'
+            }
+          ]
+        )).to eq(
+          checkThisOut: [
+            {
+              thisIsGreat: 'cool'
+            }
+          ]
+        )
       end
     end
   end

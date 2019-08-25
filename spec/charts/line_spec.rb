@@ -12,15 +12,15 @@ RSpec.describe ApexCharts::LineChart do
     expect(chart.chart_type).to eq('line')
     expect(chart.more_options).to eq({})
     expect(chart.mixed_series).to eq(
-                                    [
-                                      {
-                                        data: [
-                                                {x: 100, y: 1},
-                                                {x: 200, y: 2}
-                                              ],
-                                        type: 'line'
-                                      }
-                                    ]
-                                  )
+      [
+        {
+          data: [
+            {x: 100, y: 1},
+            {x: 200, y: 2}
+          ],
+          type: 'line'
+        }
+      ]
+    )
   end
 end

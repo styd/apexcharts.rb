@@ -6,19 +6,19 @@ RSpec.describe '#build_annotations' do
     {
       annotations: {
         yaxis: [
-                 {
-                   y: 8200,
-                   border_color: '#00E396',
-                   label: {
-                     border_color: '#00E396',
-                     style: {
-                       color: '#fff',
-                       background: '#00E396'
-                     },
-                     text: 'Support'
-                   }
-                 }
-               ]
+          {
+            y: 8200,
+            border_color: '#00E396',
+            label: {
+              border_color: '#00E396',
+              style: {
+                color: '#fff',
+                background: '#00E396'
+              },
+              text: 'Support'
+            }
+          }
+        ]
       }
     }
   }
@@ -29,19 +29,19 @@ RSpec.describe '#build_annotations' do
     {
       annotations: {
         yaxis: [
-                 {
-                   y: 8200,
-                   borderColor: '#00E396',
-                   label: {
-                     borderColor: '#00E396',
-                     style: {
-                       color: '#fff',
-                       background: '#00E396'
-                     },
-                     text: 'Support'
-                   }
-                 }
-               ]
+          {
+            y: 8200,
+            borderColor: '#00E396',
+            label: {
+              borderColor: '#00E396',
+              style: {
+                color: '#fff',
+                background: '#00E396'
+              },
+              text: 'Support'
+            }
+          }
+        ]
       }
     }
   }

@@ -14,11 +14,11 @@ module ApexCharts
 
       options[:annotations] = @annotations if @annotations
       @options = Utils::Hash.deep_merge(
-                   build_options(x_sample, options),
-                   Utils::Hash.camelize_keys(
-                     chart: {type: 'area'}, **@series
-                   )
-                 )
+        build_options(x_sample, options),
+        Utils::Hash.camelize_keys(
+          chart: {type: 'area'}, **@series
+        )
+      )
 
       build_selection_range if brush?
     end
