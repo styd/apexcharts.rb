@@ -1,54 +1,57 @@
+require_relative '../utils/copy'
+
 module ApexCharts
   class CartesianSeries
+    include ApexCharts::Utils::Copy
+
     attr_reader :sanitized
 
     def initialize(data)
-      data = deep_copy(data)
-      @sanitized = case data
-                   when Array
-                     case first_data = data[0]
-                     when Array
-                       [
-                         {
-                           data: array_of_array_to_array_of_xy(data)
-                         }
-                       ]
-
-                     when Hash
-                       if first_data[:data]
-                         data.each {|h| h[:data] = array_of_array_to_array_of_xy(h[:data]) }
-                         data
-                       end
-
-                     end
-
-                   when Hash
-                     if data_value = data[:data]
-                       if array_of_pairs?(data_value)
-                         data[:data] = array_of_array_to_array_of_xy(data_value)
-                         [data]
-                       end
-
-                     elsif data[:x] && data[:y]
-                       [{data: [data]}]
-
-                     else
-                       [
-                         {
-                           data: data.map do |key, value|
-                                   {x: key, y: value}
-                                 end
-                         }
-                       ]
-
-                     end
-                   end
-
-      @sanitized = {series: @sanitized}
+      @sanitized = {series: build_series(deep_copy(data))}
     end
 
-    def deep_copy(data)
-      Marshal.load(Marshal.dump(data))
+    def build_series(data)
+      case data
+      when Array
+        build_series_from_array(data)
+      when Hash
+        build_series_from_hash(data)
+      end
+    end
+
+    def build_series_from_array(data)
+      case first_data = data[0]
+      when Array
+        [{data: array_of_array_to_array_of_xy(data)}]
+
+      when Hash
+        if first_data[:data]
+          data.each {|h| h[:data] = array_of_array_to_array_of_xy(h[:data]) }
+          data
+        end
+      end
+    end
+
+    def build_series_from_hash(data)
+      if data_value = data[:data]
+        if array_of_pairs?(data_value)
+          data[:data] = array_of_array_to_array_of_xy(data_value)
+          [data]
+        end
+
+      elsif data[:x] && data[:y]
+        [{data: [data]}]
+
+      else
+        [
+          {
+            data: data.map do |key, value|
+              {x: key, y: value}
+            end
+          }
+        ]
+
+      end
     end
 
     def array_of_pairs?(data)

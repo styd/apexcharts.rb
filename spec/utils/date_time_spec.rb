@@ -75,7 +75,9 @@ RSpec.describe ApexCharts::Utils::DateTime do
     let(:converted) { described_class.convert_range(input) }
 
     context 'input is a Time' do
-      let(:input) { Time.iso8601('2019-06-08T10:10:10+0700')..Time.parse('2019-06-18 20:20:20 +0700') }
+      let(:input) {
+        Time.iso8601('2019-06-08T10:10:10+0700')..Time.parse('2019-06-18 20:20:20 +0700')
+      }
 
       it 'converts correctly' do
         expect(converted).to eq 1559963410000..1560864020000
@@ -83,7 +85,9 @@ RSpec.describe ApexCharts::Utils::DateTime do
     end
 
     context 'input is a DateTime' do
-      let(:input) { DateTime.iso8601('2019-06-08T10:10:10+0700')..DateTime.parse('2019-06-18T20:20:20+0700') }
+      let(:input) {
+        DateTime.iso8601('2019-06-08T10:10:10+0700')..DateTime.parse('2019-06-18T20:20:20+0700')
+      }
 
       it 'converts correctly' do
         expect(converted).to eq 1559963410000..1560864020000

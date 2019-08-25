@@ -25,27 +25,32 @@ module ApexCharts
 
     def line_chart(data, options={}, &block)
       bindings = eval('self', block.binding, __FILE__, __LINE__) if block_given?
-      @series[:series] += LineChart.new(bindings, data, options, &block).mixed_series
+      @series[:series] +=
+        LineChart.new(bindings, data, options, &block).mixed_series
     end
 
     def area_chart(data, options={}, &block)
       bindings = eval('self', block.binding, __FILE__, __LINE__) if block_given?
-      @series[:series] += AreaChart.new(bindings, data, options, &block).mixed_series
+      @series[:series] +=
+        AreaChart.new(bindings, data, options, &block).mixed_series
     end
 
     def bar_chart(data, options={}, &block)
       bindings = eval('self', block.binding, __FILE__, __LINE__) if block_given?
-      @series[:series] += BarChart.new(bindings, data, options, &block).mixed_series
+      @series[:series] +=
+        BarChart.new(bindings, data, options, &block).mixed_series
     end
 
     def column_chart(data, options={}, &block)
       bindings = eval('self', block.binding, __FILE__, __LINE__) if block_given?
-      @series[:series] += ColumnChart.new(bindings, data, options, &block).mixed_series
+      @series[:series] +=
+        ColumnChart.new(bindings, data, options, &block).mixed_series
     end
 
     def scatter_chart(data, options={}, &block)
       bindings = eval('self', block.binding, __FILE__, __LINE__) if block_given?
-      @series[:series] += ScatterChart.new(bindings, data, options, &block).mixed_series
+      @series[:series] +=
+        ScatterChart.new(bindings, data, options, &block).mixed_series
     end
 
     def method_missing(method, *args, &block)
@@ -74,8 +79,9 @@ module ApexCharts
     end
 
     def build_selection_range
-      first_x = @series[:series].last[:data].first[:x]
-      last_x = @series[:series].last[:data].last[:x]
+      last_data = @series[:series].last[:data]
+      first_x = last_data.first[:x]
+      last_x = last_data.last[:x]
       @options[:chart][:selection][:xaxis] = {
         min: handle_time(twenty_percent_before_last_x(first_x, last_x)),
         max: handle_time(last_x)

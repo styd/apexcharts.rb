@@ -46,7 +46,7 @@ RSpec.describe ApexCharts::Utils::Hash do
 
   context '.camelize' do
     it 'camelize string or symbol and return symbol' do
-      expect(described_class.camelize('open_source_project')).to eq :openSourceProject
+      expect(described_class.camelize('oss_project')).to eq :ossProject
       expect(described_class.camelize(:justin_bieber)).to eq :justinBieber
     end
   end

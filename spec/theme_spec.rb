@@ -3,20 +3,28 @@ require 'spec_helper'
 RSpec.shared_examples 'apexcharts_theme' do
   context '.create' do
     it 'creates a new palette' do
-      described_class.create 'my_palette', ['#aabbcc', '#bbccdd']
+      described_class.create(
+        'my_palette', ['#aabbcc', '#bbccdd']
+      )
 
       expect(described_class.palette_names).to eq ['my_palette']
-      expect(described_class.get_colors('my_palette')).to eq ['#AABBCC', '#BBCCDD']
+      expect(
+        described_class.get_colors('my_palette')
+      ).to eq ['#AABBCC', '#BBCCDD']
     end
 
     it 'replaces existing palette' do
       described_class.create 'my_palette', ['#aabbcc', '#bbccdd']
 
-      expect(described_class.get_colors('my_palette')).to eq ['#AABBCC', '#BBCCDD']
+      expect(
+        described_class.get_colors('my_palette')
+      ).to eq ['#AABBCC', '#BBCCDD']
 
       described_class.create 'my_palette', ['#aabbcc', '#bbccdd', '#ccddee']
 
-      expect(described_class.get_colors('my_palette')).to eq ['#AABBCC', '#BBCCDD', '#CCDDEE']
+      expect(
+        described_class.get_colors('my_palette')
+      ).to eq ['#AABBCC', '#BBCCDD', '#CCDDEE']
     end
   end
 
@@ -24,7 +32,9 @@ RSpec.shared_examples 'apexcharts_theme' do
     it 'destroys existing colors' do
       described_class.create 'my_palette', ['#aabbcc', '#bbccdd']
 
-      expect(described_class.get_colors('my_palette')).to eq ['#AABBCC', '#BBCCDD']
+      expect(
+        described_class.get_colors('my_palette')
+      ).to eq ['#AABBCC', '#BBCCDD']
 
       described_class.destroy 'my_palette'
 
@@ -72,7 +82,9 @@ RSpec.describe ApexCharts::Theme do
     end
 
     it 'calls a hash on current thread variable' do
-      expect(Thread.current).to receive(:[]).with(:_ApexCharts_Palettes_).and_return({})
+      expect(Thread.current).to(
+        receive(:[]).with(:_ApexCharts_Palettes_).and_return({})
+      )
       described_class.palettes
     end
 

@@ -17,37 +17,43 @@ module ApexCharts
     def line_chart(data, options={}, &block)
       options[:id] = apexcharts_id
       bindings = eval('self', block.binding, __FILE__, __LINE__) if block_given?
-      @html += LineChart.new(bindings, data, @options.merge(options), &block).render
+      @html +=
+        LineChart.new(bindings, data, @options.merge(options), &block).render
     end
 
     def area_chart(data, options={}, &block)
       options[:id] = apexcharts_id
       bindings = eval('self', block.binding, __FILE__, __LINE__) if block_given?
-      @html += AreaChart.new(bindings, data, @options.merge(options), &block).render
+      @html +=
+        AreaChart.new(bindings, data, @options.merge(options), &block).render
     end
 
     def bar_chart(data, options={}, &block)
       options[:id] = apexcharts_id
       bindings = eval('self', block.binding, __FILE__, __LINE__) if block_given?
-      @html += BarChart.new(bindings, data, @options.merge(options), &block).render
+      @html +=
+        BarChart.new(bindings, data, @options.merge(options), &block).render
     end
 
     def column_chart(data, options={}, &block)
       options[:id] = apexcharts_id
       bindings = eval('self', block.binding, __FILE__, __LINE__) if block_given?
-      @html += ColumnChart.new(bindings, data, @options.merge(options), &block).render
+      @html +=
+        ColumnChart.new(bindings, data, @options.merge(options), &block).render
     end
 
     def scatter_chart(data, options={}, &block)
       options[:id] = apexcharts_id
       bindings = eval('self', block.binding, __FILE__, __LINE__) if block_given?
-      @html += ScatterChart.new(bindings, data, @options.merge(options), &block).render
+      @html +=
+        ScatterChart.new(bindings, data, @options.merge(options), &block).render
     end
 
     def mixed_charts(options={}, &block)
       options[:id] = apexcharts_id
       bindings = eval('self', block.binding, __FILE__, __LINE__)
-      @html += MixedCharts.new(bindings, @options.merge(options), &block).render
+      @html +=
+        MixedCharts.new(bindings, @options.merge(options), &block).render
     end
     alias_method :combo_charts, :mixed_charts
 

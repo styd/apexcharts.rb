@@ -3,8 +3,8 @@ inherit_from: .rubocop_todo.yml
 Layout/AccessModifierIndentation:
   EnforcedStyle: outdent
 
-Layout/SpaceInsideHashLiteralBraces:
-  EnforcedStyle: no_space
+Layout/IndentFirstArgument:
+  EnforcedStyle: consistent
 
 Layout/IndentFirstArrayElement:
   EnforcedStyle: consistent
@@ -15,8 +15,37 @@ Layout/SpaceAroundEqualsInParameterDefault:
 Layout/SpaceInsideBlockBraces:
   SpaceBeforeBlockParameters: false
 
-Layout/IndentFirstArgument:
-  EnforcedStyle: consistent
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: no_space
+
+Lint/AmbiguousOperator:
+  Enabled: false
+
+Lint/AssignmentInCondition:
+  Enabled: false
+
+Lint/UnneededSplatExpansion:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 24
+
+Metrics/BlockLength:
+  Exclude:
+    - '**/*.gemspec'
+    - '**/*_spec.rb'
+
+Metrics/ClassLength:
+  Max: 300
+
+Metrics/LineLength:
+  Max: 100
+
+Metrics/MethodLength:
+  Max: 25
+
+Metrics/ModuleLength:
+  Max: 150
 
 Style/FrozenStringLiteralComment:
   Enabled: false
@@ -36,11 +65,5 @@ Style/Alias:
 Style/BlockDelimiters:
   Enabled: false
 
-Lint/AmbiguousOperator:
-  Enabled: false
-
-Lint/AssignmentInCondition:
-  Enabled: false
-
-Lint/UnneededSplatExpansion:
+Style/ParallelAssignment:
   Enabled: false

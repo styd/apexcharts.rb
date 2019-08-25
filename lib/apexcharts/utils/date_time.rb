@@ -23,20 +23,29 @@ module ApexCharts
       end
 
       def convert_range(input)
-        case input.first
+        input_first, input_last = input.first, input.last
+        case input_first
         when Time
-          ((input.first.to_f * 1000).round..(input.last.to_f * 1000).round)
+          to_milliseconds_range(input_first, input_last)
         when ::DateTime, Date
-          ((input.first.to_time.to_f * 1000).round..(input.last.to_time.to_f * 1000).round)
+          to_milliseconds_range(input_first.to_time, input_last.to_time)
         else
-          if (dt = ::DateTime.iso8601(input.first)).iso8601 == input.first
-            ((dt.to_time.to_f * 1000).round..(::DateTime.iso8601(input.last).to_time.to_f * 1000).round)
-          elsif (d = Date.iso8601(input.first)).iso8601 == input.first
-            ((d.to_time.to_f * 1000).round..(Date.iso8601(input.last).to_time.to_f * 1000).round)
+          if (datetime = ::DateTime.iso8601(input_first)).iso8601 == input_first
+            to_milliseconds_range(datetime.to_time, ::DateTime.iso8601(input_last).to_time)
+          elsif (date = Date.iso8601(input.first)).iso8601 == input_first
+            to_milliseconds_range(date.to_time, ::Date.iso8601(input_last).to_time)
           end
         end
       rescue StandardError
         input
+      end
+
+      def to_milliseconds(input)
+        (input.to_f * 1000).round
+      end
+
+      def to_milliseconds_range(first, last)
+        to_milliseconds(first)..to_milliseconds(last)
       end
 
       def type(input)

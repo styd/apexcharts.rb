@@ -69,23 +69,18 @@ module ApexCharts
 
     def build_annotations
       annotations = @options.delete :annotations
-      @built[:annotations] = (AnnotationsOptions.check annotations.compact if annotations.is_a? Hash)
+      @built[:annotations] = (
+        AnnotationsOptions.check annotations.compact if annotations.is_a? Hash
+      )
     end
 
     def build_chart
-      @built[:chart] = if target = @options.delete(:brushTarget)
-                         {
-                           brush: {
-                             enabled: true,
-                             target: target.to_s
-                           },
-                           selection: {
-                             enabled: true
-                           }
-                         }
-                       else
-                         {}
-                       end
+      @built[:chart] =
+        if target = @options.delete(:brushTarget)
+          {brush: {enabled: true, target: target.to_s}, selection: {enabled: true}}
+        else
+          {}
+        end
 
       @built[:chart].merge!({
         id: @options[:chartId] || @options[:id],
