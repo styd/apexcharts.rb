@@ -645,7 +645,7 @@ on the same page or in its partials. Otherwise, nothing will happen.
 
 ### Rails
 
-After installing the gem, require it in your `app/assets/javascripts/application.js`.
+Require it in your `app/assets/javascripts/application.js`.
 ```js
 //= require apexcharts
 ```
@@ -659,9 +659,37 @@ and then require it in your `app/javascript/packs/application.js`.
 require("apexcharts")
 ```
 
+### Sinatra
+
+Require it after you `require 'sinatra/base'` and add helper `Sinatra::ApexCharts` in the class that
+inherits from `Sinatra::Base`.
+
+```ruby
+require 'sinatra/base'
+require 'apexcharts'
+
+class SimpleApp < Sinatra::Base
+  helpers Sinatra::ApexCharts
+end
+```
+
+To add the asset (ApexCharts.JS), include a script tag in your template
+as follows:
+
+```ruby
+template :index do
+  <<~INDEX
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <% series = {...} %>
+    <%= pie_chart(series, legend: "left") %>
+  INDEX
+end
+```
+
+
 ### Plain HTML+ERB (Without Framework)
 
-After installing the gem, insert this to the top of your .html.erb files:
+Insert this to the top of your .html.erb files:
 
 ```erb
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
