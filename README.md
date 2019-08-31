@@ -71,6 +71,7 @@ Choose the right README:
   - [Local Palette](#local-palette)
 - [Web Support](#web-support)
   - [Rails](#rails)
+  - [Sinatra](#sinatra)
   - [Plain HTML+ERB (Without Framework)](#plain-htmlerb-without-framework)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
@@ -686,6 +687,8 @@ template :index do
 end
 ```
 
+For more details, [see example](examples/sinatra/sample.rb).
+
 
 ### Plain HTML+ERB (Without Framework)
 
@@ -708,7 +711,7 @@ $ erb sample.html.erb > sample.html
 
 ## Roadmap
 
-- Support other ruby frameworks (sinatra, hanami, etc.)
+- Support other ruby frameworks (hanami, roda, cuba, middleman, etc.)
 - v0.1.x
   - Add more features (e.g. gradient line, background image, etc.)
 - v0.2.x
