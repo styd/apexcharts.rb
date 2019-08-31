@@ -64,6 +64,7 @@ Choose the right README:
   - [Polar Charts](#polar-charts-1)
 - [Options](#options)
   - [Global Options](#global-options)
+  - [Formatter Function](#formatter-function)
 - [Installation](#installation)
 - [Reusable Custom Palette](#reusable-custom-palette)
   - [Global Palette](#global-palette)
@@ -265,7 +266,8 @@ you can do this:
 
 #### Syncing Charts
 
-You can synchronize charts by using `syncing_charts` or `synchronized_charts` methods. For example:
+You can synchronize charts by using `syncing_charts` or `synchronized_charts` methods. For
+example:
 ```erb
 <%= syncing_charts(chart: {toolbar: false}, height: 250, style: 'display: inline-block; width: 32%;') do %>
   <% mixed_charts(theme: 'palette4', data_labels: false) do %>
@@ -513,10 +515,14 @@ just any single value of type Numeric.
 
 ## Options
 
-ApexCharts.RB supports [all options from apexcharts.js](https://apexcharts.com/docs/options/), but instead of camelCase, you can write them in snake_case.
+ApexCharts.RB supports [all options from apexcharts.js](https://apexcharts.com/docs/options/),
+but instead of camelCase, you can write them in snake_case.
 
-ApexCharts.RB also provides shortcuts to some ApexCharts.js options, such as `title`. In ApexCharts.js you would have to write `title: { text: "Some title" }`. In ApexCharts.rb you can write `title: "Some title"` if you just want to add the text.
-`xtitle` and `ytitle` are even greater shortcuts. Instead of `xaxis: { title: { text: "x title" } }` you can write `xtitle: "x title"`."
+ApexCharts.RB also provides shortcuts to some ApexCharts.JS options, such as `title`. In
+ApexCharts.JS you would have to write `title: { text: "Some title" }`. In ApexCharts.RB you
+can write `title: "Some title"` if you just want to add the text. `xtitle` and `ytitle` are
+even greater shortcuts. Instead of `xaxis: { title: { text: "x title" } }` you can write
+`xtitle: "x title"`."
 
 ```ruby
 options = {
@@ -555,7 +561,18 @@ const apexGlobalOptions = {
 Object.assign(Apex, apexGlobalOptions)
 ```
 
-All charts will then be created with these global options, which can be overwritten individually by any ApexCharts.RB helper method.
+All charts will then be created with these global options, which can be overwritten
+individually by any ApexCharts.RB helper method.
+
+### Formatter Function
+
+To use a _simple_ formatter function (e.g. formatter in `tooltip`, `data_labels`, and `labels`),
+you can add [functionable-json](https://github.com/styd/functionable-json) to your Gemfile and
+use it like so:
+
+```erb
+<%= area_chart series, tooltip: {y: {formatter: function(val) { return '$' + parseFloat(val).toLocaleString() }}} %>
+```
 
 
 ## Installation
@@ -646,7 +663,7 @@ require("apexcharts")
 
 After installing the gem, insert this to the top of your .html.erb files:
 
-```html+erb
+```erb
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <% require 'set' %>
 <% require 'apexcharts' %>
@@ -684,7 +701,8 @@ Everyone is encouraged to help improve this project by:
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+The gem is available as open source under the terms of the
+[MIT License](https://opensource.org/licenses/MIT).
 
 
 ## Like the charts?
