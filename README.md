@@ -1,23 +1,41 @@
 <p align="center">
-  <img src="images/placeholder.png" height="120">
+  <img src="images/placeholder.png" height="80">
 </p>
 
 <p align="center">
-  <a href="https://rubygems.org/gems/apexcharts"><img src="https://img.shields.io/gem/v/apexcharts.svg?label=apexcharts" alt="Gem Version" /></a>
-  <a href="https://travis-ci.org/styd/apexcharts.rb"><img src="https://travis-ci.org/styd/apexcharts.rb.svg?branch=master" alt="Build Status" /></a>
-  <a href="https://rubygems.org/gems/apexcharts"><img alt="Downloads" src="https://img.shields.io/gem/dt/apexcharts"></a>
+  <a href="https://rubygems.org/gems/apexcharts">
+    <img src="https://img.shields.io/gem/v/apexcharts.svg?label=apexcharts" alt="Gem Version" />
+  </a>
+  <a href="https://travis-ci.org/styd/apexcharts.rb">
+    <img src="https://travis-ci.org/styd/apexcharts.rb.svg?branch=master" alt="Build Status" />
+  </a>
+  <a href="https://rubygems.org/gems/apexcharts">
+    <img alt="Downloads" src="https://img.shields.io/gem/dt/apexcharts">
+  </a>
   <img src="https://img.shields.io/github/commit-activity/m/styd/apexcharts.rb.svg?label=commits" alt="Commits" />
-  <a href="https://github.com/styd/apexcharts.rb/blob/master/LICENSE"><img src="https://img.shields.io/badge/License-MIT-brightgreen.svg" alt="License"></a>
-  <a href="https://codeclimate.com/github/styd/apexcharts.rb/maintainability"><img src="https://api.codeclimate.com/v1/badges/07a4f59e67abfeae21cb/maintainability" /></a>
-  <a href='https://coveralls.io/github/styd/apexcharts.rb?branch=master'><img src='https://coveralls.io/repos/github/styd/apexcharts.rb/badge.svg?branch=master' alt='Coverage Status' /></a>
+  <a href="https://github.com/styd/apexcharts.rb/blob/master/LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-brightgreen.svg" alt="License">
+  </a>
+  <a href="https://codeclimate.com/github/styd/apexcharts.rb/maintainability">
+    <img src="https://api.codeclimate.com/v1/badges/07a4f59e67abfeae21cb/maintainability" />
+  </a>
+  <a href='https://coveralls.io/github/styd/apexcharts.rb?branch=master'>
+    <img src='https://coveralls.io/repos/github/styd/apexcharts.rb/badge.svg?branch=master' alt='Coverage Status' />
+  </a>
 </p>
 
 
-## What is this?
+## About 
 
 ApexCharts.RB is a ruby gem that wraps a JavaScript charting library called with the same name,
 [ApexCharts.JS](https://github.com/apexcharts/apexcharts.js), that's going to give you
 beautiful, interactive, and responsive charts for your ruby app.
+
+
+## Trusted By
+
+Put your organization/company logo and link here by sending a PR or
+[respond to this issue](https://github.com/styd/apexcharts.rb/issues/34).
 
 
 ## README Versions
@@ -34,6 +52,10 @@ Choose the right README:
 
 ## Table of Contents
 
+- [About](#about)
+- [Trusted By](#trusted-by)
+- [README Versions](#readme-versions)
+- [Table of Contents](#table-of-contents)
 - [Usage](#usage)
   - [Cartesian Charts](#cartesian-charts)
     - [Line Chart](#line-chart)
