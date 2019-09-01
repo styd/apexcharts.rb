@@ -696,14 +696,12 @@ Insert this to the top of your .html.erb files:
 
 ```erb
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-<% require 'set' %>
 <% require 'apexcharts' %>
 <% include ApexCharts::Helper %>
 ```
-`require 'set'` is needed because of an issue in the dependency used, but not needed
-in v0.2.x release of ApexCharts.RB.
 
 You can then generate the static html page with e.g.
+
 ```bash
 $ erb sample.html.erb > sample.html
 ```
