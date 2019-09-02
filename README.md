@@ -34,8 +34,12 @@ beautiful, interactive, and responsive charts for your ruby app.
 
 ## Trusted By
 
-Put your organization/company logo and link here by sending a PR or
-[respond to this issue](https://github.com/styd/apexcharts.rb/issues/34).
+<a href="https://ventrata.com">
+  <img src="images/users/ventrata.png" title="Use case: ticket sales for clients (visitor attractions and tour operators)" width="180" height="40" />
+</a>
+
+> Put your organization/company logo and link here
+> [by responding to this issue](https://github.com/styd/apexcharts.rb/issues/34).
 
 
 ## README Versions
