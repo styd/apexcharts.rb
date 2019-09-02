@@ -5,19 +5,23 @@ module ApexCharts
       showForSingleSeries
       showForNullSeries
       showForZeroSeries
+      floating
+      inverseOrder
       position
       horizontalAlign
-      floating
       fontSize
       fontFamily
       width
       height
-      formatter
       offsetX
       offsetY
+      formatter
+      tooltipHoverFormatter
+      textAnchor
       labels
       markers
       itemMargin
+      containerMargin
       onItemClick
       onItemHover
     ]
