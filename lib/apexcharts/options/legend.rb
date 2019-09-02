@@ -6,7 +6,6 @@ module ApexCharts
       showForNullSeries
       showForZeroSeries
       floating
-      inverseOrder
       position
       horizontalAlign
       fontSize
@@ -16,7 +15,6 @@ module ApexCharts
       offsetX
       offsetY
       formatter
-      tooltipHoverFormatter
       textAnchor
       labels
       markers
