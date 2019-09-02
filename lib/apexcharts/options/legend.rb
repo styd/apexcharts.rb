@@ -6,6 +6,7 @@ module ApexCharts
       fontFamily
       fontSize
       formatter
+      height
       horizontalAlign
       itemMargin
       labels
@@ -16,9 +17,11 @@ module ApexCharts
       onItemHover
       position
       show
+      showForNullSeries
       showForSingleSeries
+      showForZeroSeries
       textAnchor
-      verticalAlign
+      width
     ]
   end
 end
