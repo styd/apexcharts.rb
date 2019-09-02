@@ -1,27 +1,27 @@
 module ApexCharts
   class LegendOptions < ::SmartKv
     optional *%i[
-      show
-      showForSingleSeries
-      showForNullSeries
-      showForZeroSeries
+      containerMargin
       floating
-      position
-      horizontalAlign
-      fontSize
       fontFamily
-      width
-      height
-      offsetX
-      offsetY
+      fontSize
       formatter
-      textAnchor
+      height
+      horizontalAlign
+      itemMargin
       labels
       markers
-      itemMargin
-      containerMargin
+      offsetX
+      offsetY
       onItemClick
       onItemHover
+      position
+      show
+      showForNullSeries
+      showForSingleSeries
+      showForZeroSeries
+      textAnchor
+      width
     ]
   end
 end
