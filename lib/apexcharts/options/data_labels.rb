@@ -3,6 +3,7 @@ module ApexCharts
     optional *%i[
       dropShadow
       enabled
+      enabledOnSeries
       formatter
       offsetX
       offsetY
