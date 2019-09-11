@@ -685,6 +685,10 @@ prefixed. For example:
 <% end %>
 ```
 
+> PS: `syncing_options` should include `id` option with custom name, so that ApexCharts.RB
+> won't assign an `id` automatically that can conflict with other charting libraries'
+> automatic chart ids. Or, make charts from other libraries to use custom `id`.
+
 
 ## Installation
 Add this line to your application's Gemfile:
