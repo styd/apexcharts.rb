@@ -655,20 +655,6 @@ destroy_palette "ephemeral"
 on the same page or in its partials. Otherwise, nothing will happen.
 
 
-## Installation
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'groupdate' # optional
-gem 'apexcharts'
-```
-
-And then execute:
-```bash
-$ bundle
-```
-
-
 ## Use Alongside Other Charting Libraries
 
 You can prefix the helper methods name with your chosen words to avoid name clashing with
@@ -697,6 +683,20 @@ prefixed. For example:
     <% area_chart(area_series) %>
   <% end %>
 <% end %>
+```
+
+
+## Installation
+Add this line to your application's Gemfile:
+
+```ruby
+gem 'groupdate' # optional
+gem 'apexcharts'
+```
+
+And then execute:
+```bash
+$ bundle
 ```
 
 
