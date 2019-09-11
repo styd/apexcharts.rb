@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 RSpec.describe ApexCharts::Prefixer do
-  around :all do |examples|
+  around :all do |tests|
     ApexCharts.helper_prefix = nil
-    examples.run
+    tests.run
     ApexCharts.helper_prefix = nil
   end
 
