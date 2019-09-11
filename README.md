@@ -91,10 +91,11 @@ Choose the right README:
 - [Options](#options)
   - [Global Options](#global-options)
   - [Formatter Function](#formatter-function)
-- [Installation](#installation)
 - [Reusable Custom Palette](#reusable-custom-palette)
   - [Global Palette](#global-palette)
   - [Local Palette](#local-palette)
+- [Use Alongside Other Charting Libraries](#use-alongside-other-charting-libraries)
+- [Installation](#installation)
 - [Web Support](#web-support)
   - [Rails](#rails)
   - [Sinatra](#sinatra)
@@ -602,20 +603,6 @@ use it like so:
 ```
 
 
-## Installation
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'groupdate' # optional
-gem 'apexcharts'
-```
-
-And then execute:
-```bash
-$ bundle
-```
-
-
 ## Reusable Custom Palette
 
 You can create custom palette that works globally or locally.
@@ -668,6 +655,51 @@ destroy_palette "ephemeral"
 on the same page or in its partials. Otherwise, nothing will happen.
 
 
+## Installation
+Add this line to your application's Gemfile:
+
+```ruby
+gem 'groupdate' # optional
+gem 'apexcharts'
+```
+
+And then execute:
+```bash
+$ bundle
+```
+
+
+## Use Alongside Other Charting Libraries
+
+You can prefix the helper methods name with your chosen words to avoid name clashing with
+other charting libraries (e.g. chartkick, google_charts, etc.) you already use. Just set
+the `APEXCHARTS_PREFIX` environment variable to a string before you start your app server,
+say, 'awesome\_' and then on your views use the chart helpers as `awesome_line_chart`,
+`awesome_area_chart`, and so on. `create_palette` and `destroy_palette` are left as is (not
+prefixed) as other libraries don't seem to have anything similar to them.
+
+Besides setting the environtment variable, if you just want a quick prefix, you can instead
+do this on your _Gemfile_:
+
+```ruby
+gem 'apexcharts', require: 'apexcharts/prefix_with_apex'
+```
+
+and you'll get `apex_line_chart`, `apex_area_chart`, etc.
+
+The prefix you set only applies to the outer chart helpers. The inner chart helpers is not
+prefixed. For example:
+
+```erb
+<%= awesome_syncing_chart(syncing_options) do %>
+  <% combo_chart(mixed_options) do %>
+    <% line_chart(line_series) %>
+    <% area_chart(area_series) %>
+  <% end %>
+<% end %>
+```
+
+
 ## Web Support
 
 ### Rails
@@ -688,8 +720,8 @@ require("apexcharts")
 
 ### Sinatra
 
-Require it after you `require 'sinatra/base'` and add helper `Sinatra::ApexCharts` in the class that
-inherits from `Sinatra::Base`.
+Require it after you `require 'sinatra/base'` and add helper `Sinatra::ApexCharts` in the
+class that inherits from `Sinatra::Base`.
 
 ```ruby
 require 'sinatra/base'
