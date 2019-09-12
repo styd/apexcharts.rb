@@ -174,13 +174,13 @@ module ApexCharts
     def apexcharts_id
       @_apexcharts_id ||= 0
       @_apexcharts_id += 1
-      "chart-#{@_apexcharts_id}"
+      "#{ApexCharts.helper_prefix}chart-#{@_apexcharts_id}"
     end
 
     def apexcharts_group
       @_apexcharts_group ||= 0
       @_apexcharts_group += 1
-      "chart-group-#{@_apexcharts_group}"
+      "#{ApexCharts.helper_prefix}chart-group-#{@_apexcharts_group}"
     end
   end
 end
