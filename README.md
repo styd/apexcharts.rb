@@ -685,6 +685,50 @@ prefixed. For example:
 <% end %>
 ```
 
+### Chartkick
+
+Given:
+
+```erb
+<% series = [
+  {name: 'Total', data: @total_users},
+  {name: 'Verified', data: @verified_users},
+  {name: 'Unverified', data: @unverified_users}
+] %>
+<% options = {
+  legend: 'bottom', title: 'Users Grouped By Week For The Last 1 Year',
+  ytitle: 'Users', stacking: false, width: '100%', height: '300px'
+} %>
+```
+
+#### Adapter: Chart.js
+
+```erb
+<div style="display: inline-block; width: 48%;">
+  <%= area_chart(series, {**options, adapter: 'chartjs'}) %>
+</div>
+<div style="display: inline-block; width: 48%;">
+  <%= apex_area_chart(series, options) %>
+</div>
+```
+
+![Chartkick (Chart.js) And ApexCharts](images/chartkick-chartjs-and-apexcharts.gif)
+
+#### Adapter: Google Charts
+
+```erb
+<div style="display: inline-block; width: 48%;">
+  <%= area_chart(series, {**options, adapter: 'google'}) %>
+</div>
+
+![Chartkick (Chart.js) And ApexCharts](images/chartkick-chartjs-and-apexcharts.gif)
+<div style="display: inline-block; width: 48%;">
+  <%= apex_area_chart(series, options) %>
+</div>
+```
+
+![Chartkick (Google Charts) And ApexCharts](images/chartkick-google-and-apexcharts.gif)
+
 
 ## Installation
 Add this line to your application's Gemfile:
