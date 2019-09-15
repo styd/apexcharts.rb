@@ -95,6 +95,10 @@ Choose the right README:
   - [Global Palette](#global-palette)
   - [Local Palette](#local-palette)
 - [Use Alongside Other Charting Libraries](#use-alongside-other-charting-libraries)
+  - [Alongside Chartkick](#alongside-chartkick)
+    - [Chartkick (Chart.js) and ApexCharts](#chartkick-chartjs-and-apexcharts)
+    - [Chartkick (Google Charts) and ApexCharts](#chartkick-google-charts-and-apexcharts)
+    - [Chartkick (Highcharts) and ApexCharts](#chartkick-highcharts-and-apexcharts)
 - [Installation](#installation)
 - [Web Support](#web-support)
   - [Rails](#rails)
@@ -685,23 +689,22 @@ prefixed. For example:
 <% end %>
 ```
 
-### Chartkick
+### Alongside Chartkick
 
 Given:
 
 ```erb
 <% series = [
-  {name: 'Total', data: @total_users},
   {name: 'Verified', data: @verified_users},
   {name: 'Unverified', data: @unverified_users}
 ] %>
 <% options = {
   legend: 'bottom', title: 'Users Grouped By Week For The Last 1 Year',
-  ytitle: 'Users', stacking: false, width: '100%', height: '300px'
+  ytitle: 'Users', width: '100%', height: '300px'
 } %>
 ```
 
-#### Adapter: Chart.js
+#### Chartkick (Chart.js) and ApexCharts
 
 ```erb
 <div style="display: inline-block; width: 48%;">
@@ -714,20 +717,33 @@ Given:
 
 ![Chartkick (Chart.js) And ApexCharts](images/chartkick-chartjs-and-apexcharts.gif)
 
-#### Adapter: Google Charts
+#### Chartkick (Google Charts) and ApexCharts
 
 ```erb
 <div style="display: inline-block; width: 48%;">
   <%= area_chart(series, {**options, adapter: 'google'}) %>
 </div>
 
-![Chartkick (Chart.js) And ApexCharts](images/chartkick-chartjs-and-apexcharts.gif)
 <div style="display: inline-block; width: 48%;">
   <%= apex_area_chart(series, options) %>
 </div>
 ```
 
 ![Chartkick (Google Charts) And ApexCharts](images/chartkick-google-and-apexcharts.gif)
+
+#### Chartkick (Highcharts) and ApexCharts
+
+```erb
+<div style="display: inline-block; width: 48%;">
+  <%= area_chart(series, {**options, adapter: 'highcharts'}) %>
+</div>
+
+<div style="display: inline-block; width: 48%;">
+  <%= apex_area_chart(series, options) %>
+</div>
+```
+
+![Chartkick (Highcharts) And ApexCharts](images/chartkick-highcharts-and-apexcharts.gif)
 
 
 ## Installation
