@@ -5,7 +5,7 @@ module ApexCharts
     @@helper_prefix
   end
 
-  def self.helper_prefix= prefix
+  def self.helper_prefix=(prefix)
     @@helper_prefix = prefix
   end
 end
