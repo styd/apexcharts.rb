@@ -42,6 +42,13 @@ beautiful, interactive, and responsive charts for your ruby app.
 > [by responding to this issue](https://github.com/styd/apexcharts.rb/issues/34).
 
 
+## Supported By
+
+<a href="https://www.jetbrains.com/?from=ApexCharts.RB">
+  <img src="images/supporters/jetbrains.svg" title="Grants 1 License for All Products Pack" width="120" height="120" />
+</a>
+
+
 ## README Versions
 
 This README might not be for the version you use.  
