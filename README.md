@@ -65,6 +65,7 @@ Choose the right README:
 
 - [About](#about)
 - [Trusted By](#trusted-by)
+- [Supported By](#supported-by)
 - [README Versions](#readme-versions)
 - [Table of Contents](#table-of-contents)
 - [Usage](#usage)
