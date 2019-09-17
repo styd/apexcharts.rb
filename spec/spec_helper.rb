@@ -1,7 +1,10 @@
 require 'simplecov'
 require 'coveralls'
 
-SimpleCov.formatter = Coveralls::SimpleCov::Formatter
+if ENV['COVERALLS_REPO_TOKEN']
+  SimpleCov.formatter = Coveralls::SimpleCov::Formatter
+end
+
 SimpleCov.start do
   add_filter ['/spec/', '/lib/apexcharts/support', '/examples/']
 end
