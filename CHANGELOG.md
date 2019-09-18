@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 ### Added
 - Support for Sinatra
+- Ability to prefix chart helper names. This will allow using ApexCharts.RB
+  alongside other charting libraries.
+
+### Changed
+- ApexCharts.JS version from 3.8.4 to 3.8.6
 
 
 ## [0.1.6] - 2019-08-24
@@ -19,7 +24,7 @@ All notable changes to this project will be documented in this file.
 
 ## Changed
 - X and Y axis type `number` to `numeric`
-- ApexCharts.js version from 3.6.12 to 3.8.4
+- ApexCharts.JS version from 3.6.12 to 3.8.4
 
 ### Fixed
 - HTML+ERB wrong and ambiguous instruction
