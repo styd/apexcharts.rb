@@ -189,8 +189,8 @@ RSpec.describe ApexCharts::Utils::DateTime do
     context 'input is anything else' do
       let(:input) { ['2'] }
 
-      it 'converts correctly' do
-        expect(type).to eq 'numeric'
+      it 'returns nil' do
+        expect(type).to eq nil
       end
     end
   end

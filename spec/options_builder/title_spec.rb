@@ -22,7 +22,7 @@ RSpec.describe '#build_title' do
 
     it 'adds shape key with the string as the value' do
       ob.build_title
-      expect(ob.built).to match(hash_including(expected_built))
+      expect(ob.built).to match(expected_built)
     end
   end
 
@@ -46,7 +46,7 @@ RSpec.describe '#build_title' do
 
     it 'only camelizes the hash' do
       ob.build_title
-      expect(ob.built).to match(hash_including(expected_built))
+      expect(ob.built).to match(expected_built)
     end
   end
 end

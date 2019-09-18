@@ -22,7 +22,7 @@ RSpec.describe '#build_markers' do
 
     it 'adds shape key with the string as the value' do
       ob.build_markers
-      expect(ob.built).to match(hash_including(expected_built))
+      expect(ob.built).to match(expected_built)
     end
   end
 
@@ -53,7 +53,7 @@ RSpec.describe '#build_markers' do
     }
     it 'only camelizes the hash' do
       ob.build_markers
-      expect(ob.built).to match(hash_including(expected_built))
+      expect(ob.built).to match(expected_built)
     end
   end
 end

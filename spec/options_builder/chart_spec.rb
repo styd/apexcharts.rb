@@ -38,7 +38,7 @@ RSpec.describe '#build_chart' do
 
   it 'extract chart related key-values' do
     ob.build_chart
-    expect(ob.built).to match(hash_including(expected_built))
+    expect(ob.built).to match(expected_built)
   end
 
   context 'brush chart' do
@@ -64,7 +64,7 @@ RSpec.describe '#build_chart' do
 
     it 'extract brush chart target' do
       ob.build_chart
-      expect(ob.built).to match(hash_including(expected_built))
+      expect(ob.built).to match(expected_built)
     end
   end
 end

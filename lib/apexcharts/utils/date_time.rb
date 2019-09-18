@@ -53,16 +53,14 @@ module ApexCharts
         when Time, ::DateTime, Date
           'datetime'
         else
-          if ::DateTime.iso8601(input).iso8601 == input
-            'datetime'
-          elsif Date.iso8601(input).iso8601 == input
+          if ::DateTime.iso8601(input).iso8601 == input ||
+              Date.iso8601(input).iso8601 == input
             'datetime'
           else
             'numeric'
           end
         end
       rescue StandardError
-        'numeric'
       end
     end
   end

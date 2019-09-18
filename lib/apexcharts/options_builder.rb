@@ -36,6 +36,10 @@ module ApexCharts
 
       build_chart
       build_div
+      build_default_options
+    end
+
+    def build_default_options
       build_annotations
       build_colors
       build_data_labels
@@ -268,6 +272,8 @@ module ApexCharts
         XAxisOptions.check xaxis
         @built[:xaxis].merge! xaxis
       end
+
+      @built[:xaxis] = nil if @built[:xaxis].empty?
     end
 
     def build_yaxis
@@ -286,6 +292,8 @@ module ApexCharts
         YAxisOptions.check yaxis
         @built[:yaxis][0].merge! yaxis
       end
+
+      @built[:yaxis] = nil if @built[:yaxis].all?(&:empty?)
     end
 
     def type(input)

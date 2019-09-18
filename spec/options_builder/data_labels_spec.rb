@@ -22,7 +22,7 @@ RSpec.describe '#build_data_labels' do
 
     it 'adds enabled key with the boolean as the value' do
       ob.build_data_labels
-      expect(ob.built).to match(hash_including(expected_built))
+      expect(ob.built).to match(expected_built)
     end
   end
 
@@ -58,7 +58,7 @@ RSpec.describe '#build_data_labels' do
 
     it 'only camelizes the hash' do
       ob.build_data_labels
-      expect(ob.built).to match(hash_including(expected_built))
+      expect(ob.built).to match(expected_built)
     end
   end
 end

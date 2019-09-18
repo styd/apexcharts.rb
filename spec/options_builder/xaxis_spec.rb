@@ -27,7 +27,7 @@ RSpec.describe '#build_xaxis' do
 
     it 'choose xaxis string value over xtitle for the title' do
       ob.build_xaxis
-      expect(ob.built).to match(hash_including(expected_built))
+      expect(ob.built).to match(expected_built)
     end
   end
 
@@ -77,7 +77,17 @@ RSpec.describe '#build_xaxis' do
 
     it 'will disregard x_sample' do
       ob.build_xaxis
-      expect(ob.built).to match(hash_including(expected_built))
+      expect(ob.built).to match(expected_built)
+    end
+  end
+
+  context 'xaxis is empty' do
+    let(:options) { {} }
+    let(:expected_built) { { xaxis: nil } }
+
+    it 'returns nil value' do
+      ob.build_xaxis
+      expect(ob.built).to match(expected_built)
     end
   end
 end

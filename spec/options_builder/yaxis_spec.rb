@@ -27,7 +27,7 @@ RSpec.describe '#build_yaxis' do
 
     it 'choose yaxis string value over ytitle for the title' do
       ob.build_yaxis
-      expect(ob.built).to match(hash_including(expected_built))
+      expect(ob.built).to match(expected_built)
     end
   end
 
@@ -54,7 +54,17 @@ RSpec.describe '#build_yaxis' do
 
     it 'choose type in yaxis over ytype' do
       ob.build_yaxis
-      expect(ob.built).to match(hash_including(expected_built))
+      expect(ob.built).to match(expected_built)
+    end
+  end
+
+  context 'yaxis is empty' do
+    let(:options) { {} }
+    let(:expected_built) { {yaxis: nil} }
+
+    it 'returns nil value' do
+      ob.build_yaxis
+      expect(ob.built).to match(expected_built)
     end
   end
 end

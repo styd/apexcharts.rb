@@ -48,6 +48,6 @@ RSpec.describe '#build_annotations' do
 
   it 'only camelizes the hash keys' do
     ob.build_annotations
-    expect(ob.built).to match(hash_including(expected_built))
+    expect(ob.built).to match(expected_built)
   end
 end

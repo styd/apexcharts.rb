@@ -29,7 +29,7 @@ RSpec.describe '#build_theme' do
 
       it 'adds theme value as palette' do
         ob.build_theme
-        expect(ob.built).to match(hash_including(expected_built))
+        expect(ob.built).to match(expected_built)
       end
     end
 
@@ -49,7 +49,7 @@ RSpec.describe '#build_theme' do
 
       it 'adds monochrome as enabled' do
         ob.build_theme
-        expect(ob.built).to match(hash_including(expected_built))
+        expect(ob.built).to match(expected_built)
       end
     end
 
@@ -70,7 +70,7 @@ RSpec.describe '#build_theme' do
         ApexCharts::Theme.create 'my_palette', ['#aabbcc', '#bbccdd']
 
         ob.build_theme
-        expect(ob.built).to match(hash_including(expected_built))
+        expect(ob.built).to match(expected_built)
       end
     end
 
@@ -88,7 +88,7 @@ RSpec.describe '#build_theme' do
 
       it 'adds theme value as palette' do
         ob.build_theme
-        expect(ob.built).to match(hash_including(expected_built))
+        expect(ob.built).to match(expected_built)
       end
     end
   end
@@ -117,7 +117,7 @@ RSpec.describe '#build_theme' do
 
     it 'only camelizes the hash' do
       ob.build_theme
-      expect(ob.built).to match(hash_including(expected_built))
+      expect(ob.built).to match(expected_built)
     end
   end
 end
