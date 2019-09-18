@@ -38,7 +38,7 @@ RSpec.describe '#build_states' do
 
     it 'only camelizes the hash' do
       ob.build_states
-      expect(ob.built).to match(hash_including(expected_built))
+      expect(ob.built).to match(expected_built)
     end
   end
 
@@ -72,7 +72,7 @@ RSpec.describe '#build_states' do
 
     it 'only camelizes the hash' do
       ob.build_states
-      expect(ob.built).to match(hash_including(expected_built))
+      expect(ob.built).to match(expected_built)
     end
   end
 end

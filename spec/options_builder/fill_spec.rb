@@ -22,7 +22,7 @@ RSpec.describe '#build_fill' do
 
     it 'adds type key with the string as the value' do
       ob.build_fill
-      expect(ob.built).to match(hash_including(expected_built))
+      expect(ob.built).to match(expected_built)
     end
   end
 
@@ -41,7 +41,7 @@ RSpec.describe '#build_fill' do
 
     it 'keeps the hash intact' do
       ob.build_fill
-      expect(ob.built).to match(hash_including(options))
+      expect(ob.built).to match(options)
     end
   end
 end

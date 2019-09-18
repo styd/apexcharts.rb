@@ -34,6 +34,6 @@ RSpec.describe '#build_plot_options' do
 
   it 'camelizes the hash' do
     hash_ob.build_plot_options
-    expect(hash_ob.built).to match(hash_including(expected_plot_options_built))
+    expect(hash_ob.built).to match(expected_plot_options_built)
   end
 end

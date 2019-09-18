@@ -22,7 +22,7 @@ RSpec.describe '#build_tooltip' do
 
     it 'adds show key with the boolean as the value' do
       ob.build_tooltip
-      expect(ob.built).to match(hash_including(expected_built))
+      expect(ob.built).to match(expected_built)
     end
   end
 
@@ -46,7 +46,7 @@ RSpec.describe '#build_tooltip' do
 
     it 'only camelizes the hash' do
       ob.build_tooltip
-      expect(ob.built).to match(hash_including(expected_built))
+      expect(ob.built).to match(expected_built)
     end
   end
 end

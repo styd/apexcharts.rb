@@ -20,7 +20,7 @@ RSpec.describe '#build_labels' do
 
     it 'return labels with nil value' do
       ob.build_labels
-      expect(ob.built).to match(hash_including(expected_built))
+      expect(ob.built).to match(expected_built)
     end
   end
 
@@ -38,7 +38,7 @@ RSpec.describe '#build_labels' do
 
     it 'return labels with array value' do
       ob.build_labels
-      expect(ob.built).to match(hash_including(expected_built))
+      expect(ob.built).to match(expected_built)
     end
   end
 
@@ -56,7 +56,7 @@ RSpec.describe '#build_labels' do
 
     it 'return labels with array value' do
       ob.build_labels
-      expect(ob.built).to match(hash_including(expected_built))
+      expect(ob.built).to match(expected_built)
     end
   end
 end

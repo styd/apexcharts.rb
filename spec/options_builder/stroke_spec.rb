@@ -22,7 +22,7 @@ RSpec.describe '#build_stroke' do
 
     it 'adds show key with the boolean as the value' do
       ob.build_stroke
-      expect(ob.built).to match(hash_including(expected_built))
+      expect(ob.built).to match(expected_built)
     end
   end
 
@@ -42,7 +42,7 @@ RSpec.describe '#build_stroke' do
 
     it 'adds show key with the boolean as the value' do
       ob.build_stroke
-      expect(ob.built).to match(hash_including(expected_built))
+      expect(ob.built).to match(expected_built)
     end
   end
 
@@ -66,7 +66,7 @@ RSpec.describe '#build_stroke' do
 
     it 'only camelizes the hash' do
       ob.build_stroke
-      expect(ob.built).to match(hash_including(expected_built))
+      expect(ob.built).to match(expected_built)
     end
   end
 end
