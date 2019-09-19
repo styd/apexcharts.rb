@@ -36,10 +36,10 @@ module ApexCharts
 
       build_chart
       build_div
-      build_default_options
+      build_general_options
     end
 
-    def build_default_options
+    def build_general_options
       build_annotations
       build_colors
       build_data_labels

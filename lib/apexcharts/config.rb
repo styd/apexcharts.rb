@@ -1,11 +1,25 @@
-module ApexCharts
-  @@helper_prefix = ENV['APEXCHARTS_PREFIX']
+require_relative 'config/default_options'
 
-  def self.helper_prefix
-    @@helper_prefix
+module ApexCharts
+  class << self
+    def helper_prefix
+      @@helper_prefix ||= ENV['APEXCHARTS_PREFIX']
+    end
+
+    def helper_prefix=(prefix)
+      @@helper_prefix = prefix
+    end
+
+    def configure
+      block_given? ? yield(config) : config
+    end
+
+    def config
+      @@config ||= Configuration.new
+    end
   end
 
-  def self.helper_prefix=(prefix)
-    @@helper_prefix = prefix
+  class Configuration
+    include DefaultOptions
   end
 end

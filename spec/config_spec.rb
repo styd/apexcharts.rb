@@ -19,4 +19,34 @@ RSpec.describe ApexCharts do
       end
     end
   end
+
+  context '.config' do
+    it 'returns instance of ApexCharts::Configuration' do
+      expect(described_class.config).to(
+        be_instance_of ApexCharts::Configuration
+      )
+    end
+
+    it 'includes attribute modules' do
+      expect(described_class.config.class).to be < ApexCharts::DefaultOptions
+    end
+  end
+
+  context '.configure' do
+    context 'when block not given' do
+      it 'returns config' do
+        expect(described_class.configure).to(
+          be_instance_of ApexCharts::Configuration
+        )
+      end
+    end
+
+    context 'when block given' do
+      it 'yields config' do
+        described_class.configure do |config|
+          expect(config).to be_instance_of ApexCharts::Configuration
+        end
+      end
+    end
+  end
 end
