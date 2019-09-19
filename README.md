@@ -586,23 +586,21 @@ These options can be passed to any chart helper like `<%= line_chart(series, opt
 
 ### Global Options
 
-To change options globally, you can manipulate the `Apex` JavaScript object directly:
+To use default options globally, you can specify config for default options before calling
+your charts. In Rails, put it in `initializers` directory. For example:
 
-```javascript
-require("apexcharts")
+```ruby
+# config/initializers/apexcharts.rb
 
-const apexGlobalOptions = {
-  chart: {
-    …
-  },
-  …
+ApexCharts.config.default_options = {
+  data_labels: false,
+  tootip: true,
+  theme: 'my-theme'
 }
-
-Object.assign(Apex, apexGlobalOptions)
 ```
 
-All charts will then be created with these global options, which can be overwritten
-individually by any ApexCharts.RB helper method.
+All charts will then automatically pick up these global options, which can be overwritten
+individually by any options passed to the relevant chart helper.
 
 ### Formatter Function
 
