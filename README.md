@@ -22,6 +22,9 @@
   <a href='https://coveralls.io/github/styd/apexcharts.rb?branch=master'>
     <img src='https://coveralls.io/repos/github/styd/apexcharts.rb/badge.svg?branch=master' alt='Coverage Status' />
   </a>
+  <a href='http://clayallsopp.github.io/readme-score/?url=styd/apexcharts.rb'>
+    <img src='http://readme-score-api.herokuapp.com/score.svg?url=styd/apexcharts.rb' alt='README Score' />
+  </a>
 </p>
 
 
