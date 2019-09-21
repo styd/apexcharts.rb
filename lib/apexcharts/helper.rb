@@ -12,68 +12,67 @@ require_relative 'theme'
 module ApexCharts
   module Helper
     extend Prefixer
-    include Utils::Copy
 
     with_prefix do
       def line_chart(series, options={}, &block)
-        bindings = eval('self', block.binding, __FILE__, __LINE__) if block_given?
+        outer_self = eval('self', block.binding, __FILE__, __LINE__) if block_given?
         draw_chart(
           LineChart.new(
-            bindings, *prepare_series_and_options(series, options), &block
+            outer_self, *prepare_series_and_options(series, options), &block
           )
         )
       end
 
       def area_chart(series, options={}, &block)
-        bindings = eval('self', block.binding, __FILE__, __LINE__) if block_given?
+        outer_self = eval('self', block.binding, __FILE__, __LINE__) if block_given?
         draw_chart(
           AreaChart.new(
-            bindings, *prepare_series_and_options(series, options), &block
+            outer_self, *prepare_series_and_options(series, options), &block
           )
         )
       end
 
       def column_chart(series, options={}, &block)
-        bindings = eval('self', block.binding, __FILE__, __LINE__) if block_given?
+        outer_self = eval('self', block.binding, __FILE__, __LINE__) if block_given?
         draw_chart(
           ColumnChart.new(
-            bindings, *prepare_series_and_options(series, options), &block
+            outer_self, *prepare_series_and_options(series, options), &block
           )
         )
       end
 
       def bar_chart(series, options={}, &block)
-        bindings = eval('self', block.binding, __FILE__, __LINE__) if block_given?
+        outer_self = eval('self', block.binding, __FILE__, __LINE__) if block_given?
         draw_chart(
           BarChart.new(
-            bindings, *prepare_series_and_options(series, options), &block
+            outer_self, *prepare_series_and_options(series, options), &block
           )
         )
       end
 
       def range_bar_chart(series, options={}, &block)
-        bindings = eval('self', block.binding, __FILE__, __LINE__) if block_given?
+        outer_self = eval('self', block.binding, __FILE__, __LINE__) if block_given?
         draw_chart(
           RangeBarChart.new(
-            bindings, *prepare_series_and_options(series, options), &block
+            outer_self, *prepare_series_and_options(series, options), &block
           )
         )
       end
 
       def scatter_chart(series, options={}, &block)
-        bindings = eval('self', block.binding, __FILE__, __LINE__) if block_given?
+        outer_self = eval('self', block.binding, __FILE__, __LINE__) if block_given?
         draw_chart(
           ScatterChart.new(
-            bindings, *prepare_series_and_options(series, options), &block
+            outer_self, *prepare_series_and_options(series, options), &block
           )
         )
       end
 
       def candlestick_chart(series, options={}, &block)
-        bindings = eval('self', block.binding, __FILE__, __LINE__) if block_given?
+        outer_self = eval('self', block.binding, __FILE__, __LINE__) if block_given?
         draw_chart(
           CandlestickChart.new(
-            bindings, *prepare_series_and_options(series, options), &block
+            outer_self, *prepare_series_and_options(series, options), &block
           )
         )
       end
@@ -104,20 +103,20 @@ module ApexCharts
       end
 
       def mixed_charts(options={}, &block)
-        bindings = eval('self', block.binding, __FILE__, __LINE__)
+        outer_self = eval('self', block.binding, __FILE__, __LINE__)
         draw_chart(
           MixedCharts.new(
-            bindings, deep_copy(options), &block
+            outer_self, deep_copy(options), &block
           )
         )
       end
       alias_method :combo_charts, :mixed_charts
 
       def syncing_charts(options={}, &block)
-        bindings = eval('self', block.binding, __FILE__, __LINE__)
+        outer_self = eval('self', block.binding, __FILE__, __LINE__)
         draw_chart(
           SyncingCharts.new(
-            bindings, deep_copy(options), &block
+            outer_self, deep_copy(options), &block
           )
         )
       end
@@ -182,5 +181,7 @@ module ApexCharts
       @_apexcharts_group += 1
       "#{ApexCharts.helper_prefix}chart-group-#{@_apexcharts_group}"
     end
+
+    include Utils::Copy
   end
 end

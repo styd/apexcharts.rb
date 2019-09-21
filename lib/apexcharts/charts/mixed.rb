@@ -4,8 +4,8 @@ module ApexCharts
   class MixedCharts < BaseChart
     include Annotations
 
-    def initialize(bindings, options={}, &block)
-      @bindings = bindings
+    def initialize(outer_self, options={}, &block)
+      @outer_self = outer_self
       @series = {series: []}
       options[:id] ||= apexcharts_id
       build_instance_variables
@@ -24,52 +24,52 @@ module ApexCharts
     end
 
     def line_chart(data, options={}, &block)
-      bindings = eval('self', block.binding, __FILE__, __LINE__) if block_given?
+      outer_self = eval('self', block.binding, __FILE__, __LINE__) if block_given?
       @series[:series] +=
-        LineChart.new(bindings, data, options, &block).mixed_series
+        LineChart.new(outer_self, data, options, &block).mixed_series
     end
 
     def area_chart(data, options={}, &block)
-      bindings = eval('self', block.binding, __FILE__, __LINE__) if block_given?
+      outer_self = eval('self', block.binding, __FILE__, __LINE__) if block_given?
       @series[:series] +=
-        AreaChart.new(bindings, data, options, &block).mixed_series
+        AreaChart.new(outer_self, data, options, &block).mixed_series
     end
 
     def bar_chart(data, options={}, &block)
-      bindings = eval('self', block.binding, __FILE__, __LINE__) if block_given?
+      outer_self = eval('self', block.binding, __FILE__, __LINE__) if block_given?
       @series[:series] +=
-        BarChart.new(bindings, data, options, &block).mixed_series
+        BarChart.new(outer_self, data, options, &block).mixed_series
     end
 
     def column_chart(data, options={}, &block)
-      bindings = eval('self', block.binding, __FILE__, __LINE__) if block_given?
+      outer_self = eval('self', block.binding, __FILE__, __LINE__) if block_given?
       @series[:series] +=
-        ColumnChart.new(bindings, data, options, &block).mixed_series
+        ColumnChart.new(outer_self, data, options, &block).mixed_series
     end
 
     def scatter_chart(data, options={}, &block)
-      bindings = eval('self', block.binding, __FILE__, __LINE__) if block_given?
+      outer_self = eval('self', block.binding, __FILE__, __LINE__) if block_given?
       @series[:series] +=
-        ScatterChart.new(bindings, data, options, &block).mixed_series
+        ScatterChart.new(outer_self, data, options, &block).mixed_series
     end
 
     def method_missing(method, *args, &block)
-      if @bindings.respond_to?(method)
-        @bindings.send method, *args, &block
+      if @outer_self.respond_to?(method)
+        @outer_self.send method, *args, &block
       else
         super
       end
     end
 
     def respond_to_missing?(method, *args)
-      @bindings.respond_to?(method) || super
+      @outer_self.respond_to?(method) || super
     end
 
   private
 
     def build_instance_variables
-      (@bindings.instance_variables - instance_variables).each do |i|
-        instance_variable_set(i, @bindings.instance_variable_get(i))
+      (@outer_self.instance_variables - instance_variables).each do |i|
+        instance_variable_set(i, @outer_self.instance_variable_get(i))
       end
     end
 

@@ -1,13 +1,13 @@
 require 'spec_helper'
 
 RSpec.describe ApexCharts::RangeBarChart do
-  let(:bindings) { nil }
+  let(:outer_self) { nil }
   let(:data) {
     [[100, 1], [200, 2]]
   }
   let(:options) { {} }
   let(:chart) {
-    described_class.new(bindings, data, options)
+    described_class.new(outer_self, data, options)
   }
 
   it 'assigned properties correctly' do

@@ -2,8 +2,8 @@
 
 module ApexCharts
   class SyncingCharts
-    def initialize(bindings, options={}, &block)
-      @bindings = bindings
+    def initialize(outer_self, options={}, &block)
+      @outer_self = outer_self
       @html = ''
       build_instance_variables
       @options = options
@@ -16,44 +16,44 @@ module ApexCharts
 
     def line_chart(data, options={}, &block)
       options[:id] = apexcharts_id
-      bindings = eval('self', block.binding, __FILE__, __LINE__) if block_given?
+      outer_self = eval('self', block.binding, __FILE__, __LINE__) if block_given?
       @html +=
-        LineChart.new(bindings, data, @options.merge(options), &block).render
+        LineChart.new(outer_self, data, @options.merge(options), &block).render
     end
 
     def area_chart(data, options={}, &block)
       options[:id] = apexcharts_id
-      bindings = eval('self', block.binding, __FILE__, __LINE__) if block_given?
+      outer_self = eval('self', block.binding, __FILE__, __LINE__) if block_given?
       @html +=
-        AreaChart.new(bindings, data, @options.merge(options), &block).render
+        AreaChart.new(outer_self, data, @options.merge(options), &block).render
     end
 
     def bar_chart(data, options={}, &block)
       options[:id] = apexcharts_id
-      bindings = eval('self', block.binding, __FILE__, __LINE__) if block_given?
+      outer_self = eval('self', block.binding, __FILE__, __LINE__) if block_given?
       @html +=
-        BarChart.new(bindings, data, @options.merge(options), &block).render
+        BarChart.new(outer_self, data, @options.merge(options), &block).render
     end
 
     def column_chart(data, options={}, &block)
       options[:id] = apexcharts_id
-      bindings = eval('self', block.binding, __FILE__, __LINE__) if block_given?
+      outer_self = eval('self', block.binding, __FILE__, __LINE__) if block_given?
       @html +=
-        ColumnChart.new(bindings, data, @options.merge(options), &block).render
+        ColumnChart.new(outer_self, data, @options.merge(options), &block).render
     end
 
     def scatter_chart(data, options={}, &block)
       options[:id] = apexcharts_id
-      bindings = eval('self', block.binding, __FILE__, __LINE__) if block_given?
+      outer_self = eval('self', block.binding, __FILE__, __LINE__) if block_given?
       @html +=
-        ScatterChart.new(bindings, data, @options.merge(options), &block).render
+        ScatterChart.new(outer_self, data, @options.merge(options), &block).render
     end
 
     def mixed_charts(options={}, &block)
       options[:id] = apexcharts_id
-      bindings = eval('self', block.binding, __FILE__, __LINE__)
+      outer_self = eval('self', block.binding, __FILE__, __LINE__)
       @html +=
-        MixedCharts.new(bindings, @options.merge(options), &block).render
+        MixedCharts.new(outer_self, @options.merge(options), &block).render
     end
     alias_method :combo_charts, :mixed_charts
 
@@ -62,22 +62,22 @@ module ApexCharts
     end
 
     def method_missing(method, *args, &block)
-      if @bindings.respond_to? method, *args
-        @bindings.send method, *args, &block
+      if @outer_self.respond_to? method, *args
+        @outer_self.send method, *args, &block
       else
         super
       end
     end
 
     def respond_to_missing?(method, *args)
-      @bindings.respond_to? method, *args || super
+      @outer_self.respond_to? method, *args || super
     end
 
   private
 
     def build_instance_variables
-      (@bindings.instance_variables - instance_variables).each do |i|
-        instance_variable_set(i, @bindings.instance_variable_get(i))
+      (@outer_self.instance_variables - instance_variables).each do |i|
+        instance_variable_set(i, @outer_self.instance_variable_get(i))
       end
     end
   end

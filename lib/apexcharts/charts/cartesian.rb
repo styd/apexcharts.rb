@@ -10,14 +10,14 @@ module ApexCharts
     include Mixable
     include Utils::Hash
 
-    def initialize(bindings, data, options={}, &block)
-      @bindings = bindings
+    def initialize(outer_self, data, options={}, &block)
+      @outer_self = outer_self
       options = deep_merge(
         camelize_keys(options),
         camelize_keys(more_options)
       )
 
-      build_instance_variables if @bindings
+      build_instance_variables if @outer_self
 
       instance_eval &block if block_given?
 
@@ -38,22 +38,22 @@ module ApexCharts
     end
 
     def method_missing(method, *args, &block)
-      if @bindings.respond_to?(method)
-        @bindings.send method, *args, &block
+      if @outer_self.respond_to?(method)
+        @outer_self.send method, *args, &block
       else
         super
       end
     end
 
     def respond_to_missing?(method, *args)
-      @bindings.respond_to?(method) || super
+      @outer_self.respond_to?(method) || super
     end
 
   protected
 
     def build_instance_variables
-      (@bindings.instance_variables - instance_variables).each do |i|
-        instance_variable_set(i, @bindings.instance_variable_get(i))
+      (@outer_self.instance_variables - instance_variables).each do |i|
+        instance_variable_set(i, @outer_self.instance_variable_get(i))
       end
     end
 
