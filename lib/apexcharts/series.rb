@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
-require_relative 'series/cartesian'
-require_relative 'series/bubble'
-require_relative 'series/polar'
+module ApexCharts
+  %w(cartesian bubble polar).each do |type|
+    autoload :"#{type.capitalize}Series", "apexcharts/series/#{type}.rb"
+  end
+end

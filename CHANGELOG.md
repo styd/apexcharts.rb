@@ -10,6 +10,9 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 - ApexCharts.JS version from 3.8.4 to 3.8.6
+- Update options schema to match ApexCharts.JS
+- Charts and series are autoloaded instead of required to prevent loading
+  unused charts and series to memory
 
 
 ## [0.1.6] - 2019-08-24
