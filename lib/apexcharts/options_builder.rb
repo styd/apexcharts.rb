@@ -296,16 +296,6 @@ module ApexCharts
       @built[:yaxis] = nil if @built[:yaxis].all?(&:empty?)
     end
 
-    def type(input)
-      if DateTime.iso8601(input).iso8601 == input
-        'datetime'
-      elsif Date.iso8601(input).iso8601 = input
-        'datetime'
-      end
-    rescue StandardError
-      'numeric'
-    end
-
     def enabled(options)
       boolean_to_hash(options) do |opts|
         {enabled: opts}

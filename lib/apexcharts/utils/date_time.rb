@@ -56,8 +56,6 @@ module ApexCharts
           if ::DateTime.iso8601(input).iso8601 == input ||
               Date.iso8601(input).iso8601 == input
             'datetime'
-          else
-            'numeric'
           end
         end
       rescue StandardError
