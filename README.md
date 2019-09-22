@@ -30,25 +30,25 @@
 
 ## About 
 
-ApexCharts.RB is a ruby gem that wraps a JavaScript charting library called with the same name,
-[ApexCharts.JS](https://github.com/apexcharts/apexcharts.js), that's going to give you
-beautiful, interactive, and responsive charts for your ruby app.
+ApexCharts.RB is a ruby charting library that's going to give your ruby app beautiful,
+interactive, and responsive charts powered by [ApexCharts.JS]. On top of those sweet
+advantages, you'll also get extra features that you can't get by just including [ApexCharts.JS]
+to your ruby app, namely **view/template helpers for creating charts**, **options shortcuts**,
+**application wide default options**, **reusable custom theme palette**, and so on.
 
 
 ## Trusted By
 
-<a href="https://ventrata.com">
-  <img src="images/users/ventrata.png" title="Use case: ticket sales for clients (visitor attractions and tour operators)" width="180" height="40" />
-</a>
+<img src="images/users/ventrata.png" title="Use case: ticket sales for clients (visitor attractions and tour operators)" width="180" height="40" />
 
-> Put your organization/company logo and link here
-> [by responding to this issue](https://github.com/styd/apexcharts.rb/issues/34).
+> If your organization/company uses ApexCharts.RB in production, please comment on
+> [this issue](https://github.com/styd/apexcharts.rb/issues/34).
 
 
 ## Supported By
 
 <a href="https://www.jetbrains.com/?from=ApexCharts.RB">
-  <img src="images/supporters/jetbrains.svg" title="Grants 1 License for All Products Pack" width="120" height="120" />
+  <img src="images/supporters/jetbrains.svg" title="Grants 1 License for All Products Pack (worth US$649.00/year)" width="120" height="120" />
 </a>
 
 
@@ -57,12 +57,7 @@ beautiful, interactive, and responsive charts for your ruby app.
 This README might not be for the version you use.  
 Choose the right README:
 
-- [v0.1.6](https://github.com/styd/apexcharts.rb/blob/v0.1.6/README.md)
-- [v0.1.5](https://github.com/styd/apexcharts.rb/blob/v0.1.5/README.md)
-- [v0.1.4](https://github.com/styd/apexcharts.rb/blob/v0.1.4/README.md)
-- [v0.1.3](https://github.com/styd/apexcharts.rb/blob/v0.1.3/README.md)
-- [v0.1.2](https://github.com/styd/apexcharts.rb/blob/v0.1.2/README.md)
-- [v0.1.1](https://github.com/styd/apexcharts.rb/blob/v0.1.1/README.md)
+> [v0.1.6] | [v0.1.5] | [v0.1.4] | [v0.1.3] | [v0.1.2] | [v0.1.1]
 
 ## Table of Contents
 
@@ -558,14 +553,29 @@ just any single value of type Numeric.
 
 ## Options
 
-ApexCharts.RB supports [all options from apexcharts.js](https://apexcharts.com/docs/options/),
-but instead of camelCase, you can write them in snake_case.
+ApexCharts.RB supports [all options from ApexCharts.JS](https://apexcharts.com/docs/options/),
+but instead of *camelCase*, you can write them in *snake_case*.
 
 ApexCharts.RB also provides shortcuts to some ApexCharts.JS options, such as `title`. In
-ApexCharts.JS you would have to write `title: { text: "Some title" }`. In ApexCharts.RB you
-can write `title: "Some title"` if you just want to add the text. `xtitle` and `ytitle` are
-even greater shortcuts. Instead of `xaxis: { title: { text: "x title" } }` you can write
-`xtitle: "x title"`."
+ApexCharts.JS you would have to write
+
+```ruby
+title: { text: "Some title" }
+```
+In ApexCharts.RB you can write
+```ruby
+title: "Some title"
+```
+if you just want to add the text.
+
+`xtitle` and `ytitle` are even greater shortcuts. Instead of
+```ruby
+xaxis: { title: { text: "x title" } }
+```
+you can write
+```ruby
+xtitle: "x title"
+```
 
 ```ruby
 options = {
@@ -673,7 +683,7 @@ on the same page or in its partials. Otherwise, nothing will happen.
 You can prefix the helper methods name with your chosen words to avoid name clashing with
 other charting libraries (e.g. chartkick, google_charts, etc.) you already use. Just set
 the `APEXCHARTS_PREFIX` environment variable to a string before you start your app server,
-say, 'awesome\_' and then on your views use the chart helpers as `awesome_line_chart`,
+say, 'awesome\_' and then on your views/templates use the chart helpers as `awesome_line_chart`,
 `awesome_area_chart`, and so on. `create_palette` and `destroy_palette` are left as is (not
 prefixed) as other libraries don't seem to have anything similar to them.
 
@@ -863,8 +873,19 @@ The gem is available as open source under the terms of the
 
 ## Like the charts?
 
-Consider donating to the author of ApexCharts.JS to support his awesome library.
+Consider donating to the author of [ApexCharts.JS] to support his awesome library.
 This project wouldn't be possible without it.
 
 Become a sponsor on [Patreon](https://patreon.com/junedchhipa).  
 One time donation on [PayPal](https://paypal.me/junedchhipa)
+
+
+[ApexCharts.JS]: https://github.com/apexcharts/apexcharts.js
+
+
+[v0.1.6]: https://github.com/styd/apexcharts.rb/blob/v0.1.6/README.md
+[v0.1.5]: https://github.com/styd/apexcharts.rb/blob/v0.1.5/README.md
+[v0.1.4]: https://github.com/styd/apexcharts.rb/blob/v0.1.4/README.md
+[v0.1.3]: https://github.com/styd/apexcharts.rb/blob/v0.1.3/README.md
+[v0.1.2]: https://github.com/styd/apexcharts.rb/blob/v0.1.2/README.md
+[v0.1.1]: https://github.com/styd/apexcharts.rb/blob/v0.1.1/README.md
