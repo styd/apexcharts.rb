@@ -19,4 +19,20 @@ RSpec.describe ApexCharts::RadarChart do
       expect(chart.chart_type).to eq('radar')
     end
   end
+
+  context 'when a hash series is empty' do
+    let(:data) {
+      [
+        {
+          name: 'series',
+          data: []
+        }
+      ]
+    }
+
+    it 'assigned properties correctly' do
+      chart = described_class.new(data, options)
+      expect(chart.chart_type).to eq('radar')
+    end
+  end
 end

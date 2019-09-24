@@ -17,7 +17,23 @@ RSpec.describe ApexCharts::PieChart do
   end
 
   context 'when the series is empty' do
-    let(:data){ [] }
+    let(:data) { [] }
+
+    it 'assigned properties correctly' do
+      chart = described_class.new(data, options)
+      expect(chart.chart_type).to eq('pie')
+    end
+  end
+
+  context 'when a hash series is empty' do
+    let(:data) {
+      [
+        {
+          name: 'series',
+          data: []
+        }
+      ]
+    }
 
     it 'assigned properties correctly' do
       chart = described_class.new(data, options)

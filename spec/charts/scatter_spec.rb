@@ -34,4 +34,30 @@ RSpec.describe ApexCharts::ScatterChart do
       expect(chart.mixed_series).to eq([])
     end
   end
+
+  context 'when the series is empty' do
+    let(:data) {
+      [
+        {
+          name: 'series',
+          data: []
+        }
+      ]
+    }
+
+    it 'assigned properties correctly' do
+      chart = described_class.new(outer_self, data, options)
+      expect(chart.chart_type).to eq('scatter')
+      expect(chart.more_options).to eq({})
+      expect(chart.mixed_series).to eq(
+        [
+          {
+            data: [],
+            name: 'series',
+            type: 'scatter'
+          }
+        ]
+      )
+    end
+  end
 end

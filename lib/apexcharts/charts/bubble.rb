@@ -13,9 +13,9 @@ module ApexCharts
     end
 
     def x_sample
-      unless series[:series].empty?
-        series[:series][0][:data][0][0]
-      end
+      return if series[:series].empty? || series[:series][0][:data].empty?
+
+      series[:series][0][:data][0][0]
     end
   end
 end
