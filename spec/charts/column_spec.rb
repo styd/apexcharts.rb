@@ -29,4 +29,21 @@ RSpec.describe ApexCharts::ColumnChart do
       ]
     )
   end
+
+  context 'when series is empty' do
+    let(:data) { [] }
+
+    it 'assigned properties correctly' do
+      chart = described_class.new(outer_self, data, options)
+      expect(chart.chart_type).to eq('bar')
+      expect(chart.more_options).to eq(
+        plot_options: {
+          bar: {
+            horizontal: false
+          }
+        }
+      )
+      expect(chart.mixed_series).to eq([])
+    end
+  end
 end

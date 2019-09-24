@@ -15,4 +15,13 @@ RSpec.describe ApexCharts::RadialBarChart do
     chart = described_class.new(data, options)
     expect(chart.chart_type).to eq('radialBar')
   end
+
+  context 'when the series is empty' do
+    let(:data) { [] }
+
+    it 'assigned properties correctly' do
+      chart = described_class.new(data, options)
+      expect(chart.chart_type).to eq('radialBar')
+    end
+  end
 end

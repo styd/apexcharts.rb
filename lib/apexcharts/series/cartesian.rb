@@ -11,6 +11,10 @@ module ApexCharts
     end
 
     def build_series(data)
+      if data.empty?
+        return data
+      end
+
       case data
       when Array
         build_series_from_array(data)

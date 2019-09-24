@@ -56,4 +56,20 @@ RSpec.describe ApexCharts::BarChart do
       )
     end
   end
+
+  context 'when the series is empty' do
+    let(:data) { [] }
+
+    it 'assigned properties correctly' do
+      expect(chart.chart_type).to eq('bar')
+      expect(chart.more_options).to eq(
+        plot_options: {
+          bar: {
+            horizontal: true
+          }
+        }
+      )
+      expect(chart.mixed_series).to eq([])
+    end
+  end
 end
