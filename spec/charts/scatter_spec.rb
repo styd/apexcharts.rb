@@ -35,7 +35,7 @@ RSpec.describe ApexCharts::ScatterChart do
     end
   end
 
-  context 'when the series is empty' do
+  context 'when a hash series is empty' do
     let(:data) {
       [
         {
