@@ -15,4 +15,29 @@ RSpec.describe ApexCharts::DonutChart do
     chart = described_class.new(data, options)
     expect(chart.chart_type).to eq('donut')
   end
+
+  context 'when the series is empty' do
+    let(:data) { [] }
+
+    it 'assigned properties correctly' do
+      chart = described_class.new(data, options)
+      expect(chart.chart_type).to eq('donut')
+    end
+  end
+
+  context 'when a hash series is empty' do
+    let(:data) {
+      [
+        {
+          name: 'series',
+          data: []
+        }
+      ]
+    }
+
+    it 'assigned properties correctly' do
+      chart = described_class.new(data, options)
+      expect(chart.chart_type).to eq('donut')
+    end
+  end
 end

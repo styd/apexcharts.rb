@@ -14,6 +14,9 @@ All notable changes to this project will be documented in this file.
 - Charts and series are autoloaded instead of required to prevent loading
   unused charts and series to memory
 
+### Fixed
+- Empty data series no longer throws an exception
+
 
 ## [0.1.6] - 2019-08-24
 ### Added
@@ -70,8 +73,8 @@ All notable changes to this project will be documented in this file.
 - Chart examples
 
 ### Changed
-- `mixed_chart`, `combo_chart`, `syncing_chart`, and 
-  `synchronized_chart` into `mixed_charts`, `combo_charts`, 
+- `mixed_chart`, `combo_chart`, `syncing_chart`, and
+  `synchronized_chart` into `mixed_charts`, `combo_charts`,
   `syncing_charts`, and `synchronized_charts` respectively
   as they should be
 
