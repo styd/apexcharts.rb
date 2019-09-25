@@ -3,6 +3,7 @@
 module ApexCharts
   class MixedCharts < BaseChart
     include Annotations
+    include Utils::Hash
 
     def initialize(outer_self, options={}, &block)
       @outer_self = outer_self
@@ -13,12 +14,7 @@ module ApexCharts
       instance_eval &block
 
       options[:annotations] = @annotations if @annotations
-      @options = Utils::Hash.deep_merge(
-        build_options(x_sample, options),
-        Utils::Hash.camelize_keys(
-          chart: {type: 'area'}, **@series
-        )
-      )
+      @options = build_options(options)
 
       build_selection_range if brush?
     end

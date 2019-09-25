@@ -22,15 +22,14 @@ module ApexCharts
       instance_eval &block if block_given?
 
       options[:annotations] = @annotations if @annotations
-      @series = sanitize_data(data)
-      @options = deep_merge(
-        build_options(x_sample, options),
-        camelize_keys(
-          {**@series, chart: {type: chart_type}}.compact
-        )
-      )
+      @series = build_series(data)
+      @options = build_options(options)
 
       build_selection_range if brush?
+    end
+
+    def series_type
+      CartesianSeries
     end
 
     def more_options
@@ -55,10 +54,6 @@ module ApexCharts
       (@outer_self.instance_variables - instance_variables).each do |i|
         instance_variable_set(i, @outer_self.instance_variable_get(i))
       end
-    end
-
-    def sanitize_data(data)
-      ApexCharts::CartesianSeries.new(data).sanitized
     end
 
     def brush?

@@ -4,8 +4,8 @@ require_relative 'colors'
 
 module ApexCharts
   class Theme
-    PALETTES = %w[palette1 palette2 palette3 palette4 palette5
-                  palette6 palette7 palette8 palette9 palette10].freeze
+    PALETTES = %w(palette1 palette2 palette3 palette4 palette5
+                  palette6 palette7 palette8 palette9 palette10).freeze
 
     @custom_palettes = {}
 
@@ -44,7 +44,7 @@ module ApexCharts
         include ClassMethods
 
         def custom_palettes
-          ApexCharts::Theme.palettes.merge(super)
+          Theme.palettes.merge(super)
         end
 
         def palettes

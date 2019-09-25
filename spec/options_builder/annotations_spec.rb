@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe '#build_annotations' do
-  let(:x_sample) { nil }
+  let(:sample) { nil }
   let(:options) {
     {
       annotations: {
@@ -23,7 +23,7 @@ RSpec.describe '#build_annotations' do
     }
   }
   let(:ob) {
-    ApexCharts::OptionsBuilder.new(x_sample, options)
+    ApexCharts::OptionsBuilder.new(sample, options)
   }
   let(:expected_built) {
     {

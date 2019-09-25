@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe '#build_chart' do
-  let(:x_sample) { nil }
+  let(:sample) { nil }
   let(:options) {
     {
       chart: {background: '#ddd', height: 350},
@@ -18,7 +18,7 @@ RSpec.describe '#build_chart' do
     }
   }
   let(:ob) {
-    ApexCharts::OptionsBuilder.new(x_sample, options)
+    ApexCharts::OptionsBuilder.new(sample, options)
   }
   let(:expected_built) {
     {

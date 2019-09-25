@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 require_relative 'config'
+require_relative 'utils'
 require_relative 'series'
 require_relative 'options_builder'
-require_relative 'utils'
 require_relative 'renderer'
 require_relative 'charts'
 require_relative 'prefixer'
@@ -149,11 +149,11 @@ module ApexCharts
     end
 
     def create_palette(palette_name, colors)
-      ApexCharts::Theme::Local.create palette_name, colors
+      Theme::Local.create palette_name, colors
     end
 
     def destroy_palette(palette_name)
-      ApexCharts::Theme::Local.destroy palette_name
+      Theme::Local.destroy palette_name
     end
 
   private

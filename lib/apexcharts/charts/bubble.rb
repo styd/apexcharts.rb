@@ -6,16 +6,8 @@ module ApexCharts
       'bubble'
     end
 
-  private
-
-    def sanitize_data(data)
-      ApexCharts::BubbleSeries.new(data).sanitized
-    end
-
-    def x_sample
-      return if series_empty?
-
-      series[:series][0][:data][0][0]
+    def series_type
+      BubbleSeries
     end
   end
 end

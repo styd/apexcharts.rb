@@ -6,10 +6,8 @@ module ApexCharts
       'radar'
     end
 
-  private
-
-    def sanitize_data(data)
-      ApexCharts::CartesianSeries.new(data).sanitized
+    def series_type
+      CartesianSeries
     end
   end
 end

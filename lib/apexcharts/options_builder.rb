@@ -19,14 +19,17 @@ require_relative 'options/y_axis'
 
 module ApexCharts
   class OptionsBuilder
+    include Utils::Hash
+    include Utils::DateTime
+
     attr_reader :built
 
-    def initialize(x_sample, options)
-      @options = Utils::Hash.camelize_keys(options)
+    def initialize(sample, options)
+      @options = camelize_keys(options)
       if options[:plotOptions]&.[](:bar)&.[](:horizontal)
-        @ytype = Utils::DateTime.type(x_sample)
+        @ytype = type(sample)
       else
-        @xtype = Utils::DateTime.type(x_sample)
+        @xtype = type(sample)
       end
       @built = {}
     end

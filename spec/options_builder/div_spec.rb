@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe '#build_div' do
-  let(:x_sample) { nil }
+  let(:sample) { nil }
   let(:options) {
     {
       id: 'the-div-id',
@@ -11,7 +11,7 @@ RSpec.describe '#build_div' do
     }
   }
   let(:ob) {
-    ApexCharts::OptionsBuilder.new(x_sample, options)
+    ApexCharts::OptionsBuilder.new(sample, options)
   }
   let(:expected_built) {
     {

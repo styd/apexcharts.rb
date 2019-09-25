@@ -72,35 +72,4 @@ RSpec.describe ApexCharts::BarChart do
       expect(chart.mixed_series).to eq([])
     end
   end
-
-  context 'when a hash series is empty' do
-    let(:data) {
-      [
-        {
-          name: 'series',
-          data: []
-        }
-      ]
-    }
-
-    it 'assigned properties correctly' do
-      expect(chart.chart_type).to eq('bar')
-      expect(chart.more_options).to eq(
-        plot_options: {
-          bar: {
-            horizontal: true
-          }
-        }
-      )
-      expect(chart.mixed_series).to eq(
-        [
-          {
-            data: [],
-            name: 'series',
-            type: 'bar'
-          }
-        ]
-      )
-    end
-  end
 end

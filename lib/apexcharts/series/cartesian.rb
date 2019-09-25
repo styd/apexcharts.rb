@@ -2,12 +2,24 @@ require_relative '../utils/copy'
 
 module ApexCharts
   class CartesianSeries
-    include ApexCharts::Utils::Copy
+    include Utils::Copy
 
     attr_reader :sanitized
 
     def initialize(data)
       @sanitized = {series: build_series(deep_copy(data))}
+    end
+
+    def sample
+      return if empty?
+
+      sanitized[:series][0][:data][0][:x]
+    end
+
+  private
+
+    def empty?
+      sanitized[:series].empty? || sanitized[:series][0][:data].empty?
     end
 
     def build_series(data)

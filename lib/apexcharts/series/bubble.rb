@@ -2,7 +2,7 @@ require_relative '../utils/copy'
 
 module ApexCharts
   class BubbleSeries
-    include ApexCharts::Utils::Copy
+    include Utils::Copy
 
     attr_reader :sanitized
 
@@ -24,6 +24,18 @@ module ApexCharts
         end
 
       @sanitized = {series: sanitized}
+    end
+
+    def sample
+      return if empty?
+
+      sanitized[:series][0][:data][0]
+    end
+
+  private
+
+    def empty?
+      sanitized[:series].empty? || sanitized[:series][0][:data].empty?
     end
 
     def array_of_threes?(data)

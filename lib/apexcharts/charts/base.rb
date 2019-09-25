@@ -1,39 +1,35 @@
 module ApexCharts
   class BaseChart
-    attr_reader :options, :series
+    include Utils::Hash
+
+    attr_reader :options, :series, :sample
 
     def initialize(data, options={})
-      @series = sanitize_data(data)
-      @options = Utils::Hash.deep_merge(
-        build_options(x_sample, options),
-        Utils::Hash.camelize_keys(
-          {**@series, chart: {type: chart_type}}.compact
-        )
-      )
+      @series = build_series(data)
+      @options = build_options(options)
     end
 
     def render
-      ApexCharts::Renderer.render_default(options)
+      Renderer.render_default(options)
     end
 
     def chart_type; end
 
   protected
 
-    def build_options(x_sample, options)
-      ApexCharts::OptionsBuilder.new(x_sample, options).build_options
+    def build_series(data)
+      series_object = series_type.new(data)
+      @sample = series_object.sample
+      series_object.sanitized
     end
 
-    def x_sample
-      return if series_empty?
-
-      series[:series][0][:data][0][:x]
-    end
-
-  private
-
-    def series_empty?
-      series[:series].empty? || series[:series][0][:data].empty?
+    def build_options(options)
+      deep_merge(
+        OptionsBuilder.new(sample, options).build_options,
+        camelize_keys(
+          {**@series, chart: {type: chart_type}}.compact
+        )
+      )
     end
   end
 end

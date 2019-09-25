@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 RSpec.describe '#build_legend' do
-  let(:x_sample) { nil }
+  let(:sample) { nil }
   let(:ob) {
-    ApexCharts::OptionsBuilder.new(x_sample, options)
+    ApexCharts::OptionsBuilder.new(sample, options)
   }
 
   context 'boolean legend' do

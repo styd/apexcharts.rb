@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe '#build_plot_options' do
-  let(:x_sample) { nil }
+  let(:sample) { nil }
   let(:plot_options) {
     {
       plot_options: {
@@ -29,7 +29,7 @@ RSpec.describe '#build_plot_options' do
     }
   }
   let(:hash_ob) {
-    ApexCharts::OptionsBuilder.new(x_sample, plot_options)
+    ApexCharts::OptionsBuilder.new(sample, plot_options)
   }
 
   it 'camelizes the hash' do

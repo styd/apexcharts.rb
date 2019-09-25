@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 RSpec.describe '#build_xaxis' do
-  let(:x_sample) { nil }
+  let(:sample) { nil }
   let(:ob) {
-    ApexCharts::OptionsBuilder.new(x_sample, options)
+    ApexCharts::OptionsBuilder.new(sample, options)
   }
 
   context 'xaxis is a string' do
@@ -60,8 +60,8 @@ RSpec.describe '#build_xaxis' do
     end
   end
 
-  context 'x_sample is a time' do
-    let(:x_sample) { Time.now }
+  context 'sample is a time' do
+    let(:sample) { Time.now }
     let(:options) {
       {
         xtype: 'numeric'
@@ -75,7 +75,7 @@ RSpec.describe '#build_xaxis' do
       }
     }
 
-    it 'will disregard x_sample' do
+    it 'will disregard sample' do
       ob.build_xaxis
       expect(ob.built).to match(expected_built)
     end

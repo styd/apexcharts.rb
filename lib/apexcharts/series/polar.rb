@@ -2,7 +2,7 @@ require_relative '../utils/copy'
 
 module ApexCharts
   class PolarSeries
-    include ApexCharts::Utils::Copy
+    include Utils::Copy
 
     attr_reader :sanitized
 
@@ -13,6 +13,18 @@ module ApexCharts
         labels: @labels.empty? ? nil : @labels,
         series: @series
       }.compact
+    end
+
+    def sample
+      return if empty?
+
+      sanitized[:series][0]
+    end
+
+  private
+
+    def empty?
+      sanitized[:series].nil? || sanitized[:series][0].nil?
     end
 
     def build_labels_and_series(data)
