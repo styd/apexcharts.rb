@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 
 
-## [Unreleased]
+## [0.1.7] - 2019-09-28
 ### Added
 - Support for Sinatra
 - Ability to prefix chart helper names. This will allow using ApexCharts.RB
@@ -125,7 +125,8 @@ All notable changes to this project will be documented in this file.
 - **Mixed charts**
 - **Syncing charts**
 
-[Unreleased]: https://github.com/styd/apexcharts.rb/compare/v0.1.6...HEAD
+[Unreleased]: https://github.com/styd/apexcharts.rb/compare/v0.1.7...HEAD
+[0.1.7]: https://github.com/styd/apexcharts.rb/compare/v0.1.6...v0.1.7
 [0.1.6]: https://github.com/styd/apexcharts.rb/compare/v0.1.5...v0.1.6
 [0.1.5]: https://github.com/styd/apexcharts.rb/compare/v0.1.4...v0.1.5
 [0.1.4]: https://github.com/styd/apexcharts.rb/compare/v0.1.3...v0.1.4
