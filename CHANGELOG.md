@@ -15,7 +15,8 @@ All notable changes to this project will be documented in this file.
   unused charts and series to memory
 
 ### Fixed
-- Empty data series no longer throws an exception
+- Empty data series throwing 'undefined method' error
+- Bubble series returning original hash
 
 
 ## [0.1.6] - 2019-08-24

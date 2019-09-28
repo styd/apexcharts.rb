@@ -7,8 +7,9 @@ module ApexCharts
     attr_reader :sanitized
 
     def initialize(data)
+      data = deep_copy(data)
       sanitized =
-        case deep_copy(data)
+        case data
         when Array
           if array_of_threes?(data)
             [{data: data}]
