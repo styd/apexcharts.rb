@@ -794,7 +794,13 @@ $ yarn add apexcharts
 ```
 and then require it in your `app/javascript/packs/application.js`.
 ```js
-require("apexcharts")
+// AMD
+window.ApexCharts = require("apexcharts") // expose to window
+
+// or
+// ES6
+import ApexCharts from 'apexcharts'
+window.ApexCharts = ApexCharts
 ```
 
 ### Sinatra
