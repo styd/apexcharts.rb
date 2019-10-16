@@ -7,6 +7,7 @@ module ApexCharts
       forceNiceScale
       logarithmic
       opposite
+      reversed
       seriesName
       show
       showAlways
