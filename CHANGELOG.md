@@ -2,6 +2,20 @@
 All notable changes to this project will be documented in this file.
 
 
+## [Unreleased]
+### Added
+- Example for rails app
+- Support for reversed Y-Axis
+
+### Fixed
+- Documentation of Installation on Rails
+- Uninitialized constant `ApexCharts::Helper::MixedCharts`
+- Uninitialized constant `ApexCharts::Helper::SyncingCharts`
+- Mixed charts not showing because of options type value of `null`
+- No methods `apexcharts_id` on `ApexCharts::MixedCharts`
+- No methods `apexcharts_group` on `ApexCharts::SyncingCharts`
+
+
 ## [0.1.7] - 2019-09-28
 ### Added
 - Support for Sinatra
