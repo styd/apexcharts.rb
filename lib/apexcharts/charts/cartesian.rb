@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'features/annotations'
-require_relative 'features/mixable'
 require_relative '../utils/hash'
 
 module ApexCharts
@@ -37,7 +35,7 @@ module ApexCharts
     end
 
     def method_missing(method, *args, &block)
-      if @outer_self.respond_to?(method)
+      if @outer_self.respond_to?(method, true)
         @outer_self.send method, *args, &block
       else
         super
@@ -45,7 +43,7 @@ module ApexCharts
     end
 
     def respond_to_missing?(method, *args)
-      @outer_self.respond_to?(method) || super
+      @outer_self.respond_to?(method, true) || super
     end
 
   protected
@@ -57,7 +55,7 @@ module ApexCharts
     end
 
     def brush?
-      @options[:chart][:brush]&.[](:enabled) && \
+      @options[:chart][:brush]&.[](:enabled) &&
         !@options[:chart][:selection]&.[](:xaxis)
     end
 

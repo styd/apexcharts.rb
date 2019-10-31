@@ -19,6 +19,10 @@ module ApexCharts
       build_selection_range if brush?
     end
 
+    def chart_type
+      'area' # chosen default
+    end
+
     def line_chart(data, options={}, &block)
       outer_self = eval('self', block.binding, __FILE__, __LINE__) if block_given?
       @series[:series] +=
@@ -50,7 +54,7 @@ module ApexCharts
     end
 
     def method_missing(method, *args, &block)
-      if @outer_self.respond_to?(method)
+      if @outer_self.respond_to?(method, true)
         @outer_self.send method, *args, &block
       else
         super
@@ -70,7 +74,7 @@ module ApexCharts
     end
 
     def brush?
-      @options[:chart][:brush]&.[](:enabled) && \
+      @options[:chart][:brush]&.[](:enabled) &&
         !@options[:chart][:selection]&.[](:xaxis)
     end
 

@@ -62,7 +62,7 @@ module ApexCharts
     end
 
     def method_missing(method, *args, &block)
-      if @outer_self.respond_to? method, *args
+      if @outer_self.respond_to?(method, true)
         @outer_self.send method, *args, &block
       else
         super
