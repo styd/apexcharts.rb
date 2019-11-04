@@ -62,7 +62,7 @@ module ApexCharts
     end
 
     def respond_to_missing?(method, *args)
-      @outer_self.respond_to?(method) || super
+      @outer_self.respond_to?(method, true) || super
     end
 
   private
