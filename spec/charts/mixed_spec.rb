@@ -18,14 +18,14 @@ RSpec.describe ApexCharts::MixedCharts do
             {x: 100, y: 1},
             {x: 200, y: 2}
           ],
-          type: "line"
+          type: 'line'
         },
         {
           data: [
             {x: 200, y: 2},
             {x: 300, y: 3}
           ],
-          type: "area"
+          type: 'area'
         }
       ]
     }
@@ -38,18 +38,18 @@ RSpec.describe ApexCharts::MixedCharts do
     end
 
     chart = described_class.new(outer_self, options) do
-              line_chart(line_data)
-              area_chart(area_data)
-            end
+      line_chart(line_data)
+      area_chart(area_data)
+    end
     expect(chart.chart_type).to eq('area')
     expect(chart.more_options).to eq({})
     expect(chart.instance_variable_get(:@series)).to eq(expected_series)
-    expect(chart.instance_variable_get(:@options)).to eq({
+    expect(chart.instance_variable_get(:@options)).to eq(
       chart: {
-        height: 400, id: 1, type: "area"
+        height: 400, id: 1, type: 'area'
       },
       div: {id: 1},
       **expected_series
-    })
+    )
   end
 end

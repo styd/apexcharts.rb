@@ -83,7 +83,7 @@ RSpec.describe '#build_xaxis' do
 
   context 'xaxis is empty' do
     let(:options) { {} }
-    let(:expected_built) { { xaxis: nil } }
+    let(:expected_built) { {xaxis: nil} }
 
     it 'returns nil value' do
       ob.build_xaxis

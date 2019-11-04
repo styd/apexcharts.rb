@@ -1,14 +1,13 @@
 # frozen_string_literal: true
 
-
 require_relative 'charts/features/annotations'
 require_relative 'charts/features/mixable'
 
 module ApexCharts
-  %w(
+  %w[
     base cartesian line area bar column scatter
     candlestick heatmap bubble radar polar pie donut
-  ).each do |type|
+  ].each do |type|
     autoload :"#{type.capitalize}Chart", "apexcharts/charts/#{type}.rb"
   end
 
