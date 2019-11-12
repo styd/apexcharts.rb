@@ -7,6 +7,9 @@ All notable changes to this project will be documented in this file.
 - Example for rails app
 - Support for reversed Y-Axis
 
+### Changed
+- ApexCharts.JS version from 3.8.6 to 3.10.1
+
 ### Fixed
 - Documentation of Installation on Rails
 - Uninitialized constant `ApexCharts::Helper::MixedCharts`
