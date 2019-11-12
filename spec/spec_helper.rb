@@ -20,3 +20,14 @@ RSpec.configure do |config|
 end
 
 require 'apexcharts/helper'
+
+def id_fiber
+  @id_fiber ||= Fiber.new do
+    Fiber.yield "chart-1"
+    Fiber.yield "chart-2"
+  end
+end
+
+def apexcharts_id
+  id_fiber.resume
+end

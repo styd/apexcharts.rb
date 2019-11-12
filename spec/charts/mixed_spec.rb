@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 RSpec.describe ApexCharts::MixedCharts do
-  let(:apexcharts_id) { 1 }
   let(:line_data) {
     [[100, 1], [200, 2]]
   }
@@ -46,9 +45,9 @@ RSpec.describe ApexCharts::MixedCharts do
     expect(chart.instance_variable_get(:@series)).to eq(expected_series)
     expect(chart.instance_variable_get(:@options)).to eq(
       chart: {
-        height: 400, id: 1, type: 'area'
+        height: 400, id: 'chart-1', type: 'area'
       },
-      div: {id: 1},
+      div: {id: 'chart-1'},
       **expected_series
     )
   end
