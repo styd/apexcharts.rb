@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 
 
-## [Unreleased]
+## [0.1.8] - 2019-11-13
 ### Added
 - Example for rails app
 - Support for reversed Y-Axis
@@ -142,7 +142,8 @@ All notable changes to this project will be documented in this file.
 - **Mixed charts**
 - **Syncing charts**
 
-[Unreleased]: https://github.com/styd/apexcharts.rb/compare/v0.1.7...HEAD
+[Unreleased]: https://github.com/styd/apexcharts.rb/compare/v0.1.8...HEAD
+[0.1.8]: https://github.com/styd/apexcharts.rb/compare/v0.1.7...v0.1.8
 [0.1.7]: https://github.com/styd/apexcharts.rb/compare/v0.1.6...v0.1.7
 [0.1.6]: https://github.com/styd/apexcharts.rb/compare/v0.1.5...v0.1.6
 [0.1.5]: https://github.com/styd/apexcharts.rb/compare/v0.1.4...v0.1.5

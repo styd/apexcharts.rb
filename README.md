@@ -58,7 +58,7 @@
 This README might not be for the version you use.  
 Choose the right README:
 
-> [v0.1.7] | [v0.1.6] | [v0.1.5] | [v0.1.4] | [v0.1.3] | [v0.1.2] | [v0.1.1]
+> [v0.1.8] | [v0.1.7] | [v0.1.6] | [v0.1.5] | [v0.1.4] | [v0.1.3] | [v0.1.2] | [v0.1.1]
 
 ## Table of Contents
 
@@ -890,6 +890,7 @@ One time donation on [PayPal](https://paypal.me/junedchhipa)
 [ApexCharts.JS]: https://github.com/apexcharts/apexcharts.js
 
 
+[v0.1.8]: https://github.com/styd/apexcharts.rb/blob/v0.1.8/README.md
 [v0.1.7]: https://github.com/styd/apexcharts.rb/blob/v0.1.7/README.md
 [v0.1.6]: https://github.com/styd/apexcharts.rb/blob/v0.1.6/README.md
 [v0.1.5]: https://github.com/styd/apexcharts.rb/blob/v0.1.5/README.md
