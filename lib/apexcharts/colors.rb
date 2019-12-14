@@ -17,7 +17,8 @@ module ApexCharts
     def clean(colors)
       colors = colors.respond_to?(:to_set) ? colors.to_a.flatten : Array(colors)
       colors.map do |color|
-        raise "unrecognized color #{color}" unless color.tap(&:upcase!)[/^#[0-9A-F]{6}/]
+        color = color.upcase
+        raise "unrecognized color #{color}" unless color[/^#[0-9A-F]{6}/]
 
         color
       end
