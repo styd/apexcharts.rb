@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'div_attributes'
 require_relative 'chart'
 require_relative 'stroke'

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ApexCharts
   class AxisOptions < ::SmartKv
     optional *%i[

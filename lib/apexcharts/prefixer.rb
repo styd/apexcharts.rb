@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ApexCharts
   module Prefixer
     def self.extended(helper)

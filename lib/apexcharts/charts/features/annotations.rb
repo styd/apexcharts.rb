@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ApexCharts
   module Annotations
     def annotation(axis, value:, text:, color: nil, **options)

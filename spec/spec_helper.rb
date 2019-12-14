@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'simplecov'
 require 'coveralls'
 
@@ -23,8 +25,8 @@ require 'apexcharts/helper'
 
 def id_fiber
   @id_fiber ||= Fiber.new do
-    Fiber.yield "chart-1"
-    Fiber.yield "chart-2"
+    Fiber.yield 'chart-1'
+    Fiber.yield 'chart-2'
   end
 end
 

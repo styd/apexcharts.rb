@@ -5,10 +5,7 @@ AllCops:
 Layout/AccessModifierIndentation:
   EnforcedStyle: outdent
 
-Layout/IndentFirstArgument:
-  EnforcedStyle: consistent
-
-Layout/IndentFirstArrayElement:
+Layout/FirstArgumentIndentation:
   EnforcedStyle: consistent
 
 Layout/SpaceAroundEqualsInParameterDefault:
@@ -26,7 +23,7 @@ Lint/AmbiguousOperator:
 Lint/AssignmentInCondition:
   Enabled: false
 
-Lint/UnneededSplatExpansion:
+Lint/RedundantSplatExpansion:
   Enabled: false
 
 Metrics/AbcSize:
@@ -39,13 +36,13 @@ Metrics/BlockLength:
     - 'lib/apexcharts/helper.rb'
 
 Metrics/ClassLength:
-  Max: 300
+  Max: 268
 
 Metrics/LineLength:
   Max: 100
 
 Metrics/MethodLength:
-  Max: 25
+  Max: 21
 
 Metrics/ModuleLength:
   Max: 150
@@ -56,9 +53,6 @@ Style/ClassVars:
     - 'lib/apexcharts/prefixer.rb'
 
 Style/Documentation:
-  Enabled: false
-
-Style/FrozenStringLiteralComment:
   Enabled: false
 
 Style/NumericLiterals:

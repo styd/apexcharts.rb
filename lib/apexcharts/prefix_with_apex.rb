@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'config'
 
 ApexCharts.helper_prefix = 'apex_'
