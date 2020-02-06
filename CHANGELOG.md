@@ -2,6 +2,18 @@
 All notable changes to this project will be documented in this file.
 
 
+## [Unreleased]
+### Added
+- Frozen string literal comment on several files
+
+### Changed
+- ApexCharts.JS version from 3.10.1 to 3.15.5
+- Upgrade yarn package for rails example
+
+### Fixed
+- FrozenError on input colors
+
+
 ## [0.1.8] - 2019-11-13
 ### Added
 - Example for rails app
