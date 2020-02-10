@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'simplecov'
 require 'coveralls'
+require 'simplecov'
 
 SimpleCov.formatter = Coveralls::SimpleCov::Formatter if ENV['COVERALLS_REPO_TOKEN']
 
@@ -21,7 +21,7 @@ RSpec.configure do |config|
   config.shared_context_metadata_behavior = :apply_to_host_groups
 end
 
-require 'apexcharts/helper'
+require 'apex_charts/helper'
 
 def id_fiber
   @id_fiber ||= Fiber.new do

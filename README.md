@@ -690,7 +690,7 @@ Besides setting the environtment variable, if you just want a quick prefix, you 
 do this on your _Gemfile_:
 
 ```ruby
-gem 'apexcharts', require: 'apexcharts/prefix_with_apex'
+gem 'apexcharts', require: 'apex_charts/prefix_with_apex'
 ```
 
 and you'll get `apex_line_chart`, `apex_area_chart`, etc.

@@ -33,10 +33,10 @@ Metrics/BlockLength:
   Exclude:
     - '**/*.gemspec'
     - '**/*_spec.rb'
-    - 'lib/apexcharts/helper.rb'
+    - 'lib/apex_charts/helper.rb'
 
 Metrics/ClassLength:
-  Max: 268
+  Max: 270
 
 Metrics/LineLength:
   Max: 100
@@ -47,24 +47,26 @@ Metrics/MethodLength:
 Metrics/ModuleLength:
   Max: 150
 
-Style/ClassVars:
-  Exclude:
-    - 'lib/apexcharts/config.rb'
-    - 'lib/apexcharts/prefixer.rb'
+Style/Alias:
+  EnforcedStyle: prefer_alias_method
 
-Style/Documentation:
-  Enabled: false
-
-Style/NumericLiterals:
+Style/BlockDelimiters:
   Enabled: false
 
 Style/BracesAroundHashParameters:
   EnforcedStyle: context_dependent
 
-Style/Alias:
-  EnforcedStyle: prefer_alias_method
+Style/ClassVars:
+  Exclude:
+    - 'lib/apex_charts/prefixer.rb'
 
-Style/BlockDelimiters:
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/NumericLiterals:
   Enabled: false
 
 Style/ParallelAssignment:

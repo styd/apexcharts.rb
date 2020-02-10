@@ -1,7 +1,20 @@
 # frozen_string_literal: true
 
-require_relative 'config'
+warn <<~DEPRECATED
+  Deprecation warning from ApexCharts.RB:
 
-ApexCharts.helper_prefix = 'apex_'
+  Using
 
-require_relative '../apexcharts'
+    gem 'apexcharts', require: 'apexcharts/prefix_with_apex'
+
+  is DEPRECATED.
+
+  Please use
+
+    gem 'apexcharts', require: 'apex_charts/prefix_with_apex'
+
+  instead.
+
+DEPRECATED
+
+require_relative '../apex_charts/prefix_with_apex'

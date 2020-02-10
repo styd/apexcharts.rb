@@ -2,7 +2,7 @@
 
 $LOAD_PATH.push File.expand_path('lib', __dir__)
 
-require_relative 'lib/apexcharts/version'
+require_relative 'lib/apex_charts/version'
 
 Gem::Specification.new do |spec|
   spec.name        = 'apexcharts'

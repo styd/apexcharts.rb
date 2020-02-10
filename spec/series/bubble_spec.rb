@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe ApexCharts::BubbleSeries do
+RSpec.describe ApexCharts::Series::BubbleSeries do
   let(:data1) {
     [[707, 18, 0],
      [640, 37, 43],
