@@ -2,40 +2,52 @@
 
 require 'spec_helper'
 
-DODummy = Class.new
-
-RSpec.describe ApexCharts::DefaultOptions do
-  let(:do_dummy) { DODummy.new }
-
-  before do
-    DODummy.include described_class
-  end
-
-  context '.default_options=' do
-    let(:options) { {data_labels: false} }
-    let(:expected_built) { {dataLabels: {enabled: false}} }
-
-    it 'builds the options' do
-      do_dummy.default_options = options
-      expect(do_dummy.instance_variable_get(:@default_options)).to(
-        eq expected_built
-      )
-    end
-  end
-
-  context '.default_options' do
-    context 'when options not set' do
-      it 'returns empty hash' do
-        expect(do_dummy.default_options).to eq({})
+RSpec.describe ApexCharts do
+  context '.helper_prefix' do
+    context 'when not set' do
+      it 'returns ENV value' do
+        expect(described_class.helper_prefix).to eq ENV['APEXCHARTS_PREFIX']
       end
     end
 
-    context 'when options is set' do
-      it 'returns @default_options value' do
-        do_dummy.default_options = {tooltip: true}
-        expect(do_dummy.default_options).to(
-          eq do_dummy.instance_variable_get(:@default_options)
+    context 'when not set' do
+      after do
+        described_class.helper_prefix = nil
+      end
+
+      it 'returns set value' do
+        described_class.helper_prefix = 'awesome_'
+        expect(described_class.helper_prefix).to eq 'awesome_'
+      end
+    end
+  end
+
+  context '.config' do
+    it 'returns instance of ApexCharts::Configuration' do
+      expect(described_class.config).to(
+        be_instance_of ApexCharts::Configuration
+      )
+    end
+
+    it 'includes attribute modules' do
+      expect(described_class.config.class).to be < ApexCharts::Config::DefaultOptions
+    end
+  end
+
+  context '.configure' do
+    context 'when block not given' do
+      it 'returns config' do
+        expect(described_class.configure).to(
+          be_instance_of ApexCharts::Configuration
         )
+      end
+    end
+
+    context 'when block given' do
+      it 'yields config' do
+        described_class.configure do |config|
+          expect(config).to be_instance_of ApexCharts::Configuration
+        end
       end
     end
   end

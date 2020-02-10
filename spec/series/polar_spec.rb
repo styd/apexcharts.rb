@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe ApexCharts::PolarSeries do
+RSpec.describe ApexCharts::Series::PolarSeries do
   let(:data1) {
     [25, 100, 200, 125]
   }
