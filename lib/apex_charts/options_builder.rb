@@ -11,7 +11,7 @@ require_relative 'options/markers_options'
 require_relative 'options/no_data_options'
 require_relative 'options/plot_options'
 require_relative 'options/states_options'
-require_relative 'options/subtitle_options'
+require_relative 'options/title_subtitle_options'
 require_relative 'options/theme_options'
 require_relative 'options/tooltip_options'
 require_relative 'options/x_axis_options'
@@ -224,7 +224,7 @@ module ApexCharts
       @built[:subtitle] = if subtitle.is_a? String
                             {text: subtitle}
                           elsif subtitle.is_a? Hash
-                            Options::SubtitleOptions.check subtitle.compact
+                            Options::TitleSubtitleOptions.check subtitle.compact
                           end
     end
 
@@ -249,7 +249,7 @@ module ApexCharts
       @built[:title] = if title.is_a? String
                          {text: title}
                        elsif title.is_a? Hash
-                         Options::TitleOptions.check title.compact
+                         Options::TitleSubtitleOptions.check title.compact
                        end
     end
 

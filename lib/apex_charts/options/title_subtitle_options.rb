@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module ApexCharts::Options
-  class TitleOptions < ::SmartKv
+  class TitleSubtitleOptions < ::SmartKv
     optional *%i[
       align
       floating
