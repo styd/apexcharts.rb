@@ -1,4 +1,6 @@
-<h1 align="center">ApexCharts.RB</h2>
+<p align="center">
+  <img src="images/apexcharts.rb.png" height="150" />
+</p>
 
 <p align="center">
   <a href="https://rubygems.org/gems/apexcharts">
