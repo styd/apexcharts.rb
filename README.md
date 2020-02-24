@@ -49,7 +49,7 @@
 ## Supported By
 
 <a href="https://www.jetbrains.com/?from=ApexCharts.RB">
-  <img src="images/supporters/jetbrains.svg" title="Grants 1 License for All Products Pack (worth US$649.00/year)" width="120" height="120" />
+  <img src="images/supporters/jetbrains.svg" title="Grants 1 License for All Products Pack" width="120" height="120" />
 </a>
 
 
