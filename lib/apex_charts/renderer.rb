@@ -16,10 +16,16 @@ module ApexCharts
         html + <<~HTML
           <div id="#{renderer.element_id}" class="#{renderer.css_class}" style="#{renderer.style}"></div>
           <script type="text/javascript">
-            var #{renderer.variable} = new ApexCharts(document.querySelector("##{renderer.element_id}"), #{renderer.options.to_json});
+            var #{renderer.variable} = new ApexCharts(document.querySelector("##{renderer.element_id}"), #{substitute_function_object(renderer.options.to_json)});
             #{renderer.variable}.render();
           </script>
         HTML
+      end
+
+      def substitute_function_object(json)
+        json.gsub(%r[{"function":{"args":"(?<args>.*?)","body":"(?<body>.*?)"}}]) do
+          "function(#{$~&.[](:args)}){#{$~&.[](:body)}}"
+        end
       end
     end
 
