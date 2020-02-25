@@ -249,13 +249,18 @@ Given:
 <%
   require 'date'
 
-  def ohlc(ary)
-    [rand(ary.min..ary.max), ary.max, ary.min, rand(ary.min..ary.max)]
+  def candlestick_data
+    @acc = rand(6570..6650)
+    60.times.map {|i| [Date.today - 60 + i, ohlc] }.to_h
   end
 
-  candlestick_data = 50.times.map do |i|
-    [Date.today - 50 + i, ohlc(Array.new(2){ rand(6570..6650) })]
-  end.to_h
+  def ohlc
+    open = @acc + rand(-20..20)
+    high = open + rand(0..100)
+    low = open - rand(0..100)
+    @acc = close = open + rand(-((high-low)/3)..((high-low)/2))
+    [open, high, low, close]
+  end
 
   candlestick_options = {
     plot_options: {
@@ -274,9 +279,6 @@ You can make candlestick chart with this:
 <%= candlestick_chart(candlestick_data, candlestick_options) %>
 ```
 ![Example Candlestick Chart](images/candlestick_chart.gif)
-
-Real life candlestick chart probably don't look like that.
-That's because I just use random sets of numbers as the data.
 
 
 #### Mixed Charts
