@@ -39,6 +39,7 @@
 
 ## Trusted By
 
+<img src="images/users/copient-health.png" title="Use case: reports/charts related to Operating Room utilization statistics for our Copient Health solution" width="143" height="40" />
 <img src="images/users/bilendo.png" title="Use case: enterprise dashboards to visualize account receivables data" width="202" height="40" />
 <img src="images/users/ventrata.png" title="Use case: ticket sales for clients (visitor attractions and tour operators)" width="180" height="40" />
 
