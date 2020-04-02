@@ -889,13 +889,10 @@ The gem is available as open source under the terms of the
 [MIT License](https://opensource.org/licenses/MIT).
 
 
-## Like the charts?
+## Articles
 
-Consider donating to the author of [ApexCharts.JS] to support his awesome library.
-This project wouldn't be possible without it.
-
-Become a sponsor on [Patreon](https://patreon.com/junedchhipa).  
-One time donation on [PayPal](https://paypal.me/junedchhipa)
+- [Rails em 8 minutos: Criando gráficos incríveis com ApexCharts](https://onebitcode.com/graficos-incriveis-no-ruby-on-rails/)
+- [【Rails】 5分でApexChart.jsを導入する方法](https://qiita.com/syukan3/items/aa741df278f628087a3c)
 
 
 [ApexCharts.JS]: https://github.com/apexcharts/apexcharts.js
