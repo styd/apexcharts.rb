@@ -61,7 +61,7 @@ Organization/Company                                                   | Use Cas
 This README might not be for the version you use.  
 Choose the right README:
 
-> [v0.1.8] | [v0.1.7] | [v0.1.6] | [v0.1.5] | [v0.1.4] | [v0.1.3] | [v0.1.2] | [v0.1.1]
+> [v0.1.9] | [v0.1.8] | [v0.1.7] | [v0.1.6] | [v0.1.5] | [v0.1.4] | [v0.1.3] | [v0.1.2] | [v0.1.1]
 
 ## Table of Contents
 
@@ -898,6 +898,7 @@ The gem is available as open source under the terms of the
 [ApexCharts.JS]: https://github.com/apexcharts/apexcharts.js
 
 
+[v0.1.9]: https://github.com/styd/apexcharts.rb/blob/v0.1.9/README.md
 [v0.1.8]: https://github.com/styd/apexcharts.rb/blob/v0.1.8/README.md
 [v0.1.7]: https://github.com/styd/apexcharts.rb/blob/v0.1.7/README.md
 [v0.1.6]: https://github.com/styd/apexcharts.rb/blob/v0.1.6/README.md
