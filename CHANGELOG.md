@@ -25,6 +25,7 @@ All notable changes to this project will be documented in this file.
 
 ### Fixed
 - FrozenError on input colors
+- uninitialized constant SmartKv::Meat::Set when using plain ERB
 
 
 ## [0.1.8] - 2019-11-13
