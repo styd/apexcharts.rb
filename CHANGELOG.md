@@ -20,7 +20,7 @@ All notable changes to this project will be documented in this file.
 - Frozen string literal comment on several files
 
 ### Changed
-- ApexCharts.JS version from 3.10.1 to 3.15.5
+- ApexCharts.JS version from 3.10.1 to 3.18.0
 - Upgrade yarn package for rails example
 
 ### Fixed
