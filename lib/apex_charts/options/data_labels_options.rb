@@ -3,6 +3,8 @@
 module ApexCharts::Options
   class DataLabelsOptions < ::SmartKv
     optional *%i[
+      background
+      distributed
       dropShadow
       enabled
       enabledOnSeries

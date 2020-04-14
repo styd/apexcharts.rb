@@ -7,9 +7,11 @@ module ApexCharts::Options
       floating
       fontFamily
       fontSize
+      fontWeight
       formatter
       height
       horizontalAlign
+      inverseOrder
       itemMargin
       labels
       markers
@@ -23,6 +25,7 @@ module ApexCharts::Options
       showForSingleSeries
       showForZeroSeries
       textAnchor
+      tooltipHoverFormatter
       width
     ]
   end

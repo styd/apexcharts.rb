@@ -11,10 +11,14 @@ module ApexCharts::Options
       events
       fontFamily
       foreColor
+      group
       height
       id
       locales
+      offsetX
+      offsetY
       parentHeightOffset
+      redrawOnParentResize
       selection
       sparkline
       stackType

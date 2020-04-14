@@ -5,6 +5,7 @@ module ApexCharts::Options
     optional *%i[
       custom
       enabled
+      enabledOnSeries
       fillSeriesColor
       fixed
       followCursor

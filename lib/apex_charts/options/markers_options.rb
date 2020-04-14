@@ -12,9 +12,13 @@ module ApexCharts::Options
       radius
       shape
       size
-      strokeColor
+      strokeColors
       strokeOpacity
       strokeWidth
+      strokeDashArray
+      showNullDataPoints
+      onClick
+      onDblClick
     ]
   end
 end

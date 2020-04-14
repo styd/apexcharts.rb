@@ -3,6 +3,7 @@
 module ApexCharts::Options
   class ThemeOptions < ::SmartKv
     optional *%i[
+      mode
       monochrome
       palette
     ]

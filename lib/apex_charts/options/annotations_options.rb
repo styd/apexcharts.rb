@@ -3,8 +3,11 @@
 module ApexCharts::Options
   class AnnotationsOptions < ::SmartKv
     optional *%i[
+      images
       points
       position
+      shapes
+      texts
       xaxis
       yaxis
     ]
