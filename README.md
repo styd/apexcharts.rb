@@ -19,6 +19,9 @@
   <a href="https://codeclimate.com/github/styd/apexcharts.rb/maintainability">
     <img src="https://api.codeclimate.com/v1/badges/07a4f59e67abfeae21cb/maintainability" />
   </a>
+  <a href="https://codebeat.co/projects/github-com-styd-apexcharts-rb-master">
+    <img alt="codebeat badge" src="https://codebeat.co/badges/7be581d6-e74a-406b-ae76-65605a2bff78" />
+  </a>
   <a href='https://coveralls.io/github/styd/apexcharts.rb?branch=master'>
     <img src='https://coveralls.io/repos/github/styd/apexcharts.rb/badge.svg?branch=master' alt='Coverage Status' />
   </a>
