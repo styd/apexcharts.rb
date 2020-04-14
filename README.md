@@ -6,8 +6,8 @@
   <a href="https://rubygems.org/gems/apexcharts">
     <img src="https://img.shields.io/gem/v/apexcharts.svg?label=apexcharts" alt="Gem Version" />
   </a>
-  <a href="https://travis-ci.org/styd/apexcharts.rb">
-    <img src="https://travis-ci.org/styd/apexcharts.rb.svg?branch=master" alt="Build Status" />
+  <a href="https://github.com/styd/apexcharts.rb/actions">
+    <img src="https://github.com/styd/apexcharts.rb/workflows/build-test/badge.svg?branch=master" alt="Build Test Status" />
   </a>
   <a href="https://rubygems.org/gems/apexcharts">
     <img alt="Downloads" src="https://img.shields.io/gem/dt/apexcharts">
