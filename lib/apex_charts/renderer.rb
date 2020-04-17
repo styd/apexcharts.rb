@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'json'
+require_relative 'version'
 
 module ApexCharts
   class Renderer
@@ -16,6 +17,7 @@ module ApexCharts
         html + <<~HTML
           <div id="#{renderer.element_id}" class="#{renderer.css_class}" style="#{renderer.style}"></div>
           <script type="text/javascript">
+            // ApexCharts.RB #{RELEASE}
             var #{renderer.variable} = new ApexCharts(document.querySelector("##{renderer.element_id}"), #{substitute_function_object(renderer.options.to_json)});
             #{renderer.variable}.render();
           </script>

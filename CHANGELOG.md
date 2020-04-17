@@ -3,6 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 ### Added
+- ApexCharts.RB release version in source (in script tags)
 - A lot of new optional attributes for annotations, chart, dataLabels,
   legend, markers, plotOptions, theme, xAxis, and yAxis
 

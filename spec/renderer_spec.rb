@@ -29,6 +29,7 @@ RSpec.describe ApexCharts::Renderer do
       parsed = Nokogiri::HTML.parse(html)
 
       expect(parsed).not_to be_blank
+      expect(parsed.text).to include "// ApexCharts.RB #{ApexCharts::RELEASE}"
       expect(parsed.css('div.css-class')).not_to be_empty
       expect(parsed.css('script')).not_to be_empty
       expect(parsed.at("script:contains('function(value){return value + \" rabbits\"')")).not_to \
