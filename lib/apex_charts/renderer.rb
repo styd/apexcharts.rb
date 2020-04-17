@@ -24,7 +24,8 @@ module ApexCharts
 
       def substitute_function_object(json)
         json.gsub(%r[{"function":{"args":"(?<args>.*?)","body":"(?<body>.*?)"}}]) do
-          "function(#{$~&.[](:args)}){#{$~&.[](:body)}}"
+          body = "\"#{$~&.[](:body)}\"".undump
+          "function(#{$~&.[](:args)}){#{body}}"
         end
       end
     end

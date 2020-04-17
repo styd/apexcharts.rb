@@ -1,6 +1,15 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+### Added
+- A lot of new optional attributes for annotations, chart, dataLabels,
+  legend, markers, plotOptions, theme, xAxis, and yAxis
+
+### Fixed
+- function as object 'body' attribute that contains double quote (")
+  converted incorrectly
+
 
 ## [0.1.9] - 2020-04-05
 ### Added
