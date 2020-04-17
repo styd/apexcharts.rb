@@ -17,15 +17,19 @@ All notable changes to this project will be documented in this file.
 - Support for function as object.
   The following hash:
 
+  ```
     ...
     formatter: {function: {args: "a,b", body: "return a + b;"}}
     ...
+  ```
 
   will become:
 
+  ```
     ...
     "formatter":function(a,b) {return a + b;}
     ...
+  ```
 
 - Frozen string literal comment on several files
 
