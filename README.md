@@ -328,6 +328,14 @@ example:
 ![Example Syncing Charts](images/syncing_charts.gif)
 
 
+#### Defer Chart loading
+
+It's possible to defer chart loading by passing the argument `defer: true`
+
+```erb
+<%= line_chart({name: "Total", data: @total_properties}, defer: true) %>
+```
+
 #### Brush Chart
 
 ```erb
