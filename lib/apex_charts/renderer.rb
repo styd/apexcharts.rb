@@ -14,18 +14,28 @@ module ApexCharts
                else
                  ''
                end
-        createJSChart = <<~createJSChart
+        html_chart_rendering = <<~createJSChart
         // ApexCharts.RB #{RELEASE}
         var #{renderer.variable} = new ApexCharts(document.querySelector("##{renderer.element_id}"), #{substitute_function_object(renderer.options.to_json)});
         #{renderer.variable}.render();
         createJSChart
 
-        if renderer.options[:defer]
-          js = <<~JS
-        <div id="#{renderer.element_id}" class="#{renderer.css_class}" style="#{renderer.style}"></div>
+        div = <<~JS
+          <div id="#{renderer.element_id}" class="#{renderer.css_class}" style="#{renderer.style}"></div>
+        JS
+        js = if renderer.options[:defer]
+               deferred_js(html_chart_rendering)
+             else
+               non_deferred_js(html_chart_rendering)
+             end
+        html + div + js
+      end
+
+      def deferred_js(html_chart_rendering)
+        js = <<~JS
         <script type="text/javascript">
           (function() {
-            var createChart = function() { #{createJSChart} };
+            var createChart = function() { #{html_chart_rendering} };
             if (window.addEventListener) {
               window.addEventListener("load", createChart, true);
             } else if (window.attachEvent) {
@@ -36,15 +46,14 @@ module ApexCharts
           })();
         </script>
         JS
-        else
-          js = <<~JS
-        <div id="#{renderer.element_id}" class="#{renderer.css_class}" style="#{renderer.style}"></div>
-          <script type="text/javascript">
-            #{createJSChart}
+      end
+
+      def non_deferred_js(html_chart_rendering)
+        js = <<~JS
+        <script type="text/javascript">
+            #{html_chart_rendering}
         </script>
         JS
-              end
-        html + js
       end
 
       def substitute_function_object(json)
