@@ -14,14 +14,37 @@ module ApexCharts
                else
                  ''
                end
-        html + <<~HTML
-          <div id="#{renderer.element_id}" class="#{renderer.css_class}" style="#{renderer.style}"></div>
+        createJSChart = <<~createJSChart
+        // ApexCharts.RB #{RELEASE}
+        var #{renderer.variable} = new ApexCharts(document.querySelector("##{renderer.element_id}"), #{substitute_function_object(renderer.options.to_json)});
+        #{renderer.variable}.render();
+        createJSChart
+
+        if renderer.options[:defer]
+          js = <<~JS
+        <div id="#{renderer.element_id}" class="#{renderer.css_class}" style="#{renderer.style}"></div>
+        <script type="text/javascript">
+          (function() {
+            var createChart = function() { #{createJSChart} };
+            if (window.addEventListener) {
+              window.addEventListener("load", createChart, true);
+            } else if (window.attachEvent) {
+              window.attachEvent("onload", createChart);
+            } else {
+              createChart();
+            }
+          })();
+        </script>
+        JS
+        else
+          js = <<~JS
+        <div id="#{renderer.element_id}" class="#{renderer.css_class}" style="#{renderer.style}"></div>
           <script type="text/javascript">
-            // ApexCharts.RB #{RELEASE}
-            var #{renderer.variable} = new ApexCharts(document.querySelector("##{renderer.element_id}"), #{substitute_function_object(renderer.options.to_json)});
-            #{renderer.variable}.render();
-          </script>
-        HTML
+            #{createJSChart}
+        </script>
+        JS
+              end
+        html + js
       end
 
       def substitute_function_object(json)

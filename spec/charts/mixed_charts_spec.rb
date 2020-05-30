@@ -49,6 +49,7 @@ RSpec.describe ApexCharts::Charts::MixedCharts do
       chart: {
         height: 400, id: 'chart-1', type: 'area'
       },
+      defer: false,
       div: {id: 'chart-1'},
       **expected_series
     )

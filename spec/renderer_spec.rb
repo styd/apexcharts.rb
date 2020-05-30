@@ -36,4 +36,13 @@ RSpec.describe ApexCharts::Renderer do
         be_nil
     end
   end
+
+  context '.render_default when defer = true' do
+    it 'renders div and script elements' do
+      html = described_class.render_default(options.merge({defer: true}))
+      
+      expect(html).to include "var createChart = function()"
+      expect(html).to include "window.addEventListener"
+    end
+  end
 end

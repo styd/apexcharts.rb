@@ -46,6 +46,7 @@ module ApexCharts
       build_annotations
       build_colors
       build_data_labels
+      build_defer
       build_fill
       build_grid
       build_labels
@@ -124,6 +125,12 @@ module ApexCharts
                               Options::DataLabelsOptions.check data_labels.compact
                             end
     end
+
+    def build_defer
+      defer = @options.delete :defer
+      @built[:defer] = defer == true
+    end
+
 
     def build_fill
       fill = @options.delete :fill
