@@ -14,6 +14,7 @@ module ApexCharts::Options
       chartId
       colors
       dataLabels
+      defer
       fill
       grid
       group
