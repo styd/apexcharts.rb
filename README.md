@@ -104,6 +104,7 @@ Choose the right README:
 - [Options](#options)
   - [Global Options](#global-options)
   - [Formatter Function](#formatter-function)
+  - [Defer Chart Rendering](#defer-chart-rendering)
 - [Reusable Custom Palette](#reusable-custom-palette)
   - [Global Palette](#global-palette)
   - [Local Palette](#local-palette)
@@ -327,14 +328,6 @@ example:
 ```
 ![Example Syncing Charts](images/syncing_charts.gif)
 
-
-#### Defer Chart loading
-
-It's possible to defer chart loading by passing the argument `defer: true`
-
-```erb
-<%= line_chart({name: "Total", data: @total_properties}, defer: true) %>
-```
 
 #### Brush Chart
 
@@ -646,6 +639,15 @@ Or, without the _functionable-json_ gem, use function as object as follows:
 
 ```erb
 <%= area_chart series, tooltip: {y: {formatter: {function: {args: "val", body: "return '$' + parseFloat(val).toLocaleString();"}} }} %>
+```
+
+
+### Defer Chart Rendering
+
+It's possible to defer chart rendering by passing the argument `defer: true` as options.
+
+```erb
+<%= line_chart series, defer: true %>
 ```
 
 
