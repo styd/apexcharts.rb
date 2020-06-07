@@ -3,9 +3,13 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 ### Added
+- Option to defer chart rendering
 - ApexCharts.RB release version in source (in script tags)
 - A lot of new optional attributes for annotations, chart, dataLabels,
   legend, markers, plotOptions, theme, xAxis, and yAxis
+
+### Changed
+- ApexCharts.JS version from 3.18.0 to 3.19.0
 
 ### Fixed
 - function as object 'body' attribute that contains double quote (")
