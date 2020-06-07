@@ -12,7 +12,7 @@ module ApexCharts::Charts
     end
 
     def render
-      ApexCharts::Renderer.render_default(options)
+      ApexCharts::Renderer.render(options)
     end
 
     def chart_type; end

@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 ### Added
 - Option to defer chart rendering
-- ApexCharts.RB release version in source (in script tags)
+- ApexCharts.RB release version in source (in script attribute)
 - A lot of new optional attributes for annotations, chart, dataLabels,
   legend, markers, plotOptions, theme, xAxis, and yAxis
 

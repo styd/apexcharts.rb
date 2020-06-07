@@ -23,24 +23,27 @@ RSpec.describe ApexCharts::Renderer do
     }
   }
 
-  context '.render_default' do
+  context '.render' do
     it 'renders div and script elements' do
-      html = described_class.render_default(options)
+      html = described_class.render(options)
       parsed = Nokogiri::HTML.parse(html)
 
       expect(parsed).not_to be_blank
-      expect(parsed.text).to include "// ApexCharts.RB #{ApexCharts::RELEASE}"
       expect(parsed.css('div.css-class')).not_to be_empty
-      expect(parsed.css('script')).not_to be_empty
+
+      script = parsed.css('script')
+      expect(script).not_to be_empty
+      expect(script.attr('apexcharts-rb').value).to eq ApexCharts::RELEASE
+
       expect(parsed.at("script:contains('function(value){return value + \" rabbits\"')")).not_to \
         be_nil
     end
   end
 
-  context '.render_default when defer = true' do
+  context '.render when defer = true' do
     it 'renders div and script elements' do
-      html = described_class.render_default(options.merge({defer: true}))
-      
+      html = described_class.render(options.merge({defer: true}))
+
       expect(html).to include "var createChart = function()"
       expect(html).to include "window.addEventListener"
     end
