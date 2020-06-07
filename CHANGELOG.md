@@ -9,7 +9,7 @@ All notable changes to this project will be documented in this file.
   legend, markers, plotOptions, theme, xAxis, and yAxis
 
 ### Changed
-- ApexCharts.JS version from 3.18.0 to 3.19.0
+- ApexCharts.JS version from 3.18.0 to 3.19.2
 
 ### Fixed
 - function as object 'body' attribute that contains double quote (")
