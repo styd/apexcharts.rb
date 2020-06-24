@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file.
   legend, markers, plotOptions, theme, xAxis, and yAxis
 
 ### Changed
+- Make obsolete previously deprecated require directory for `prefix_with_apex`
 - ApexCharts.JS version from 3.18.0 to 3.19.2
 
 ### Fixed
