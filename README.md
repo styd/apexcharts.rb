@@ -682,26 +682,6 @@ If later for some reason I don't know you want to destroy the palette you can us
 ApexCharts::Theme.destroy "rainbow"
 ```
 
-### Local Palette
-
-To create local palettes to be used only for current thread (usually for the duration
-of a request), you can use the `create_palette` helper. The theme will only be available
-on that page and inside its partials after the palette created.
-
-For example:
-
-```ruby
-create_palette "ephemeral", ["#ab356d", "#12cdf3", "#665572", "#ababac"]
-```
-
-To destroy the palette:
-
-```ruby
-destroy_palette "ephemeral"
-```
-
-on the same page or in its partials. Otherwise, nothing will happen.
-
 
 ## Use Alongside Other Charting Libraries
 

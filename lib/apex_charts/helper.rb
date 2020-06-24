@@ -149,6 +149,9 @@ module ApexCharts
     end
 
     def create_palette(palette_name, colors)
+      warn "`create_palette' and `destroy_palette` are deprecated " +
+           "and will be removed in the next release."
+
       Theme::Local.create palette_name, colors
     end
 
