@@ -12,7 +12,7 @@ All notable changes to this project will be documented in this file.
 - Local palette with public API `create_palette` and `destroy_palette`
   is deprecated
 - Make obsolete previously deprecated require directory for `prefix_with_apex`
-- ApexCharts.JS version from 3.18.0 to 3.19.2
+- ApexCharts.JS version from 3.18.0 to 3.21.0
 
 ### Fixed
 - function as object 'body' attribute that contains double quote (")
