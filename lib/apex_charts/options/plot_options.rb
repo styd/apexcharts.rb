@@ -3,6 +3,7 @@
 module ApexCharts::Options
   class PlotOptions < ::SmartKv
     optional *%i[
+      area
       bar
       bubble
       candlestick
@@ -11,6 +12,7 @@ module ApexCharts::Options
       polarArea
       radar
       radialBar
+      treemap
     ]
   end
 end
