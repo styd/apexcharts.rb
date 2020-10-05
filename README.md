@@ -106,8 +106,6 @@ Choose the right README:
   - [Formatter Function](#formatter-function)
   - [Defer Chart Rendering](#defer-chart-rendering)
 - [Reusable Custom Palette](#reusable-custom-palette)
-  - [Global Palette](#global-palette)
-  - [Local Palette](#local-palette)
 - [Use Alongside Other Charting Libraries](#use-alongside-other-charting-libraries)
   - [Alongside Chartkick](#alongside-chartkick)
     - [Chartkick (Chart.js) and ApexCharts](#chartkick-chartjs-and-apexcharts)
@@ -653,11 +651,7 @@ It's possible to defer chart rendering by passing the argument `defer: true` as 
 
 ## Reusable Custom Palette
 
-You can create custom palette that works globally or locally.
-
-### Global Palette
-
-To create global palettes to be used anywhere on your any parts of your app, you can use
+To create palettes to be used anywhere on your any parts of your app, you can use
 `ApexCharts::Theme.create`.
 
 For example, in rails app, you would write it in initializers:
@@ -689,8 +683,7 @@ You can prefix the helper methods name with your chosen words to avoid name clas
 other charting libraries (e.g. chartkick, google_charts, etc.) you already use. Just set
 the `APEXCHARTS_PREFIX` environment variable to a string before you start your app server,
 say, 'awesome\_' and then on your views/templates use the chart helpers as `awesome_line_chart`,
-`awesome_area_chart`, and so on. `create_palette` and `destroy_palette` are left as is (not
-prefixed) as other libraries don't seem to have anything similar to them.
+`awesome_area_chart`, and so on.
 
 Besides setting the environtment variable, if you just want a quick prefix, you can instead
 do this on your _Gemfile_:

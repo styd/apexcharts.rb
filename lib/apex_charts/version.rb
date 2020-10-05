@@ -2,5 +2,5 @@
 
 module ApexCharts
   VERSION = '0.1.10'
-  RELEASE = "0.1.10"
+  RELEASE = 'Unreleased'
 end

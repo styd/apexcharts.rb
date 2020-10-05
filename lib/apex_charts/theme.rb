@@ -39,22 +39,6 @@ module ApexCharts
       end
     end
 
-    class Local
-      module LocalClassMethods
-        include ClassMethods
-
-        def custom_palettes
-          Theme.palettes.merge(super)
-        end
-
-        def palettes
-          Thread.current[:_ApexCharts_Palettes_] ||= {}
-        end
-      end
-
-      extend LocalClassMethods
-    end
-
     extend ClassMethods
   end
 end
