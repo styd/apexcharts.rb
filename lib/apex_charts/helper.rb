@@ -148,17 +148,6 @@ module ApexCharts
       alias_method :circle_chart, :radial_bar_chart
     end
 
-    def create_palette(palette_name, colors)
-      warn "`create_palette' and `destroy_palette` are deprecated " +
-           "and will be removed in the next release."
-
-      Theme::Local.create palette_name, colors
-    end
-
-    def destroy_palette(palette_name)
-      Theme::Local.destroy palette_name
-    end
-
   private
 
     def draw_chart(chart)

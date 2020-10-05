@@ -24,7 +24,7 @@ RSpec.describe '#build_theme' do
       }
 
       before do
-        allow(ApexCharts::Theme::Local).to(
+        allow(ApexCharts::Theme).to(
           receive(:all_palettes).and_return(['palette4'])
         )
       end
@@ -64,7 +64,7 @@ RSpec.describe '#build_theme' do
       let(:expected_built) {
         {
           theme: nil,
-          colors: ApexCharts::Theme::Local.get_colors('my_palette')
+          colors: ApexCharts::Theme.get_colors('my_palette')
         }
       }
 

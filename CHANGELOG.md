@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+### Changed
+- Make obsolete previously deprecated local palette creation
+
 ## [0.1.10] - 2020-10-04
 ### Added
 - Option to defer chart rendering
