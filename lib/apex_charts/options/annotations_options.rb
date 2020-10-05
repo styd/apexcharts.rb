@@ -6,7 +6,6 @@ module ApexCharts::Options
       images
       points
       position
-      shapes
       texts
       xaxis
       yaxis
