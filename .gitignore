@@ -3,6 +3,5 @@ Gemfile.lock
 log/*.log
 pkg/
 /*.json
-coverage
 tmp/
 .idea
