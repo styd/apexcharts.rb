@@ -30,8 +30,9 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     steps:
-    - name: Coveralls Finished
-      uses: coverallsapp/github-action@master
+    - uses: devmasx/coverage-check-action@v1.2.0
       with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        parallel-finished: true
+        type: simplecov
+        result_path: coverage/.last_run.json
+        min_coverage: 90
+        token: ${{secrets.GITHUB_TOKEN}}

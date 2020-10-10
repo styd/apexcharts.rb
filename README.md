@@ -22,9 +22,6 @@
   <a href="https://codebeat.co/projects/github-com-styd-apexcharts-rb-master">
     <img alt="codebeat badge" src="https://codebeat.co/badges/7be581d6-e74a-406b-ae76-65605a2bff78" />
   </a>
-  <a href='https://coveralls.io/github/styd/apexcharts.rb?branch=master'>
-    <img src='https://coveralls.io/repos/github/styd/apexcharts.rb/badge.svg?branch=master' alt='Coverage Status' />
-  </a>
   <a href='http://clayallsopp.github.io/readme-score/?url=styd/apexcharts.rb'>
     <img src='http://readme-score-api.herokuapp.com/score.svg?url=styd/apexcharts.rb' alt='README Score' />
   </a>
