@@ -49,13 +49,6 @@ Organization/Company                                                   | Use Cas
 > [this issue](https://github.com/styd/apexcharts.rb/issues/34).
 
 
-## Supported By
-
-<a href="https://www.jetbrains.com/?from=ApexCharts.RB">
-  <img src="images/supporters/jetbrains.svg" title="Grants 1 License for All Products Pack" width="120" height="120" />
-</a>
-
-
 ## README Versions
 
 This README might not be for the version you use.  
@@ -67,7 +60,6 @@ Choose the right README:
 
 - [About](#about)
 - [Trusted By](#trusted-by)
-- [Supported By](#supported-by)
 - [README Versions](#readme-versions)
 - [Table of Contents](#table-of-contents)
 - [Usage](#usage)
