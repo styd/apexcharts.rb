@@ -1,9 +1,17 @@
 # frozen_string_literal: true
 
-require 'coveralls'
 require 'simplecov'
+require 'simplecov-lcov'
 
-SimpleCov.formatter = Coveralls::SimpleCov::Formatter if ENV['COVERALLS_REPO_TOKEN']
+if ENV['CI']
+  SimpleCov::Formatter::LcovFormatter.config do |config|
+    config.report_with_single_file = true
+    config.single_report_path = "coverage/lcov.info"
+  end
+  SimpleCov.formatter = SimpleCov::Formatter::LcovFormatter
+else
+  SimpleCov.formatter = SimpleCov::Formatter::HTMLFormatter
+end
 
 SimpleCov.start do
   add_filter ['/spec/', '/lib/apexcharts/support', '/examples/']
