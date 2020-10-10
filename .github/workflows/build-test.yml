@@ -1,6 +1,7 @@
 name: build-test
 env:
   CI: true
+  JRUBY_OPTS: "--debug"
 
 on:
   push:
@@ -13,7 +14,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        os: [ubuntu-latest]
         ruby: [2.5, 2.6, 2.7, jruby]
     runs-on: ${{ matrix.os }}
     steps:
@@ -27,6 +28,9 @@ jobs:
         bundle install --jobs 4 --retry 3
         bundle exec rake
     - name: Simplecov Report
-      uses: aki77/simplecov-report-action@v1
+      uses: devmasx/coverage-check-action@v1.2.0
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+        type: simplecov
+        result_path: coverage/.last_run.json
+        min_coverage: 90
+        token: ${{secrets.GITHUB_TOKEN}}

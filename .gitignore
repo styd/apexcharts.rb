@@ -3,5 +3,8 @@ Gemfile.lock
 log/*.log
 pkg/
 /*.json
+coverage/.resultset.*
+coverage/index.html
+coverage/assets/
 tmp/
 .idea
