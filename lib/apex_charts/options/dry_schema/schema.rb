@@ -1,5 +1,7 @@
 require 'dry-schema'
 
+Dry::Schema.config.validate_keys = true
+
 module ApexCharts::Options
   module DrySchema
     class Schema < ::Dry::Schema::Params
