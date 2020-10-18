@@ -1,4 +1,4 @@
-require 'dry-schema'
+require 'dry/schema'
 
 Dry::Schema.config.validate_keys = true
 

@@ -12,11 +12,9 @@ RSpec.shared_examples 'annotations options' do
             y: 8200,
             border_color: '#00E396',
             label: {
+              background: '#00E396',
               border_color: '#00E396',
-              style: {
-                color: '#fff',
-                background: '#00E396'
-              },
+              foreColor: '#fff',
               text: 'Support'
             }
           }
@@ -35,11 +33,9 @@ RSpec.shared_examples 'annotations options' do
             y: 8200,
             borderColor: '#00E396',
             label: {
+              background: '#00E396',
+              foreColor: '#fff',
               borderColor: '#00E396',
-              style: {
-                color: '#fff',
-                background: '#00E396'
-              },
               text: 'Support'
             }
           }
