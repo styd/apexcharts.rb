@@ -16,7 +16,7 @@ module ApexCharts::Options
         end
 
         def keys
-          definition.send(:key_map).map{|key| key.dump.to_sym }
+          definition.send(:key_map).map{|key| key.name.to_sym }
         end
       end
     end
