@@ -5,6 +5,7 @@ module ApexCharts::Options
         area
         bar
         bubble
+        boxPlot
         candlestick
         heatmap
         pie

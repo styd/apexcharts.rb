@@ -39,6 +39,12 @@ module ApexCharts::Options
           optional(:maxBubbleRadius) { int? | float? }
           optional(:minBubbleRadius) { int? | float? }
         end
+        optional(:boxPlot).hash do
+          optional(:colors).hash do
+            optional(:upper) { str? }
+            optional(:lower) { str? }
+          end
+        end
         optional(:candlestick).hash do
           optional(:colors).hash do
             optional(:upward) { str? }
