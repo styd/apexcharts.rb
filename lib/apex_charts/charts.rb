@@ -8,6 +8,7 @@ module ApexCharts::Charts
     autoload :"#{type.capitalize}Chart", "apex_charts/charts/#{type}_chart.rb"
   end
 
+  autoload :BoxPlotChart, 'apex_charts/charts/box_plot_chart.rb'
   autoload :RangeBarChart, 'apex_charts/charts/range_bar_chart.rb'
   autoload :RadialBarChart, 'apex_charts/charts/radial_bar_chart.rb'
 

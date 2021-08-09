@@ -78,6 +78,15 @@ module ApexCharts
       end
       alias_method :ohlc_chart, :candlestick_chart
 
+      def boxplot_chart(series, options={}, &block)
+        outer_self = eval('self', block.binding, __FILE__, __LINE__) if block_given?
+        draw_chart(
+          ApexCharts::Charts::BoxPlotChart.new(
+            outer_self, *prepare_series_and_options(series, options), &block
+          )
+        )
+      end
+
       def heatmap_chart(series, options={})
         draw_chart(
           ApexCharts::Charts::HeatmapChart.new(
