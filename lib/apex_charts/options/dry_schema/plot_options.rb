@@ -41,8 +41,8 @@ module ApexCharts::Options
         end
         optional(:boxPlot).hash do
           optional(:colors).hash do
-            optional(:upward) { str? }
-            optional(:downward) { str? }
+            optional(:upper) { str? }
+            optional(:lower) { str? }
           end
           optional(:wick).hash do
             optional(:useFillColor) { bool? }
