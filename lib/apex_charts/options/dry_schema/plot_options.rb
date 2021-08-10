@@ -44,9 +44,6 @@ module ApexCharts::Options
             optional(:upper) { str? }
             optional(:lower) { str? }
           end
-          optional(:wick).hash do
-            optional(:useFillColor) { bool? }
-          end
         end
         optional(:candlestick).hash do
           optional(:colors).hash do
