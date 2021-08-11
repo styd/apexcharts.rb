@@ -14,12 +14,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest]
-        ruby: [2.5, 2.6, 2.7, jruby]
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        ruby: [2.5, 2.6, 2.7]
     runs-on: ${{ matrix.os }}
     steps:
-    - uses: actions/checkout@v2.3.3
-    - uses: ruby/setup-ruby@v1.47.0
+    - uses: actions/checkout@v2
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
       with:
         ruby-version: ${{ matrix.ruby }}
     - name: Build and test with Rake
@@ -27,10 +28,3 @@ jobs:
         gem install bundler
         bundle install --jobs 4 --retry 3
         bundle exec rake
-    - name: Simplecov Report
-      uses: devmasx/coverage-check-action@v1.2.0
-      with:
-        type: simplecov
-        result_path: coverage/.last_run.json
-        min_coverage: 90
-        token: ${{secrets.GITHUB_TOKEN}}
