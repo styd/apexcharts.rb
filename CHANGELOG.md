@@ -1,13 +1,15 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [0.1.11] - 2021-08-15
+### Added
+- Alternative options schema :dry_schema
+- **Box Plot chart**
+
 ### Changed
 - Make obsolete previously deprecated local palette creation
 - Update options schema to match ApexCharts.JS version 3.27.3
 - ApexCharts.JS version from 3.21.0 to 3.27.3
-- Add alternative options schema :dry_schema
-- **Box Plot chart**
 
 ## [0.1.10] - 2020-10-04
 ### Added
