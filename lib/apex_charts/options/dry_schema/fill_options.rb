@@ -21,7 +21,12 @@ module ApexCharts::Options
           optional(:height) { int? | float? }
         end
         optional(:opacity) { int? | float? | (array? & each { str? }) }
-        optional(:pattern)
+        optional(:pattern).hash do
+          optional(:height) { int? | float? }
+          optional(:strokeWidth) { int? | float? }
+          optional(:style) { str? | (array? & each { str? }) }
+          optional(:width) { int? | float? }
+        end
         optional(:type) { str? | (array? & each { str? }) }
       end
     end

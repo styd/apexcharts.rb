@@ -10,6 +10,7 @@ module ApexCharts::Options
         optional(:colors) { array? & each { str? } }
         optional(:discrete).array(DiscretePoint)
         optional(:fillOpacity) { int? | float? | (array? & each { int? | float? }) }
+        optional(:height) { int? | float? }
         optional(:hover).hash do
           optional(:size) { int? | float? }
           optional(:sizeOffset) { int? | float? }
@@ -26,6 +27,7 @@ module ApexCharts::Options
         optional(:strokeDashArray) { int? | float? | (array? & each { int? | float? }) }
         optional(:strokeOpacity) { int? | float? | (array? & each { int? | float? }) }
         optional(:strokeWidth) { int? | float? | (array? & each { int? | float? }) }
+        optional(:width) { int? | float? }
       end
     end
   end

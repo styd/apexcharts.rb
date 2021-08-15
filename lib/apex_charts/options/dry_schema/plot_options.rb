@@ -12,6 +12,7 @@ module ApexCharts::Options
         end
         optional(:bar).hash do
           optional(:barHeight) { str? }
+          optional(:borderRadius) { int? | float? }
           optional(:colors).hash do
             optional(:backgroundBarColors) { array? & each { str? } }
             optional(:backgroundBarOpacity) { int? | float? }
@@ -33,17 +34,18 @@ module ApexCharts::Options
           optional(:endingShape) { included_in? %w[flat rounded] }
           optional(:horizontal) { bool? }
           optional(:rangeBarOverlap) { bool? }
+          optional(:rangeBarGroupRows) { bool? }
           optional(:startingShape) { included_in? %w[flat rounded] }
-        end
-        optional(:bubble).hash do
-          optional(:maxBubbleRadius) { int? | float? }
-          optional(:minBubbleRadius) { int? | float? }
         end
         optional(:boxPlot).hash do
           optional(:colors).hash do
             optional(:upper) { str? }
             optional(:lower) { str? }
           end
+        end
+        optional(:bubble).hash do
+          optional(:maxBubbleRadius) { int? | float? }
+          optional(:minBubbleRadius) { int? | float? }
         end
         optional(:candlestick).hash do
           optional(:colors).hash do
@@ -120,10 +122,15 @@ module ApexCharts::Options
           optional(:offsetX) { int? | float? }
           optional(:offsetY) { int? | float? }
           optional(:startAngle) { int? | float? }
+          optional(:endAngle) { int? | float? }
         end
         optional(:polarArea).hash do
           optional(:rings).hash do
             optional(:strokeColor) { str? }
+            optional(:strokeWidth) { int? | float? }
+          end
+          optional(:spokes).hash do
+            optional(:connectorColors) { str? | (array? & each { str? }) }
             optional(:strokeWidth) { int? | float? }
           end
         end

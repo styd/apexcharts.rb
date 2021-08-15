@@ -20,6 +20,7 @@ module ApexCharts::Options
         optional(:offsetY)
         optional(:parentHeightOffset)
         optional(:redrawOnParentResize)
+        optional(:redrawOnWindowResize)
         optional(:selection)
         optional(:sparkline)
         optional(:stackType)

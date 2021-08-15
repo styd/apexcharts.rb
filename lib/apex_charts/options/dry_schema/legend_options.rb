@@ -10,6 +10,7 @@ module ApexCharts::Options
           optional(:left) { int? | float? }
           optional(:top) { int? | float? }
         end
+        optional(:customLegendItems) { array? & each { str? } }
         optional(:floating) { bool? }
         optional(:fontFamily) { str? }
         optional(:fontSize) { str? }
