@@ -72,6 +72,7 @@ Choose the right README:
     - [Range Bar Chart](#range-bar-chart)
     - [Scatter Chart](#scatter-chart)
     - [Candlestick Chart](#candlestick-chart)
+    - [Box Plot Chart](#box-plot-chart)
     - [Mixed Charts](#mixed-charts)
     - [Syncing Charts](#syncing-charts)
     - [Brush Chart](#brush-chart)
@@ -86,6 +87,7 @@ Choose the right README:
 - [Data Formats](#data-formats)
   - [Cartesian Charts](#cartesian-charts-1)
     - [Candlestick Chart](#candlestick-chart-1)
+    - [Box Plot Chart](#box-plot-chart-1)
   - [Heatmap Chart](#heatmap-chart-1)
   - [Radar Chart](#radar-chart-1)
   - [Bubble Chart](#bubble-chart-1)
@@ -273,6 +275,46 @@ You can make candlestick chart with this:
 <%= candlestick_chart(candlestick_data, candlestick_options) %>
 ```
 ![Example Candlestick Chart](images/candlestick_chart.gif)
+
+
+#### Box Plot Chart
+
+Given:
+```erb
+<%
+  require 'date'
+
+  def box_plot_data
+    20.times.map {|i| [Date.today - 20 + i, box_plot_datum] }.to_h
+  end
+
+  def box_plot_datum
+    level = 1000
+    max = level + rand(50..300)
+    min = level - rand(50..300)
+    q1 = min + rand(10..50)
+    q3 = max - rand(10..50)
+    median = (min + q1 + q3 + max)/4
+    [min, q1, median, q3, max]
+  end
+
+  box_plot_options = {
+    plot_options: {
+      boxPlot: {
+        colors: {
+          upper: '#aaffaa',
+          lower: '#ffaaFF'
+        }
+      }
+    }
+  }
+%>
+```
+You can make box plot chart with this:
+```erb
+<%= box_plot_chart(box_plot_data, box_plot_options) %>
+```
+![Example Box Plot Chart](images/box_plot_chart.gif)
 
 
 #### Mixed Charts
@@ -476,6 +518,29 @@ or this:
 [
   [<x value>, [<Open>, <High>, <Low>, <Close>]],
   [<x value>, [<Open>, <High>, <Low>, <Close>]],
+  ...
+]
+```
+
+#### Box Plot Chart
+
+Box plot chart is similar to candlestick chart, only the y value is
+an array of 5 members (Minimum-First Quartile-Median-Third Quartile-Maximum):
+
+```ruby
+{
+  <x value> => [<Min>, <Q1>, <Median>, <Q3>, <Max>],
+  <x value> => [<Min>, <Q1>, <Median>, <Q3>, <Max>],
+  ...
+}
+```
+
+or this:
+
+```ruby
+[
+  [<x value>, [<Min>, <Q1>, <Median>, <Q3>, <Max>]],
+  [<x value>, [<Min>, <Q1>, <Median>, <Q3>, <Max>]],
   ...
 ]
 ```

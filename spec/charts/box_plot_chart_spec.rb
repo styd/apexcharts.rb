@@ -14,12 +14,15 @@ RSpec.describe ApexCharts::Charts::BoxPlotChart do
     expect(chart.chart_type).to eq('boxPlot')
     expect(chart.more_options).to eq({})
     expect(chart.mixed_series).to eq(
-                                    [{
-                                        :data=>
-                                          [{:x=>"label_1", :y=>[10, 20, 30, 40, 50]},
-                                           {:x=>"label_2", :y=>[30, 40, 50, 60, 70]}],
-                                        :type=>"boxPlot"
-                                    }]
-                                  )
+      [
+        {
+          data: [
+            {x: "label_1", y: [10, 20, 30, 40, 50]},
+            {x: "label_2", y: [30, 40, 50, 60, 70]}
+          ],
+          type: "boxPlot"
+        }
+      ]
+    )
   end
 end

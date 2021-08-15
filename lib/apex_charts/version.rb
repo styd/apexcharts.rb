@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
 module ApexCharts
-  VERSION = '1.0.0'
+  VERSION = '0.1.10'
   RELEASE = 'Unreleased'
 end

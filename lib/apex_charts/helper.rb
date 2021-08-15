@@ -78,7 +78,7 @@ module ApexCharts
       end
       alias_method :ohlc_chart, :candlestick_chart
 
-      def boxplot_chart(series, options={}, &block)
+      def box_plot_chart(series, options={}, &block)
         outer_self = eval('self', block.binding, __FILE__, __LINE__) if block_given?
         draw_chart(
           ApexCharts::Charts::BoxPlotChart.new(
