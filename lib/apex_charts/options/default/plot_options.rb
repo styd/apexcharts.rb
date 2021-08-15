@@ -4,8 +4,8 @@ module ApexCharts::Options
       optional *%i[
         area
         bar
-        bubble
         boxPlot
+        bubble
         candlestick
         heatmap
         pie

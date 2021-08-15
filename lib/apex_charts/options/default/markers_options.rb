@@ -5,19 +5,21 @@ module ApexCharts::Options
         colors
         discrete
         fillOpacity
+        height
         hover
         offsetX
         offsetY
-        radius
-        shape
-        size
-        strokeColors
-        strokeOpacity
-        strokeWidth
-        strokeDashArray
-        showNullDataPoints
         onClick
         onDblClick
+        radius
+        shape
+        showNullDataPoints
+        size
+        strokeColors
+        strokeDashArray
+        strokeOpacity
+        strokeWidth
+        width
       ]
     end
   end

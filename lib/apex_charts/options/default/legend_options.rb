@@ -3,6 +3,7 @@ module ApexCharts::Options
     class LegendOptions < ::SmartKv
       optional *%i[
         containerMargin
+        customLegendItems
         floating
         fontFamily
         fontSize

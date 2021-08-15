@@ -10,16 +10,17 @@ module ApexCharts::Options
         labels
         max
         min
+        offsetX
+        offsetY
+        overwriteCategories
         position
         range
+        sorted
         tickAmount
         tickPlacement
         title
         tooltip
         type
-        offsetX
-        offsetY
-        sorted
       ]
     end
   end

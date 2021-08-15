@@ -18,6 +18,7 @@ module ApexCharts::Options
         offsetY
         parentHeightOffset
         redrawOnParentResize
+        redrawOnWindowResize
         selection
         sparkline
         stackType
