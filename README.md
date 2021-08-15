@@ -945,7 +945,6 @@ The gem is available as open source under the terms of the
 [dry-schema]: https://github.com/dry-rb/dry-schema
 
 
-[Unreleased]: https://github.com/styd/apexcharts.rb/compare/v0.1.11...HEAD
 [v0.1.11]: https://github.com/styd/apexcharts.rb/blob/v0.1.11/README.md
 [v0.1.10]: https://github.com/styd/apexcharts.rb/blob/v0.1.10/README.md
 [v0.1.9]: https://github.com/styd/apexcharts.rb/blob/v0.1.9/README.md
