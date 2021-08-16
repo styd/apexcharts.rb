@@ -50,7 +50,7 @@ Organization/Company                                                   | Use Cas
 <img src="/images/users/ventrata.png" width="180" height="40" />       | Ticket sales for clients (visitor attractions and tour operators)
 
 > If your organization/company uses ApexCharts.RB in production, please comment on
-> [this issue](https://github.com/styd/apexcharts.rb/issues/34).
+> [this discussion](https://github.com/styd/apexcharts.rb/discussions/34).
 
 
 ## README Versions
