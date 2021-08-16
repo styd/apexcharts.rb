@@ -25,6 +25,10 @@
   <a href='http://clayallsopp.github.io/readme-score/?url=styd/apexcharts.rb'>
     <img src='http://readme-score-api.herokuapp.com/score.svg?url=styd/apexcharts.rb' alt='README Score' />
   </a>
+  <br />
+  <a href='https://ko-fi.com/setyadi' target='_blank'>
+    <img height='36' style='border:0px;height:36px;' src='https://cdn.ko-fi.com/cdn/kofi4.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' />
+  </a>
 </p>
 
 
