@@ -15,7 +15,8 @@ module ApexCharts::Series
     def sample
       return if empty?
 
-      sanitized[:series][0][:data][0][:x]
+      first_data = sanitized[:series][0][:data][0]
+      first_data.is_a?(Hash) ? first_data[:x] : first_data
     end
 
   private
@@ -75,7 +76,12 @@ module ApexCharts::Series
     end
 
     def array_of_array_to_array_of_xy(data)
-      data.map {|d| {x: d.first, y: d.last} }
+      case data.first
+      when Array
+        data.map {|d| {x: d.first, y: d.last} }
+      else
+        data
+      end
     end
   end
 end

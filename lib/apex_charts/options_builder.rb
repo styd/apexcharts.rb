@@ -23,7 +23,7 @@ module ApexCharts
     include ApexCharts::Utils::Hash
     include ApexCharts::Utils::DateTime
 
-    attr_reader :built
+    attr_accessor :built
 
     def initialize(sample, options)
       @options = camelize_keys(options)
@@ -68,7 +68,7 @@ module ApexCharts
     end
 
     def build_div
-      @built[:div] = {
+      built[:div] = {
         id: @options.delete(:id),
         var: @options.delete(:var),
         class: @options.delete(:class),
@@ -78,7 +78,7 @@ module ApexCharts
 
     def build_annotations
       annotations = @options.delete :annotations
-      @built[:annotations] = (
+      built[:annotations] = (
         if annotations.is_a? Hash
           options_class(:Annotations).check annotations.compact
         end
@@ -86,7 +86,7 @@ module ApexCharts
     end
 
     def build_chart
-      @built[:chart] =
+      built[:chart] =
         if target = @options.delete(:brushTarget)
           {
             brush: {enabled: true, target: target.to_s},
@@ -96,7 +96,7 @@ module ApexCharts
           {}
         end
 
-      @built[:chart].merge!({
+      built[:chart].merge!({
         id: @options[:chartId] || @options[:id],
         group: @options.delete(:group),
         height: @options.delete(:height) { target ? 180 : 400 },
@@ -112,20 +112,20 @@ module ApexCharts
 
       return unless chart.is_a? Hash
 
-      @built[:chart].merge! options_class(:Chart).check(chart.compact)
+      built[:chart].merge! options_class(:Chart).check(chart.compact)
     end
 
     def build_colors
       colors = @options.delete :colors
       colors &&= Array(colors)
-      @built[:colors] = colors
+      built[:colors] = colors
     end
 
     def build_data_labels
       data_labels = @options.delete :dataLabels
       return if data_labels.nil?
 
-      @built[:dataLabels] = if [true, false].include? data_labels
+      built[:dataLabels] = if [true, false].include? data_labels
                               {enabled: data_labels}
                             elsif data_labels.is_a? Hash
                               options_class(:DataLabels).check data_labels.compact
@@ -134,13 +134,13 @@ module ApexCharts
 
     def build_defer
       defer = @options.delete :defer
-      @built[:defer] = defer == true
+      built[:defer] = defer == true
     end
 
 
     def build_fill
       fill = @options.delete :fill
-      @built[:fill] = if fill.is_a? String
+      built[:fill] = if fill.is_a? String
                         {type: fill}
                       elsif fill.is_a? Hash
                         options_class(:Fill).check fill.compact
@@ -149,7 +149,7 @@ module ApexCharts
 
     def build_grid
       grid = @options.delete :grid
-      @built[:grid] = if [true, false].include? grid
+      built[:grid] = if [true, false].include? grid
                         {show: grid}
                       elsif grid.is_a? Hash
                         options_class(:Grid).check grid.compact
@@ -159,12 +159,12 @@ module ApexCharts
     def build_labels
       labels = @options.delete :labels
       labels &&= Array(labels)
-      @built[:labels] = labels
+      built[:labels] = labels
     end
 
     def build_legend
       legend = @options.delete :legend
-      @built[:legend] = if [true, false].include? legend
+      built[:legend] = if [true, false].include? legend
                           {show: legend}
                         elsif legend.is_a? String
                           {show: true, position: legend}
@@ -175,7 +175,7 @@ module ApexCharts
 
     def build_markers
       markers = @options.delete :markers
-      @built[:markers] = if markers.is_a? String
+      built[:markers] = if markers.is_a? String
                            {shape: markers}
                          elsif markers.is_a? Hash
                            options_class(:Markers).check markers.compact
@@ -184,7 +184,7 @@ module ApexCharts
 
     def build_no_data
       no_data = @options.delete :noData
-      @built[:noData] = if no_data.is_a? String
+      built[:noData] = if no_data.is_a? String
                           {text: no_data}
                         elsif no_data.is_a? Hash
                           options_class(:NoData).check no_data.compact
@@ -195,46 +195,46 @@ module ApexCharts
       plot_options = @options.delete :plotOptions
       return unless plot_options.is_a? Hash
 
-      @built[:plotOptions] =
+      built[:plotOptions] =
         options_class(:Plot).check plot_options.compact
     end
 
     def build_responsive
       responsive = @options.delete :responsive
       responsive &&= responsive.is_a?(Hash) ? [responsive] : Array(responsive)
-      @built[:responsive] = responsive
+      built[:responsive] = responsive
     end
 
     def build_states
-      @built[:states] = {
+      built[:states] = {
         normal: filter_type_hash(@options.delete(:normal)),
         hover: filter_type_hash(@options.delete(:hover)),
         active: filter_type_hash(@options.delete(:active))
       }.compact
 
       states = @options.delete :states
-      @built[:states].merge! options_class(:States).check(states.compact) if states.is_a? Hash
+      built[:states].merge! options_class(:States).check(states.compact) if states.is_a? Hash
 
-      @built[:states] = nil if @built[:states].empty?
+      built[:states] = nil if built[:states].empty?
     end
 
     def build_stroke
       curve = @options.delete :curve
-      @built[:stroke] = {curve: curve}.compact
+      built[:stroke] = {curve: curve}.compact
 
       stroke = @options.delete :stroke
       if [true, false].include? stroke
-        @built[:stroke].merge!(show: stroke)
+        built[:stroke].merge!(show: stroke)
       elsif stroke.is_a? Hash
-        @built[:stroke].merge! options_class(:Stroke).check(stroke.compact)
+        built[:stroke].merge! options_class(:Stroke).check(stroke.compact)
       end
 
-      @built[:stroke] = nil if @built[:stroke].empty?
+      built[:stroke] = nil if built[:stroke].empty?
     end
 
     def build_subtitle
       subtitle = @options.delete(:subtitle)
-      @built[:subtitle] = if subtitle.is_a? String
+      built[:subtitle] = if subtitle.is_a? String
                             {text: subtitle}
                           elsif subtitle.is_a? Hash
                             options_class(:TitleSubtitle).check subtitle.compact
@@ -243,7 +243,7 @@ module ApexCharts
 
     def build_theme
       theme = @options.delete(:theme)
-      @built[:theme] = if theme.is_a? String
+      built[:theme] = if theme.is_a? String
                          case theme
                          when 'random'
                            resolve_theme(Theme.all_palettes.sample)
@@ -259,7 +259,7 @@ module ApexCharts
 
     def build_title
       title = @options.delete(:title)
-      @built[:title] = if title.is_a? String
+      built[:title] = if title.is_a? String
                          {text: title}
                        elsif title.is_a? Hash
                          options_class(:TitleSubtitle).check title.compact
@@ -268,7 +268,7 @@ module ApexCharts
 
     def build_tooltip
       tooltip = @options.delete :tooltip
-      @built[:tooltip] = if [true, false].include? tooltip
+      built[:tooltip] = if [true, false].include? tooltip
                            {enabled: tooltip}
                          elsif tooltip.is_a? Hash
                            options_class(:Tooltip).check tooltip.compact
@@ -277,42 +277,56 @@ module ApexCharts
 
     def build_xaxis
       xaxis = @options.delete :xaxis
-      @built[:xaxis] = {
+      built[:xaxis] = {
         type: @options.delete(:xtype) { @xtype },
         title: {
           text: @options.delete(:xtitle)
         }.compact
       }.compact
-      @built[:xaxis].delete(:title) if @built[:xaxis][:title].empty?
+      built[:xaxis].delete(:title) if built[:xaxis][:title].empty?
 
       if xaxis.is_a? String
-        @built[:xaxis][:title] = {text: xaxis}
+        built[:xaxis][:title] = {text: xaxis}
       elsif xaxis.is_a? Hash
         options_class(:XAxis).check xaxis
-        @built[:xaxis].merge! xaxis
+        built[:xaxis].merge! xaxis
       end
 
-      @built[:xaxis] = nil if @built[:xaxis].empty?
+      built[:xaxis] = nil if built[:xaxis].empty?
     end
 
     def build_yaxis
       yaxis = @options.delete :yaxis
-      @built[:yaxis] = [{
-        type: @options.delete(:ytype) { @ytype },
-        title: {
-          text: @options.delete(:ytitle)
-        }.compact
-      }.compact]
-      @built[:yaxis][0].delete(:title) if @built[:yaxis][0][:title].empty?
 
-      if yaxis.is_a? String
-        @built[:yaxis][0][:title] = {text: yaxis}
-      elsif yaxis.is_a? Hash
+      case yaxis
+      when Array
+        built[:yaxis] = yaxis
+      when Hash
+        built[:yaxis] = {
+          type: @options.delete(:ytype) { @ytype },
+          title: {
+            text: @options.delete(:ytitle)
+          }.compact
+        }.compact
+        built[:yaxis].delete(:title) if built[:yaxis][:title].empty?
         options_class(:YAxis).check yaxis
-        @built[:yaxis][0].merge! yaxis
+        built[:yaxis].merge! yaxis
+      when String
+        built[:yaxis] = {
+          type: @options.delete(:ytype) { @ytype },
+          title: {
+            text: yaxis
+          }
+        }.compact
+      when NilClass
+        if ytitle = @options.delete(:ytitle)
+          built[:yaxis] = {title: {text: ytitle}}
+        else
+          built[:yaxis] = {}
+        end
       end
 
-      @built[:yaxis] = nil if @built[:yaxis].all?(&:empty?)
+      built[:yaxis] = nil if built[:yaxis].all?(&:empty?)
     end
 
   private
@@ -345,7 +359,7 @@ module ApexCharts
       if Theme::PALETTES.include? theme
         {palette: theme}
       elsif Theme.palette_names.include? theme
-        @built[:colors] = Theme.get_colors(theme)
+        built[:colors] = Theme.get_colors(theme)
         nil
       end
     end

@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+### Added
+- Allow multiple Y-Axis
+
 ## [0.1.11] - 2021-08-15
 ### Added
 - Alternative options schema :dry_schema

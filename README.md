@@ -82,6 +82,7 @@ Choose the right README:
     - [Syncing Charts](#syncing-charts)
     - [Brush Chart](#brush-chart)
     - [Annotations](#annotations)
+    - [Multiple Y-Axes](#multiple-y-axes)
   - [Heatmap Chart](#heatmap-chart)
   - [Radar Chart](#radar-chart)
   - [Bubble Chart](#bubble-chart)
@@ -390,6 +391,52 @@ All cartesian charts can have annotations, for example:
 ```
 ![Example Area Chart with Annotations](images/chart_with_annotations.gif)
 
+
+#### Multiple Y-Axes
+
+There's no fancy shortcut for multiple Y axes yet, but it is allowed. Here is an example
+for that.
+
+```erb
+<% series = [
+    {
+      name: 'Income',
+      type: 'column',
+      data: [1.4, 2, 2.5, 1.5, 2.5, 2.8, 3.8, 4.6]
+    },
+    {
+      name: 'Cashflow',
+      type: 'column',
+      data: [1.1, 3, 3.1, 4, 4.1, 4.9, 6.5, 8.5]
+    },
+    {
+      name: 'Revenue',
+      data: [20, 29, 37, 36, 44, 45, 50, 58]
+    }
+  ]
+
+  xaxis = {
+    title: {text: 'Year'},
+    categories: [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016]
+  }
+
+  yaxis = [
+    {title: {text: "Income"}},
+    {
+      title: {text: "Operating Cashflow"},
+      opposite: true,
+      seriesName: 'Cashflow'
+    },
+    {
+      title: {text: "Revenue"},
+      opposite: true,
+      seriesName: 'Revenue'
+    }
+  ]
+%>
+<%= line_chart(series, xaxis: xaxis, yaxis: yaxis) %>
+```
+![Example Chart with multiple Y-Axes](images/chart_with_multiple_y-axes.gif)
 
 ### Heatmap Chart
 

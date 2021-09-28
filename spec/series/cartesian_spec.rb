@@ -89,6 +89,8 @@ RSpec.describe ApexCharts::Series::CartesianSeries do
   let(:expected6) { {series: []} }
   let(:data8) { [{name: 'A', data: []}] }
   let(:expected7) { {series: [{name: 'A', data: []}]} }
+  let(:data9) { [{name: 'A', data: [1.2, 2.3, 3.4]}] }
+  let(:expected8) { {series: [{name: 'A', data: [1.2, 2.3, 3.4]}]} }
 
   it 'returns as expected' do
     expect(described_class.new(data1).sanitized).to eq(expected1)
@@ -99,6 +101,7 @@ RSpec.describe ApexCharts::Series::CartesianSeries do
     expect(described_class.new(data6).sanitized).to eq(expected5)
     expect(described_class.new(data7).sanitized).to eq(expected6)
     expect(described_class.new(data8).sanitized).to eq(expected7)
+    expect(described_class.new(data9).sanitized).to eq(expected8)
   end
 
   context 'sample' do
@@ -111,6 +114,7 @@ RSpec.describe ApexCharts::Series::CartesianSeries do
       expect(described_class.new(data6).sample).to eq(100)
       expect(described_class.new(data7).sample).to be_nil
       expect(described_class.new(data8).sample).to be_nil
+      expect(described_class.new(data9).sample).to eq(1.2)
     end
   end
 end
