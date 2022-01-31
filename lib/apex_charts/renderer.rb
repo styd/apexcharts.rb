@@ -64,6 +64,10 @@ module ApexCharts
       @defer ||= options.delete(:defer)
     end
 
+    def module?
+      @module ||= options.delete(:module)
+    end
+ 
     def attributes
       @attributes ||= options.delete(:div) { {} }
     end
@@ -97,8 +101,9 @@ module ApexCharts
     end
 
     def script(js)
+      type = module? ? 'module' : 'text/javascript'
       <<~SCRIPT
-        <script type="text/javascript" apexcharts-rb="#{RELEASE}">
+        <script type="#{type}" apexcharts-rb="#{RELEASE}" >
         #{js}
         </script>
       SCRIPT

@@ -51,6 +51,7 @@ RSpec.describe ApexCharts::Charts::MixedCharts do
       },
       defer: false,
       div: {id: 'chart-1'},
+      module: false,
       **expected_series
     )
   end

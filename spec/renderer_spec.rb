@@ -48,4 +48,13 @@ RSpec.describe ApexCharts::Renderer do
       expect(html).to include "window.addEventListener"
     end
   end
+
+  context '.render when module = true' do
+    it 'renders div and script elements' do
+      html = described_class.render(options.merge({module: true}))
+
+      expect(html).to include 'type="module"'
+    end
+  end
+
 end
