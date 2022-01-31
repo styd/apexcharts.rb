@@ -53,6 +53,7 @@ module ApexCharts
       build_labels
       build_legend
       build_markers
+      build_module
       build_no_data
       build_plot_options
       build_responsive
@@ -137,6 +138,10 @@ module ApexCharts
       built[:defer] = defer == true
     end
 
+    def build_module
+      omodule = @options.delete :module
+      built[:module] = omodule == true
+    end
 
     def build_fill
       fill = @options.delete :fill

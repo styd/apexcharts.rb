@@ -10,6 +10,7 @@ module ApexCharts::Options
         defer
         group
         id
+        module 
         style
         var
         xtitle

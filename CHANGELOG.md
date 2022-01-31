@@ -3,6 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 ### Added
+- Option to render chart with a script whose type is module
 - Allow multiple Y-Axis
 
 ## [0.1.11] - 2021-08-15

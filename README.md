@@ -102,6 +102,7 @@ Choose the right README:
   - [Global Options](#global-options)
   - [Formatter Function](#formatter-function)
   - [Defer Chart Rendering](#defer-chart-rendering)
+  - [Render with a script whose type is module](#render-with-a-script-whose-type-is-module)
 - [Schema](#schema)
 - [Reusable Custom Palette](#reusable-custom-palette)
 - [Use Alongside Other Charting Libraries](#use-alongside-other-charting-libraries)
@@ -748,10 +749,20 @@ Or, without the _functionable-json_ gem, use function as object as follows:
 
 ### Defer Chart Rendering
 
-It's possible to defer chart rendering by passing the argument `defer: true` as options.
+It's possible to defer chart rendering by passing the argument `defer: true` as option.
 
 ```erb
 <%= line_chart series, defer: true %>
+```
+
+### Render with a script whose type is module
+
+The charts are rendered by inserting a <script> block in the HTML. 
+In order to generate this <script> with `type="module"` use the
+option `module: true`.
+
+```erb
+<%= line_chart series, module: true %>
 ```
 
 
