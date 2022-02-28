@@ -6,6 +6,9 @@ All notable changes to this project will be documented in this file.
 - Option to render chart with a script whose type is module
 - Allow multiple Y-Axis
 
+### Changed
+- ApexCharts.JS version from 3.27.3 to 3.33.0
+
 ## [0.1.11] - 2021-08-15
 ### Added
 - Alternative options schema :dry_schema
