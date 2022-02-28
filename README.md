@@ -116,7 +116,7 @@ Choose the right README:
   - [Plain HTML+ERB (Without Framework)](#plain-htmlerb-without-framework)
 - [Contributing](#contributing)
 - [License](#license)
-- [Like the charts?](#like-the-charts)
+- [Articles](#articles)
 
 
 ## Usage
