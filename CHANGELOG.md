@@ -1,13 +1,16 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [0.2.0] - 2022-02-28
 ### Added
 - Option to render chart with a script whose type is module
 - Allow multiple Y-Axis
 
 ### Changed
 - ApexCharts.JS version from 3.27.3 to 3.33.0
+
+### Removed
+- Schemas (smart_kv and dry-schema)
 
 ## [0.1.11] - 2021-08-15
 ### Added
@@ -207,7 +210,8 @@ All notable changes to this project will be documented in this file.
 - **Mixed charts**
 - **Syncing charts**
 
-[Unreleased]: https://github.com/styd/apexcharts.rb/compare/v0.1.11...HEAD
+[Unreleased]: https://github.com/styd/apexcharts.rb/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/styd/apexcharts.rb/compare/v0.1.11...v0.2.0
 [0.1.11]: https://github.com/styd/apexcharts.rb/compare/v0.1.10...v0.1.11
 [0.1.10]: https://github.com/styd/apexcharts.rb/compare/v0.1.9...v0.1.10
 [0.1.9]: https://github.com/styd/apexcharts.rb/compare/v0.1.8...v0.1.9
