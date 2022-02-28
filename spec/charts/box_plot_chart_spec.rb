@@ -5,7 +5,7 @@ require 'spec_helper'
 RSpec.describe ApexCharts::Charts::BoxPlotChart do
   let(:outer_self) { nil }
   let(:data) {
-    [['label_1',[10, 20, 30, 40, 50]], ['label_2',[30, 40, 50, 60, 70]]]
+    [['label_1', [10, 20, 30, 40, 50]], ['label_2', [30, 40, 50, 60, 70]]]
   }
   let(:options) { {} }
 
@@ -17,10 +17,10 @@ RSpec.describe ApexCharts::Charts::BoxPlotChart do
       [
         {
           data: [
-            {x: "label_1", y: [10, 20, 30, 40, 50]},
-            {x: "label_2", y: [30, 40, 50, 60, 70]}
+            {x: 'label_1', y: [10, 20, 30, 40, 50]},
+            {x: 'label_2', y: [30, 40, 50, 60, 70]}
           ],
-          type: "boxPlot"
+          type: 'boxPlot'
         }
       ]
     )

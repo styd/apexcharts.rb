@@ -54,9 +54,9 @@ module ApexCharts
     end
 
     def substitute_function_object(json)
-      json.gsub(%r[{"function":{"args":"(?<args>.*?)","body":"(?<body>.*?)"}}]) do
-        body = "\"#{$~&.[](:body)}\"".undump
-        "function(#{$~&.[](:args)}){#{body}}"
+      json.gsub(/{"function":{"args":"(?<args>.*?)","body":"(?<body>.*?)"}}/) do
+        body = "\"#{$LAST_MATCH_INFO&.[](:body)}\"".undump
+        "function(#{$LAST_MATCH_INFO&.[](:args)}){#{body}}"
       end
     end
 
@@ -67,7 +67,7 @@ module ApexCharts
     def module?
       @module ||= options.delete(:module)
     end
- 
+
     def attributes
       @attributes ||= options.delete(:div) { {} }
     end
@@ -111,7 +111,7 @@ module ApexCharts
 
     def indent(content, times=2)
       content.lines.map.with_index do |line, index|
-        (index == 0 ? '' : '  ' * times) + line
+        (index.zero? ? '' : '  ' * times) + line
       end.join
     end
   end

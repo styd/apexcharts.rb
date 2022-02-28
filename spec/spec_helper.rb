@@ -2,9 +2,7 @@
 
 require 'simplecov'
 
-unless ENV['CI']
-  SimpleCov.formatter = SimpleCov::Formatter::HTMLFormatter
-end
+SimpleCov.formatter = SimpleCov::Formatter::HTMLFormatter unless ENV['CI']
 
 SimpleCov.start do
   add_filter ['/spec/', '/lib/apexcharts/support', '/examples/']

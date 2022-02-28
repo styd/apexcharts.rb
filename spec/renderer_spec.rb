@@ -15,7 +15,7 @@ RSpec.describe ApexCharts::Renderer do
       dataLabels: {
         formatter: {
           function: {
-            args: "value",
+            args: 'value',
             body: 'return value + " rabbits";'
           }
         }
@@ -44,8 +44,8 @@ RSpec.describe ApexCharts::Renderer do
     it 'renders div and script elements' do
       html = described_class.render(options.merge({defer: true}))
 
-      expect(html).to include "var createChart = function()"
-      expect(html).to include "window.addEventListener"
+      expect(html).to include 'var createChart = function()'
+      expect(html).to include 'window.addEventListener'
     end
   end
 
@@ -56,5 +56,4 @@ RSpec.describe ApexCharts::Renderer do
       expect(html).to include 'type="module"'
     end
   end
-
 end

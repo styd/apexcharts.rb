@@ -2,11 +2,17 @@ AllCops:
   Exclude:
     - 'examples/**/*'
 
+Gemspec/RequiredRubyVersion:
+  Enabled: false
+
 Layout/AccessModifierIndentation:
   EnforcedStyle: outdent
 
 Layout/FirstArgumentIndentation:
   EnforcedStyle: consistent
+
+Layout/LineLength:
+  Max: 100
 
 Layout/SpaceAroundEqualsInParameterDefault:
   EnforcedStyle: no_space
@@ -23,11 +29,20 @@ Lint/AmbiguousOperator:
 Lint/AssignmentInCondition:
   Enabled: false
 
+Lint/ConstantDefinitionInBlock:
+  Enabled: false
+
+Lint/MissingSuper:
+  Enabled: false
+
 Lint/RedundantSplatExpansion:
   Enabled: false
 
+Lint/UselessAssignment:
+  Enabled: false
+
 Metrics/AbcSize:
-  Max: 24
+  Max: 35
 
 Metrics/BlockLength:
   Exclude:
@@ -35,26 +50,26 @@ Metrics/BlockLength:
     - '**/*_spec.rb'
     - 'lib/apex_charts/helper.rb'
 
-Metrics/ClassLength:
-  Max: 270
+Metrics/CyclomaticComplexity:
+  Max: 10
 
-Metrics/LineLength:
-  Max: 100
+Metrics/ClassLength:
+  Max: 350
 
 Metrics/MethodLength:
-  Max: 21
+  Max: 30
 
 Metrics/ModuleLength:
-  Max: 150
+  Max: 200
+
+Naming/MethodParameterName:
+  MinNameLength: 2
 
 Style/Alias:
   EnforcedStyle: prefer_alias_method
 
 Style/BlockDelimiters:
   Enabled: false
-
-Style/BracesAroundHashParameters:
-  EnforcedStyle: context_dependent
 
 Style/ClassVars:
   Exclude:

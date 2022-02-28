@@ -123,7 +123,7 @@ RSpec.describe 'yaxis options' do
         {
           yaxis: {
             title: {
-              text: 'Y-Title' 
+              text: 'Y-Title'
             }
           }
         }

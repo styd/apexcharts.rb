@@ -60,9 +60,7 @@ module ApexCharts
     def build_annotations
       annotations = @options.delete :annotations
       built[:annotations] = (
-        if annotations.is_a? Hash
-          annotations.compact
-        end
+        annotations.compact if annotations.is_a? Hash
       )
     end
 
@@ -107,10 +105,10 @@ module ApexCharts
       return if data_labels.nil?
 
       built[:dataLabels] = if [true, false].include? data_labels
-                              {enabled: data_labels}
-                            elsif data_labels.is_a? Hash
-                              data_labels.compact
-                            end
+                             {enabled: data_labels}
+                           elsif data_labels.is_a? Hash
+                             data_labels.compact
+                           end
     end
 
     def build_defer
@@ -125,20 +123,21 @@ module ApexCharts
 
     def build_fill
       fill = @options.delete :fill
-      built[:fill] = if fill.is_a? String
-                        {type: fill}
-                      elsif fill.is_a? Hash
-                        fill.compact
-                      end
+      built[:fill] = case fill
+                     when String
+                       {type: fill}
+                     when Hash
+                       fill.compact
+                     end
     end
 
     def build_grid
       grid = @options.delete :grid
       built[:grid] = if [true, false].include? grid
-                        {show: grid}
-                      elsif grid.is_a? Hash
-                        grid.compact
-                      end
+                       {show: grid}
+                     elsif grid.is_a? Hash
+                       grid.compact
+                     end
     end
 
     def build_labels
@@ -150,30 +149,32 @@ module ApexCharts
     def build_legend
       legend = @options.delete :legend
       built[:legend] = if [true, false].include? legend
-                          {show: legend}
-                        elsif legend.is_a? String
-                          {show: true, position: legend}
-                        elsif legend.is_a? Hash
-                          legend.compact
-                        end
+                         {show: legend}
+                       elsif legend.is_a? String
+                         {show: true, position: legend}
+                       elsif legend.is_a? Hash
+                         legend.compact
+                       end
     end
 
     def build_markers
       markers = @options.delete :markers
-      built[:markers] = if markers.is_a? String
-                           {shape: markers}
-                         elsif markers.is_a? Hash
-                           markers.compact
-                         end
+      built[:markers] = case markers
+                        when String
+                          {shape: markers}
+                        when Hash
+                          markers.compact
+                        end
     end
 
     def build_no_data
       no_data = @options.delete :noData
-      built[:noData] = if no_data.is_a? String
-                          {text: no_data}
-                        elsif no_data.is_a? Hash
-                          no_data.compact
-                        end
+      built[:noData] = case no_data
+                       when String
+                         {text: no_data}
+                       when Hash
+                         no_data.compact
+                       end
     end
 
     def build_plot_options
@@ -219,45 +220,48 @@ module ApexCharts
 
     def build_subtitle
       subtitle = @options.delete(:subtitle)
-      built[:subtitle] = if subtitle.is_a? String
-                            {text: subtitle}
-                          elsif subtitle.is_a? Hash
-                            subtitle.compact
-                          end
+      built[:subtitle] = case subtitle
+                         when String
+                           {text: subtitle}
+                         when Hash
+                           subtitle.compact
+                         end
     end
 
     def build_theme
       theme = @options.delete(:theme)
-      built[:theme] = if theme.is_a? String
-                         case theme
-                         when 'random'
-                           resolve_theme(Theme.all_palettes.sample)
-                         when 'monochrome'
-                           {monochrome: {enabled: true}}
-                         else
-                           resolve_theme(theme)
-                         end
-                       elsif theme.is_a? Hash
-                         theme.compact
-                       end
+      built[:theme] = case theme
+                      when String
+                        case theme
+                        when 'random'
+                          resolve_theme(Theme.all_palettes.sample)
+                        when 'monochrome'
+                          {monochrome: {enabled: true}}
+                        else
+                          resolve_theme(theme)
+                        end
+                      when Hash
+                        theme.compact
+                      end
     end
 
     def build_title
       title = @options.delete(:title)
-      built[:title] = if title.is_a? String
-                         {text: title}
-                       elsif title.is_a? Hash
-                         title.compact
-                       end
+      built[:title] = case title
+                      when String
+                        {text: title}
+                      when Hash
+                        title.compact
+                      end
     end
 
     def build_tooltip
       tooltip = @options.delete :tooltip
       built[:tooltip] = if [true, false].include? tooltip
-                           {enabled: tooltip}
-                         elsif tooltip.is_a? Hash
-                           tooltip.compact
-                         end
+                          {enabled: tooltip}
+                        elsif tooltip.is_a? Hash
+                          tooltip.compact
+                        end
     end
 
     def build_xaxis
@@ -270,9 +274,10 @@ module ApexCharts
       }.compact
       built[:xaxis].delete(:title) if built[:xaxis][:title].empty?
 
-      if xaxis.is_a? String
+      case xaxis
+      when String
         built[:xaxis][:title] = {text: xaxis}
-      elsif xaxis.is_a? Hash
+      when Hash
         built[:xaxis].merge! xaxis
       end
 
@@ -302,11 +307,11 @@ module ApexCharts
           }
         }.compact
       when NilClass
-        if ytitle = @options.delete(:ytitle)
-          built[:yaxis] = {title: {text: ytitle}}
-        else
-          built[:yaxis] = {}
-        end
+        built[:yaxis] = if ytitle = @options.delete(:ytitle)
+                          {title: {text: ytitle}}
+                        else
+                          {}
+                        end
       end
 
       built[:yaxis] = nil if built[:yaxis].all?(&:empty?)
@@ -331,9 +336,10 @@ module ApexCharts
     end
 
     def filter_type_hash(state)
-      if state.is_a? String
+      case state
+      when String
         {filter: {type: state}}
-      elsif state.is_a? Hash
+      when Hash
         state.compact
       end
     end
