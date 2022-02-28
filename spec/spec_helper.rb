@@ -8,7 +8,6 @@ end
 
 SimpleCov.start do
   add_filter ['/spec/', '/lib/apexcharts/support', '/examples/']
-  maximum_coverage_drop 1
 end
 
 RSpec.configure do |config|

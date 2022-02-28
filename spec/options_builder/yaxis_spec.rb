@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.shared_examples 'yaxis options' do
+RSpec.describe 'yaxis options' do
   let(:sample) { nil }
   let(:ob) {
     ApexCharts::OptionsBuilder.new(sample, options)
@@ -132,28 +132,6 @@ RSpec.shared_examples 'yaxis options' do
       it 'returns yaxis with title from ytitle' do
         ob.build_yaxis
         expect(ob.built).to match(expected_built)
-      end
-    end
-  end
-end
-
-RSpec.describe '#build_yaxis' do
-  after do
-    ApexCharts.config.schema = :default
-  end
-
-  context 'schema dry_schema' do
-    it_behaves_like 'yaxis options' do
-      before do
-        ApexCharts.config.schema = :dry_schema
-      end
-    end
-  end
-
-  context 'schema smart_kv' do
-    it_behaves_like 'yaxis options' do
-      before do
-        ApexCharts.config.schema = :default
       end
     end
   end

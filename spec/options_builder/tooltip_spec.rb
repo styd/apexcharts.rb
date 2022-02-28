@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.shared_examples 'tooltip options' do
+RSpec.describe 'tooltip options' do
   let(:sample) { nil }
   let(:ob) {
     ApexCharts::OptionsBuilder.new(sample, options)
@@ -49,28 +49,6 @@ RSpec.shared_examples 'tooltip options' do
     it 'only camelizes the hash' do
       ob.build_tooltip
       expect(ob.built).to match(expected_built)
-    end
-  end
-end
-
-RSpec.describe '#build_tooltip' do
-  after do
-    ApexCharts.config.schema = :default
-  end
-
-  context 'schema dry_schema' do
-    it_behaves_like 'tooltip options' do
-      before do
-        ApexCharts.config.schema = :dry_schema
-      end
-    end
-  end
-
-  context 'schema smart_kv' do
-    it_behaves_like 'tooltip options' do
-      before do
-        ApexCharts.config.schema = :default
-      end
     end
   end
 end

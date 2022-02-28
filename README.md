@@ -103,7 +103,6 @@ Choose the right README:
   - [Formatter Function](#formatter-function)
   - [Defer Chart Rendering](#defer-chart-rendering)
   - [Render with a script whose type is module](#render-with-a-script-whose-type-is-module)
-- [Schema](#schema)
 - [Reusable Custom Palette](#reusable-custom-palette)
 - [Use Alongside Other Charting Libraries](#use-alongside-other-charting-libraries)
   - [Alongside Chartkick](#alongside-chartkick)
@@ -765,23 +764,6 @@ option `module: true`.
 <%= line_chart series, module: true %>
 ```
 
-
-## Schema
-
-To use [dry-schema] as an alternative options schema, you can specify the following config
-before calling your charts:
-
-```ruby
-ApexCharts.config.schema = :dry_schema
-```
-
-or
-
-```ruby
-ApexCharts.configure do |config|
-  config.schema = :dry_schema
-end
-```
 
 ## Reusable Custom Palette
 

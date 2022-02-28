@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.shared_examples 'legend options' do
+RSpec.describe 'legend options' do
   let(:sample) { nil }
   let(:ob) {
     ApexCharts::OptionsBuilder.new(sample, options)
@@ -66,28 +66,6 @@ RSpec.shared_examples 'legend options' do
     it 'keeps the hash intact' do
       ob.build_legend
       expect(ob.built).to match(options)
-    end
-  end
-end
-
-RSpec.describe '#build_legend' do
-  after do
-    ApexCharts.config.schema = :default
-  end
-
-  context 'schema dry_schema' do
-    it_behaves_like 'legend options' do
-      before do
-        ApexCharts.config.schema = :dry_schema
-      end
-    end
-  end
-
-  context 'schema smart_kv' do
-    it_behaves_like 'legend options' do
-      before do
-        ApexCharts.config.schema = :default
-      end
     end
   end
 end

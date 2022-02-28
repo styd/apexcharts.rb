@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.shared_examples 'chart options' do
+RSpec.describe 'chart options' do
   let(:sample) { nil }
   let(:options) {
     {
@@ -67,28 +67,6 @@ RSpec.shared_examples 'chart options' do
     it 'extract brush chart target' do
       ob.build_chart
       expect(ob.built).to match(expected_built)
-    end
-  end
-end
-
-RSpec.describe '#build_chart' do
-  after do
-    ApexCharts.config.schema = :default
-  end
-
-  context 'schema dry_schema' do
-    it_behaves_like 'chart options' do
-      before do
-        ApexCharts.config.schema = :dry_schema
-      end
-    end
-  end
-
-  context 'schema smart_kv' do
-    it_behaves_like 'chart options' do
-      before do
-        ApexCharts.config.schema = :default
-      end
     end
   end
 end

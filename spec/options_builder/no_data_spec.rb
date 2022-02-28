@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.shared_examples 'no_data options' do
+RSpec.describe 'no_data options' do
   let(:sample) { nil }
   let(:ob) {
     ApexCharts::OptionsBuilder.new(sample, options)
@@ -50,28 +50,6 @@ RSpec.shared_examples 'no_data options' do
     it 'only camelizes the hash' do
       ob.build_no_data
       expect(ob.built).to match(expected_built)
-    end
-  end
-end
-
-RSpec.describe '#build_no_data' do
-  after do
-    ApexCharts.config.schema = :default
-  end
-
-  context 'schema dry_schema' do
-    it_behaves_like 'no_data options' do
-      before do
-        ApexCharts.config.schema = :dry_schema
-      end
-    end
-  end
-
-  context 'schema smart_kv' do
-    it_behaves_like 'no_data options' do
-      before do
-        ApexCharts.config.schema = :default
-      end
     end
   end
 end

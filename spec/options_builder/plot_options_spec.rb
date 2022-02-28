@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.shared_examples 'plot options' do
+RSpec.describe 'plot options' do
   let(:sample) { nil }
   let(:plot_options) {
     {
@@ -37,27 +37,5 @@ RSpec.shared_examples 'plot options' do
   it 'camelizes the hash' do
     hash_ob.build_plot_options
     expect(hash_ob.built).to match(expected_plot_options_built)
-  end
-end
-
-RSpec.describe '#build_plot_options' do
-  after do
-    ApexCharts.config.schema = :default
-  end
-
-  context 'schema dry_schema' do
-    it_behaves_like 'plot options' do
-      before do
-        ApexCharts.config.schema = :dry_schema
-      end
-    end
-  end
-
-  context 'schema smart_kv' do
-    it_behaves_like 'plot options' do
-      before do
-        ApexCharts.config.schema = :default
-      end
-    end
   end
 end
