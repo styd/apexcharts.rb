@@ -43,6 +43,12 @@ module ApexCharts::Charts
         BarChart.new(outer_self, data, options, &block).mixed_series
     end
 
+    def candlestick_chart(data, options={}, &block)
+      outer_self = eval('self', block.binding, __FILE__, __LINE__) if block_given?
+      @series[:series] +=
+        CandlestickChart.new(outer_self, data, options, &block).mixed_series
+    end
+
     def column_chart(data, options={}, &block)
       outer_self = eval('self', block.binding, __FILE__, __LINE__) if block_given?
       @series[:series] +=
