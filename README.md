@@ -43,14 +43,18 @@
 
 ## Trusted By
 
-Organization/Company                                                   | Use Case
------------------------------------------------------------------------|------------------------------------------------------------------
-<img src="/images/users/copient-health.png" width="143" height="40" /> | Reports/charts related to Operating Room utilization statistics
-<img src="/images/users/bilendo.png" width="202" height="40" />        | Enterprise dashboards to visualize account receivables data
-<img src="/images/users/ventrata.png" width="180" height="40" />       | Ticket sales for clients (visitor attractions and tour operators)
+<p align="center">
+  <img src="/images/users/lunaltas.png" height="40" />
+  &nbsp; &nbsp;
+  <img src="/images/users/copient-health.png" height="40" />
+  &nbsp; &nbsp;
+  <img src="/images/users/bilendo.png" height="40" />
+  &nbsp; &nbsp;
+  <img src="/images/users/ventrata.png" height="40" />
+</p>
 
-> If your organization/company uses ApexCharts.RB in production, please comment on
-> [this discussion](https://github.com/styd/apexcharts.rb/discussions/34).
+> If your organization/company uses ApexCharts.RB in production, please update this README
+> and submit a pull request.
 
 
 ## README Versions
