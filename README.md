@@ -46,6 +46,8 @@
 <p align="center">
   <img src="/images/users/lunaltas.png" height="40" />
   &nbsp; &nbsp;
+  <img src="/images/users/inzetrooster.png" height="40" />
+  &nbsp; &nbsp;
   <img src="/images/users/copient-health.png" height="40" />
   &nbsp; &nbsp;
   <img src="/images/users/bilendo.png" height="40" />
