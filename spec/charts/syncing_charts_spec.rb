@@ -22,11 +22,11 @@ RSpec.describe ApexCharts::Charts::SyncingCharts do
     end
 
     expect(ApexCharts::Charts::LineChart).to(
-      receive(:new).with(nil, line_data, **sync_options, **line_options, id: 'chart-1')
+      receive(:new).with(nil, line_data, { id: 'chart-1' }.merge(sync_options).merge(line_options))
                    .and_call_original
     )
     expect(ApexCharts::Charts::AreaChart).to(
-      receive(:new).with(nil, area_data, **sync_options, **area_options, id: 'chart-2')
+      receive(:new).with(nil, area_data, { id: 'chart-2' }.merge(sync_options).merge(area_options))
                    .and_call_original
     )
 
