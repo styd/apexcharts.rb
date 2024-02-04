@@ -16,7 +16,9 @@ Gem::Specification.new do |spec|
     'ruby app powered by apexcharts.js.'
   spec.license     = 'MIT'
 
-  spec.files = Dir['{lib,vendor}/**/*', 'LICENSE', 'README.md']
+  spec.files = `git ls-files -z`.split("\x0").reject do |f|
+    f.match(%r{^(docs|examples|images|spec|\.github)/})
+  end
 
   spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'nokogiri'
