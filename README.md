@@ -53,6 +53,11 @@
 > If your organization/company uses ApexCharts.RB in production, please update this README
 > and submit a pull request.
 
+## Documentation
+
+Instructions on how to install and use this library can be found
+[here](https://a-styd.gitbook.io/apexcharts-ruby).
+
 
 ## Contributing
 
