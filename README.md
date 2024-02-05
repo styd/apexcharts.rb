@@ -50,6 +50,7 @@
   <img src="/images/users/ventrata.png" height="40" />
 </p>
 
+> [!NOTE]
 > If your organization/company uses ApexCharts.RB in production, please update this README
 > and submit a pull request.
 
