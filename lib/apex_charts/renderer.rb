@@ -22,8 +22,16 @@ module ApexCharts
       html = window_apex if id_number == '1' && !ApexCharts.config.default_options.empty?
 
       chart_rendering = <<~JS
-        var #{variable} = new ApexCharts(document.querySelector("##{element_id}"), #{substitute_function_object(options.to_json)});
-        #{variable}.render();
+        if (typeof ApexTurboRenderer !== 'undefined') {
+          let #{variable} = [
+            "#{element_id}",
+            #{substitute_function_object(options.to_json)}
+          ];
+          ApexTurboRenderer.add_apexobj(#{variable})
+        } else {
+          var #{variable} = new ApexCharts(document.querySelector("##{element_id}"), #{substitute_function_object(options.to_json)});
+          #{variable}.render();
+        }
       JS
 
       html += <<~HTML
@@ -36,11 +44,14 @@ module ApexCharts
       if defer?
         <<~DEFERRED
           (function() {
-            var createChart = function() {
+            var createChart = function cb(event) {
               #{indent(js)}
+              event.currentTarget.removeEventListener(event.type, cb);
             };
-            if (window.addEventListener) {
+            if (!!window.addEventListener) {
               window.addEventListener("load", createChart, true);
+              window.addEventListener("turbo:load", createChart, true);
+              window.addEventListener("turbolinks:load", createChart, true);
             } else if (window.attachEvent) {
               window.attachEvent("onload", createChart);
             } else {
