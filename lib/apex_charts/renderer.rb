@@ -51,6 +51,7 @@ module ApexCharts
               window.addEventListener("load", createChart, true);
               window.addEventListener("turbo:load", createChart, true);
               window.addEventListener("turbolinks:load", createChart, true);
+              window.addEventListener("turbo:before-stream-render", createChart, true);
             } else if (window.attachEvent) {
               window.attachEvent("onload", createChart);
             } else {
