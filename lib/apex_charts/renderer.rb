@@ -22,17 +22,15 @@ module ApexCharts
       html = window_apex if id_number == '1' && !ApexCharts.config.default_options.empty?
 
       chart_rendering = <<~JS
-        console.log("Consoling ApexTurboRenderer", ApexTurboRenderer);
         if (typeof ApexTurboRenderer !== 'undefined') {
           let #{variable} = [
             "#{element_id}",
             #{substitute_function_object(options.to_json)}
           ];
-          console.log("Just before add_apexobj and variable is", #{variable});
           ApexTurboRenderer.add_apexobj(#{variable})
+          ApexTurboRenderer.render_apexes()
         } else {
           var #{variable} = new ApexCharts(document.querySelector("##{element_id}"), #{substitute_function_object(options.to_json)});
-          console.log("Variable is", #{variable});
           #{variable}.render();
         }
       JS
@@ -55,7 +53,6 @@ module ApexCharts
               window.addEventListener("turbo:load", createChart, true);
               window.addEventListener("turbolinks:load", createChart, true);
               window.addEventListener("turbo:before-stream-render", createChart, true);
-              console.log("In the defer? block after addEventListeners");
             } else if (window.attachEvent) {
               window.attachEvent("onload", createChart);
             } else {
