@@ -1,7 +1,6 @@
 name: build-test
 env:
   CI: true
-  JRUBY_OPTS: "--debug"
 
 on:
   push:
@@ -15,7 +14,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        ruby: [2.5, 2.6, 2.7, '3.0', 3.1, 3.2]
+        ruby: [2.6, 2.7, '3.0', 3.1, 3.2, 3.3]
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v3
