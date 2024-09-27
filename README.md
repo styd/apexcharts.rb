@@ -4,20 +4,15 @@
 
 <p align="center">
   <a href="https://rubygems.org/gems/apexcharts">
-    <img src="https://img.shields.io/gem/v/apexcharts.svg?label=apexcharts" alt="Gem Version" />
-  </a>
+    <img src="https://img.shields.io/gem/v/apexcharts.svg?label=apexcharts" alt="Gem Version" /></a>
   <a href="https://github.com/styd/apexcharts.rb/actions">
-    <img src="https://github.com/styd/apexcharts.rb/workflows/build-test/badge.svg" alt="Build Test Status" />
-  </a>
+    <img src="https://github.com/styd/apexcharts.rb/workflows/build-test/badge.svg" alt="Build Test Status" /></a>
   <a href="https://rubygems.org/gems/apexcharts">
-    <img alt="Downloads" src="https://img.shields.io/gem/dt/apexcharts">
-  </a>
+    <img alt="Downloads" src="https://img.shields.io/gem/dt/apexcharts"></a>
   <a href="https://github.com/styd/apexcharts.rb/blob/master/LICENSE">
-    <img src="https://img.shields.io/badge/License-MIT-brightgreen.svg" alt="License">
-  </a>
+    <img src="https://img.shields.io/badge/License-MIT-brightgreen.svg" alt="License"></a>
   <a href="https://codeclimate.com/github/styd/apexcharts.rb/maintainability">
-    <img src="https://api.codeclimate.com/v1/badges/07a4f59e67abfeae21cb/maintainability" />
-  </a>
+    <img src="https://api.codeclimate.com/v1/badges/07a4f59e67abfeae21cb/maintainability" /></a>
   <a href="https://codebeat.co/projects/github-com-styd-apexcharts-rb-master">
     <img alt="codebeat badge" src="https://codebeat.co/badges/7be581d6-e74a-406b-ae76-65605a2bff78" />
   </a>
