@@ -12,7 +12,6 @@
   <a href="https://rubygems.org/gems/apexcharts">
     <img alt="Downloads" src="https://img.shields.io/gem/dt/apexcharts">
   </a>
-  <img src="https://img.shields.io/github/commit-activity/m/styd/apexcharts.rb.svg?label=commits" alt="Commits" />
   <a href="https://github.com/styd/apexcharts.rb/blob/master/LICENSE">
     <img src="https://img.shields.io/badge/License-MIT-brightgreen.svg" alt="License">
   </a>
