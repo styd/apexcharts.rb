@@ -21,6 +21,7 @@ Gem::Specification.new do |spec|
   end
 
   spec.add_development_dependency 'bundler'
+  spec.add_development_dependency 'debug'
   spec.add_development_dependency 'nokogiri'
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'rake'
