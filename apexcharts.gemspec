@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
   spec.license     = 'MIT'
 
   spec.files = `git ls-files -z`.split("\x0").reject do |f|
-    f.match(%r{^(docs|examples|images|spec|\.github)/})
+    f.match(%r{^(docs|images|spec|\.github)/})
   end
 
   spec.add_development_dependency 'bundler'
