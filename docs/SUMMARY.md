@@ -60,4 +60,5 @@
 * [Web Support](web-support/README.md)
   * [Rails](web-support/rails.md)
   * [Sinatra](web-support/sinatra.md)
+  * [Middleman](web-support/middleman.md)
   * [Plain HTML+ERB (Without Framework)](web-support/plain-htmlerb.md)
