@@ -22,35 +22,36 @@ window.ApexCharts = ApexCharts
 
 Or, if you use `importmaps', you can:
 
-Download to local vendor directory (optional but recommended)
+1. Download to local vendor directory (optional but recommended)
 
 ```bash
 $ wget -O vendor/javascript/apexcharts.esm.js https://ga.jspm.io/npm:apexcharts@latest/dist/apexcharts.esm.js`
 ```
 
-Pin "apexcharts" in `config/importmap.rb` to local esm file (if you do No. 1):
+2. Pin "apexcharts" in `config/importmap.rb` to local esm file if you did No. 1:
 
 ```ruby
 pin "apexcharts", to: "apexcharts.esm.js"`
 ```
 
-or, to CDN URL
+or, to CDN URL directly if you didn't do No. 1:
 
 ```ruby
 pin "apexcharts", to: "https://ga.jspm.io/npm:apexcharts@latest/dist/apexcharts.esm.js"`
 ```
 
-Import and assign to window in `app/javascript/application.js`
+3. Import and assign to window in `app/javascript/application.js`
 
 ```js
 import ApexCharts from "apexcharts"
 window.ApexCharts = ApexCharts
 ```
 
-Use it with options `module: true`
+4. Use it with options `module: true`
+
 For example:
 
-```
+```erb
 <% series = [{
     name: "Desktops",
     data: [10, 41, 35, 51, 49, 62, 69, 91, 148]

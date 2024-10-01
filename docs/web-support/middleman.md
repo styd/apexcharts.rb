@@ -13,7 +13,7 @@ activate :sprockets
 activate :apexcharts
 ```
 
-and then require it in your `source/javascripts/site.js`.
+and then require `apexcharts` in your `source/javascripts/site.js`.
 ```js
 //= require apexcharts
 ```
