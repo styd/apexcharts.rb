@@ -71,8 +71,8 @@ The gem is available as open source under the terms of the
 
 ## Articles
 
-- [Rails em 8 minutos: Criando gráficos incríveis com ApexCharts](https://onebitcode.com/graficos-incriveis-no-ruby-on-rails/)
 - [【Rails】 5分でApexChart.jsを導入する方法](https://qiita.com/syukan3/items/aa741df278f628087a3c)
+- [ApexCharts.rb 使用教程-CSDN博客](https://blog.csdn.net/gitblog_01021/article/details/142018703)
 
 
 [ApexCharts.JS]: https://github.com/apexcharts/apexcharts.js
