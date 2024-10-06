@@ -25,19 +25,19 @@ Or, if you use `importmaps', you can:
 1. Download to local vendor directory (optional but recommended)
 
 ```bash
-$ wget -O vendor/javascript/apexcharts.esm.js https://ga.jspm.io/npm:apexcharts@latest/dist/apexcharts.esm.js`
+$ wget -O vendor/javascript/apexcharts.esm.js https://ga.jspm.io/npm:apexcharts@3.54.0/dist/apexcharts.esm.js
 ```
 
 2. Pin "apexcharts" in `config/importmap.rb` to local esm file if you did No. 1:
 
 ```ruby
-pin "apexcharts", to: "apexcharts.esm.js"`
+pin "apexcharts", to: "apexcharts.esm.js"
 ```
 
 or, to CDN URL directly if you didn't do No. 1:
 
 ```ruby
-pin "apexcharts", to: "https://ga.jspm.io/npm:apexcharts@latest/dist/apexcharts.esm.js"`
+pin "apexcharts", to: "https://ga.jspm.io/npm:apexcharts@3.54.0/dist/apexcharts.esm.js"
 ```
 
 3. Import and assign to window in `app/javascript/application.js`
