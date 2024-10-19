@@ -5,7 +5,7 @@ require 'simplecov'
 SimpleCov.formatter = SimpleCov::Formatter::HTMLFormatter unless ENV['CI']
 
 SimpleCov.start do
-  add_filter ['/spec/', '/lib/apexcharts/support', '/examples/']
+  add_filter ['/spec/', '/lib/apex_charts/support']
 end
 
 RSpec.configure do |config|
