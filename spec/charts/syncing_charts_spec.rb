@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
-
 RSpec.describe ApexCharts::Charts::SyncingCharts do
   let(:apexcharts_group) { 'chart-group-1' }
   let(:line_data) {

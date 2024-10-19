@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
-
 RSpec.describe ApexCharts::Series::CartesianSeries do
   let(:data1) {
     [[100, 1], [200, 2]]

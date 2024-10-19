@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
-
 RSpec.describe 'yaxis options' do
   let(:sample) { nil }
   let(:ob) {

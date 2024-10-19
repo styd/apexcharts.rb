@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
-
 RSpec.describe ApexCharts::Series::PolarSeries do
   let(:data1) {
     [25, 100, 200, 125]

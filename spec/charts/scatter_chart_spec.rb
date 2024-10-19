@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
-
 RSpec.describe ApexCharts::Charts::ScatterChart do
   let(:outer_self) { nil }
   let(:data) {

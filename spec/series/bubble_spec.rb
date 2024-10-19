@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
-
 RSpec.describe ApexCharts::Series::BubbleSeries do
   let(:data1) {
     [[707, 18, 0],

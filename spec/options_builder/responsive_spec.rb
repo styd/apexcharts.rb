@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
-
 RSpec.describe '#build_responsive' do
   let(:sample) { nil }
   let(:ob) {

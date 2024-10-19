@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
-
 RSpec.describe ApexCharts::Charts::MixedCharts do
   let(:line_data) {
     [[100, 1], [200, 2]]

@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
-
 RSpec.describe 'states options' do
   let(:sample) { nil }
   let(:ob) {

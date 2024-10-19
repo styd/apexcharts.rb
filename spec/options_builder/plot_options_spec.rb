@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
-
 RSpec.describe 'plot options' do
   let(:sample) { nil }
   let(:plot_options) {

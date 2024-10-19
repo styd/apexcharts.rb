@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
-
 RSpec.describe ApexCharts::Charts::RadarChart do
   let(:data) {
     [[100, 1], [200, 2], [300, 3]]

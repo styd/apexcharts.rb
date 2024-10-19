@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'spec_helper'
-
 RSpec.describe ApexCharts do
   it 'sets helper_prefix as "apex_"' do
     expect(described_class.helper_prefix).to eq nil

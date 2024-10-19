@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
-
 RSpec.describe ApexCharts::Utils::Hash do
   context '.deep_merge' do
     let(:hash_a) {

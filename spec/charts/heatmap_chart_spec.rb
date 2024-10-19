@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
-
 RSpec.describe ApexCharts::Charts::HeatmapChart do
   let(:data) {
     [[100, 1], [200, 2]]

@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
-
 RSpec.describe 'data_labels options' do
   let(:sample) { nil }
   let(:ob) {

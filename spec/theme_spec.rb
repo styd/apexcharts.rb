@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
-
 RSpec.describe ApexCharts::Theme do
   context '::PALETTES' do
     it 'has 10 palettes' do

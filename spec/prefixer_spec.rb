@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
-
 RSpec.describe ApexCharts::Prefixer do
   around do |tests|
     ApexCharts.helper_prefix = nil

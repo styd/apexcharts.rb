@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
-
 RSpec.describe 'annotations options' do
   let(:sample) { nil }
   let(:options) {
