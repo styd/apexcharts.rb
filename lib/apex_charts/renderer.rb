@@ -19,7 +19,7 @@ module ApexCharts
 
     def render
       html = ''
-      html = window_apex if id_number == '1' && !ApexCharts.config.default_options.empty?
+      html = window_apex if id_number == '1' && !default_options.empty?
 
       chart_rendering = <<~JS
         var #{variable} = new ApexCharts(document.querySelector("##{element_id}"), #{substitute_function_object(options.to_json)});
@@ -97,7 +97,7 @@ module ApexCharts
     end
 
     def window_apex
-      script("window.Apex = #{ApexCharts.config.default_options.to_json}")
+      script("window.Apex = #{default_options.to_json}")
     end
 
     def script(js)
@@ -113,6 +113,13 @@ module ApexCharts
       content.lines.map.with_index do |line, index|
         (index.zero? ? '' : '  ' * times) + line
       end.join
+    end
+
+    def default_options
+      @default_options ||=
+        ApexCharts.config.default_options.reject do |option|
+          %i[defer module].include?(option)
+        end
     end
   end
 end
