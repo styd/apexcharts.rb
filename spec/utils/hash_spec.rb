@@ -21,8 +21,8 @@ RSpec.describe ApexCharts::Utils::Hash do
           b: {
             d: 'four'
           },
-          e: 'five',
-          f: 'six'
+          e: 'six',
+          f: 'seven'
         },
         g: 7
       }
@@ -35,8 +35,8 @@ RSpec.describe ApexCharts::Utils::Hash do
             c: '3',
             d: 'four'
           },
-          e: 'five',
-          f: 'six'
+          e: 'six',
+          f: 'seven'
         },
         f: :six,
         g: 7
