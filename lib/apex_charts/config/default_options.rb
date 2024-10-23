@@ -5,7 +5,7 @@ module ApexCharts
     module DefaultOptions
       def default_options=(options)
         @default_options =
-          ApexCharts::OptionsBuilder.new(nil, options).build_general_options
+          ApexCharts::OptionsBuilder.new(nil, options).build_global_options
       end
 
       def default_options

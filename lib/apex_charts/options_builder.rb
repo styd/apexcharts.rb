@@ -17,6 +17,11 @@ module ApexCharts
       @built = {}
     end
 
+    def build_global_options
+      build_chart
+      build_general_options
+    end
+
     def build_options
       build_chart
       build_div
@@ -45,7 +50,7 @@ module ApexCharts
       build_tooltip
       build_xaxis
       build_yaxis
-      built.compact
+      built.compact!
     end
 
     def build_div
