@@ -89,11 +89,14 @@ module ApexCharts
     end
 
     def height
-      "#{options[:chart][:height].to_i}px"
+      chart_height = options.dig(:chart, :height)
+      if chart_height
+        "#{chart_height.to_i}px"
+      end
     end
 
     def style
-      "height: #{height}; #{attributes.delete(:style)}"
+      "#{height && "height: #{height}; "}#{attributes.delete(:style)}"
     end
 
     def window_apex

@@ -44,9 +44,7 @@ RSpec.describe ApexCharts::Charts::MixedCharts do
     expect(chart.more_options).to eq({})
     expect(chart.instance_variable_get(:@series)).to eq(expected_series)
     expect(chart.instance_variable_get(:@options)).to eq(
-      chart: {
-        height: 400, id: 'chart-1', type: 'area'
-      },
+      chart: {id: 'chart-1', type: 'area'},
       defer: false,
       div: {id: 'chart-1'},
       module: false,

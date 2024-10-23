@@ -83,7 +83,7 @@ module ApexCharts
       built[:chart].merge!({
         id: @options[:chartId] || @options[:id],
         group: @options.delete(:group),
-        height: @options.delete(:height) { target ? 180 : 400 },
+        height: @options.delete(:height) { target ? 180 : nil },
         width: @options.delete(:width),
         stacked: @options.delete(:stacked),
         animations: enabled(@options.delete(:animations)),
