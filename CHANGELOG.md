@@ -1,5 +1,20 @@
+
 # Changelog
 All notable changes to this project will be documented in this file.
+
+## [Unreleased]
+### Added
+- Candlestick chart to mixed chart
+- Ruby debug as development dependency
+- Support for Middleman
+- Set Ruby v2.3 as minimum requirement
+
+### Changed
+- ApexCharts.JS version from 3.33.0 to 3.53.0
+
+### Fixed
+- Chart options set globally not showing as default options
+- Chart height options not overriden by default options
 
 ## [0.2.0] - 2022-02-28
 ### Added
