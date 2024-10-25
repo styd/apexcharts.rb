@@ -16,6 +16,10 @@ All notable changes to this project will be documented in this file.
 - Chart options set globally not showing as default options
 - Chart height options not overriden by default options
 
+### Deprecated
+- Using Sinatra helper name `Sinatra::ApexCharts`. No need to call
+  anything after requiring 'apexcharts' now.
+
 ## [0.2.0] - 2022-02-28
 ### Added
 - Option to render chart with a script whose type is module

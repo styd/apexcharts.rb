@@ -1,15 +1,10 @@
 ### Sinatra
 
-Require it after you `require 'sinatra/base'` and add helper `Sinatra::ApexCharts` in the
-class that inherits from `Sinatra::Base`.
+Require it after you `require 'sinatra/base'`.
 
 ```ruby
 require 'sinatra/base'
 require 'apexcharts'
-
-class SimpleApp < Sinatra::Base
-  helpers Sinatra::ApexCharts
-end
 ```
 
 To add the asset (ApexCharts.JS), include a script tag in your template
