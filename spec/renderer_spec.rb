@@ -67,6 +67,13 @@ RSpec.describe ApexCharts::Renderer do
         expect(html).to include 'var createChart = function()'
         expect(html).to include 'window.addEventListener'
       end
+
+      it 'includes Turbo event integration' do
+        html = described_class.render(options.merge({defer: true}))
+
+        expect(html).to include 'turbo:load'
+        expect(html).to include 'turbo:before-cache'
+      end
     end
 
     context 'when module = true' do

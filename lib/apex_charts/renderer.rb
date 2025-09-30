@@ -37,14 +37,30 @@ module ApexCharts
         <<~DEFERRED
           (function() {
             var createChart = function() {
+              document.removeEventListener("turbo:load", createChart, true);
+              window.removeEventListener("load", createChart, true);
+
               #{indent(js)}
+              var destroyChart = function() {
+                document.removeEventListener("turbo:before-cache", destroyChart, true);
+                if (#{variable}) {
+                  #{variable}.destroy();
+                  #{variable} = null;
+                }
+              };
+
+              document.addEventListener("turbo:before-cache", destroyChart, true);
             };
-            if (window.addEventListener) {
-              window.addEventListener("load", createChart, true);
-            } else if (window.attachEvent) {
-              window.attachEvent("onload", createChart);
-            } else {
-              createChart();
+
+            if (!(document.documentElement.hasAttribute ? document.documentElement.hasAttribute("data-turbo-preview") : document.documentElement.getAttribute("data-turbo-preview"))) {
+              if (window.addEventListener) {
+                document.addEventListener("turbo:load", createChart, true);
+                window.addEventListener("load", createChart, true);
+              } else if (window.attachEvent) {
+                window.attachEvent("onload", createChart);
+              } else {
+                createChart();
+              }
             }
           })();
         DEFERRED
