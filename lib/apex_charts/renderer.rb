@@ -38,23 +38,31 @@ module ApexCharts
           (function() {
             var createChart = function() {
               document.removeEventListener("turbo:load", createChart, true);
+              document.removeEventListener("turbolinks:load", createChart, true);
               window.removeEventListener("load", createChart, true);
 
               #{indent(js)}
               var destroyChart = function() {
-                document.removeEventListener("turbo:before-cache", destroyChart, true);
+                document.removeEventListener("turbo:before-render", destroyChart, true);
+                document.removeEventListener("turbolinks:before-render", destroyChart, true);
                 if (#{variable}) {
                   #{variable}.destroy();
                   #{variable} = null;
                 }
               };
 
-              document.addEventListener("turbo:before-cache", destroyChart, true);
+              document.addEventListener("turbo:before-render", destroyChart, true);
+              document.addEventListener("turbolinks:before-render", destroyChart, true);
             };
 
-            if (!(document.documentElement.hasAttribute ? document.documentElement.hasAttribute("data-turbo-preview") : document.documentElement.getAttribute("data-turbo-preview"))) {
+            var isPreview = document.documentElement.hasAttribute ?
+              (document.documentElement.hasAttribute("data-turbo-preview") || document.documentElement.hasAttribute("data-turbolinks-preview")) :
+              (document.documentElement.getAttribute("data-turbo-preview") || document.documentElement.getAttribute("data-turbolinks-preview"));
+
+            if (!isPreview) {
               if (window.addEventListener) {
                 document.addEventListener("turbo:load", createChart, true);
+                document.addEventListener("turbolinks:load", createChart, true);
                 window.addEventListener("load", createChart, true);
               } else if (window.attachEvent) {
                 window.attachEvent("onload", createChart);
@@ -108,9 +116,9 @@ module ApexCharts
 
     def height
       chart_height = options.dig(:chart, :height)
-      if chart_height
-        "#{chart_height.to_i}px"
-      end
+      return unless chart_height
+
+      "#{chart_height.to_i}px"
     end
 
     def style
