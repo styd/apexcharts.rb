@@ -39,7 +39,7 @@ RSpec.describe ApexCharts::Renderer do
     end
 
     context 'when global options are set' do
-      let(:default_options) { {tootip: true} }
+      let(:default_options) { { tootip: true } }
 
       before do
         allow(ApexCharts.config)

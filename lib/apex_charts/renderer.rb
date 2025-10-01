@@ -116,9 +116,9 @@ module ApexCharts
 
     def height
       chart_height = options.dig(:chart, :height)
-      return unless chart_height
-
-      "#{chart_height.to_i}px"
+      if chart_height
+        "#{chart_height.to_i}px"
+      end
     end
 
     def style
