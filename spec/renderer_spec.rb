@@ -39,7 +39,7 @@ RSpec.describe ApexCharts::Renderer do
     end
 
     context 'when global options are set' do
-      let(:default_options) { { tootip: true } }
+      let(:default_options) { {tootip: true} }
 
       before do
         allow(ApexCharts.config)
@@ -68,11 +68,13 @@ RSpec.describe ApexCharts::Renderer do
         expect(html).to include 'window.addEventListener'
       end
 
-      it 'includes Turbo event integration' do
+      it 'includes Turbo and Turbolinks event integration' do
         html = described_class.render(options.merge({defer: true}))
 
         expect(html).to include 'turbo:load'
-        expect(html).to include 'turbo:before-cache'
+        expect(html).to include 'turbo:before-render'
+        expect(html).to include 'turbolinks:load'
+        expect(html).to include 'turbolinks:before-render'
       end
     end
 
