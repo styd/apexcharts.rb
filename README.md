@@ -42,6 +42,8 @@
   <img src="/images/users/bilendo.png" height="40" />
   &nbsp; &nbsp;
   <img src="/images/users/ventrata.png" height="40" />
+  &nbsp; &nbsp;
+  <img src="/images/users/clockwork.png" height="40" />
 </p>
 
 > [!NOTE]
