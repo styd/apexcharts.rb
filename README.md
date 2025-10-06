@@ -33,6 +33,8 @@
 ## Trusted By
 
 <p align="center">
+  <img src="/images/users/clockwork.png" height="40" />
+  &nbsp; &nbsp;
   <img src="/images/users/lunaltas.png" height="40" />
   &nbsp; &nbsp;
   <img src="/images/users/inzetrooster.png" height="40" />
@@ -42,8 +44,6 @@
   <img src="/images/users/bilendo.png" height="40" />
   &nbsp; &nbsp;
   <img src="/images/users/ventrata.png" height="40" />
-  &nbsp; &nbsp;
-  <img src="/images/users/clockwork.png" height="40" />
 </p>
 
 > [!NOTE]
